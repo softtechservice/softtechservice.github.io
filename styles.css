@@ -79,9 +79,9 @@
     --radius-full: 9999px;
     
     /* Transitions */
-    --transition-fast: 150ms ease;
-    --transition-base: 300ms ease;
-    --transition-slow: 500ms ease;
+    --transition-fast: 100ms ease;
+    --transition-base: 200ms ease;
+    --transition-slow: 300ms ease;
     
     /* Container */
     --container-max-width: 1200px;
@@ -369,7 +369,7 @@ a:hover, a:focus {
     position: absolute;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
-    animation: float 20s infinite ease-in-out;
+    animation: float 8s infinite ease-in-out;
 }
 
 .shape-1 {
@@ -385,7 +385,7 @@ a:hover, a:focus {
     height: 200px;
     top: 60%;
     right: 15%;
-    animation-delay: 5s;
+    animation-delay: 2s;
 }
 
 .shape-3 {
@@ -393,7 +393,7 @@ a:hover, a:focus {
     height: 150px;
     bottom: 20%;
     left: 50%;
-    animation-delay: 10s;
+    animation-delay: 4s;
 }
 
 @keyframes float {
@@ -407,7 +407,7 @@ a:hover, a:focus {
     color: white;
     z-index: 1;
     max-width: 900px;
-    animation: fadeInUp 1s ease;
+    animation: fadeInUp 0.4s ease;
 }
 
 .hero-badge {
@@ -479,7 +479,7 @@ a:hover, a:focus {
     transform: translateX(-50%);
     color: white;
     font-size: var(--font-size-xl);
-    animation: bounce 2s infinite;
+    animation: bounce 1s infinite;
     cursor: pointer;
 }
 

@@ -107,7 +107,7 @@
     animatedElements.forEach((element, index) => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
-        element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        element.style.transition = `opacity 0.3s ease ${index * 0.05}s, transform 0.3s ease ${index * 0.05}s`;
         observer.observe(element);
     });
 
@@ -323,7 +323,7 @@
         justify-content: center;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         z-index: 999;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
     `;
     
     document.body.appendChild(scrollToTopBtn);
