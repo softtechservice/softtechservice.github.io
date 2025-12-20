@@ -2,30 +2,52 @@
    CSS Variables - Material Design System
    ============================================ */
 :root {
-    /* Material Design Color Palette - Light Grey Theme */
-    --color-primary: #989595;
-    --color-primary-dark: #666363;
-    --color-primary-light: #d5d1d1;
-    --color-secondary: #757575;
-    --color-accent: #bdbdbd;
+    /* Professional Tech Color Palette - Blue Purple Theme */
+    --primary-blue: #2F5BEA;
+    --secondary-blue: #4A6CF7;
+    --accent-purple: #6C63FF;
+    --color-primary: #2F5BEA;
+    --color-primary-dark: #1E3A8A;
+    --color-primary-light: #4A6CF7;
+    --color-secondary: #6C63FF;
+    --color-accent: #6C63FF;
     
-    /* Material Design Surface Colors */
-    --color-text-primary: rgba(0, 0, 0, 0.87);
-    --color-text-secondary: rgba(0, 0, 0, 0.60);
-    --color-text-light: rgba(0, 0, 0, 0.38);
+    /* Background Colors */
+    --dark-bg: #0F172A;
+    --navy-bg: #111827;
+    --section-bg: #0B1220;
+    --light-bg: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --color-bg-primary: #FFFFFF;
+    --color-bg-secondary: #F8FAFC;
+    --color-bg-tertiary: #F1F5F9;
+    
+    /* Text Colors */
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-light: #E5E7EB;
+    --text-muted: #9CA3AF;
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #475569;
+    --color-text-light: #9CA3AF;
     --color-text-on-primary: #ffffff;
-    --color-bg-primary: #ffffff;
-    --color-bg-secondary: #f5f5f5;
-    --color-bg-tertiary: #eeeeee;
-    --color-border: rgba(0, 0, 0, 0.12);
-    --color-divider: rgba(0, 0, 0, 0.12);
     
-    /* Material Design Gradients - Light Grey Theme */
-    --gradient-primary: linear-gradient(135deg, #616161 0%, #9e9e9e 100%);
-    --gradient-secondary: linear-gradient(135deg, #757575 0%, #bdbdbd 100%);
-    --gradient-accent: linear-gradient(135deg, #bdbdbd 0%, #e0e0e0 100%);
-    --gradient-surface: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
-    --gradient-footer: linear-gradient(135deg, #424242 0%, #616161 25%, #757575 50%, #9e9e9e 75%, #bdbdbd 100%);
+    /* Border & Divider */
+    --color-border: rgba(15, 23, 42, 0.1);
+    --color-divider: rgba(15, 23, 42, 0.1);
+    
+    /* Overlay & Glass Effects */
+    --overlay-dark: rgba(15, 23, 42, 0.7);
+    --overlay-light: rgba(255, 255, 255, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    
+    /* Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, #1E3A8A 0%, #312E81 50%, #0F172A 100%);
+    --gradient-secondary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+    --gradient-accent: linear-gradient(90deg, #4A6CF7 0%, #6C63FF 100%);
+    --gradient-surface: linear-gradient(to bottom, #ffffff 0%, #F8FAFC 100%);
+    --gradient-footer: linear-gradient(135deg, #0F172A 0%, #111827 50%, #0B1220 100%);
+    --gradient-hero: linear-gradient(135deg, #1E3A8A 0%, #312E81 50%, #0F172A 100%);
     
     /* Additional Grey & White Gradients */
     --gradient-card-white: linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #f5f5f5 100%);
@@ -37,11 +59,11 @@
     --gradient-icon-bg: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
     --gradient-hover: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
     
-    /* Material Design Status Colors */
-    --color-success: #4caf50;
-    --color-error: #f44336;
-    --color-warning: #ff9800;
-    --color-info: #2196f3;
+    /* Status Colors */
+    --color-success: #22C55E;
+    --color-error: #EF4444;
+    --color-warning: #F59E0B;
+    --color-info: #38BDF8;
     
     /* Spacing System (4px base) - Reduced for minimal scrolling */
     --spacing-xs: 0.25rem;   /* 4px */
@@ -233,11 +255,12 @@ a:hover, a:focus {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
     box-shadow: var(--elevation-2);
     z-index: 1000;
     transition: all var(--transition-base);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .navbar .container {
@@ -350,7 +373,7 @@ a:hover, a:focus {
     justify-content: center;
     padding: 80px var(--container-padding) var(--spacing-lg);
     overflow: hidden;
-    background: var(--gradient-primary);
+    background: var(--gradient-hero);
 }
 
 @media (max-width: 768px) {
@@ -371,7 +394,19 @@ a:hover, a:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 0;
+}
+
+.hero-banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    z-index: 0;
+    display: block;
 }
 
 .gradient-overlay {
@@ -380,7 +415,9 @@ a:hover, a:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(97, 97, 97, 0.95) 0%, rgba(158, 158, 158, 0.95) 100%);
+    background: var(--overlay-dark);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .floating-shapes {
@@ -388,6 +425,7 @@ a:hover, a:focus {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: 2;
 }
 
 .shape {
@@ -430,9 +468,10 @@ a:hover, a:focus {
 .hero-content {
     text-align: center;
     color: white;
-    z-index: 1;
+    z-index: 3;
     max-width: 900px;
     animation: fadeInUp 0.4s ease;
+    position: relative;
 }
 
 .hero-badge {
@@ -563,27 +602,31 @@ a:hover, a:focus {
 }
 
 .btn-primary {
-    background: var(--color-bg-primary);
-    color: var(--color-primary);
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
+    background: linear-gradient(90deg, #3B5BDB 0%, #5B52FF 100%);
     box-shadow: var(--elevation-4);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
     box-shadow: var(--elevation-4);
     transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-large {
@@ -644,16 +687,47 @@ section {
     position: relative;
 }
 
+.about-image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--elevation-4);
+    transition: transform var(--transition-base);
+}
+
+.about-image:hover .about-image-img {
+    transform: scale(1.02);
+}
+
 .image-placeholder {
     background: var(--gradient-card-grey);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-lg);
     text-align: center;
     aspect-ratio: 1;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     box-shadow: var(--elevation-2);
+}
+
+.image-placeholder.show {
+    display: flex;
+}
+
+.about-image-img {
+    display: block;
+}
+
+.about-image-img:not([src]),
+.about-image-img[src=""] {
+    display: none;
+}
+
+.about-image-img:not([src]) ~ .image-placeholder,
+.about-image-img[src=""] ~ .image-placeholder {
+    display: flex;
 }
 
 .image-placeholder i {
@@ -737,7 +811,7 @@ section {
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
     padding: var(--spacing-md);
-    background: var(--gradient-icon-bg);
+    background: linear-gradient(135deg, rgba(47, 91, 234, 0.1) 0%, rgba(108, 99, 255, 0.1) 100%);
     border-radius: 50%;
     width: 80px;
     height: 80px;
@@ -839,7 +913,7 @@ section {
     width: 64px;
     height: 64px;
     margin: 0 auto var(--spacing-md);
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -987,13 +1061,48 @@ section {
     background: var(--color-bg-secondary);
 }
 
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.portfolio-card:hover .portfolio-img {
+    transform: scale(1.1);
+}
+
 .portfolio-placeholder {
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     background: var(--gradient-card-grey);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.portfolio-placeholder.show {
+    display: flex;
+}
+
+.portfolio-img {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-img:not([src]),
+.portfolio-img[src=""] {
+    display: none;
+}
+
+.portfolio-img:not([src]) ~ .portfolio-placeholder,
+.portfolio-img[src=""] ~ .portfolio-placeholder {
+    display: flex;
 }
 
 .portfolio-placeholder i {
@@ -1119,7 +1228,7 @@ section {
     width: 64px;
     height: 64px;
     margin: 0 auto var(--spacing-md);
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1146,7 +1255,7 @@ section {
 
 /* CTA Section */
 .cta {
-    background: var(--gradient-primary);
+    background: var(--gradient-hero);
     color: white;
     text-align: center;
 }
@@ -1212,7 +1321,7 @@ section {
     font-size: 2rem;
     color: var(--color-primary);
     padding: var(--spacing-md);
-    background: var(--gradient-icon-bg);
+    background: linear-gradient(135deg, rgba(47, 91, 234, 0.1) 0%, rgba(108, 99, 255, 0.1) 100%);
     border-radius: 50%;
     width: 72px;
     height: 72px;
@@ -1341,7 +1450,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(66, 66, 66, 0.95) 0%, rgba(97, 97, 97, 0.95) 50%, rgba(117, 117, 117, 0.95) 100%);
+    background: var(--gradient-footer);
     z-index: 0;
 }
 
