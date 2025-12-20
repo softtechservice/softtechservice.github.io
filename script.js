@@ -85,8 +85,8 @@
     // Intersection Observer for Animations
     // ============================================
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -106,8 +106,8 @@
 
     animatedElements.forEach((element, index) => {
         element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = `opacity 0.3s ease ${index * 0.05}s, transform 0.3s ease ${index * 0.05}s`;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = `opacity 0.15s ease ${index * 0.02}s, transform 0.15s ease ${index * 0.02}s`;
         observer.observe(element);
     });
 
