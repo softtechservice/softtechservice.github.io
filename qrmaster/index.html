@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Master Scanner - Professional QR Code Scanner for Android | SoftTech Service</title>
+    <meta name="description" content="Fast, accurate, and modern QR & Barcode scanner app for Android. Supports all QR formats with context-aware actions. Built with Kotlin and Clean MVVM architecture.">
+    <meta name="keywords" content="QR scanner, barcode scanner, Android app, QR code reader, QR generator, SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2F5BEA;
+            --primary-dark: #1E3A8A;
+            --accent: #6C63FF;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+            --gradient-primary: linear-gradient(135deg, #2F5BEA 0%, #6C63FF 100%);
+            --gradient-hero: linear-gradient(135deg, #1E3A8A 0%, #312E81 50%, #0F172A 100%);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(47, 91, 234, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(108, 99, 255, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--bg-white);
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Features Section */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            border: 1px solid rgba(47, 91, 234, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        
+        /* Highlight Section */
+        .highlight-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 24px;
+            margin: 4rem auto;
+            max-width: 1200px;
+            text-align: center;
+        }
+        
+        .highlight-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-section p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-item {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(47, 91, 234, 0.1);
+        }
+        
+        .tech-item h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">QR Master Scanner</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tech">Technology</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Professional QR Code Scanner for Android</span>
+            <h1>QR Master Scanner</h1>
+            <p class="subtitle">Fast, Accurate, and Modern</p>
+            <p class="hero-description">
+                A comprehensive QR & Barcode scanner application built with Kotlin, following Clean MVVM architecture principles. 
+                Supports all QR formats and provides context-aware actions for seamless user experience.
+            </p>
+            <div class="cta-buttons">
+                <a href="#features" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Explore Features
+                </a>
+                <a href="privacy-policy.html" class="btn btn-secondary">
+                    <i class="fas fa-shield-alt"></i> Privacy Policy
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="section" id="features">
+        <h2 class="section-title">✨ Key Features</h2>
+        <p class="section-subtitle">Everything you need in a professional QR scanner</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-camera"></i></div>
+                <h3>Comprehensive Scanning</h3>
+                <p>Real-time camera scanning with CameraX and Google ML Kit for advanced barcode recognition.</p>
+                <ul class="feature-list">
+                    <li>All barcode formats (QR, EAN, UPC, Code 128, etc.)</li>
+                    <li>Auto-focus and torch support</li>
+                    <li>Gallery image scanning</li>
+                    <li>Beep sound and vibration feedback</li>
+                    <li>Animated scanner overlay</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-history"></i></div>
+                <h3>Scan History Management</h3>
+                <p>Automatic save with Room Database, search, filter, and export functionality.</p>
+                <ul class="feature-list">
+                    <li>Automatic save to local database</li>
+                    <li>Search and filter by type</li>
+                    <li>Bulk delete operations</li>
+                    <li>Export to CSV/TXT formats</li>
+                    <li>Share exported files</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-magic"></i></div>
+                <h3>Context-Aware Actions</h3>
+                <p>Intelligent detection and relevant actions for different QR code types.</p>
+                <ul class="feature-list">
+                    <li>Email, SMS, Phone support</li>
+                    <li>Contact management (vCard)</li>
+                    <li>WiFi connection</li>
+                    <li>Calendar events</li>
+                    <li>Location services</li>
+                    <li>Meeting links (Zoom, Teams, Meet)</li>
+                    <li>YouTube integration</li>
+                    <li>UPI payment support</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-qrcode"></i></div>
+                <h3>QR Code Generator</h3>
+                <p>Generate QR codes for multiple content types with customization options.</p>
+                <ul class="feature-list">
+                    <li>Text, URL, Email, Phone, SMS</li>
+                    <li>WiFi network credentials</li>
+                    <li>Contact (vCard) generation</li>
+                    <li>Save and share QR codes</li>
+                    <li>High-quality image export</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-cog"></i></div>
+                <h3>Settings & Customization</h3>
+                <p>Comprehensive settings for audio, appearance, and data management.</p>
+                <ul class="feature-list">
+                    <li>Sound and vibration toggles</li>
+                    <li>Light/Dark/System theme</li>
+                    <li>Material Design 3 UI</li>
+                    <li>Data export and management</li>
+                    <li>App information and support</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Additional Features</h3>
+                <p>Professional features for enhanced user experience.</p>
+                <ul class="feature-list">
+                    <li>Content beautification (JSON, XML, HTML)</li>
+                    <li>Copy to clipboard</li>
+                    <li>Share anywhere</li>
+                    <li>Offline-first architecture</li>
+                    <li>Memory efficient</li>
+                    <li>Responsive design</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Highlight -->
+    <section class="highlight-section">
+        <h2>🏗️ Built with Modern Architecture</h2>
+        <p>
+            Clean MVVM architecture with 100% Kotlin, Hilt dependency injection, Room database, 
+            and Material Design 3. Following Android best practices for maintainability and scalability.
+        </p>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section" id="tech">
+        <h2 class="section-title">🛠️ Technology Stack</h2>
+        <p class="section-subtitle">Built with industry-standard tools and libraries</p>
+        
+        <div class="tech-grid">
+            <div class="tech-item">
+                <i class="fab fa-android" style="font-size: 3rem; color: var(--success);"></i>
+                <h4>Android Native</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">100% Kotlin</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-code-branch" style="font-size: 3rem; color: var(--primary);"></i>
+                <h4>Clean MVVM</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Architecture Pattern</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-database" style="font-size: 3rem; color: var(--accent);"></i>
+                <h4>Room Database</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">SQLite Storage</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-camera" style="font-size: 3rem; color: var(--primary);"></i>
+                <h4>CameraX</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Modern Camera API</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-brain" style="font-size: 3rem; color: var(--accent);"></i>
+                <h4>Google ML Kit</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Barcode Recognition</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-syringe" style="font-size: 3rem; color: var(--primary);"></i>
+                <h4>Hilt</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Dependency Injection</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-palette" style="font-size: 3rem; color: var(--accent);"></i>
+                <h4>Material Design 3</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Modern UI</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-bolt" style="font-size: 3rem; color: var(--success);"></i>
+                <h4>Coroutines</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Async Operations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section class="section">
+        <h2 class="section-title">📱 System Requirements</h2>
+        <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Android Version</h3>
+                <p><strong>Min SDK:</strong> 26 (Android 8.0 Oreo)</p>
+                <p><strong>Target SDK:</strong> 36 (Android 15)</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-code"></i></div>
+                <h3>Development</h3>
+                <p><strong>Kotlin:</strong> Latest stable (2.0.21+)</p>
+                <p><strong>Android Studio:</strong> Narwhal 2025.1.1+</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>Compatibility</h3>
+                <p>Works on phones and tablets</p>
+                <p>Offline-first architecture</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>QR Master Scanner</h3>
+                <p>Professional QR Code Scanner for Android</p>
+                <p style="margin-top: 1rem;">Fast, accurate, and feature-rich QR & Barcode scanner application built with modern Android technologies.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#features">Features</a>
+                <a href="#tech">Technology</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html#terms">Terms & Conditions</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <p><strong>Developer:</strong> SoftTech Service</p>
+                <p><strong>Email:</strong> <a href="mailto:support@qrmasterscanner.com">support@qrmasterscanner.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>App Information</h3>
+                <p><strong>Version:</strong> 1.0</p>
+                <p><strong>Last Updated:</strong> 2025</p>
+                <p><strong>Min Android:</strong> 8.0 (API 26)</p>
+                <p><strong>Target Android:</strong> 15 (API 36)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SoftTech Service. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                This software is proprietary and confidential. Unauthorized copying, modification, distribution, or use of this software, 
+                via any medium, is strictly prohibited without the express written permission of SoftTech Service.
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                QR Master Scanner and all related trademarks are property of SoftTech Service.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
