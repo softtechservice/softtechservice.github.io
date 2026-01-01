@@ -40,27 +40,146 @@
             max-width: 1000px;
             margin: 0 auto;
             background: white;
-            padding: 3rem;
+            padding: 0;
             border-radius: 16px;
             box-shadow: 0 4px 16px rgba(48, 39, 124, 0.1);
+            overflow: hidden;
         }
         
-        h1 {
-            color: var(--primary);
+        .header-section {
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+        }
+        
+        .header-section h1 {
+            color: white;
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             font-weight: 800;
         }
         
-        .subtitle {
-            color: #64748B;
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
             font-size: 1.125rem;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             font-weight: 500;
         }
         
+        .header-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .back-link::before {
+            content: '← ';
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         .section {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
         
         .section:last-child {
@@ -71,7 +190,7 @@
             color: var(--text-dark);
             font-size: 2rem;
             margin-bottom: 1.5rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
             font-weight: 700;
             border-bottom: 3px solid var(--primary);
             padding-bottom: 0.5rem;
@@ -193,29 +312,9 @@
             font-weight: 600;
         }
         
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-        
-        .back-link:hover {
-            color: var(--primary-dark);
-            background: rgba(48, 39, 124, 0.1);
-        }
-        
-        .back-link::before {
-            content: '← ';
-        }
-        
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .container {
+            .tab-content {
                 padding: 2.5rem;
             }
         }
@@ -226,13 +325,26 @@
             }
             
             .container {
-                padding: 2rem 1.5rem;
                 border-radius: 12px;
             }
             
-            h1 {
+            .header-section {
+                padding: 1.5rem;
+            }
+            
+            .header-section h1 {
                 font-size: 2rem;
                 line-height: 1.3;
+            }
+            
+            .tab-button {
+                min-width: 120px;
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.5rem;
             }
             
             h2 {
@@ -250,7 +362,7 @@
             }
             
             .section {
-                margin-bottom: 3rem;
+                margin-bottom: 2.5rem;
             }
             
             table {
@@ -285,12 +397,22 @@
                 padding: 0.25rem;
             }
             
-            .container {
-                padding: 1.5rem 1rem;
+            .header-section {
+                padding: 1.25rem 1rem;
             }
             
-            h1 {
+            .header-section h1 {
                 font-size: 1.75rem;
+            }
+            
+            .tab-button {
+                min-width: 100px;
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .tab-content {
+                padding: 1.5rem 1rem;
             }
             
             h2 {
@@ -308,7 +430,6 @@
             .back-link {
                 font-size: 0.875rem;
                 padding: 0.5rem;
-                margin-bottom: 1rem;
             }
             
             table {
@@ -323,229 +444,255 @@
 </head>
 <body>
     <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
-            <a href="index.html" class="back-link">← Back to Landing Page</a>
-            <a href="../index.html" class="back-link" style="margin-left: auto;">← Main Website</a>
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <h1>Pro QR &amp; Barcode Scanner</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Last updated:</strong> 2026-01-01 | <strong>Developer:</strong> SoftTech Service</p>
         </div>
         
-        <h1>📄 Privacy Policy</h1>
-        <p class="subtitle">Pro QR &amp; Barcode Scanner – Android App</p>
-        <p><strong>Last updated:</strong> 2026-01-01</p>
-        <p><strong>Developer:</strong> SoftTech Service</p>
-        
-        <div class="section">
-            <p>Pro QR &amp; Barcode Scanner ("we", "our", or "the app") respects your privacy and is committed to protecting user data. This Privacy Policy explains how information is handled when you use our Android application.</p>
-        </div>
-        
-        <div class="section">
-            <h2>🔍 Information We Collect</h2>
-            
-            <h3>1. Information You Provide</h3>
-            <ul>
-                <li>QR code or barcode content that you scan</li>
-                <li>Generated QR code data (text, URL, WiFi, etc.)</li>
-                <li>Optional actions like saving contacts, calendar events, or WiFi details</li>
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">📜 Terms & Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">📄 License & Copyright</button>
+                </li>
             </ul>
-            
-            <div class="highlight">
-                <p><strong>Important:</strong> All scanned and generated data is stored locally on your device only.</p>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>Pro QR &amp; Barcode Scanner ("we", "our", or "the app") respects your privacy and is committed to protecting user data. This Privacy Policy explains how information is handled when you use our Android application.</p>
             </div>
             
-            <h3>2. Automatically Collected Information</h3>
-            <p><strong>We do NOT collect:</strong></p>
-            <ul>
-                <li>Personal identity information</li>
-                <li>Email addresses</li>
-                <li>Phone numbers</li>
-                <li>Location data on servers</li>
-                <li>Device identifiers</li>
-                <li>Analytics or tracking data</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>📱 Permissions Usage</h2>
-            <p>The app requests permissions only to provide core functionality:</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Permission</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Camera</strong></td>
-                        <td>Scan QR codes and barcodes</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Storage / Media Images</strong></td>
-                        <td>Scan QR from gallery & export history</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Contacts</strong></td>
-                        <td>Save scanned contact (vCard)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Calendar</strong></td>
-                        <td>Add scanned calendar events</td>
-                    </tr>
-                    <tr>
-                        <td><strong>SMS</strong></td>
-                        <td>Send SMS from scanned QR</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Phone</strong></td>
-                        <td>Dial numbers from scanned QR</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Location</strong></td>
-                        <td>Required by Android for WiFi QR connection</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Vibration</strong></td>
-                        <td>Haptic feedback on scan</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p>All permissions are optional and requested only when needed.</p>
-        </div>
-        
-        <div class="section">
-            <h2>🔐 Data Storage & Security</h2>
-            <ul>
-                <li>All scan history is stored locally using Room (SQLite)</li>
-                <li>No cloud sync</li>
-                <li>No external server storage</li>
-                <li>No third-party analytics or ads SDKs</li>
-                <li>You can delete history anytime from app settings</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>🌐 Internet Usage</h2>
-            <p>The app does not require internet to function.</p>
-            <p>Internet may be used only when:</p>
-            <ul>
-                <li>Opening scanned URLs</li>
-                <li>Making UPI payments via external apps</li>
-                <li>Joining meetings or opening third-party apps</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>👶 Children's Privacy</h2>
-            <p>Pro QR &amp; Barcode Scanner does not target children under 13 and does not knowingly collect any personal data from children.</p>
-        </div>
-        
-        <div class="section">
-            <h2>🔄 Changes to This Policy</h2>
-            <p>We may update this Privacy Policy periodically. Any changes will be reflected here with an updated date.</p>
-        </div>
-        
-        <div class="section">
-            <h2>📧 Contact Us</h2>
-            <p>If you have questions about this Privacy Policy:</p>
-            <div class="contact-box">
-                <p><strong>Developer:</strong> SoftTech Service</p>
-                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+            <div class="section">
+                <h2>🔍 Information We Collect</h2>
+                
+                <h3>1. Information You Provide</h3>
+                <ul>
+                    <li>QR code or barcode content that you scan</li>
+                    <li>Generated QR code data (text, URL, WiFi, etc.)</li>
+                    <li>Optional actions like saving contacts, calendar events, or WiFi details</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Important:</strong> All scanned and generated data is stored locally on your device only.</p>
+                </div>
+                
+                <h3>2. Automatically Collected Information</h3>
+                <p><strong>We do NOT collect:</strong></p>
+                <ul>
+                    <li>Personal identity information</li>
+                    <li>Email addresses</li>
+                    <li>Phone numbers</li>
+                    <li>Location data on servers</li>
+                    <li>Device identifiers</li>
+                    <li>Analytics or tracking data</li>
+                </ul>
             </div>
-        </div>
-        
-        <div class="section" id="terms">
-            <h2>📜 Terms & Conditions</h2>
-            <p class="subtitle">Pro QR &amp; Barcode Scanner – Android App</p>
-            <p><strong>Last updated:</strong> 2026-01-01</p>
-            <p>By downloading or using Pro QR &amp; Barcode Scanner, you agree to the following Terms & Conditions.</p>
-        </div>
-        
-        <div class="section">
-            <h3>1. App Usage</h3>
-            <ul>
-                <li>The app is provided "as is"</li>
-                <li>You agree to use the app for lawful purposes only</li>
-                <li>You are responsible for how you use scanned content</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h3>2. Scan Results Disclaimer</h3>
-            <p><strong>Pro QR &amp; Barcode Scanner:</strong></p>
-            <ul>
-                <li>Only reads QR/barcode data</li>
-                <li>Does not verify safety, authenticity, or legality of scanned content</li>
-            </ul>
-            <p><strong>Is not responsible for:</strong></p>
-            <ul>
-                <li>Malicious links</li>
-                <li>Fraudulent payment QR codes</li>
-                <li>External websites or third-party apps</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h3>3. Payments & External Apps</h3>
-            <p>UPI payments, calls, emails, SMS, and meeting joins are handled by third-party apps.</p>
-            <p>We do not process or store any financial data.</p>
-        </div>
-        
-        <div class="section">
-            <h3>4. Intellectual Property</h3>
-            <ul>
-                <li>App design, UI, code, and branding belong to SoftTech Service</li>
-                <li>You may not copy, modify, or redistribute the app without permission</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h3>5. Limitation of Liability</h3>
-            <p><strong>SoftTech Service is not liable for:</strong></p>
-            <ul>
-                <li>Data loss</li>
-                <li>Financial loss</li>
-                <li>Damage caused by third-party apps or scanned content</li>
-                <li>Misuse of QR codes</li>
-            </ul>
-            <p>Use the app at your own discretion.</p>
-        </div>
-        
-        <div class="section">
-            <h3>6. Termination</h3>
-            <p>We may suspend or terminate access if the app is misused or violates applicable laws.</p>
-        </div>
-        
-        <div class="section">
-            <h3>7. Changes to Terms</h3>
-            <p>Terms may be updated periodically. Continued use of the app means you accept the updated terms.</p>
-        </div>
-        
-        <div class="section">
-            <h2>📧 Contact Information</h2>
-            <div class="contact-box">
-                <p><strong>Developer:</strong> SoftTech Service</p>
-                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+            
+            <div class="section">
+                <h2>📱 Permissions Usage</h2>
+                <p>The app requests permissions only to provide core functionality:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Camera</strong></td>
+                            <td>Scan QR codes and barcodes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage / Media Images</strong></td>
+                            <td>Scan QR from gallery & export history</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contacts</strong></td>
+                            <td>Save scanned contact (vCard)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Calendar</strong></td>
+                            <td>Add scanned calendar events</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SMS</strong></td>
+                            <td>Send SMS from scanned QR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phone</strong></td>
+                            <td>Dial numbers from scanned QR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Location</strong></td>
+                            <td>Required by Android for WiFi QR connection</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vibration</strong></td>
+                            <td>Haptic feedback on scan</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>All permissions are optional and requested only when needed.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔐 Data Storage & Security</h2>
+                <ul>
+                    <li>All scan history is stored locally using Room (SQLite)</li>
+                    <li>No cloud sync</li>
+                    <li>No external server storage</li>
+                    <li>No third-party analytics or ads SDKs</li>
+                    <li>You can delete history anytime from app settings</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>🌐 Internet Usage</h2>
+                <p>The app does not require internet to function.</p>
+                <p>Internet may be used only when:</p>
+                <ul>
+                    <li>Opening scanned URLs</li>
+                    <li>Making UPI payments via external apps</li>
+                    <li>Joining meetings or opening third-party apps</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>👶 Children's Privacy</h2>
+                <p>Pro QR &amp; Barcode Scanner does not target children under 13 and does not knowingly collect any personal data from children.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔄 Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. Any changes will be reflected here with an updated date.</p>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Us</h2>
+                <p>If you have questions about this Privacy Policy:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
             </div>
         </div>
         
-        <div class="section" style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #E2E8F0;">
-            <h2>📄 License & Copyright</h2>
-            <div class="highlight">
-                <p><strong>Copyright © 2025 SoftTech Service. All rights reserved.</strong></p>
-                <p style="margin-top: 1rem;">This software and associated documentation files (the "Software") are proprietary and confidential. 
-                Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited 
-                without the express written permission of SoftTech Service.</p>
-                <p style="margin-top: 1rem;"><strong>Intellectual Property:</strong></p>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By downloading or using Pro QR &amp; Barcode Scanner, you agree to the following Terms & Conditions.</p>
+            </div>
+            
+            <div class="section">
+                <h2>1. App Usage</h2>
+                <ul>
+                    <li>The app is provided "as is"</li>
+                    <li>You agree to use the app for lawful purposes only</li>
+                    <li>You are responsible for how you use scanned content</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>2. Scan Results Disclaimer</h2>
+                <p><strong>Pro QR &amp; Barcode Scanner:</strong></p>
+                <ul>
+                    <li>Only reads QR/barcode data</li>
+                    <li>Does not verify safety, authenticity, or legality of scanned content</li>
+                </ul>
+                <p><strong>Is not responsible for:</strong></p>
+                <ul>
+                    <li>Malicious links</li>
+                    <li>Fraudulent payment QR codes</li>
+                    <li>External websites or third-party apps</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>3. Payments & External Apps</h2>
+                <p>UPI payments, calls, emails, SMS, and meeting joins are handled by third-party apps.</p>
+                <p>We do not process or store any financial data.</p>
+            </div>
+            
+            <div class="section">
+                <h2>4. Intellectual Property</h2>
+                <ul>
+                    <li>App design, UI, code, and branding belong to SoftTech Service</li>
+                    <li>You may not copy, modify, or redistribute the app without permission</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <p><strong>SoftTech Service is not liable for:</strong></p>
+                <ul>
+                    <li>Data loss</li>
+                    <li>Financial loss</li>
+                    <li>Damage caused by third-party apps or scanned content</li>
+                    <li>Misuse of QR codes</li>
+                </ul>
+                <p>Use the app at your own discretion.</p>
+            </div>
+            
+            <div class="section">
+                <h2>6. Termination</h2>
+                <p>We may suspend or terminate access if the app is misused or violates applicable laws.</p>
+            </div>
+            
+            <div class="section">
+                <h2>7. Changes to Terms</h2>
+                <p>Terms may be updated periodically. Continued use of the app means you accept the updated terms.</p>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright © 2025 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">This software and associated documentation files (the "Software") are proprietary and confidential. 
+                    Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited 
+                    without the express written permission of SoftTech Service.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <ul>
                     <li>All app design, UI, code, and branding belong to SoftTech Service</li>
                     <li>Pro QR &amp; Barcode Scanner and all related trademarks are property of SoftTech Service</li>
                     <li>You may not copy, modify, or redistribute the app without permission</li>
                     <li>Reverse engineering, decompiling, or disassembling the software is prohibited</li>
                 </ul>
-                <p style="margin-top: 1rem;"><strong>Third-Party Libraries:</strong></p>
-                <p style="margin-top: 0.5rem;">This software uses third-party libraries that are subject to their respective licenses:</p>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+            </div>
+            
+            <div class="section">
+                <h2>Third-Party Libraries</h2>
+                <p>This software uses third-party libraries that are subject to their respective licenses:</p>
+                <ul>
                     <li>CameraX by Google (Apache License 2.0)</li>
                     <li>ML Kit by Google (Apache License 2.0)</li>
                     <li>Material Design 3 by Google (Apache License 2.0)</li>
@@ -554,14 +701,60 @@
                     <li>Room Database (Apache License 2.0)</li>
                     <li>Hilt (Apache License 2.0)</li>
                 </ul>
-                <p style="margin-top: 1rem;"><strong>Limitation of Liability:</strong></p>
-                <p style="margin-top: 0.5rem;">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-                INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-                IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-                TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <div class="highlight">
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+                    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+                    IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+                    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                    
+                    // Scroll to top of content
+                    document.getElementById(targetTab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
+            // Handle URL hash for direct tab access
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
-
