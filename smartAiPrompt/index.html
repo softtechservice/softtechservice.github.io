@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Prompt – AI Prompt Library | Professional AI Prompts for ChatGPT, DALL·E & More | SoftTech Service</title>
+    <meta name="description" content="Smart AI Prompt is a modern Android app providing 100+ curated AI prompts for ChatGPT, DALL·E, Midjourney, Stable Diffusion, and other AI tools. Offline-first, free, and beautifully designed.">
+    <meta name="keywords" content="AI prompts, ChatGPT prompts, DALL·E prompts, Midjourney prompts, Stable Diffusion prompts, AI prompt library, Android app, SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6467F2;
+            --primary-dark: #4F51C9;
+            --primary-light: #818CF8;
+            --secondary: #8B5CF6;
+            --secondary-dark: #7C3AED;
+            --secondary-light: #A78BFA;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+            --shadow-sm: 0 2px 8px rgba(100, 103, 242, 0.08);
+            --shadow-md: 0 4px 16px rgba(100, 103, 242, 0.12);
+            --shadow-lg: 0 8px 32px rgba(100, 103, 242, 0.16);
+            --gradient-primary: linear-gradient(135deg, #6467F2 0%, #818CF8 50%, #A78BFA 100%);
+            --gradient-hero: linear-gradient(135deg, #4F51C9 0%, #6467F2 30%, #7C3AED 100%);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(100, 103, 242, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--bg-white);
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(100, 103, 242, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Features Section */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            border: 1px solid rgba(100, 103, 242, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+        
+        .feature-list li::before {
+            content: '✨';
+            font-size: 1rem;
+        }
+        
+        /* Highlight Section */
+        .highlight-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 24px;
+            margin: 4rem auto;
+            max-width: 1200px;
+            text-align: center;
+        }
+        
+        .highlight-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-section p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-item {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(100, 103, 242, 0.1);
+        }
+        
+        .tech-item h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            cursor: pointer;
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+                gap: 1rem;
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.75rem;
+                border-radius: 8px;
+            }
+            
+            .nav-links a:hover {
+                background: rgba(100, 103, 242, 0.1);
+            }
+            
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+                line-height: 1.3;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.125rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .highlight-section {
+                padding: 3rem 1.5rem;
+                margin: 3rem 1rem;
+                border-radius: 16px;
+            }
+            
+            .highlight-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .highlight-section p {
+                font-size: 1.125rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .tech-item {
+                padding: 1.25rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            footer {
+                padding: 3rem 1.5rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Smart AI Prompt</div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tech">Technology</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">AI Prompt Library for Android</span>
+            <h1>Smart AI Prompt</h1>
+            <p class="subtitle">AI Prompt Library</p>
+            <p class="hero-description">
+                Smart AI Prompt is a modern Android application providing 100+ curated high-quality AI prompts 
+                for ChatGPT, DALL·E, Midjourney, Stable Diffusion, and other AI tools. Beautiful Material 3 design, 
+                offline-first architecture, and 100% free.
+            </p>
+            <div class="cta-buttons">
+                <a href="#features" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Explore Features
+                </a>
+                <a href="privacy-policy.html" class="btn btn-secondary">
+                    <i class="fas fa-shield-alt"></i> Privacy Policy
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="section" id="features">
+        <h2 class="section-title">✨ Key Features</h2>
+        <p class="section-subtitle">Everything you need for AI prompt inspiration</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-database"></i></div>
+                <h3>100+ Curated Prompts</h3>
+                <p>Extensive collection of high-quality AI prompts across multiple categories to inspire your creative work.</p>
+                <ul class="feature-list">
+                    <li>Portrait prompts</li>
+                    <li>Cinematic scenes</li>
+                    <li>Product photography</li>
+                    <li>Logo designs</li>
+                    <li>Social media content</li>
+                    <li>Illustrations</li>
+                    <li>Backgrounds</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Beautiful Material 3 Design</h3>
+                <p>Modern, intuitive interface with purple/blue gradient theme following Material Design 3 principles.</p>
+                <ul class="feature-list">
+                    <li>Material 3 UI components</li>
+                    <li>Purple/blue gradient theme</li>
+                    <li>Smooth animations</li>
+                    <li>Dark mode support</li>
+                    <li>Edge-to-edge layout</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-wifi-slash"></i></div>
+                <h3>Offline-First Architecture</h3>
+                <p>Works completely offline. No internet connection required to access prompts and manage favorites.</p>
+                <ul class="feature-list">
+                    <li>No internet required</li>
+                    <li>Local JSON storage</li>
+                    <li>Fast app performance</li>
+                    <li>Data privacy guaranteed</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-star"></i></div>
+                <h3>Favorites Management</h3>
+                <p>Save your favorite prompts with local storage for quick access anytime, anywhere.</p>
+                <ul class="feature-list">
+                    <li>Save favorite prompts</li>
+                    <li>Local SharedPreferences storage</li>
+                    <li>Quick access to favorites</li>
+                    <li>Organize by preference</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-search"></i></div>
+                <h3>Real-Time Search</h3>
+                <p>Powerful search functionality to quickly find prompts by title, description, or tags.</p>
+                <ul class="feature-list">
+                    <li>Real-time search</li>
+                    <li>Search by title</li>
+                    <li>Search by description</li>
+                    <li>Search by tags</li>
+                    <li>Instant results</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-filter"></i></div>
+                <h3>Category Filtering</h3>
+                <p>Filter prompts by category chips for quick browsing and discovery.</p>
+                <ul class="feature-list">
+                    <li>Portrait category</li>
+                    <li>Cinematic category</li>
+                    <li>Product category</li>
+                    <li>Logo category</li>
+                    <li>Social Media category</li>
+                    <li>Illustration category</li>
+                    <li>Backgrounds category</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-copy"></i></div>
+                <h3>One-Tap Copy</h3>
+                <p>Copy prompts to clipboard instantly with a single tap for quick use in AI tools.</p>
+                <ul class="feature-list">
+                    <li>One-tap copy to clipboard</li>
+                    <li>Copy full prompt text</li>
+                    <li>Ready to paste</li>
+                    <li>Quick workflow</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+                <h3>No Login Required</h3>
+                <p>Start using the app immediately without any registration or account creation.</p>
+                <ul class="feature-list">
+                    <li>No registration needed</li>
+                    <li>No account required</li>
+                    <li>Privacy-focused</li>
+                    <li>Instant access</li>
+                    <li>100% free forever</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Highlight -->
+    <section class="highlight-section">
+        <h2>🏗️ Built with Modern Architecture</h2>
+        <p>
+            Clean MVVM architecture with 100% Kotlin, Material Design 3, Navigation Component, 
+            and offline-first local storage. Following Android best practices for maintainability and performance.
+        </p>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section" id="tech">
+        <h2 class="section-title">🛠️ Technology Stack</h2>
+        <p class="section-subtitle">Built with industry-standard tools and libraries</p>
+        
+        <div class="tech-grid">
+            <div class="tech-item">
+                <i class="fab fa-android" style="font-size: 3rem; color: var(--success);"></i>
+                <h4>Android Native</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">100% Kotlin</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-code-branch" style="font-size: 3rem; color: var(--primary);"></i>
+                <h4>MVVM Architecture</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Clean Architecture Pattern</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-database" style="font-size: 3rem; color: var(--secondary-light);"></i>
+                <h4>Local Storage</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">JSON + SharedPreferences</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-compass" style="font-size: 3rem; color: var(--primary);"></i>
+                <h4>Navigation Component</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Fragment Navigation</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-palette" style="font-size: 3rem; color: var(--secondary-light);"></i>
+                <h4>Material Design 3</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Modern UI</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-file-code" style="font-size: 3rem; color: var(--primary);"></i>
+                <h4>ViewBinding</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Type-Safe Views</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-layers" style="font-size: 3rem; color: var(--secondary-light);"></i>
+                <h4>XML Layouts</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Traditional UI</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-moon" style="font-size: 3rem; color: var(--primary);"></i>
+                <h4>Dark Mode</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Theme Support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported AI Tools -->
+    <section class="section">
+        <h2 class="section-title">🤖 Supported AI Tools</h2>
+        <p class="section-subtitle">Prompts optimized for popular AI platforms</p>
+        <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                <h3>ChatGPT</h3>
+                <p>Text prompts for conversation, creative writing, and content generation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-image"></i></div>
+                <h3>DALL·E</h3>
+                <p>Image generation prompts for realistic and creative artwork.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Midjourney</h3>
+                <p>Artistic prompts for stunning visual creations and designs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-magic"></i></div>
+                <h3>Stable Diffusion</h3>
+                <p>Open-source image generation prompts for various styles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section class="section">
+        <h2 class="section-title">📱 System Requirements</h2>
+        <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Android Version</h3>
+                <p><strong>Min SDK:</strong> 24 (Android 7.0 Nougat)</p>
+                <p><strong>Target SDK:</strong> 36 (Android 15)</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-code"></i></div>
+                <h3>Development</h3>
+                <p><strong>Language:</strong> Kotlin</p>
+                <p><strong>Architecture:</strong> MVVM</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>Compatibility</h3>
+                <p>Works on phones and tablets</p>
+                <p>Offline-first, no internet required</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Smart AI Prompt</h3>
+                <p>AI Prompt Library</p>
+                <p style="margin-top: 1rem;">A modern Android application providing curated AI prompts for ChatGPT, DALL·E, Midjourney, Stable Diffusion, and other AI tools.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#features">Features</a>
+                <a href="#tech">Technology</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html#terms">Terms & Conditions</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <p><strong>Developer:</strong> SoftTech Service</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                <p><strong>Website:</strong> <a href="https://softtechservice.site/" target="_blank">softtechservice.site</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>App Information</h3>
+                <p><strong>Version:</strong> 1.0</p>
+                <p><strong>Last Updated:</strong> January 2026</p>
+                <p><strong>Min Android:</strong> 7.0 (API 24)</p>
+                <p><strong>Target Android:</strong> 15 (API 36)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                Smart AI Prompt and all related trademarks are property of SoftTech Service.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

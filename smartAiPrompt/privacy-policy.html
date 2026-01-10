@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Smart AI Prompt | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy and Terms & Conditions for Smart AI Prompt AI Prompt Library Android App by SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6467F2;
+            --primary-dark: #4F51C9;
+            --primary-light: #818CF8;
+            --secondary: #8B5CF6;
+            --secondary-dark: #7C3AED;
+            --secondary-light: #A78BFA;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(100, 103, 242, 0.1);
+            overflow: hidden;
+        }
+        
+        .header-section {
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary-light) 100%);
+            color: white;
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .header-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .back-link::before {
+            content: '← ';
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(100, 103, 242, 0.05);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(100, 103, 242, 0.05);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #1E293B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+        
+        h4 {
+            color: #334155;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: rgba(100, 103, 242, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content {
+                padding: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .container {
+                border-radius: 12px;
+            }
+            
+            .header-section {
+                padding: 1.5rem;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+            
+            .tab-button {
+                min-width: 120px;
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                margin-top: 2.5rem;
+            }
+            
+            h3 {
+                font-size: 1.25rem;
+                margin-top: 1.5rem;
+            }
+            
+            h4 {
+                font-size: 1.125rem;
+            }
+            
+            .section {
+                margin-bottom: 2.5rem;
+            }
+            
+            .contact-box {
+                padding: 1.5rem;
+            }
+            
+            .highlight {
+                padding: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 0.25rem;
+            }
+            
+            .header-section {
+                padding: 1.25rem 1rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.75rem;
+            }
+            
+            .tab-button {
+                min-width: 100px;
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.125rem;
+            }
+            
+            p, li {
+                font-size: 0.9375rem;
+            }
+            
+            .back-link {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <h1>Smart AI Prompt</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Last updated:</strong> January 2026 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">📜 Terms & Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">📄 License & Copyright</button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>Smart AI Prompt – AI Prompt Library ("we", "our", or "the app") is developed and maintained by SoftTech Service. Your privacy is important to us, and this Privacy Policy explains how we collect, use, and protect your information when you use our Android application.</p>
+            </div>
+            
+            <div class="section">
+                <h2>1. Information We Collect</h2>
+                <p>Smart AI Prompt is designed with privacy as a core principle.</p>
+                
+                <div class="highlight">
+                    <p><strong>We do NOT collect, store, or share any personal information.</strong></p>
+                </div>
+                
+                <p>The app:</p>
+                <ul>
+                    <li>❌ Does NOT require user registration or login</li>
+                    <li>❌ Does NOT collect names, email addresses, phone numbers, or contacts</li>
+                    <li>❌ Does NOT access camera, microphone, or location</li>
+                    <li>❌ Does NOT track user activity or behavior</li>
+                    <li>❌ Does NOT use analytics, advertising, or tracking SDKs</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>2. Locally Stored Data</h2>
+                <p>Smart AI Prompt uses local storage only on your device for:</p>
+                <ul>
+                    <li>Saving favorite prompts</li>
+                    <li>App preferences (such as dark mode selection)</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>This data:</strong></p>
+                    <ul>
+                        <li>Stays entirely on your device</li>
+                        <li>Is never transmitted to any server</li>
+                        <li>Is not shared with third parties</li>
+                        <li>Can be removed by clearing app data or uninstalling the app</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>3. Internet Usage</h2>
+                <p><strong>Smart AI Prompt works offline-first.</strong></p>
+                <ul>
+                    <li>No internet connection is required to access prompts</li>
+                    <li>The app does not send or receive user data from external servers</li>
+                    <li>All prompt data is bundled within the app</li>
+                    <li>No network requests are made during normal app usage</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>4. Third-Party Services</h2>
+                <p>Smart AI Prompt does not use any third-party analytics, advertising, or tracking SDKs.</p>
+                
+                <h3>AI Tools Integration</h3>
+                <p>Prompts are provided only as text content intended for use with third-party AI tools such as:</p>
+                <ul>
+                    <li>ChatGPT</li>
+                    <li>DALL·E</li>
+                    <li>Midjourney</li>
+                    <li>Stable Diffusion</li>
+                    <li>Other AI platforms</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Important:</strong> Smart AI Prompt is not affiliated with or endorsed by these AI services. The app simply provides prompt templates that you can copy and use with these services at your discretion.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>5. Children's Privacy</h2>
+                <p>Smart AI Prompt does not knowingly collect any data from children under the age of 13.</p>
+                <p>Since no personal data is collected, the app is safe for general audiences including children. However, we recommend parental supervision when children use AI tools with prompts from this app.</p>
+            </div>
+            
+            <div class="section">
+                <h2>6. Data Security</h2>
+                <p>Because Smart AI Prompt does not collect or transmit personal data, there is no risk of data misuse or leakage. All stored data (favorites and preferences) remains on the user's device and is protected by Android's built-in security mechanisms.</p>
+            </div>
+            
+            <div class="section">
+                <h2>7. Permissions</h2>
+                <p>Smart AI Prompt requires minimal permissions:</p>
+                <ul>
+                    <li><strong>No runtime permissions required</strong> - The app works without requesting any sensitive permissions</li>
+                    <li>All data is stored locally using Android's standard storage mechanisms</li>
+                    <li>No access to personal information, device identifiers, or network data</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>8. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.</p>
+                <p>Any changes will be reflected in the app, on this page, or in the Play Store listing. The "Last updated" date at the top of this policy indicates when it was last revised.</p>
+                <p>Your continued use of the app after any changes constitutes acceptance of the updated Privacy Policy.</p>
+            </div>
+            
+            <div class="section">
+                <h2>9. Contact Us</h2>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your information, please contact us:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site/" target="_blank" style="text-decoration: underline;">https://softtechservice.site/</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By downloading, installing, or using Smart AI Prompt – AI Prompt Library ("the app"), you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use the app.</p>
+            </div>
+            
+            <div class="section">
+                <h2>1. App Usage</h2>
+                <ul>
+                    <li>The app is provided "as is" without warranties of any kind</li>
+                    <li>You agree to use the app for lawful purposes only</li>
+                    <li>You are responsible for how you use the prompts provided by the app</li>
+                    <li>You must comply with all applicable laws and regulations when using prompts with AI services</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>2. Prompt Content Disclaimer</h2>
+                <p><strong>Smart AI Prompt:</strong></p>
+                <ul>
+                    <li>Provides prompt templates for inspiration and reference</li>
+                    <li>Does not guarantee results or outcomes from AI tools</li>
+                    <li>Does not verify the accuracy, safety, or appropriateness of generated content</li>
+                    <li>Is not responsible for content created by AI tools using these prompts</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>You acknowledge that:</strong></p>
+                    <ul>
+                        <li>AI-generated content may not always meet expectations</li>
+                        <li>Results vary based on AI tool, version, and settings</li>
+                        <li>You should review and validate AI-generated content before use</li>
+                        <li>You are responsible for ensuring generated content complies with applicable laws</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>3. Third-Party AI Tools</h2>
+                <p>Smart AI Prompt is not affiliated with, endorsed by, or sponsored by any AI tool providers including but not limited to:</p>
+                <ul>
+                    <li>OpenAI (ChatGPT, DALL·E)</li>
+                    <li>Midjourney</li>
+                    <li>Stability AI (Stable Diffusion)</li>
+                    <li>Any other AI platform</li>
+                </ul>
+                
+                <p>Use of third-party AI tools is subject to their respective terms of service and privacy policies. You are responsible for:</p>
+                <ul>
+                    <li>Understanding and complying with each AI tool's terms of service</li>
+                    <li>Any costs, fees, or subscriptions required by AI tool providers</li>
+                    <li>Obtaining necessary licenses or permissions for generated content</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>4. Intellectual Property</h2>
+                <ul>
+                    <li>App design, UI, code, branding, and compilation belong to SoftTech Service</li>
+                    <li>Prompt templates provided in the app are curated by SoftTech Service</li>
+                    <li>You may use prompts from the app for your personal or commercial projects</li>
+                    <li>You may not copy, modify, redistribute, or reverse-engineer the app without permission</li>
+                    <li>You may not use the app's name, logo, or branding without authorization</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <p><strong>SoftTech Service is not liable for:</strong></p>
+                <ul>
+                    <li>Any damages, losses, or costs arising from use of the app</li>
+                    <li>Content generated by AI tools using prompts from the app</li>
+                    <li>Violation of third-party rights or laws resulting from AI-generated content</li>
+                    <li>Loss of data or favorites stored in the app</li>
+                    <li>Incompatibility with your device or Android version</li>
+                    <li>Interruption or discontinuation of the app service</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p>To the maximum extent permitted by law, SoftTech Service disclaims all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>6. App Availability</h2>
+                <ul>
+                    <li>We reserve the right to modify, suspend, or discontinue the app at any time</li>
+                    <li>We may release updates that add, modify, or remove features</li>
+                    <li>We do not guarantee continuous, uninterrupted, or error-free operation</li>
+                    <li>You may stop using the app at any time</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>7. Termination</h2>
+                <p>We may suspend or terminate your access to the app if you:</p>
+                <ul>
+                    <li>Violate these Terms & Conditions</li>
+                    <li>Misuse the app in any way</li>
+                    <li>Engage in illegal activities</li>
+                    <li>Infringe upon intellectual property rights</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>8. Changes to Terms</h2>
+                <p>We may update these Terms & Conditions from time to time. Changes will be effective when posted on this page or in the app.</p>
+                <p>Your continued use of the app after changes are posted constitutes acceptance of the updated terms. If you do not agree to the changes, you should stop using the app.</p>
+            </div>
+            
+            <div class="section">
+                <h2>9. Governing Law</h2>
+                <p>These Terms & Conditions are governed by the laws of the jurisdiction where SoftTech Service operates. Any disputes shall be resolved in the appropriate courts of that jurisdiction.</p>
+            </div>
+            
+            <div class="section">
+                <h2>10. Contact Information</h2>
+                <p>For questions about these Terms & Conditions, please contact us:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site/" target="_blank" style="text-decoration: underline;">https://softtechservice.site/</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright © 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">This software and associated documentation files (the "Software") are proprietary and confidential. 
+                    Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited 
+                    without the express written permission of SoftTech Service.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <ul>
+                    <li>All app design, UI, code, branding, and compilation belong exclusively to SoftTech Service</li>
+                    <li>Smart AI Prompt and all related trademarks are property of SoftTech Service</li>
+                    <li>Prompt templates curated and provided in the app are the intellectual property of SoftTech Service</li>
+                    <li>You may use prompts from the app for your projects, but may not redistribute the prompt collection</li>
+                    <li>You may not copy, modify, reverse-engineer, decompile, or disassemble the software</li>
+                    <li>You may not create derivative works based on the app without permission</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Third-Party Libraries</h2>
+                <p>This software uses third-party libraries and frameworks that are subject to their respective open-source licenses:</p>
+                <ul>
+                    <li><strong>AndroidX Libraries</strong> - Apache License 2.0</li>
+                    <li><strong>Material Design Components</strong> - Apache License 2.0</li>
+                    <li><strong>Navigation Component</strong> - Apache License 2.0</li>
+                    <li><strong>ViewBinding</strong> - Apache License 2.0</li>
+                    <li><strong>Kotlin Standard Library</strong> - Apache License 2.0</li>
+                </ul>
+                
+                <p>These libraries are used in accordance with their respective licenses. The open-source nature of these libraries does not affect the proprietary nature of Smart AI Prompt as a whole.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Usage Rights</h2>
+                <p>SoftTech Service grants you a limited, non-exclusive, non-transferable, revocable license to:</p>
+                <ul>
+                    <li>Download and install the app on your personal Android devices</li>
+                    <li>Use the app for personal or commercial purposes</li>
+                    <li>Copy and use prompts from the app with AI tools</li>
+                    <li>Modify prompts for your specific use cases</li>
+                </ul>
+                
+                <p>This license does NOT permit you to:</p>
+                <ul>
+                    <li>Redistribute the app or its components</li>
+                    <li>Extract and redistribute the prompt database</li>
+                    <li>Use the app's branding or trademarks</li>
+                    <li>Create competing products based on the app</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <div class="highlight">
+                    <p><strong>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+                    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.</strong></p>
+                    <p style="margin-top: 1rem;">IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+                    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH 
+                    THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Enforcement</h2>
+                <p>SoftTech Service reserves the right to enforce its intellectual property rights to the fullest extent permitted by law. 
+                Violation of this license may result in legal action, including but not limited to:</p>
+                <ul>
+                    <li>Cease and desist orders</li>
+                    <li>Monetary damages</li>
+                    <li>Injunction relief</li>
+                    <li>Recovery of legal costs</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Contact Information</h2>
+                <p>For licensing inquiries, permissions, or questions about intellectual property, please contact:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site/" target="_blank" style="text-decoration: underline;">https://softtechservice.site/</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            const activateTab = (tabId) => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                const activeTabButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+                const activeTabContent = document.getElementById(tabId);
+                
+                if (activeTabButton) activeTabButton.classList.add('active');
+                if (activeTabContent) activeTabContent.classList.add('active');
+            };
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    history.pushState(null, '', `#${tabId}`);
+                    activateTab(tabId);
+                });
+            });
+            
+            // Handle initial load and hash changes
+            const initialTab = window.location.hash ? window.location.hash.substring(1) : 'privacy';
+            if (['privacy', 'terms', 'license'].includes(initialTab)) {
+                activateTab(initialTab);
+            }
+            
+            window.addEventListener('hashchange', () => {
+                const tabId = window.location.hash.substring(1);
+                if (['privacy', 'terms', 'license'].includes(tabId)) {
+                    activateTab(tabId);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
