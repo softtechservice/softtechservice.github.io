@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Ultra Doc Scanner | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy and Terms & Conditions for Ultra Doc Scanner Android & iOS App by SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #30277C;
+            --primary-dark: #251F63;
+            --accent: #30277C;
+            --accent-light: #4A3BA3;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(48, 39, 124, 0.1);
+            overflow: hidden;
+        }
+        
+        .header-section {
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .header-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .back-link::before {
+            content: '← ';
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #1E293B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+        
+        h4 {
+            color: #334155;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: rgba(48, 39, 124, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #475569;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content {
+                padding: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .container {
+                border-radius: 12px;
+            }
+            
+            .header-section {
+                padding: 1.5rem;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+            
+            .tab-button {
+                min-width: 120px;
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                margin-top: 2.5rem;
+            }
+            
+            h3 {
+                font-size: 1.25rem;
+                margin-top: 1.5rem;
+            }
+            
+            h4 {
+                font-size: 1.125rem;
+            }
+            
+            .section {
+                margin-bottom: 2.5rem;
+            }
+            
+            table {
+                font-size: 0.875rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            thead, tbody, tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+                word-wrap: break-word;
+            }
+            
+            .contact-box {
+                padding: 1.5rem;
+            }
+            
+            .highlight {
+                padding: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 0.25rem;
+            }
+            
+            .header-section {
+                padding: 1.25rem 1rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.75rem;
+            }
+            
+            .tab-button {
+                min-width: 100px;
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.125rem;
+            }
+            
+            p, li {
+                font-size: 0.9375rem;
+            }
+            
+            .back-link {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+            
+            table {
+                font-size: 0.8125rem;
+            }
+            
+            th, td {
+                padding: 0.5rem 0.375rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <h1>Ultra Doc Scanner</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Last updated:</strong> January 2026 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">📜 Terms & Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">📄 License & Copyright</button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>Ultra Doc Scanner ("we", "our", or "the app") respects your privacy and is committed to protecting user data. This Privacy Policy explains how information is collected, used, and protected when you use our Android and iOS application.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔍 Information We Collect</h2>
+                
+                <h3>1. Information You Provide</h3>
+                <ul>
+                    <li>Scanned documents and images</li>
+                    <li>PDF files you create or edit</li>
+                    <li>E-signatures you draw</li>
+                    <li>Extracted text from OCR</li>
+                    <li>Profile information (name, avatar) - optional</li>
+                    <li>App preferences (theme settings)</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Important:</strong> All documents, images, PDFs, and extracted text are stored locally on your device only. We do not upload, transmit, or store your documents on any external servers.</p>
+                </div>
+                
+                <h3>2. Automatically Collected Information</h3>
+                <p><strong>We do NOT collect:</strong></p>
+                <ul>
+                    <li>Personal identity information (names, email addresses, phone numbers)</li>
+                    <li>Location data</li>
+                    <li>Device identifiers for tracking</li>
+                    <li>Browsing history or app usage patterns</li>
+                    <li>Contact lists or calendar data</li>
+                </ul>
+                
+                <h3>3. Advertising Data (Google AdMob)</h3>
+                <p>Our app uses Google AdMob to display advertisements. AdMob may collect certain information automatically, including:</p>
+                <ul>
+                    <li>Device advertising identifiers (Android Advertising ID, iOS Identifier for Advertisers)</li>
+                    <li>Approximate location (based on IP address)</li>
+                    <li>App usage data for ad personalization</li>
+                </ul>
+                <p>This data collection is handled by Google AdMob in accordance with their Privacy Policy. You can opt out of personalized ads in your device settings.</p>
+                <p><strong>AdMob Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+            </div>
+            
+            <div class="section">
+                <h2>📱 Permissions Usage</h2>
+                <p>The app requests permissions only to provide core functionality:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Camera</strong></td>
+                            <td>Scan documents using your device camera. Images are processed locally and stored only on your device.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage / Photos</strong></td>
+                            <td>Save scanned documents, PDFs, and images. Access images from gallery for scanning or editing. Required for document management features.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Internet</strong></td>
+                            <td>Display advertisements via Google AdMob. Not required for core app functionality.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="highlight">
+                    <p><strong>Note:</strong> The app does NOT require READ_MEDIA_IMAGES permission on Android 13+ as it uses scoped storage APIs (file_picker, image_picker) which comply with Google Play's Photo and Video Permissions policy.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🔐 Data Storage & Security</h2>
+                <ul>
+                    <li><strong>Local Storage:</strong> All documents, PDFs, images, and extracted text are stored locally on your device using SQLite and Hive databases</li>
+                    <li><strong>No Cloud Sync:</strong> We do not sync, backup, or upload your documents to any cloud service</li>
+                    <li><strong>No External Servers:</strong> Your documents never leave your device</li>
+                    <li><strong>No Third-Party Analytics:</strong> We do not use analytics SDKs to track your app usage</li>
+                    <li><strong>Data Deletion:</strong> You can delete any document, PDF, or extracted text at any time from within the app. Clearing app data will remove all stored information</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>🌐 Third-Party Services</h2>
+                
+                <h3>Google AdMob</h3>
+                <p>We use Google AdMob to display advertisements in our app. AdMob may collect and process data according to their Privacy Policy. You can manage ad personalization in your device settings.</p>
+                <p><strong>AdMob Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+                
+                <h3>Google ML Kit (OCR)</h3>
+                <p>We use Google ML Kit for text recognition (OCR). Text recognition is performed locally on your device. Google ML Kit may process images locally but does not transmit your images to Google servers.</p>
+                <p><strong>ML Kit Privacy Policy:</strong> <a href="https://developers.google.com/ml-kit/terms" target="_blank">https://developers.google.com/ml-kit/terms</a></p>
+                
+                <h3>Other Third-Party Libraries</h3>
+                <p>The app uses open-source libraries (Flutter packages) that are subject to their respective licenses. These libraries do not collect personal data.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🌍 Data Transfer & International Users</h2>
+                <p>Since all your documents and data are stored locally on your device, there is no international data transfer. However, Google AdMob may process advertising data according to their international data transfer policies.</p>
+            </div>
+            
+            <div class="section">
+                <h2>👤 Your Rights</h2>
+                <p>You have the following rights regarding your data:</p>
+                <ul>
+                    <li><strong>Access:</strong> You can access all your documents, PDFs, and extracted text within the app</li>
+                    <li><strong>Delete:</strong> You can delete any document, PDF, or extracted text at any time. You can also clear all app data by uninstalling the app or clearing app data from device settings</li>
+                    <li><strong>Export:</strong> You can export and share your documents, PDFs, and extracted text using the app's share functionality</li>
+                    <li><strong>Opt-Out of Ads:</strong> You can opt out of personalized ads in your device settings (Android: Settings > Google > Ads > Opt out of Ads Personalization; iOS: Settings > Privacy > Apple Advertising > Limit Ad Tracking)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>👶 Children's Privacy</h2>
+                <p>Ultra Doc Scanner does not knowingly collect personal information from children under the age of 13. Since the app stores all data locally and does not require user registration, it is generally safe for children to use under parental supervision.</p>
+                <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately so we can delete such information.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔄 Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically to reflect changes in our practices or for legal, operational, or regulatory reasons. Any changes will be reflected here with an updated "Last updated" date.</p>
+                <p>We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.</p>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Us</h2>
+                <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By downloading, installing, or using Ultra Doc Scanner ("the app"), you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use the app.</p>
+            </div>
+            
+            <div class="section">
+                <h2>1. App Usage</h2>
+                <ul>
+                    <li>The app is provided "as is" without warranties of any kind</li>
+                    <li>You agree to use the app for lawful purposes only</li>
+                    <li>You are responsible for how you use scanned documents, PDFs, and extracted text</li>
+                    <li>You must not use the app to violate any laws or infringe on the rights of others</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>2. Document Scanning & OCR Disclaimer</h2>
+                <p><strong>Ultra Doc Scanner:</strong></p>
+                <ul>
+                    <li>Provides document scanning, OCR, and PDF tools as a service</li>
+                    <li>Does not verify the accuracy, authenticity, or legality of scanned content</li>
+                    <li>OCR text extraction may contain errors and should be verified before use</li>
+                    <li>Is not responsible for the content of scanned documents or extracted text</li>
+                </ul>
+                <p><strong>You are responsible for:</strong></p>
+                <ul>
+                    <li>Ensuring you have the right to scan and process documents</li>
+                    <li>Verifying the accuracy of OCR-extracted text</li>
+                    <li>Complying with copyright and privacy laws when scanning documents</li>
+                    <li>Protecting sensitive information in scanned documents</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>3. E-Signature & PDF Tools</h2>
+                <ul>
+                    <li>E-signatures created in the app are for convenience purposes</li>
+                    <li>The legal validity of e-signatures depends on applicable laws in your jurisdiction</li>
+                    <li>We are not responsible for the legal enforceability of e-signatures</li>
+                    <li>PDF tools (merge, split, compress, etc.) are provided as-is without guarantees</li>
+                    <li>Always verify PDF files after using PDF manipulation tools</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>4. Data Loss & Backup</h2>
+                <ul>
+                    <li>All documents are stored locally on your device</li>
+                    <li>We recommend backing up important documents regularly</li>
+                    <li>We are not responsible for data loss due to device failure, app uninstallation, or clearing app data</li>
+                    <li>You are responsible for maintaining backups of your important documents</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>5. Advertising</h2>
+                <ul>
+                    <li>The app displays advertisements via Google AdMob</li>
+                    <li>We are not responsible for the content of advertisements</li>
+                    <li>Clicking on advertisements may redirect you to third-party websites or apps</li>
+                    <li>We are not responsible for any interactions with third-party advertisers</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>6. Intellectual Property</h2>
+                <ul>
+                    <li>App design, UI, code, and branding belong to SoftTech Service</li>
+                    <li>You may not copy, modify, reverse engineer, or redistribute the app without permission</li>
+                    <li>Third-party libraries and services are subject to their respective licenses</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>7. Limitation of Liability</h2>
+                <p><strong>SoftTech Service is not liable for:</strong></p>
+                <ul>
+                    <li>Data loss or corruption</li>
+                    <li>Financial loss resulting from use of the app</li>
+                    <li>Damage caused by third-party services (AdMob, ML Kit, etc.)</li>
+                    <li>Inaccuracies in OCR text extraction</li>
+                    <li>Legal issues arising from scanned documents or e-signatures</li>
+                    <li>Device damage or malfunction</li>
+                </ul>
+                <p>Use the app at your own discretion and risk.</p>
+            </div>
+            
+            <div class="section">
+                <h2>8. Termination</h2>
+                <p>We may suspend or terminate your access to the app if you violate these Terms & Conditions or applicable laws. You may stop using the app at any time by uninstalling it.</p>
+            </div>
+            
+            <div class="section">
+                <h2>9. Changes to Terms</h2>
+                <p>We may update these Terms & Conditions periodically. Continued use of the app after changes means you accept the updated terms. We recommend reviewing these terms periodically.</p>
+            </div>
+            
+            <div class="section">
+                <h2>10. Governing Law</h2>
+                <p>These Terms & Conditions are governed by applicable laws. Any disputes will be resolved in accordance with applicable legal procedures.</p>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright © 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">This software and associated documentation files (the "Software") are proprietary and confidential. 
+                    Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited 
+                    without the express written permission of SoftTech Service.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <ul>
+                    <li>All app design, UI, code, and branding belong to SoftTech Service</li>
+                    <li>Ultra Doc Scanner and all related trademarks are property of SoftTech Service</li>
+                    <li>You may not copy, modify, or redistribute the app without permission</li>
+                    <li>Reverse engineering, decompiling, or disassembling the software is prohibited</li>
+                    <li>Creating derivative works based on the app is prohibited</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Third-Party Libraries</h2>
+                <p>This software uses third-party libraries and services that are subject to their respective licenses:</p>
+                <ul>
+                    <li><strong>Flutter Framework</strong> - BSD 3-Clause License</li>
+                    <li><strong>Google ML Kit</strong> - Apache License 2.0</li>
+                    <li><strong>Syncfusion Flutter PDF</strong> - Commercial License</li>
+                    <li><strong>Google Mobile Ads (AdMob)</strong> - Apache License 2.0</li>
+                    <li><strong>Camera Plugin</strong> - BSD 3-Clause License</li>
+                    <li><strong>Image Processing Libraries</strong> - Various licenses (BSD, MIT, Apache 2.0)</li>
+                    <li><strong>SQLite (sqflite)</strong> - MIT License</li>
+                    <li><strong>Hive</strong> - Apache License 2.0</li>
+                    <li><strong>Riverpod</strong> - MIT License</li>
+                    <li><strong>GoRouter</strong> - MIT License</li>
+                    <li><strong>Other Flutter Packages</strong> - Subject to their respective licenses</li>
+                </ul>
+                <p>These libraries are used in accordance with their respective licenses. The open-source nature of these libraries does not affect the proprietary nature of Ultra Doc Scanner as a whole.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <div class="highlight">
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+                    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+                    IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+                    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Commercial Use</h2>
+                <p>Ultra Doc Scanner is a commercial product. Unauthorized distribution, resale, or use in commercial applications without proper licensing is prohibited.</p>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                    
+                    // Scroll to top of content
+                    document.getElementById(targetTab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
+            // Handle URL hash for direct tab access
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
