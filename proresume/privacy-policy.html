@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Pro Resume &amp; BioData Builder | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy and Terms & Conditions for Pro Resume &amp; BioData Builder Android & iOS App by SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #30277C;
+            --primary-dark: #251F63;
+            --accent: #30277C;
+            --accent-light: #4A3BA3;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(48, 39, 124, 0.1);
+            overflow: hidden;
+        }
+        
+        .header-section {
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .header-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .back-link::before {
+            content: '← ';
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #1E293B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+        
+        h4 {
+            color: #334155;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: rgba(48, 39, 124, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #475569;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content {
+                padding: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .container {
+                border-radius: 12px;
+            }
+            
+            .header-section {
+                padding: 1.5rem;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+            
+            .tab-button {
+                min-width: 120px;
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                margin-top: 2.5rem;
+            }
+            
+            h3 {
+                font-size: 1.25rem;
+                margin-top: 1.5rem;
+            }
+            
+            h4 {
+                font-size: 1.125rem;
+            }
+            
+            .section {
+                margin-bottom: 2.5rem;
+            }
+            
+            table {
+                font-size: 0.875rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            thead, tbody, tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+                word-wrap: break-word;
+            }
+            
+            .contact-box {
+                padding: 1.5rem;
+            }
+            
+            .highlight {
+                padding: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 0.25rem;
+            }
+            
+            .header-section {
+                padding: 1.25rem 1rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.75rem;
+            }
+            
+            .tab-button {
+                min-width: 100px;
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.125rem;
+            }
+            
+            p, li {
+                font-size: 0.9375rem;
+            }
+            
+            .back-link {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+            
+            table {
+                font-size: 0.8125rem;
+            }
+            
+            th, td {
+                padding: 0.5rem 0.375rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <h1>Pro Resume &amp; BioData Builder</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Last updated:</strong> 2026-01-26 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">📜 Terms & Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">📄 License & Copyright</button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>Pro Resume &amp; BioData Builder ("we", "our", or "the app") respects your privacy and is committed to protecting user data. This Privacy Policy explains how information is handled when you use our mobile application.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔍 Information We Collect</h2>
+                
+                <h3>1. Information You Provide</h3>
+                <ul>
+                    <li>Personal information (name, contact details, date of birth, gender, marital status)</li>
+                    <li>Family information (father's name, mother's name)</li>
+                    <li>Professional information (education, work experience, skills, projects, certifications)</li>
+                    <li>Resume and biodata content</li>
+                    <li>ID card and business card data</li>
+                    <li>Profile photos, signatures, and logos</li>
+                    <li>AI-generated content preferences</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Important:</strong> All user data, including profiles, resumes, biodata, ID cards, and business cards, is stored locally on your device only using Hive local storage.</p>
+                </div>
+                
+                <h3>2. User Profile Management</h3>
+                <p>User profiles are managed locally within the app. Each profile includes:</p>
+                <ul>
+                    <li>Personal information and family details</li>
+                    <li>Contact information (phone, email, WhatsApp)</li>
+                    <li>Address details (current and permanent)</li>
+                    <li>Professional summary</li>
+                    <li>Profile photo</li>
+                </ul>
+                <p><strong>Profile data is stored locally and never transmitted to external servers.</strong></p>
+                
+                <h3>3. Automatically Collected Information</h3>
+                <p><strong>We do NOT collect:</strong></p>
+                <ul>
+                    <li>Personal identity information on external servers</li>
+                    <li>Location data</li>
+                    <li>Device identifiers for tracking</li>
+                    <li>Analytics or user behavior data</li>
+                    <li>Resume or document content on servers</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>📱 Permissions Usage</h2>
+                <p>The app requests permissions only to provide core functionality:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Storage / Media Images</strong></td>
+                            <td>Upload photos for profiles, ID cards, business cards, and resumes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camera</strong></td>
+                            <td>Capture photos for profiles, ID cards, business cards, and signatures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Internet</strong></td>
+                            <td>AI content generation (Google Gemini API) - optional feature</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Share</strong></td>
+                            <td>Share exported PDFs, images, and profile data</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>All permissions are optional and requested only when needed for specific features.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🤖 AI-Powered Features</h2>
+                <p>Pro Resume &amp; BioData Builder includes optional AI-powered content generation using Google Gemini API:</p>
+                <ul>
+                    <li><strong>AI Configuration:</strong> Users can enable/disable AI features in Settings</li>
+                    <li><strong>API Key:</strong> Users provide their own Google Gemini API key, stored securely in local storage</li>
+                    <li><strong>Data Usage:</strong> When AI features are used, content is sent to Google Gemini API for processing</li>
+                    <li><strong>Privacy:</strong> AI API keys and generated content are not shared with us or third parties</li>
+                    <li><strong>Offline Mode:</strong> AI features require internet connection; app works fully offline without AI</li>
+                </ul>
+                <div class="highlight">
+                    <p><strong>Note:</strong> Google Gemini API usage is subject to Google's privacy policy. We do not store or access your API key or AI-generated content.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>💰 AdMob Integration</h2>
+                <p>The app uses Google AdMob for monetization:</p>
+                <ul>
+                    <li><strong>Banner Ads:</strong> Displayed on various screens</li>
+                    <li><strong>Interstitial Ads:</strong> Shown after successful document generation</li>
+                    <li><strong>Data Collection:</strong> AdMob may collect device identifiers and usage data as per Google's privacy policy</li>
+                    <li><strong>User Control:</strong> Ads can be disabled in app settings (if available)</li>
+                </ul>
+                <p>For more information about AdMob data collection, please review <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔐 Data Storage & Security</h2>
+                <ul>
+                    <li>All user data (profiles, resumes, biodata, ID cards, business cards) is stored locally using Hive (local database)</li>
+                    <li>No cloud sync or external server storage</li>
+                    <li>No third-party analytics SDKs</li>
+                    <li>Data is stored on your device and can be deleted anytime</li>
+                    <li>You can export and backup your data manually</li>
+                    <li>Profile data is managed locally and never transmitted to external servers</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>📤 Export & Sharing</h2>
+                <p>When you export or share documents:</p>
+                <ul>
+                    <li>PDFs, PNGs, and JPGs are generated locally on your device</li>
+                    <li>Sharing is handled by your device's native sharing system</li>
+                    <li>We do not have access to shared content</li>
+                    <li>Profile data sharing is optional and user-initiated</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>🌐 Internet Usage</h2>
+                <p>The app works fully offline for core features.</p>
+                <p>Internet is used only when:</p>
+                <ul>
+                    <li>AI content generation is enabled and used (Google Gemini API)</li>
+                    <li>AdMob ads are displayed (Google AdMob)</li>
+                </ul>
+                <p>All document creation, editing, and local storage work without internet connection.</p>
+            </div>
+            
+            <div class="section">
+                <h2>👶 Children's Privacy</h2>
+                <p>Pro Resume &amp; BioData Builder does not target children under 13 and does not knowingly collect any personal data from children.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔄 Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. Any changes will be reflected here with an updated date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Us</h2>
+                <p>If you have questions about this Privacy Policy:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By downloading or using Pro Resume &amp; BioData Builder, you agree to the following Terms & Conditions.</p>
+            </div>
+            
+            <div class="section">
+                <h2>1. App Usage</h2>
+                <ul>
+                    <li>The app is provided "as is"</li>
+                    <li>You agree to use the app for lawful purposes only</li>
+                    <li>You are responsible for the accuracy of information you enter</li>
+                    <li>You are responsible for how you use exported documents</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>2. Document Generation Disclaimer</h2>
+                <p><strong>Pro Resume &amp; BioData Builder:</strong></p>
+                <ul>
+                    <li>Provides templates and tools for document creation</li>
+                    <li>Does not guarantee job placement or career success</li>
+                    <li>Does not verify the accuracy of user-entered information</li>
+                    <li>AI-generated content is suggestions only and should be reviewed by the user</li>
+                </ul>
+                <p><strong>Is not responsible for:</strong></p>
+                <ul>
+                    <li>Rejection of resumes or documents by employers</li>
+                    <li>Inaccuracies in user-entered information</li>
+                    <li>Misuse of exported documents</li>
+                    <li>AI-generated content accuracy or appropriateness</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>3. AI-Powered Features</h2>
+                <ul>
+                    <li>AI features require a valid Google Gemini API key provided by the user</li>
+                    <li>AI-generated content is provided as suggestions and should be reviewed</li>
+                    <li>We are not responsible for AI-generated content accuracy</li>
+                    <li>Google Gemini API usage is subject to Google's terms of service</li>
+                    <li>Users are responsible for their API key security and usage</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>4. AdMob & Monetization</h2>
+                <p>The app displays advertisements through Google AdMob:</p>
+                <ul>
+                    <li>Ads are served by Google AdMob</li>
+                    <li>Ad content and targeting are controlled by Google</li>
+                    <li>We are not responsible for ad content or user interactions with ads</li>
+                    <li>AdMob data collection is subject to Google's privacy policy</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>5. Data & Privacy</h2>
+                <ul>
+                    <li>All user data is stored locally on your device</li>
+                    <li>You are responsible for backing up your data</li>
+                    <li>We are not responsible for data loss due to device issues or app uninstallation</li>
+                    <li>Profile data is managed locally and never transmitted to our servers</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>6. Intellectual Property</h2>
+                <ul>
+                    <li>App design, UI, code, and branding belong to SoftTech Service</li>
+                    <li>Document templates are provided for personal and professional use</li>
+                    <li>You may not copy, modify, or redistribute the app without permission</li>
+                    <li>Exported documents are your property, but template designs remain our intellectual property</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>7. Limitation of Liability</h2>
+                <p><strong>SoftTech Service is not liable for:</strong></p>
+                <ul>
+                    <li>Data loss or corruption</li>
+                    <li>Financial loss or missed opportunities</li>
+                    <li>Inaccuracies in user-entered or AI-generated content</li>
+                    <li>Document rejection by employers or third parties</li>
+                    <li>Misuse of exported documents</li>
+                    <li>Issues with third-party services (Google Gemini API, AdMob)</li>
+                </ul>
+                <p>Use the app at your own discretion and responsibility.</p>
+            </div>
+            
+            <div class="section">
+                <h2>8. Termination</h2>
+                <p>We may suspend or terminate access if the app is misused, violates applicable laws, or breaches these terms.</p>
+            </div>
+            
+            <div class="section">
+                <h2>9. Changes to Terms</h2>
+                <p>Terms may be updated periodically. Continued use of the app means you accept the updated terms.</p>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright © 2025 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">This software and associated documentation files (the "Software") are proprietary and confidential. 
+                    Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited 
+                    without the express written permission of SoftTech Service.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <ul>
+                    <li>All app design, UI, code, and branding belong to SoftTech Service</li>
+                    <li>Pro Resume &amp; BioData Builder and all related trademarks are property of SoftTech Service</li>
+                    <li>Document templates are provided for personal and professional use only</li>
+                    <li>You may not copy, modify, or redistribute the app without permission</li>
+                    <li>Reverse engineering, decompiling, or disassembling the software is prohibited</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Third-Party Libraries</h2>
+                <p>This software uses third-party libraries that are subject to their respective licenses:</p>
+                <ul>
+                    <li>Flutter by Google (BSD License)</li>
+                    <li>Riverpod (MIT License)</li>
+                    <li>Hive (Apache License 2.0)</li>
+                    <li>Google Gemini AI (Google Terms of Service)</li>
+                    <li>Google AdMob (Google Terms of Service)</li>
+                    <li>pdf & printing (BSD License)</li>
+                    <li>image, image_cropper, image_picker (MIT License)</li>
+                    <li>qr_flutter (MIT License)</li>
+                    <li>screenshot (MIT License)</li>
+                    <li>share_plus (MIT License)</li>
+                    <li>url_launcher (BSD License)</li>
+                    <li>google_fonts (Apache License 2.0)</li>
+                    <li>flutter_animate (MIT License)</li>
+                    <li>Other dependencies as listed in pubspec.yaml</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>User Data & Content</h2>
+                <ul>
+                    <li>User-entered data, profiles, resumes, biodata, ID cards, and business cards are the property of the user</li>
+                    <li>We do not claim ownership of user-generated content</li>
+                    <li>Users retain all rights to their exported documents</li>
+                    <li>Template designs remain our intellectual property</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <div class="highlight">
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+                    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+                    IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+                    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                    
+                    // Scroll to top of content
+                    document.getElementById(targetTab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
+            // Handle URL hash for direct tab access
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
