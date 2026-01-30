@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Knife Game | SoftTech Service</title>
+    <meta name="description"
+        content="Privacy Policy and Terms & Conditions for Knife Game Android App by SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #30277C;
+            --primary-dark: #251F63;
+            --accent: #30277C;
+            --accent-light: #4A3BA3;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(48, 39, 124, 0.1);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+        }
+
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .header-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .tabs::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #1E293B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: rgba(48, 39, 124, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #475569;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .container {
+                border-radius: 12px;
+            }
+
+            .header-section {
+                padding: 1.5rem;
+            }
+
+            .header-section h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+
+            .tab-button {
+                min-width: 120px;
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+                margin-top: 2.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                margin-top: 1.5rem;
+            }
+
+            h4 {
+                font-size: 1.125rem;
+            }
+
+            .section {
+                margin-bottom: 2.5rem;
+            }
+
+            table {
+                font-size: 0.875rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            thead,
+            tbody,
+            tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            th,
+            td {
+                padding: 0.75rem 0.5rem;
+                word-wrap: break-word;
+            }
+
+            .contact-box {
+                padding: 1.5rem;
+            }
+
+            .highlight {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.25rem;
+            }
+
+            .header-section {
+                padding: 1.25rem 1rem;
+            }
+
+            .header-section h1 {
+                font-size: 1.75rem;
+            }
+
+            .tab-button {
+                min-width: 100px;
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.125rem;
+            }
+
+            p,
+            li {
+                font-size: 0.9375rem;
+            }
+
+            .back-link {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+
+            table {
+                font-size: 0.8125rem;
+            }
+
+            th,
+            td {
+                padding: 0.5rem 0.375rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <h1>🔪 Knife Game</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Last updated:</strong> 2026-01-30 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">📜 Terms & Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">📄 License & Copyright</button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>Knife Game ("we", "our", or "the app") respects your privacy and is committed to protecting user
+                    data. This Privacy Policy explains how information is handled when you use our Android application.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>🔍 Information We Collect</h2>
+
+                <h3>1. Game Data</h3>
+                <ul>
+                    <li>Game scores and progress</li>
+                    <li>High score records</li>
+                    <li>Game settings and preferences</li>
+                    <li>Stage completion data</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>Important:</strong> All game data is stored locally on your device only. We do not
+                        collect or transmit this data to any servers.</p>
+                </div>
+
+                <h3>2. AdMob Data Collection</h3>
+                <p><strong>Google AdMob SDK collects:</strong></p>
+                <ul>
+                    <li>Device advertising ID</li>
+                    <li>IP address</li>
+                    <li>Device information (model, OS version)</li>
+                    <li>Ad interaction data</li>
+                    <li>App usage data for ad targeting</li>
+                </ul>
+
+                <p>This data is collected and processed by Google according to their <a
+                        href="https://policies.google.com/privacy" target="_blank"
+                        style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>.</p>
+
+                <h3>3. Information We Do NOT Collect</h3>
+                <ul>
+                    <li>Personal identity information</li>
+                    <li>Email addresses</li>
+                    <li>Phone numbers</li>
+                    <li>Contact information</li>
+                    <li>Location data (beyond what AdMob collects)</li>
+                    <li>Photos or media files</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📱 Permissions Usage</h2>
+                <p>The app requests minimal permissions to provide core functionality:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Internet</strong></td>
+                            <td>Required for displaying AdMob ads</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Access Network State</strong></td>
+                            <td>Check network connectivity for ads</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vibration</strong></td>
+                            <td>Haptic feedback during gameplay</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>🔐 Data Storage & Security</h2>
+                <ul>
+                    <li>All game data is stored locally on your device</li>
+                    <li>No cloud synchronization</li>
+                    <li>No external server storage of game data</li>
+                    <li>Data is cleared when you uninstall the app</li>
+                    <li>AdMob data is managed by Google's secure infrastructure</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📢 Advertising</h2>
+                <p>This app uses Google AdMob to display advertisements:</p>
+                <ul>
+                    <li><strong>Banner Ads:</strong> Displayed at the bottom of game screens and settings</li>
+                    <li><strong>Interstitial Ads:</strong> Shown when exiting the app</li>
+                    <li><strong>Ad Personalization:</strong> Google may use your advertising ID for personalized ads
+                    </li>
+                    <li><strong>Opt-Out:</strong> You can opt out of personalized ads in your device settings (Settings
+                        → Google → Ads)</li>
+                </ul>
+
+                <p>For more information about how Google uses data, visit:</p>
+                <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank"
+                            style="color: var(--primary); text-decoration: underline;">Google Privacy Policy</a></li>
+                    <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank"
+                            style="color: var(--primary); text-decoration: underline;">How Google uses data from apps
+                            that use their services</a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🌐 Third-Party Services</h2>
+                <p>This app uses the following third-party service:</p>
+                <ul>
+                    <li><strong>Google Mobile Ads SDK (AdMob):</strong> For serving advertisements</li>
+                </ul>
+                <p>We do not use any analytics, crash reporting, or other tracking services.</p>
+            </div>
+
+            <div class="section">
+                <h2>👶 Children's Privacy</h2>
+                <p>Knife Game is suitable for general audiences. We do not knowingly collect personal information from
+                    children under 13. The app uses AdMob ads which comply with Google's policies for child-directed
+                    content.</p>
+                <p>If you believe we have inadvertently collected information from a child under 13, please contact us
+                    immediately.</p>
+            </div>
+
+            <div class="section">
+                <h2>🗑️ Data Retention and Deletion</h2>
+                <ul>
+                    <li>Game data is stored locally until you uninstall the app</li>
+                    <li>You can clear game data from Android Settings → Apps → Knife Game → Storage → Clear Data</li>
+                    <li>AdMob data retention is managed by Google according to their policies</li>
+                    <li>For data deletion requests, contact us at the email below</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔄 Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. Any changes will be reflected here with an updated
+                    date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Us</h2>
+                <p>If you have questions about this Privacy Policy or data deletion requests:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p style="margin-top: 1rem;"><strong>Data Deletion:</strong> Email us to request deletion of any
+                        data associated with your use of the app.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By downloading or using Knife Game, you agree to the following Terms & Conditions.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. App Usage</h2>
+                <ul>
+                    <li>The app is provided "as is" for entertainment purposes</li>
+                    <li>You agree to use the app for lawful purposes only</li>
+                    <li>You must be at least 13 years old to use this app</li>
+                    <li>The app is free to download and play</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. Game Content</h2>
+                <p><strong>Knife Game:</strong></p>
+                <ul>
+                    <li>Is a casual entertainment game with knife throwing mechanics</li>
+                    <li>Does not promote violence or harmful behavior</li>
+                    <li>Is intended for entertainment purposes only</li>
+                    <li>May contain stylized game violence (knife throwing at targets)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Advertising</h2>
+                <p>The app displays advertisements through Google AdMob:</p>
+                <ul>
+                    <li>Ads are served by Google and third-party advertisers</li>
+                    <li>We are not responsible for the content of third-party ads</li>
+                    <li>Clicking on ads may redirect you to external websites</li>
+                    <li>Ad frequency and placement are subject to change</li>
+                    <li>We reserve the right to modify ad implementation at any time</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Intellectual Property</h2>
+                <ul>
+                    <li>App design, UI, code, and branding belong to SoftTech Service</li>
+                    <li>Game mechanics and assets are proprietary</li>
+                    <li>You may not copy, modify, or redistribute the app without permission</li>
+                    <li>Reverse engineering or decompiling is prohibited</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <p><strong>SoftTech Service is not liable for:</strong></p>
+                <ul>
+                    <li>Data loss due to device issues or app uninstallation</li>
+                    <li>Game progress loss</li>
+                    <li>Device performance issues</li>
+                    <li>Third-party ad content or external websites</li>
+                    <li>Any damages arising from app use</li>
+                </ul>
+
+                <div class="highlight">
+                    <p>THE APP IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. USE AT YOUR OWN RISK.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6. Updates and Modifications</h2>
+                <ul>
+                    <li>We may update the app to fix bugs or add features</li>
+                    <li>Updates may be required for continued use</li>
+                    <li>We reserve the right to modify or discontinue features</li>
+                    <li>No guarantee of backward compatibility</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>7. Termination</h2>
+                <p>We may suspend or terminate access if:</p>
+                <ul>
+                    <li>The app is misused or hacked</li>
+                    <li>Terms are violated</li>
+                    <li>Applicable laws are violated</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>8. Changes to Terms</h2>
+                <p>Terms may be updated periodically. Continued use of the app means you accept the updated terms. Check
+                    this page regularly for updates.</p>
+            </div>
+
+            <div class="section">
+                <h2>9. Governing Law</h2>
+                <p>These terms are governed by applicable laws. Any disputes shall be resolved in accordance with local
+                    jurisdiction.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright © 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">This software and associated documentation files (the "Software") are
+                        proprietary and confidential.
+                        Unauthorized copying, modification, distribution, or use of this software, via any medium, is
+                        strictly prohibited
+                        without the express written permission of SoftTech Service.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <ul>
+                    <li>All app design, UI, code, and branding belong to SoftTech Service</li>
+                    <li>Knife Game and all related trademarks are property of SoftTech Service</li>
+                    <li>Game mechanics, assets, and content are proprietary</li>
+                    <li>You may not copy, modify, or redistribute the app without permission</li>
+                    <li>Reverse engineering, decompiling, or disassembling the software is prohibited</li>
+                    <li>Screenshots and gameplay videos for personal use are permitted</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Third-Party Software</h2>
+                <p>This software uses third-party libraries and SDKs that are subject to their respective licenses:</p>
+
+                <h3>Google Mobile Ads SDK (AdMob)</h3>
+                <ul>
+                    <li>Used for displaying advertisements</li>
+                    <li>Subject to Google's terms and policies</li>
+                    <li>License: Proprietary (Google)</li>
+                </ul>
+
+                <h3>Android SDK & Libraries</h3>
+                <ul>
+                    <li>Android WebView (Apache License 2.0)</li>
+                    <li>Kotlin Standard Library (Apache License 2.0)</li>
+                    <li>Material Design Components (Apache License 2.0)</li>
+                </ul>
+
+                <h3>Game Engine</h3>
+                <ul>
+                    <li>HTML5/JavaScript game framework</li>
+                    <li>Custom game logic by SoftTech Service</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>License Grant</h2>
+                <p>Subject to your compliance with these terms, SoftTech Service grants you a limited, non-exclusive,
+                    non-transferable, revocable license to:</p>
+                <ul>
+                    <li>Download and install the app on your personal device</li>
+                    <li>Use the app for personal, non-commercial purposes</li>
+                    <li>Access and play the game</li>
+                </ul>
+
+                <p><strong>You may NOT:</strong></p>
+                <ul>
+                    <li>Distribute, sell, or sublicense the app</li>
+                    <li>Modify, adapt, or create derivative works</li>
+                    <li>Reverse engineer or decompile the app</li>
+                    <li>Remove or alter any proprietary notices</li>
+                    <li>Use the app for commercial purposes</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <div class="highlight">
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+                        INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+                        AND NONINFRINGEMENT.
+                        IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+                        IN AN ACTION OF CONTRACT,
+                        TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+                        DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Trademark Information</h2>
+                <p>The following are trademarks of SoftTech Service:</p>
+                <ul>
+                    <li>Knife Game™</li>
+                    <li>SoftTech Service™</li>
+                    <li>App logo and branding elements</li>
+                </ul>
+                <p>All other trademarks mentioned are the property of their respective owners.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <p>For licensing inquiries or copyright questions:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+
+                    // Scroll to top of content
+                    document.getElementById(targetTab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            // Handle URL hash for direct tab access
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
