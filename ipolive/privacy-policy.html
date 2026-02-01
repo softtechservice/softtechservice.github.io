@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Live IPO | SoftTech Service</title>
+    <meta name="description"
+        content="Privacy Policy and Terms & Conditions for Live IPO - Real-time IPO GMP & Subscription Tracker by SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #30277C;
+            --primary-dark: #251F63;
+            --accent: #30277C;
+            --accent-light: #4A3BA3;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+            --warning: #F59E0B;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(48, 39, 124, 0.1);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+        }
+
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .header-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .tabs::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(48, 39, 124, 0.05);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #1E293B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: rgba(48, 39, 124, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-box {
+            background: rgba(245, 158, 11, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid var(--warning);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #475569;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .container {
+                border-radius: 12px;
+            }
+
+            .header-section {
+                padding: 1.5rem;
+            }
+
+            .header-section h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+
+            .tab-button {
+                min-width: 120px;
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+                margin-top: 2.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                margin-top: 1.5rem;
+            }
+
+            h4 {
+                font-size: 1.125rem;
+            }
+
+            .section {
+                margin-bottom: 2.5rem;
+            }
+
+            table {
+                font-size: 0.875rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            thead,
+            tbody,
+            tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            th,
+            td {
+                padding: 0.75rem 0.5rem;
+                word-wrap: break-word;
+            }
+
+            .contact-box {
+                padding: 1.5rem;
+            }
+
+            .highlight,
+            .warning-box {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.25rem;
+            }
+
+            .header-section {
+                padding: 1.25rem 1rem;
+            }
+
+            .header-section h1 {
+                font-size: 1.75rem;
+            }
+
+            .tab-button {
+                min-width: 100px;
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.125rem;
+            }
+
+            p,
+            li {
+                font-size: 0.9375rem;
+            }
+
+            .back-link {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+
+            table {
+                font-size: 0.8125rem;
+            }
+
+            th,
+            td {
+                padding: 0.5rem 0.375rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <h1>📊 Live IPO</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Last updated:</strong> 2026-02-01 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">📜 Terms & Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="disclaimer">⚠️ Disclaimer</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">📄 License</button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>Live IPO ("we", "our", or "the app") respects your privacy and is committed to protecting user data.
+                    This Privacy Policy explains how information is handled when you use our Flutter application.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔍 Information We Collect</h2>
+
+                <h3>1. Information You Provide</h3>
+                <ul>
+                    <li>Calculator inputs (for IPO, SIP, EMI calculations, etc.)</li>
+                    <li>App preferences and settings</li>
+                    <li>Theme preferences (light/dark mode)</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>Important:</strong> All calculator data and preferences are stored locally on your device
+                        only. We do not collect or transmit this data to any servers.</p>
+                </div>
+
+                <h3>2. Automatically Collected Information</h3>
+                <p><strong>Firebase Analytics:</strong></p>
+                <ul>
+                    <li>App usage patterns and feature interactions</li>
+                    <li>Screen views and navigation flows</li>
+                    <li>Device information (model, OS version)</li>
+                    <li>Crash reports and error logs (Firebase Crashlytics)</li>
+                </ul>
+
+                <p><strong>We do NOT collect:</strong></p>
+                <ul>
+                    <li>Personal identity information</li>
+                    <li>Email addresses or phone numbers</li>
+                    <li>Financial transaction data</li>
+                    <li>Precise location data</li>
+                    <li>Contact information</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📱 Permissions Usage</h2>
+                <p>The app requests minimal permissions:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Internet</strong></td>
+                            <td>Fetch live IPO data, GMP updates, subscription information</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Network State</strong></td>
+                            <td>Monitor connectivity for cache management</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Notifications</strong></td>
+                            <td>Send IPO event alerts via Firebase Cloud Messaging (optional)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>🔐 Data Storage & Security</h2>
+                <ul>
+                    <li><strong>Local Storage:</strong> Calculator history and preferences stored using Hive database
+                    </li>
+                    <li><strong>Cache:</strong> IPO data cached locally for 10 minutes for offline access</li>
+                    <li><strong>Firebase:</strong> Anonymous analytics and crash reports only</li>
+                    <li><strong>No Cloud Sync:</strong> Your calculator data never leaves your device</li>
+                    <li><strong>Data Deletion:</strong> Uninstalling the app removes all local data</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🌐 Third-Party Services</h2>
+                <p>The app uses the following third-party services:</p>
+
+                <h3>Firebase Services (Google)</h3>
+                <ul>
+                    <li><strong>Firebase Analytics:</strong> Anonymous usage analytics</li>
+                    <li><strong>Firebase Crashlytics:</strong> Crash reporting and stability monitoring</li>
+                    <li><strong>Firebase Remote Config:</strong> Dynamic app configuration</li>
+                    <li><strong>Firebase Cloud Messaging:</strong> Push notifications for IPO events</li>
+                </ul>
+                <p>Firebase Privacy Policy: <a href="https://firebase.google.com/support/privacy"
+                        target="_blank">https://firebase.google.com/support/privacy</a></p>
+
+                <h3>IPO Data Sources</h3>
+                <p>IPO data is fetched from public APIs. We do not control or guarantee the accuracy of this data.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔄 Data Sharing</h2>
+                <p><strong>We do NOT share, sell, or rent your personal data.</strong></p>
+                <p>Anonymous analytics data is shared with Firebase (Google) for app improvement purposes only.</p>
+            </div>
+
+            <div class="section">
+                <h2>👶 Children's Privacy</h2>
+                <p>Live IPO does not target children under 13 and does not knowingly collect any personal data from
+                    children.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔄 Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. Any changes will be reflected here with an updated
+                    date. Continued use of the app constitutes acceptance of the updated policy.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Us</h2>
+                <p>If you have questions about this Privacy Policy or want to request data deletion:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By downloading or using Live IPO, you agree to the following Terms & Conditions.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. App Usage</h2>
+                <ul>
+                    <li>The app is provided "as is" without warranties</li>
+                    <li>You agree to use the app for lawful purposes only</li>
+                    <li>You are responsible for your investment decisions</li>
+                    <li>Internet connection required for live data updates</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. IPO Data Accuracy</h2>
+                <div class="warning-box">
+                    <p><strong>Important:</strong> IPO data, GMP values, and subscription information are gathered from
+                        various public sources and may not always be accurate, complete, or up-to-date.</p>
+                </div>
+                <ul>
+                    <li>Data may change frequently without notice</li>
+                    <li>We do not guarantee accuracy or completeness</li>
+                    <li>Always verify information from official sources</li>
+                    <li>Past performance does not guarantee future results</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Financial Calculators</h2>
+                <p><strong>Calculator results are estimates only:</strong></p>
+                <ul>
+                    <li>Results are based on inputs you provide</li>
+                    <li>Actual returns may vary significantly</li>
+                    <li>Market conditions affect real-world outcomes</li>
+                    <li>Consult a financial advisor for personalized advice</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Not Financial Advice</h2>
+                <div class="warning-box">
+                    <p><strong>Disclaimer:</strong> This app is NOT a financial advisory platform. Nothing displayed
+                        should be considered investment advice, recommendation, or guidance.</p>
+                </div>
+                <ul>
+                    <li>We are not SEBI registered advisors</li>
+                    <li>App provides information only, not advice</li>
+                    <li>Conduct your own research before investing</li>
+                    <li>Consult certified financial advisors for guidance</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5. Intellectual Property</h2>
+                <ul>
+                    <li>App design, UI, code, and branding belong to SoftTech Service</li>
+                    <li>You may not copy, modify, or redistribute the app without permission</li>
+                    <li>Reverse engineering is prohibited</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6. Limitation of Liability</h2>
+                <p><strong>SoftTech Service is NOT liable for:</strong></p>
+                <ul>
+                    <li>Financial losses from investment decisions</li>
+                    <li>Inaccurate or outdated IPO data</li>
+                    <li>Calculator estimation errors</li>
+                    <li>Service interruptions or downtime</li>
+                    <li>Data loss or corruption</li>
+                    <li>Third-party service failures</li>
+                </ul>
+                <p><strong>Use the app at your own risk and discretion.</strong></p>
+            </div>
+
+            <div class="section">
+                <h2>7. Service Availability</h2>
+                <ul>
+                    <li>We strive for 24/7 availability but do not guarantee it</li>
+                    <li>Maintenance may cause temporary interruptions</li>
+                    <li>Data sources may become unavailable</li>
+                    <li>We reserve the right to modify or discontinue features</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>8. Changes to Terms</h2>
+                <p>Terms may be updated periodically. Continued use of the app means you accept the updated terms.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Disclaimer -->
+        <div id="disclaimer" class="tab-content">
+            <div class="section">
+                <h2>⚠️ Important Disclaimer</h2>
+                <div class="warning-box">
+                    <p><strong>READ CAREFULLY BEFORE USING THIS APP</strong></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>About This App</h2>
+                <p>Live IPO provides general information related to IPOs, Grey Market Premium (GMP) values, subscription
+                    data, and financial calculators. This app is designed for informational and educational purposes
+                    only.</p>
+            </div>
+
+            <div class="section">
+                <h2>Data Accuracy & Sources</h2>
+                <div class="highlight">
+                    <p><strong>All GMP figures and IPO data displayed in the app are gathered from various public
+                            platforms, market trackers, and user-based sources.</strong></p>
+                </div>
+                <ul>
+                    <li>Data may change frequently and without notice</li>
+                    <li>Information may sometimes be incorrect, outdated, or misleading</li>
+                    <li>We do not verify or guarantee the accuracy of third-party data</li>
+                    <li>Always verify information from official sources before making decisions</li>
+                    <li>Check company prospectus and SEBI filings for accurate information</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Not Financial Advice</h2>
+                <div class="warning-box">
+                    <p><strong>This app is NOT a financial advisory platform.</strong></p>
+                    <p>Nothing displayed here should be considered investment advice, recommendation, or guidance.</p>
+                </div>
+                <ul>
+                    <li>We are not SEBI registered investment advisors</li>
+                    <li>App provides information only, not personalized advice</li>
+                    <li>Past IPO performance does not guarantee future results</li>
+                    <li>GMP values are unofficial and may not reflect actual listing gains</li>
+                    <li>Calculator results are estimates based on assumptions</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Your Responsibility</h2>
+                <p><strong>By using this app, you acknowledge and agree that:</strong></p>
+                <ul>
+                    <li>You are solely responsible for your investment decisions</li>
+                    <li>You will conduct your own research and due diligence</li>
+                    <li>You will consult certified financial advisors before investing</li>
+                    <li>You understand the risks involved in securities investment</li>
+                    <li>The developers are NOT responsible for any financial outcomes</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Investment Risks</h2>
+                <div class="warning-box">
+                    <p><strong>IMPORTANT NOTICE:</strong></p>
+                    <p>Investment in securities market are subject to market risks. Read all the related documents
+                        carefully before investing.</p>
+                </div>
+                <ul>
+                    <li>IPO investments carry significant risks</li>
+                    <li>You may lose part or all of your investment</li>
+                    <li>Market conditions can change rapidly</li>
+                    <li>Past performance is not indicative of future results</li>
+                    <li>GMP is not guaranteed and may not materialize</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <p><strong>The developers are NOT responsible for:</strong></p>
+                <ul>
+                    <li>Any financial loss or profit from investment decisions</li>
+                    <li>Decisions made based on app information</li>
+                    <li>Actions taken based on GMP data or calculator results</li>
+                    <li>Inaccurate, incomplete, or outdated information</li>
+                    <li>Third-party data source errors or failures</li>
+                    <li>Service interruptions or data unavailability</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>ALL INVESTMENT DECISIONS ARE SOLELY YOUR OWN RESPONSIBILITY.</strong></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Consult Professionals</h2>
+                <p>Before making any investment decisions:</p>
+                <ul>
+                    <li>Consult a SEBI registered financial advisor</li>
+                    <li>Read the company's prospectus thoroughly</li>
+                    <li>Understand the risks involved</li>
+                    <li>Assess your financial situation and goals</li>
+                    <li>Verify all information from official sources</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright © 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">This software and associated documentation files (the "Software") are
+                        licensed under the MIT License.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>MIT License</h2>
+                <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+                    associated documentation files (the "Software"), to deal in the Software without restriction,
+                    including without limitation the rights to use, copy, modify, merge, publish, distribute,
+                    sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+                    furnished to do so, subject to the following conditions:</p>
+
+                <p style="margin-top: 1rem;">The above copyright notice and this permission notice shall be included in
+                    all copies or substantial portions of the Software.</p>
+
+                <div class="warning-box" style="margin-top: 1.5rem;">
+                    <p><strong>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+                            INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+                            PURPOSE AND NONINFRINGEMENT.</strong></p>
+                    <p style="margin-top: 1rem;">IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+                        CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+                        FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <ul>
+                    <li>Live IPO and all related trademarks are property of SoftTech Service</li>
+                    <li>App design, UI, and branding are proprietary</li>
+                    <li>Source code is available under MIT License</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Third-Party Libraries</h2>
+                <p>This software uses third-party libraries that are subject to their respective licenses:</p>
+
+                <h3>Flutter & Dart Packages</h3>
+                <ul>
+                    <li><strong>flutter_bloc</strong> - MIT License</li>
+                    <li><strong>equatable</strong> - MIT License</li>
+                    <li><strong>get_it</strong> - MIT License</li>
+                    <li><strong>injectable</strong> - MIT License</li>
+                    <li><strong>dio</strong> - MIT License</li>
+                    <li><strong>retrofit</strong> - MIT License</li>
+                    <li><strong>dartz</strong> - MIT License</li>
+                    <li><strong>hive</strong> - Apache License 2.0</li>
+                    <li><strong>shared_preferences</strong> - BSD 3-Clause License</li>
+                </ul>
+
+                <h3>Firebase Services (Google)</h3>
+                <ul>
+                    <li><strong>firebase_core</strong> - BSD 3-Clause License</li>
+                    <li><strong>firebase_analytics</strong> - BSD 3-Clause License</li>
+                    <li><strong>firebase_crashlytics</strong> - BSD 3-Clause License</li>
+                    <li><strong>firebase_remote_config</strong> - BSD 3-Clause License</li>
+                    <li><strong>firebase_messaging</strong> - BSD 3-Clause License</li>
+                </ul>
+
+                <h3>UI & Utilities</h3>
+                <ul>
+                    <li><strong>table_calendar</strong> - Apache License 2.0</li>
+                    <li><strong>cached_network_image</strong> - MIT License</li>
+                    <li><strong>google_fonts</strong> - Apache License 2.0</li>
+                    <li><strong>fl_chart</strong> - MIT License</li>
+                    <li><strong>flutter_staggered_animations</strong> - MIT License</li>
+                    <li><strong>shimmer</strong> - BSD 2-Clause License</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Attribution</h2>
+                <p>When using or distributing this software, please provide appropriate attribution to SoftTech Service
+                    and maintain all copyright notices.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+
+                    // Scroll to top of content
+                    document.getElementById(targetTab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            // Handle URL hash for direct tab access
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'disclaimer', 'license'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
