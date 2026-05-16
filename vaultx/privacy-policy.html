@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy, Terms & Disclaimer - VaultX | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms & Conditions, and Disclaimer for VaultX - Secure Digital Vault Android App by SoftTech Service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #5B21B6;
+            --accent-light: #A78BFA;
+            --gold: #F59E0B;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F1F5F9;
+            --bg-white: #FFFFFF;
+            --success: #10B981;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 2.5rem 3rem 2rem;
+            background: linear-gradient(135deg, #0D0D1A 0%, #1E1B4B 60%, #2D1B69 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 10% 50%, rgba(124, 58, 237, 0.25) 0%, transparent 55%),
+                radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.12) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        .header-inner { position: relative; z-index: 1; }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .header-section h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .header-section h1 .vault { color: var(--accent-light); }
+        .header-section h1 .x { color: var(--gold); }
+
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .header-section .meta {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .tabs::-webkit-scrollbar { display: none; }
+
+        .tab-button {
+            flex: 1;
+            min-width: 160px;
+            padding: 1.25rem 1.75rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(124, 58, 237, 0.05);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(124, 58, 237, 0.06);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography */
+        .policy-section { margin-bottom: 3rem; }
+        .policy-section:last-child { margin-bottom: 0; }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            margin-top: 2.5rem;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        h3 {
+            color: #1E293B;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 1.75rem;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            margin-top: 1.25rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+            font-size: 0.975rem;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.75rem;
+            color: var(--text-gray);
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.75;
+            font-size: 0.975rem;
+        }
+
+        /* Highlight box */
+        .highlight {
+            background: rgba(124, 58, 237, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+
+        .highlight p:last-child { margin-bottom: 0; }
+
+        .highlight-success {
+            background: rgba(16, 185, 129, 0.06);
+            border-left-color: var(--success);
+        }
+
+        .highlight-gold {
+            background: rgba(245, 158, 11, 0.06);
+            border-left-color: var(--gold);
+        }
+
+        .highlight-danger {
+            background: rgba(239, 68, 68, 0.06);
+            border-left-color: #EF4444;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        thead { background: linear-gradient(135deg, #1E1B4B 0%, #2D1B69 100%); color: white; }
+
+        th {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        td {
+            padding: 0.9rem 1.25rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: #F8FAFC; }
+
+        /* Contact box */
+        .contact-box {
+            background: linear-gradient(135deg, #0D0D1A 0%, #1E1B4B 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 14px;
+            margin-top: 2rem;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+
+        .contact-box h3 { color: var(--accent-light); margin-top: 0; margin-bottom: 1rem; }
+        .contact-box p { color: rgba(255,255,255,0.8); margin-bottom: 0.5rem; }
+        .contact-box a { color: var(--accent-light); text-decoration: underline; font-weight: 600; }
+
+        /* Intro box */
+        .intro-box {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(167, 139, 250, 0.06) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            border-radius: 14px;
+            padding: 1.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-box p { color: #1E293B; margin-bottom: 0; font-size: 1rem; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .tab-content { padding: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 0.5rem; }
+            .container { border-radius: 14px; }
+            .header-section { padding: 1.75rem 1.5rem 1.5rem; }
+            .header-section h1 { font-size: 2.25rem; }
+            .tab-button { min-width: 130px; padding: 1rem 1.25rem; font-size: 0.875rem; }
+            .tab-content { padding: 2rem 1.5rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.125rem; }
+            table { font-size: 0.85rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            thead, tbody, tr { display: table; width: 100%; table-layout: fixed; }
+            th, td { padding: 0.75rem 0.75rem; word-wrap: break-word; }
+            .contact-box { padding: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0.25rem; }
+            .header-section { padding: 1.25rem 1rem; }
+            .header-section h1 { font-size: 1.875rem; }
+            .tab-button { min-width: 110px; padding: 0.875rem 1rem; font-size: 0.8125rem; }
+            .tab-content { padding: 1.5rem 1rem; }
+            h2 { font-size: 1.3rem; }
+            p, li { font-size: 0.9375rem; }
+            .back-link { font-size: 0.8125rem; padding: 0.4rem 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header-section">
+            <div class="header-inner">
+                <div class="back-links">
+                    <a href="index.html" class="back-link">&#8592; Back to VaultX</a>
+                    <a href="../index.html" class="back-link">Main Website</a>
+                </div>
+                <h1><span class="vault">Vault</span><span class="x">X</span></h1>
+                <p class="subtitle">Legal Information & Policies</p>
+                <p class="meta"><strong>Effective Date:</strong> May 16, 2026 &nbsp;|&nbsp; <strong>Developer:</strong> SoftTech Service</p>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li><button class="tab-button active" data-tab="privacy">🔒 Privacy Policy</button></li>
+                <li><button class="tab-button" data-tab="terms">📜 Terms & Conditions</button></li>
+                <li><button class="tab-button" data-tab="disclaimer">⚠️ Disclaimer</button></li>
+            </ul>
+        </div>
+
+        <!-- ==============================
+             TAB 1: PRIVACY POLICY
+             ============================== -->
+        <div id="privacy" class="tab-content active">
+
+            <div class="intro-box">
+                <p>VaultX ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we handle your information. VaultX is designed as a <strong>local-first</strong> application — your data stays on your device, always.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>1. Overview</h2>
+                <p>VaultX operates on a strict <strong>privacy-first, local-first</strong> principle. Unlike cloud-based password managers, VaultX stores all your encrypted data exclusively on your device's internal storage. We have no servers that receive, store, or process your personal vault data.</p>
+
+                <div class="highlight highlight-success">
+                    <p>✅ <strong>Zero Server Storage:</strong> Your passwords, cards, notes, and documents never leave your device.</p>
+                    <p>✅ <strong>No Account Required:</strong> VaultX requires no sign-up, login, or email address to function.</p>
+                    <p>✅ <strong>No Telemetry:</strong> We collect no usage analytics, crash reports (that include personal data), or behavioral tracking.</p>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h2>2. Information Collection and Use</h2>
+
+                <h3>2.1 Personal Vault Data</h3>
+                <p>We do <strong>not</strong> collect, store, or transmit any of the personal data you enter into VaultX — including passwords, credit card numbers, bank account details, identity documents, secure notes, or secret contacts. All such data is encrypted using AES-256-GCM and stored locally on your device's internal storage.</p>
+
+                <h3>2.2 Camera Permission</h3>
+                <p>VaultX requests camera access solely to power the <strong>OCR Scanner</strong> feature, which allows you to automatically extract card and bank details by pointing your camera at the physical card. Images captured during scanning are:</p>
+                <ul>
+                    <li>Processed entirely on-device using Google ML Kit</li>
+                    <li>Never saved to your photo gallery or device storage</li>
+                    <li>Never uploaded to any server or third-party service</li>
+                    <li>Discarded immediately after text extraction completes</li>
+                </ul>
+
+                <h3>2.3 Biometric Data</h3>
+                <p>VaultX uses Android's <strong>BiometricPrompt API</strong> to verify your identity before granting vault access. We do <strong>not</strong> have access to your actual biometric data (fingerprints, face scans, or iris data). The operating system handles all biometric verification and returns only a success or failure result to VaultX.</p>
+
+                <h3>2.4 Information We Do NOT Collect</h3>
+                <ul>
+                    <li>Name, email address, or phone number</li>
+                    <li>Device identifiers (IMEI, Advertising ID, etc.)</li>
+                    <li>Location or GPS data</li>
+                    <li>Usage analytics or behavioral data</li>
+                    <li>Crash reports containing personal information</li>
+                    <li>Any content from your vault entries</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>3. App Permissions</h2>
+                <p>VaultX requests the following permissions, each with a specific, limited purpose:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Purpose</th>
+                            <th>Required?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Camera</strong></td>
+                            <td>OCR Scanner — auto-extract card & bank details</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Biometric / Fingerprint</strong></td>
+                            <td>Unlock vault with fingerprint or face authentication</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><strong>USE_BIOMETRIC</strong></td>
+                            <td>Access BiometricPrompt API for authentication</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><strong>USE_FINGERPRINT</strong></td>
+                            <td>Legacy fingerprint support on older Android versions</td>
+                            <td>Optional</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>All permissions are optional. You can use VaultX with device PIN/password as a fallback if you choose not to grant biometric or camera access.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>4. Data Security</h2>
+                <p>VaultX employs industry-leading security measures to protect your data:</p>
+                <ul>
+                    <li><strong>AES-256-GCM Encryption:</strong> All vault entries are encrypted using the Advanced Encryption Standard with 256-bit keys in Galois/Counter Mode, providing both confidentiality and integrity.</li>
+                    <li><strong>Android Keystore:</strong> Encryption keys are stored in the hardware-backed Android Keystore, which is isolated from the application processor and protected from extraction even if the device is compromised.</li>
+                    <li><strong>Zero-Knowledge Design:</strong> VaultX is built so that even the app developers cannot access your encrypted data. We hold no master keys, recovery keys, or backdoors.</li>
+                    <li><strong>Local-Only Storage:</strong> All encrypted data resides in the app's private internal storage, which is inaccessible to other apps on your device.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>5. Third-Party Services</h2>
+                <p>VaultX does <strong>not</strong> integrate any of the following third-party services that could compromise your privacy:</p>
+                <ul>
+                    <li>Advertising or ad tracking SDKs (e.g., Google Ads, Facebook Audience Network)</li>
+                    <li>Analytics platforms (e.g., Firebase Analytics, Mixpanel, Amplitude)</li>
+                    <li>Crash reporting tools that transmit personal data (e.g., Crashlytics with PII)</li>
+                    <li>Social media login or sharing SDKs</li>
+                    <li>Cloud sync or backup services</li>
+                </ul>
+
+                <p>The only third-party component used is <strong>Google ML Kit</strong> for on-device OCR text recognition. ML Kit processes data locally on your device and does not send image data or recognized text to Google's servers when used in on-device mode.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>6. Data Retention and Deletion</h2>
+                <p>Since all data is stored locally on your device, you have full control over retention and deletion:</p>
+                <ul>
+                    <li>Data remains on your device until you explicitly delete individual entries within the app</li>
+                    <li>Uninstalling VaultX will remove all app data from your device</li>
+                    <li>Using "Clear App Data" from Android Settings will erase all vault contents</li>
+                    <li>We maintain no server-side backups of your vault data — deletion is permanent</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>7. Children's Privacy</h2>
+                <p>VaultX is not directed at children under the age of 13. We do not knowingly collect any personal information from children. Since VaultX collects no personal data from any user, no special handling is required. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>8. Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in the app or applicable laws. We will notify you of significant changes by updating the "Effective Date" at the top of this page. We encourage you to review this policy periodically. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>9. Contact Us</h2>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data:</p>
+                <div class="contact-box">
+                    <h3>SoftTech Service — VaultX Support</h3>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>App:</strong> VaultX — Secure Digital Vault</p>
+                    <p><strong>Effective Date:</strong> May 16, 2026</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==============================
+             TAB 2: TERMS & CONDITIONS
+             ============================== -->
+        <div id="terms" class="tab-content">
+
+            <div class="intro-box">
+                <p>By downloading, installing, or using VaultX ("the App"), you agree to be bound by these Terms &amp; Conditions. Please read them carefully before using the application. If you do not agree with any part of these terms, please do not use VaultX.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>These Terms &amp; Conditions constitute a legally binding agreement between you ("User" or "you") and SoftTech Service ("we," "us," or "our") governing your use of the VaultX mobile application. By using VaultX, you confirm that you are at least 13 years of age and have the legal capacity to enter into this agreement.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>2. License to Use</h2>
+                <p>SoftTech Service grants you a limited, non-exclusive, non-transferable, revocable license to use VaultX strictly in accordance with these Terms for personal, non-commercial purposes. This license does not include:</p>
+                <ul>
+                    <li>Modifying, copying, or distributing the application or its content</li>
+                    <li>Reverse engineering, decompiling, or disassembling the application</li>
+                    <li>Removing any proprietary notices or labels from the application</li>
+                    <li>Using the application for commercial purposes without written permission</li>
+                    <li>Transferring the application to another person</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>3. Acceptable Use</h2>
+                <p>You agree to use VaultX only for lawful purposes. You must not use the application to:</p>
+                <ul>
+                    <li>Store information related to illegal activities</li>
+                    <li>Attempt to gain unauthorized access to any device, network, or system</li>
+                    <li>Violate any applicable local, national, or international laws or regulations</li>
+                    <li>Infringe upon the intellectual property rights of any third party</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>4. User Responsibilities</h2>
+
+                <h3>4.1 Master Password & Access Security</h3>
+                <p>You are solely responsible for maintaining the confidentiality of your device PIN, biometric credentials, and any master password used to secure VaultX. We strongly recommend:</p>
+                <ul>
+                    <li>Using a strong, unique device passcode</li>
+                    <li>Enabling biometric authentication for added security</li>
+                    <li>Not sharing your device with others while VaultX is unlocked</li>
+                    <li>Locking VaultX immediately after use</li>
+                </ul>
+
+                <div class="highlight highlight-gold">
+                    <p>⚠️ <strong>Important:</strong> If you forget your master credentials and lose access to your biometrics, VaultX cannot recover your data. There is no password recovery mechanism by design, as this would compromise the zero-knowledge security model.</p>
+                </div>
+
+                <h3>4.2 Data Backup</h3>
+                <p>VaultX stores data locally only. We strongly recommend maintaining your own secure backups. SoftTech Service is not responsible for data loss due to device failure, theft, reset, or accidental deletion.</p>
+
+                <h3>4.3 Accuracy of Information</h3>
+                <p>You are responsible for the accuracy and completeness of the information you store in VaultX. The app does not validate or verify the correctness of any vault entries.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>5. Intellectual Property</h2>
+                <p>VaultX, including its source code, design, user interface, graphics, logo, and all associated intellectual property, is the exclusive property of SoftTech Service and is protected by applicable intellectual property laws. All rights not expressly granted in these Terms are reserved by SoftTech Service.</p>
+                <ul>
+                    <li>VaultX™ and the VaultX logo are trademarks of SoftTech Service</li>
+                    <li>You may not use our trademarks without prior written permission</li>
+                    <li>User feedback or suggestions submitted to us may be used without obligation</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>6. Third-Party Components</h2>
+                <p>VaultX incorporates certain open-source and third-party libraries. Your use of these components is subject to their respective licenses, including but not limited to:</p>
+                <ul>
+                    <li>Google ML Kit (Google APIs Terms of Service)</li>
+                    <li>Material Design 3 by Google (Apache License 2.0)</li>
+                    <li>Kotlin Coroutines (Apache License 2.0)</li>
+                    <li>Android Jetpack Libraries (Apache License 2.0)</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>7. Disclaimer of Warranties</h2>
+                <p>VaultX is provided <strong>"as is"</strong> and <strong>"as available"</strong> without any warranties of any kind, either express or implied, including but not limited to:</p>
+                <ul>
+                    <li>Warranties of merchantability or fitness for a particular purpose</li>
+                    <li>Warranties that the app will be uninterrupted, error-free, or free of viruses</li>
+                    <li>Warranties regarding the accuracy, reliability, or completeness of any content</li>
+                </ul>
+                <p>SoftTech Service does not warrant that security measures employed in VaultX will withstand all possible attack vectors or that the app is free from vulnerabilities.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>8. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, SoftTech Service and its officers, employees, and agents shall not be liable for any:</p>
+                <ul>
+                    <li>Loss or corruption of vault data stored in the application</li>
+                    <li>Unauthorized access to your device or vault due to compromised device security</li>
+                    <li>Financial loss resulting from lost access to stored credentials</li>
+                    <li>Indirect, incidental, consequential, or punitive damages of any kind</li>
+                    <li>Loss of profits, revenue, data, or business opportunities</li>
+                </ul>
+                <p>Our total liability in any matter arising from your use of VaultX shall not exceed the amount you paid for the application (if applicable).</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>9. Termination</h2>
+                <p>These Terms remain in effect as long as you use VaultX. SoftTech Service reserves the right to terminate or restrict your access to the application at any time, without notice, if we believe you have violated these Terms. Upon termination, you must stop using the app and delete it from your device.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>10. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these Terms or your use of VaultX shall be subject to the exclusive jurisdiction of the competent courts.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>11. Changes to These Terms</h2>
+                <p>We reserve the right to modify these Terms at any time. Material changes will be communicated via an updated posting on this page with a revised effective date. Your continued use of VaultX after changes are posted constitutes your acceptance of the revised Terms.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>12. Contact Information</h2>
+                <div class="contact-box">
+                    <h3>SoftTech Service — VaultX Support</h3>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>App:</strong> VaultX — Secure Digital Vault</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==============================
+             TAB 3: DISCLAIMER
+             ============================== -->
+        <div id="disclaimer" class="tab-content">
+
+            <div class="intro-box">
+                <p>This Disclaimer outlines important limitations and responsibilities regarding the use of VaultX — Secure Digital Vault, developed and maintained by SoftTech Service. Please read this carefully before relying on VaultX for critical security needs.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>1. General Disclaimer</h2>
+                <p>VaultX is provided for personal convenience and organizational purposes. While we have taken significant measures to implement strong security within the application, SoftTech Service makes <strong>no absolute guarantee</strong> of perfect, impenetrable security under all circumstances.</p>
+                <div class="highlight highlight-danger">
+                    <p>⚠️ No software system is completely immune to attack. Security is a continuous process, and VaultX should be used as one layer in your overall personal security strategy.</p>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h2>2. Security Disclaimer</h2>
+
+                <h3>2.1 Device Security Dependency</h3>
+                <p>VaultX's security depends significantly on the security of your Android device. The application cannot protect your data if:</p>
+                <ul>
+                    <li>Your device is rooted or has a compromised bootloader</li>
+                    <li>Malicious software (malware, spyware, or keyloggers) is installed on your device</li>
+                    <li>Your device screen lock is disabled or uses a weak PIN</li>
+                    <li>An unauthorized party has physical access to your unlocked device</li>
+                </ul>
+
+                <h3>2.2 No Recovery Mechanism</h3>
+                <p>By design, VaultX implements a zero-knowledge encryption model. This means:</p>
+                <ul>
+                    <li>SoftTech Service has <strong>no ability</strong> to recover your vault data if you lose access</li>
+                    <li>Forgotten credentials, replaced biometrics, or a factory reset <strong>will result in permanent data loss</strong></li>
+                    <li>We cannot provide backdoor access under any circumstances, including legal requests</li>
+                </ul>
+
+                <div class="highlight highlight-gold">
+                    <p>📦 <strong>Recommendation:</strong> Maintain regular, secure backups of critical credentials through an alternative secure method. Do not rely solely on VaultX as your only copy of critical information.</p>
+                </div>
+
+                <h3>2.3 Encryption Disclaimer</h3>
+                <p>While AES-256-GCM is currently considered industry-standard military-grade encryption, we acknowledge that:</p>
+                <ul>
+                    <li>Future advances in computing (e.g., quantum computing) may eventually affect current encryption standards</li>
+                    <li>The strength of encryption is only as strong as the security of the key management system</li>
+                    <li>We commit to updating our encryption standards as industry best practices evolve</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>3. OCR Scanner Disclaimer</h2>
+                <p>The OCR Scanner feature uses on-device machine learning to extract text from physical cards and documents. Please be aware that:</p>
+                <ul>
+                    <li>OCR accuracy may vary based on card condition, lighting, and camera quality</li>
+                    <li>Extracted data should always be verified by the user before saving</li>
+                    <li>VaultX is not responsible for errors in OCR-extracted information</li>
+                    <li>Storing incorrect payment or identity information is the user's responsibility to verify and correct</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>4. Financial Information Disclaimer</h2>
+                <p>VaultX is a <strong>storage and organization tool only</strong>, not a financial or banking application. Regarding financial data stored in VaultX:</p>
+                <ul>
+                    <li>VaultX does not process, transmit, or verify any financial transactions</li>
+                    <li>We are not responsible for fraudulent use of financial information stored in the vault</li>
+                    <li>Storing card details or banking credentials is done entirely at your own risk</li>
+                    <li>In the event of a device compromise, contact your bank or card issuer immediately</li>
+                    <li>VaultX is not a regulated financial services provider and does not fall under PCI DSS compliance requirements</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>5. Identity Document Disclaimer</h2>
+                <p>VaultX allows you to store details and images of identity documents (passports, driving licenses, ID cards, etc.) for personal reference only. We disclaim any responsibility for:</p>
+                <ul>
+                    <li>Misuse of digitally stored identity information</li>
+                    <li>Acceptance of digital copies as valid identification by third parties</li>
+                    <li>Any legal or compliance implications of storing identity documents digitally in your jurisdiction</li>
+                </ul>
+                <p>We recommend checking local laws regarding the digital storage of official identity documents.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>6. Password Security Disclaimer</h2>
+                <p>VaultX's Security Score and password strength assessment are provided as helpful guidance only:</p>
+                <ul>
+                    <li>A high security score does not guarantee that your accounts are immune to compromise</li>
+                    <li>Account security also depends on the security practices of third-party services where you use your passwords</li>
+                    <li>VaultX does not monitor for data breaches or check if your stored passwords appear in known breach databases</li>
+                    <li>Users are encouraged to regularly update passwords and enable two-factor authentication on all accounts</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>7. Third-Party App Disclaimer</h2>
+                <p>VaultX may interact with third-party applications on your device (e.g., when auto-filling credentials or opening URLs). SoftTech Service:</p>
+                <ul>
+                    <li>Is not responsible for the security or privacy practices of any third-party applications</li>
+                    <li>Does not endorse or guarantee any third-party apps or websites you may access using information stored in VaultX</li>
+                    <li>Recommends exercising caution when sharing or using credentials outside of VaultX</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>8. "As Is" Disclaimer</h2>
+                <div class="highlight highlight-danger">
+                    <p>THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, SOFTTECH SERVICE DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                    <p style="margin-top: 0.75rem;">SOFTTECH SERVICE DOES NOT WARRANT THAT THE APPLICATION WILL BE ERROR-FREE, UNINTERRUPTED, SECURE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.</p>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h2>9. Updates and Availability</h2>
+                <p>SoftTech Service reserves the right to:</p>
+                <ul>
+                    <li>Modify, suspend, or discontinue VaultX at any time without prior notice</li>
+                    <li>Release updates that change functionality, appearance, or security features</li>
+                    <li>Require updates to maintain security standards — using outdated versions of VaultX is done at your own risk</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>10. Contact Us</h2>
+                <p>If you have any questions about this Disclaimer or wish to report a security vulnerability:</p>
+                <div class="contact-box">
+                    <h3>SoftTech Service — VaultX Support</h3>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Security Issues:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>App:</strong> VaultX — Secure Digital Vault</p>
+                    <p><strong>Effective Date:</strong> May 16, 2026</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const target = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    button.classList.add('active');
+                    document.getElementById(target).classList.add('active');
+
+                    document.getElementById(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'disclaimer'].includes(hash)) {
+                const btn = document.querySelector(`[data-tab="${hash}"]`);
+                if (btn) btn.click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultX - Secure Digital Vault | Password, Card & Document Manager | SoftTech Service</title>
+    <meta name="description" content="VaultX is your ultimate secure digital vault. Store passwords, cards, bank accounts, documents, and notes with military-grade AES-256 encryption, biometric lock, and smart OCR scanning.">
+    <meta name="keywords" content="VaultX, secure vault, password manager, Android app, AES-256 encryption, biometric lock, OCR scanner, SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #5B21B6;
+            --accent: #6D28D9;
+            --accent-light: #A78BFA;
+            --gold: #F59E0B;
+            --gold-light: #FCD34D;
+            --teal: #0EA5E9;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #94A3B8;
+            --bg-light: #F1F5F9;
+            --bg-white: #FFFFFF;
+            --success: #10B981;
+            --danger: #EF4444;
+            --shadow-sm: 0 2px 8px rgba(124, 58, 237, 0.08);
+            --shadow-md: 0 4px 16px rgba(124, 58, 237, 0.14);
+            --shadow-lg: 0 8px 32px rgba(124, 58, 237, 0.2);
+            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            --gradient-hero: linear-gradient(135deg, #0D0D1A 0%, #1E1B4B 50%, #2D1B69 100%);
+            --gradient-gold: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: rgba(13, 13, 26, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 7rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 15% 40%, rgba(124, 58, 237, 0.25) 0%, transparent 55%),
+                radial-gradient(circle at 85% 20%, rgba(167, 139, 250, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(245, 158, 11, 0.1) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(124, 58, 237, 0.3);
+            border: 1px solid rgba(167, 139, 250, 0.4);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .vault {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 .x {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            line-height: 1.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: #1A1A2E;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.45);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Category Cards */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: var(--bg-white);
+            padding: 1.75rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(124, 58, 237, 0.08);
+            transition: all 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .category-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .icon-purple { background: rgba(124, 58, 237, 0.1); color: var(--primary); }
+        .icon-gold { background: rgba(245, 158, 11, 0.1); color: var(--gold); }
+        .icon-teal { background: rgba(14, 165, 233, 0.1); color: var(--teal); }
+        .icon-green { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .icon-red { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+        .icon-indigo { background: rgba(99, 102, 241, 0.1); color: #6366F1; }
+
+        .category-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2.25rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            border: 1px solid rgba(124, 58, 237, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(124, 58, 237, 0.2);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 2.25rem;
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.75;
+            font-size: 0.975rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1.25rem;
+        }
+
+        .feature-list li {
+            padding: 0.45rem 0;
+            color: var(--text-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.925rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Highlight Sections */
+        .highlight-section {
+            background: linear-gradient(135deg, #0D0D1A 0%, #1E1B4B 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .highlight-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* Security Section */
+        .security-banner {
+            background: linear-gradient(135deg, #064E3B 0%, #065F46 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .security-banner i {
+            color: var(--success);
+            font-size: 1.25rem;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: var(--bg-white);
+            padding: 1.75rem;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(124, 58, 237, 0.08);
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tech-item h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-item p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Dashboard Preview */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dashboard-card {
+            background: linear-gradient(135deg, #1E1B4B 0%, #2D1B69 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: all 0.3s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.25);
+        }
+
+        .dashboard-card .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--accent-light);
+        }
+
+        .dashboard-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #0D0D1A;
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--accent-light);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom p { margin-bottom: 0.5rem; }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section { padding: 4rem 1.5rem; }
+            .features-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 1rem; }
+
+            .menu-toggle { display: block; }
+
+            .nav-links {
+                position: fixed;
+                top: 70px; left: 0; right: 0;
+                background: #0D0D1A;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+                gap: 0.5rem;
+                border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+            }
+
+            .nav-links.active { transform: translateX(0); }
+
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 1rem;
+                border-radius: 10px;
+            }
+
+            .nav-links a:hover {
+                background: rgba(124, 58, 237, 0.15);
+                color: var(--accent-light);
+            }
+
+            .hero { padding: 4rem 1.5rem 3.5rem; }
+
+            .hero h1 { font-size: 2.5rem; }
+
+            .hero .subtitle { font-size: 1.125rem; }
+
+            .hero-description { font-size: 1rem; }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+                font-size: 0.95rem;
+            }
+
+            .hero-stats { gap: 2rem; }
+
+            .stat-value { font-size: 1.5rem; }
+
+            .section { padding: 3rem 1rem; }
+
+            .section-title { font-size: 1.875rem; }
+
+            .section-subtitle { font-size: 1rem; margin-bottom: 2.5rem; }
+
+            .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+            .feature-card { padding: 1.75rem; }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .highlight-section { padding: 4rem 1.5rem; }
+
+            .highlight-section h2 { font-size: 1.875rem; }
+
+            .highlight-section p { font-size: 1.05rem; }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .dashboard-grid { grid-template-columns: 1fr; }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            footer { padding: 3rem 1.25rem 1.5rem; }
+
+            .security-banner {
+                font-size: 0.875rem;
+                padding: 1.25rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; letter-spacing: -0.5px; }
+            .section-title { font-size: 1.6rem; }
+            .tech-grid { grid-template-columns: 1fr 1fr; }
+            .logo { font-size: 1.5rem; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Vault<span>X</span></div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Security Banner -->
+    <div class="security-banner">
+        <i class="fas fa-shield-alt"></i>
+        <span>100% Local-First &nbsp;•&nbsp; AES-256-GCM Encryption &nbsp;•&nbsp; Your data never leaves your device</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-lock"></i>
+                Your Ultimate Secure Digital Vault for Android
+            </div>
+            <h1><span class="vault">Vault</span><span class="x">X</span></h1>
+            <p class="subtitle">Secure. Smart. Effortless.</p>
+            <p class="hero-description">
+                Keep your most sensitive information safe, organized, and accessible only to you.
+                VaultX combines military-grade AES-256 encryption with biometric unlock and smart OCR scanning,
+                making security feel completely effortless.
+            </p>
+            <div class="cta-buttons">
+                <a href="#features" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Explore Features
+                </a>
+                <a href="#categories" class="btn btn-gold">
+                    <i class="fas fa-th-large"></i> View Categories
+                </a>
+                <a href="privacy-policy.html" class="btn btn-secondary">
+                    <i class="fas fa-shield-alt"></i> Privacy Policy
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-value">AES-256</span>
+                    <span class="stat-label">Military-Grade Encryption</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">6+</span>
+                    <span class="stat-label">Vault Categories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Data Sent to Servers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label">Local & Private</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vault Categories -->
+    <section class="section" id="categories">
+        <h2 class="section-title">Everything in One Vault</h2>
+        <p class="section-subtitle">Six powerful categories to securely store every aspect of your digital life</p>
+
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon icon-purple">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Passwords</h3>
+                <p>With built-in generator and TOTP support</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon icon-gold">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3>Cards</h3>
+                <p>Auto-detects Visa, Mastercard & more</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon icon-teal">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h3>Bank Accounts</h3>
+                <p>IFSC, Account No., UPI ID & more</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon icon-green">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <h3>Documents</h3>
+                <p>With image attachments & expiry tracking</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon icon-indigo">
+                    <i class="fas fa-sticky-note"></i>
+                </div>
+                <h3>Secure Notes</h3>
+                <p>Rich text support with image attachments</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon icon-red">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <h3>Secret Contacts</h3>
+                <p>Private contact storage, fully encrypted</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section style="background: white; padding: 5rem 0;">
+        <div class="section" id="features" style="padding-top: 0; padding-bottom: 0;">
+            <h2 class="section-title">Key Features</h2>
+            <p class="section-subtitle">Everything you need to take control of your digital security</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Military-Grade Encryption</h3>
+                    <p>Your data is encrypted locally using AES-256-GCM encryption. Keys are securely managed by the hardware-backed Android Keystore system — inaccessible to anyone but you.</p>
+                    <ul class="feature-list">
+                        <li>AES-256-GCM encryption standard</li>
+                        <li>Hardware-backed Android Keystore</li>
+                        <li>Zero-knowledge architecture</li>
+                        <li>No master key ever transmitted</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">👁️</span>
+                    <h3>Biometric Unlock</h3>
+                    <p>Access your vault instantly and securely using Fingerprint or Face Authentication. Supports strong biometric + device credential fallback.</p>
+                    <ul class="feature-list">
+                        <li>Fingerprint authentication</li>
+                        <li>Face authentication support</li>
+                        <li>Device credential fallback</li>
+                        <li>BiometricPrompt API (OS-level security)</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📷</span>
+                    <h3>Smart OCR Scanner</h3>
+                    <p>Save time with our ML Kit-powered scanner. Automatically extract card numbers, expiry dates, and bank details just by pointing your camera — no manual typing needed.</p>
+                    <ul class="feature-list">
+                        <li>Real-time card data extraction</li>
+                        <li>Bank detail recognition</li>
+                        <li>Powered by Google ML Kit</li>
+                        <li>Images processed locally, never uploaded</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>Advanced Security Dashboard</h3>
+                    <p>Get a bird's-eye view of your security posture. Track your security score, monitor weak passwords, and see upcoming document expiries — all in one glance.</p>
+                    <ul class="feature-list">
+                        <li>Security score based on password strength</li>
+                        <li>Category-wise statistics</li>
+                        <li>Document expiry alerts</li>
+                        <li>Recent & pinned items list</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔑</span>
+                    <h3>Password Generator</h3>
+                    <p>Create ultra-secure, customizable passwords with the built-in generator. Configure length, character sets, and complexity to meet any requirement.</p>
+                    <ul class="feature-list">
+                        <li>Configurable length & character sets</li>
+                        <li>Include uppercase, numbers & symbols</li>
+                        <li>One-tap copy to clipboard</li>
+                        <li>TOTP (2FA) code support</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🌙</span>
+                    <h3>Clean & Modern UI</h3>
+                    <p>A beautiful, intuitive interface built on Material 3 "Glass" design philosophy with full Dark/Light mode support and smooth glassmorphic elements.</p>
+                    <ul class="feature-list">
+                        <li>Material 3 glassmorphic design</li>
+                        <li>Full dark & light mode</li>
+                        <li>Smooth transitions & animations</li>
+                        <li>Favorites & pinned items for quick access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Highlight -->
+    <section class="highlight-section" id="security">
+        <div class="highlight-inner">
+            <h2>🛡️ Privacy First, Always</h2>
+            <p>
+                VaultX is a <strong>local-first application</strong>. Your data never leaves your device.
+                We have absolutely no access to your master key or encrypted records.
+                No cloud sync. No analytics. No ads. Just your data, on your device, protected by you.
+            </p>
+        </div>
+    </section>
+
+    <!-- Dashboard Features -->
+    <section class="section">
+        <h2 class="section-title">Powerful Dashboard</h2>
+        <p class="section-subtitle">Stay on top of your digital security with real-time insights</p>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-icon">🎯</div>
+                <h3>Security Score</h3>
+                <p>Get a live security score calculated from your password strength, variety of stored data, and overall vault health.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">⚠️</div>
+                <h3>Expiry Alerts</h3>
+                <p>Never miss a document expiry date. VaultX proactively alerts you when your ID cards, licenses, or passports are about to expire.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">📌</div>
+                <h3>Favorites & Pins</h3>
+                <p>Keep your most-used credentials pinned at the top for instant, one-tap access whenever you need them.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">🔍</div>
+                <h3>Weak Password Monitor</h3>
+                <p>VaultX scans your stored passwords and flags weak or reused ones, helping you strengthen your security posture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section style="background: white; padding: 5rem 0;">
+        <div class="section" style="padding-top: 0; padding-bottom: 0;">
+            <h2 class="section-title">Built with Modern Technology</h2>
+            <p class="section-subtitle">Engineered for security, performance, and reliability</p>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-android" style="font-size: 2.5rem; color: var(--success);"></i>
+                    <h4>Android Native</h4>
+                    <p>100% Kotlin</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-lock" style="font-size: 2.5rem; color: var(--primary);"></i>
+                    <h4>AES-256-GCM</h4>
+                    <p>Encryption Standard</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database" style="font-size: 2.5rem; color: var(--accent-light);"></i>
+                    <h4>Android Keystore</h4>
+                    <p>Hardware-Backed Keys</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-fingerprint" style="font-size: 2.5rem; color: var(--gold);"></i>
+                    <h4>BiometricPrompt</h4>
+                    <p>Biometric Authentication</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-brain" style="font-size: 2.5rem; color: var(--teal);"></i>
+                    <h4>Google ML Kit</h4>
+                    <p>OCR Scanning</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-palette" style="font-size: 2.5rem; color: var(--primary);"></i>
+                    <h4>Material 3</h4>
+                    <p>Glass Design System</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-bolt" style="font-size: 2.5rem; color: var(--gold);"></i>
+                    <h4>Kotlin Coroutines</h4>
+                    <p>Async Operations</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-server" style="font-size: 2.5rem; color: var(--success);"></i>
+                    <h4>Room Database</h4>
+                    <p>Local Encrypted Storage</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VaultX</h3>
+                <p>Your Ultimate Secure Digital Vault</p>
+                <p style="margin-top: 0.75rem; line-height: 1.8;">A powerful, local-first security manager designed to protect your digital life without compromising on convenience.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#features">Features</a>
+                <a href="#categories">Categories</a>
+                <a href="#security">Security</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html#terms">Terms & Conditions</a>
+                <a href="privacy-policy.html#disclaimer">Disclaimer</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <p><strong style="color: rgba(255,255,255,0.85);">Developer:</strong> SoftTech Service</p>
+                <p><strong style="color: rgba(255,255,255,0.85);">Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>App Information</h3>
+                <p><strong style="color: rgba(255,255,255,0.85);">Version:</strong> 1.0</p>
+                <p><strong style="color: rgba(255,255,255,0.85);">Effective Date:</strong> May 16, 2026</p>
+                <p><strong style="color: rgba(255,255,255,0.85);">Encryption:</strong> AES-256-GCM</p>
+                <p><strong style="color: rgba(255,255,255,0.85);">Storage:</strong> Local Only</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                This software is proprietary and confidential. Unauthorized copying, modification, distribution, or use of this software,
+                via any medium, is strictly prohibited without the express written permission of SoftTech Service.
+            </p>
+            <p style="margin-top: 0.5rem;">VaultX and all related trademarks are property of SoftTech Service.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
