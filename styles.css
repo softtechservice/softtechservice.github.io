@@ -280,6 +280,10 @@ section { padding: var(--sp-9) 0; }
     background: var(--color-surface-alt);
     color: var(--color-primary);
 }
+.nav-menu a.btn-primary,
+.nav-menu a.btn-primary:hover {
+    color: #fff;
+}
 .nav-cta { margin-left: var(--sp-3); }
 
 .hamburger {
