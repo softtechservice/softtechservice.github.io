@@ -52,7 +52,8 @@
             const target = document.querySelector(href);
             
             if (target) {
-                const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                const navOffset = 96; // floating navbar (72px) + top spacing
+                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -65,51 +66,35 @@
     // Navbar Scroll Effect
     // ============================================
     const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
 
     if (navbar) {
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-            } else {
-                navbar.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
-            }
-            
-            lastScroll = currentScroll;
-        }, { passive: true });
+        const onScroll = () => {
+            navbar.classList.toggle('scrolled', window.pageYOffset > 24);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
     }
 
     // ============================================
-    // Intersection Observer for Animations
+    // Intersection Observer for scroll reveal
     // ============================================
-    const observerOptions = {
-        threshold: 0.05,
-        rootMargin: '0px 0px -100px 0px'
-    };
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reveals = document.querySelectorAll('.reveal');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target); // Stop observing once animated
-            }
-        });
-    }, observerOptions);
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        reveals.forEach(el => el.classList.add('in'));
+    } else {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 
-    // Observe elements for fade-in animations
-    const animatedElements = document.querySelectorAll(
-        '.service-card, .product-card, .client-card, .contact-card, .why-card, .portfolio-card, .process-step, .tech-category, .feature-item'
-    );
-
-    animatedElements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = `opacity 0.15s ease ${index * 0.02}s, transform 0.15s ease ${index * 0.02}s`;
-        observer.observe(element);
-    });
+        reveals.forEach(el => observer.observe(el));
+    }
 
     // ============================================
     // Contact Form Validation
@@ -301,57 +286,37 @@
     }
 
     // ============================================
-    // Scroll to Top Button (Optional Enhancement)
+    // Back to top button
     // ============================================
-    let scrollToTopBtn = document.createElement('button');
-    scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    scrollToTopBtn.className = 'scroll-to-top';
-    scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
-    scrollToTopBtn.style.cssText = `
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        background: var(--color-primary);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-        transition: all 0.2s ease;
-    `;
-    
-    document.body.appendChild(scrollToTopBtn);
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('show', window.pageYOffset > 600);
+        }, { passive: true });
 
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollToTopBtn.style.display = 'flex';
-        } else {
-            scrollToTopBtn.style.display = 'none';
-        }
-    }, { passive: true });
-
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    });
+    }
 
-    scrollToTopBtn.addEventListener('mouseenter', () => {
-        scrollToTopBtn.style.transform = 'translateY(-4px)';
-        scrollToTopBtn.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
-    });
-
-    scrollToTopBtn.addEventListener('mouseleave', () => {
-        scrollToTopBtn.style.transform = 'translateY(0)';
-        scrollToTopBtn.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-    });
+    // ============================================
+    // Scroll-spy: highlight active nav link
+    // ============================================
+    const sections = document.querySelectorAll('main section[id]');
+    const navItems = document.querySelectorAll('.nav-menu a[href^="#"]');
+    if (sections.length && navItems.length && 'IntersectionObserver' in window) {
+        const spy = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navItems.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, { threshold: 0, rootMargin: '-40% 0px -55% 0px' });
+        sections.forEach(s => spy.observe(s));
+    }
 
     // ============================================
     // Performance: Lazy load images (if any are added)
@@ -378,8 +343,8 @@
     // ============================================
     // Console message for developers
     // ============================================
-    console.log('%cSoftTech Service', 'color: #2563eb; font-size: 20px; font-weight: bold;');
-    console.log('%cWebsite built with modern web standards', 'color: #6b7280; font-size: 12px;');
-    console.log('%cContact: contect@softtechservice.site', 'color: #6b7280; font-size: 12px;');
+    console.log('%cSoftTech Service', 'color: #0369A1; font-size: 20px; font-weight: bold;');
+    console.log('%cWebsite built with modern web standards', 'color: #475569; font-size: 12px;');
+    console.log('%cContact: contect@softtechservice.site', 'color: #475569; font-size: 12px;');
 
 })();

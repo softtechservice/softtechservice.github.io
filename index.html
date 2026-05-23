@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    
+
     <!-- Primary Meta Tags -->
     <title>SoftTech Service - Enterprise IT Solutions | Software & Mobile App Development</title>
     <meta name="title" content="SoftTech Service - Enterprise IT Solutions | Software & Mobile App Development">
@@ -11,7 +11,7 @@
     <meta name="keywords" content="software development, mobile app development, Android apps, iOS apps, Flutter development, web development, AI solutions, HRMS, custom software, IT solutions">
     <meta name="author" content="SoftTech Service">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://softtechservice.site/">
@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="SoftTech Service Logo">
     <meta property="og:site_name" content="SoftTech Service">
     <meta property="og:locale" content="en_US">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://softtechservice.site/">
@@ -32,24 +32,24 @@
     <meta name="twitter:image" content="https://softtechservice.site/images/logo.png">
     <meta name="twitter:image:alt" content="SoftTech Service Logo">
     <meta name="twitter:creator" content="@softtechservice">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://softtechservice.site/">
-    
-    <!-- Additional SEO Meta Tags -->
+
+    <!-- SEO -->
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
     <meta name="distribution" content="global">
     <meta name="rating" content="general">
     <meta name="geo.region" content="IN">
-    <meta name="theme-color" content="#2F5BEA">
-    
-    <!-- Structured Data (JSON-LD) -->
+    <meta name="theme-color" content="#0F172A">
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -88,34 +88,37 @@
       }
     }
     </script>
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
-            <div class="nav-brand">
-                <img src="images/logo.png" alt="SoftTech Service Logo" class="logo-img">
+            <a class="nav-brand" href="#home" aria-label="SoftTech Service home">
+                <img src="images/logo.png" alt="" class="logo-img">
                 <span class="logo-text">SoftTech Service</span>
-            </div>
+            </a>
             <ul class="nav-menu" role="menubar">
                 <li role="none"><a href="#home" role="menuitem">Home</a></li>
-                <li role="none"><a href="#about" role="menuitem">About</a></li>
                 <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
                 <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
                 <li role="none"><a href="#process" role="menuitem">Process</a></li>
-                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+                <li role="none" class="nav-cta"><a href="#contact" role="menuitem" class="btn btn-primary">Contact Sales</a></li>
             </ul>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -124,86 +127,185 @@
     </nav>
 
     <main id="main-content">
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section id="home" class="hero">
-            <div class="hero-background" aria-hidden="true">
-                <img src="images/hero-banner.png" alt="" class="hero-banner-image" onerror="this.style.display='none'">
-                <div class="gradient-overlay"></div>
-                <div class="floating-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
-                </div>
-            </div>
             <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge">Enterprise IT Solutions</div>
-                    <h1 class="hero-title">Transform Your Business with Cutting-Edge Technology</h1>
-                    <p class="hero-subtitle">Reliable, scalable software solutions that drive digital transformation.</p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">100+</div>
-                            <div class="stat-label">Projects Delivered</div>
+                <div class="hero-grid">
+                    <div class="hero-content reveal">
+                        <span class="hero-badge">Enterprise IT Solutions</span>
+                        <h1 class="hero-title">Engineering trusted software for <em>serious businesses</em>.</h1>
+                        <p class="hero-subtitle">We design, build, and ship enterprise-grade web and mobile platforms — combining clean engineering, modern architecture, and reliable delivery.</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary btn-large">Get a Free Quote</a>
+                            <a href="#services" class="btn btn-secondary btn-large">Explore Services</a>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Happy Clients</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5+</div>
-                            <div class="stat-label">Years Experience</div>
+                        <div class="hero-stats" role="list">
+                            <div class="stat-item" role="listitem">
+                                <div class="stat-number">100+</div>
+                                <div class="stat-label">Projects delivered</div>
+                            </div>
+                            <div class="stat-item" role="listitem">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Active clients</div>
+                            </div>
+                            <div class="stat-item" role="listitem">
+                                <div class="stat-number">5+</div>
+                                <div class="stat-label">Years of practice</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get Free Quote</a>
-                        <a href="#services" class="btn btn-secondary">Our Services</a>
-                    </div>
+                    <aside class="hero-visual reveal" aria-hidden="true">
+                        <div class="hero-float float-tl">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>SOC-grade security</span>
+                        </div>
+                        <div class="hero-card">
+                            <div class="hero-card-header">
+                                <h3 class="hero-card-title">What you get</h3>
+                                <span class="hero-card-dot" aria-label="online"></span>
+                            </div>
+                            <ul class="hero-checklist">
+                                <li><span class="check"><i class="fas fa-check"></i></span> Discovery workshop & technical scoping</li>
+                                <li><span class="check"><i class="fas fa-check"></i></span> Pixel-accurate UI &amp; modern architecture</li>
+                                <li><span class="check"><i class="fas fa-check"></i></span> Native &amp; cross-platform mobile builds</li>
+                                <li><span class="check"><i class="fas fa-check"></i></span> CI/CD, cloud deployment &amp; monitoring</li>
+                                <li><span class="check"><i class="fas fa-check"></i></span> Post-launch maintenance &amp; SLAs</li>
+                            </ul>
+                            <div class="hero-card-foot">
+                                <i class="fas fa-clock"></i>
+                                <span>Typical first deliverable in 2–3 weeks</span>
+                            </div>
+                        </div>
+                        <div class="hero-float float-br">
+                            <i class="fas fa-bolt"></i>
+                            <span>Agile delivery</span>
+                        </div>
+                    </aside>
                 </div>
-            </div>
-            <div class="scroll-indicator" aria-hidden="true">
-                <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- Trusted-by strip -->
+        <section class="trusted" aria-label="Technologies we work with">
+            <div class="container">
+                <p class="trusted-label">Tooling we ship with every release</p>
+                <div class="trusted-row">
+                    <span class="trust-item"><i class="fab fa-android"></i> Android</span>
+                    <span class="trust-item"><i class="fab fa-apple"></i> iOS</span>
+                    <span class="trust-item"><i class="fab fa-react"></i> React</span>
+                    <span class="trust-item"><i class="fab fa-node"></i> Node.js</span>
+                    <span class="trust-item"><i class="fab fa-aws"></i> AWS</span>
+                    <span class="trust-item"><i class="fab fa-google-cloud"></i> Google Cloud</span>
+                    <span class="trust-item"><i class="fab fa-docker"></i> Docker</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="services">
+            <div class="container">
+                <header class="section-header reveal">
+                    <span class="section-label">Our services</span>
+                    <h2 class="section-title">Comprehensive IT solutions</h2>
+                    <p class="section-subtitle">Technology services scoped to your business and built to last.</p>
+                </header>
+                <div class="services-grid">
+                    <article class="service-card reveal">
+                        <div class="service-icon" aria-hidden="true"><i class="fas fa-globe"></i></div>
+                        <h3>Web Development</h3>
+                        <p>Custom web applications with modern frameworks for performance, security, and scale.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Responsive design</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Progressive web apps</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> E-commerce platforms</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> API design &amp; integration</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card featured reveal">
+                        <span class="service-badge">Most popular</span>
+                        <div class="service-icon" aria-hidden="true"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Mobile App Development</h3>
+                        <p>Native and cross-platform apps for iOS, Android, and Flutter with polished user experience.</p>
+                        <div class="mobile-platforms">
+                            <div class="platform"><i class="fab fa-android" aria-hidden="true"></i><span>Android</span></div>
+                            <div class="platform"><i class="fab fa-apple" aria-hidden="true"></i><span>iOS</span></div>
+                            <div class="platform"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Flutter</span></div>
+                        </div>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Native development</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Cross-platform builds</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> App store optimization</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Maintenance &amp; support</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <div class="service-icon" aria-hidden="true"><i class="fas fa-robot"></i></div>
+                        <h3>AI Solutions</h3>
+                        <p>Practical AI to enhance business processes and decision-making — not a marketing exercise.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Machine learning models</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Analytics &amp; insights</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Chatbots &amp; assistants</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Workflow automation</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <div class="service-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
+                        <h3>Custom Software</h3>
+                        <p>Tailored software for the unique challenges your team can&rsquo;t solve with off-the-shelf tools.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Enterprise platforms</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Process automation</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> System integration</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Cloud solutions</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
         <section id="about" class="about">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label">About Us</span>
-                    <h2 class="section-title">Trusted Technology Partner</h2>
-                    <p class="section-subtitle">Excellence in software development and digital innovation</p>
-                </div>
+                <header class="section-header reveal">
+                    <span class="section-label">About us</span>
+                    <h2 class="section-title">A trusted technology partner</h2>
+                    <p class="section-subtitle">Excellence in software development and digital innovation.</p>
+                </header>
                 <div class="about-content">
-                    <div class="about-text">
+                    <div class="about-text reveal">
                         <p class="lead">SoftTech Service is a proprietorship IT company owned by <strong>Maurya Neha Devi Ajitkumar</strong>, specializing in enterprise software, mobile apps, and custom digital solutions.</p>
-                        <p>We deliver reliable, scalable technology solutions for businesses of all sizes. Our expertise includes web development, mobile apps (Android, iOS, Flutter), AI solutions, HRMS, and utility management systems.</p>
+                        <p>We deliver reliable, scalable technology for businesses of all sizes. Our expertise spans web platforms, mobile apps (Android, iOS, Flutter), AI solutions, HRMS, and utility management systems.</p>
                         <div class="about-features">
                             <div class="feature-item">
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-bullseye" aria-hidden="true"></i>
                                 <div>
                                     <h4>Mission</h4>
-                                    <p>Empower businesses with innovative technology solutions.</p>
+                                    <p>Empower businesses with innovative, dependable technology.</p>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-eye" aria-hidden="true"></i>
                                 <div>
                                     <h4>Vision</h4>
                                     <p>Be the most trusted technology partner for digital transformation.</p>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <i class="fas fa-shield-alt"></i>
+                                <i class="fas fa-shield-alt" aria-hidden="true"></i>
                                 <div>
-                                    <h4>Trust & Reliability</h4>
-                                    <p>Quality solutions with transparent communication and timely delivery.</p>
+                                    <h4>Trust &amp; reliability</h4>
+                                    <p>Quality solutions with transparent communication and on-time delivery.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="about-image">
-                        <img src="images/about-us.png" alt="SoftTech Service Team" class="about-image-img" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
-                        <div class="image-placeholder">
+                    <div class="about-image reveal">
+                        <img src="images/about-us.png" alt="SoftTech Service team at work" class="about-image-img" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+                        <div class="image-placeholder" aria-hidden="true">
                             <i class="fas fa-laptop-code"></i>
                         </div>
                     </div>
@@ -211,322 +313,173 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="services">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Our Services</span>
-                    <h2 class="section-title">Comprehensive IT Solutions</h2>
-                    <p class="section-subtitle">Technology services tailored to your business needs</p>
-                </div>
-                <div class="services-grid">
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-globe" aria-hidden="true"></i>
-                        </div>
-                        <h3>Web Development</h3>
-                        <p>Custom web applications with modern frameworks for optimal performance and scalability.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Responsive Design</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Progressive Web Apps</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> E-Commerce</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> API Integration</li>
-                        </ul>
-                    </article>
-                    <article class="service-card featured">
-                        <div class="service-badge">Most Popular</div>
-                        <div class="service-icon">
-                            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-                        </div>
-                        <h3>Mobile App Development</h3>
-                        <p>Native and cross-platform mobile apps for iOS, Android, and Flutter with seamless user experiences.</p>
-                        <div class="mobile-platforms">
-                            <div class="platform">
-                                <i class="fab fa-android" aria-hidden="true"></i>
-                                <span>Android</span>
-                            </div>
-                            <div class="platform">
-                                <i class="fab fa-apple" aria-hidden="true"></i>
-                                <span>iOS</span>
-                            </div>
-                            <div class="platform">
-                                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-                                <span>Flutter</span>
-                            </div>
-                        </div>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Native Development</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Cross-Platform Apps</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> App Store Optimization</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Maintenance & Support</li>
-                        </ul>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-robot" aria-hidden="true"></i>
-                        </div>
-                        <h3>AI Solutions</h3>
-                        <p>AI-powered solutions to enhance business processes and decision-making.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Machine Learning</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> AI Analytics</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Chatbots</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Automation</li>
-                        </ul>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-code" aria-hidden="true"></i>
-                        </div>
-                        <h3>Custom Software Development</h3>
-                        <p>Tailored software solutions for your unique business challenges.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Enterprise Software</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Process Automation</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> System Integration</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Cloud Solutions</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Choose Us Section -->
+        <!-- Why choose us -->
         <section class="why-choose-us">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Why Choose Us</span>
-                    <h2 class="section-title">Excellence in Every Project</h2>
-                    <p class="section-subtitle">What sets us apart</p>
-                </div>
+                <header class="section-header reveal">
+                    <span class="section-label">Why choose us</span>
+                    <h2 class="section-title">Excellence in every project</h2>
+                    <p class="section-subtitle">What sets our delivery apart.</p>
+                </header>
                 <div class="why-grid">
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="fas fa-award" aria-hidden="true"></i>
-                        </div>
-                        <h3>Proven Experience</h3>
-                        <p>Years of experience delivering successful projects across industries.</p>
+                    <div class="why-card reveal">
+                        <div class="why-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+                        <h3>Proven experience</h3>
+                        <p>Years of delivering successful projects across industries and stacks.</p>
                     </div>
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="fas fa-cogs" aria-hidden="true"></i>
-                        </div>
-                        <h3>Agile Process</h3>
-                        <p>Flexible methodology ensuring timely delivery and continuous improvement.</p>
+                    <div class="why-card reveal">
+                        <div class="why-icon" aria-hidden="true"><i class="fas fa-cogs"></i></div>
+                        <h3>Agile delivery</h3>
+                        <p>Flexible methodology that ships value early and improves continuously.</p>
                     </div>
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                        </div>
-                        <h3>Reliable & Secure</h3>
-                        <p>Enterprise-grade security and reliable infrastructure protecting your data.</p>
+                    <div class="why-card reveal">
+                        <div class="why-icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Reliable &amp; secure</h3>
+                        <p>Enterprise-grade security and infrastructure that protect your data.</p>
                     </div>
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="fas fa-headset" aria-hidden="true"></i>
-                        </div>
-                        <h3>24/7 Support</h3>
-                        <p>Comprehensive support and maintenance to keep systems running smoothly.</p>
+                    <div class="why-card reveal">
+                        <div class="why-icon" aria-hidden="true"><i class="fas fa-headset"></i></div>
+                        <h3>24/7 support</h3>
+                        <p>Comprehensive maintenance to keep your systems running smoothly.</p>
                     </div>
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="fas fa-dollar-sign" aria-hidden="true"></i>
-                        </div>
-                        <h3>Cost-Effective</h3>
-                        <p>Competitive pricing without compromising quality, delivering maximum value.</p>
+                    <div class="why-card reveal">
+                        <div class="why-icon" aria-hidden="true"><i class="fas fa-coins"></i></div>
+                        <h3>Cost-effective</h3>
+                        <p>Competitive pricing without compromising on quality or longevity.</p>
                     </div>
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="fas fa-users" aria-hidden="true"></i>
-                        </div>
-                        <h3>Client-Centric</h3>
+                    <div class="why-card reveal">
+                        <div class="why-icon" aria-hidden="true"><i class="fas fa-users"></i></div>
+                        <h3>Client-centric</h3>
                         <p>Your success is our priority. We work closely to exceed expectations.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Technology Stack Section -->
+        <!-- Tech stack -->
         <section class="tech-stack">
             <div class="container">
-                <div class="section-header">
+                <header class="section-header reveal">
                     <span class="section-label">Technologies</span>
-                    <h2 class="section-title">Our Technology Stack</h2>
-                    <p class="section-subtitle">Modern tools and frameworks for exceptional solutions</p>
-                </div>
+                    <h2 class="section-title">Our technology stack</h2>
+                    <p class="section-subtitle">Modern tools and frameworks behind every solution we ship.</p>
+                </header>
                 <div class="tech-categories">
-                    <div class="tech-category">
-                        <h3>Mobile Development</h3>
+                    <div class="tech-category reveal">
+                        <h3>Mobile</h3>
                         <div class="tech-items">
-                            <div class="tech-item">
-                                <i class="fab fa-android"></i>
-                                <span>Android</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-apple"></i>
-                                <span>iOS</span>
-                            </div>
-                            <div class="tech-item">
-                                <svg class="flutter-logo" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18.5 2L6.5 14L10.5 18L22.5 6H14.5L18.5 2Z" fill="#4A6CF7"/>
-                                    <path d="M18.5 30L6.5 18L10.5 14L22.5 26H14.5L18.5 30Z" fill="#4A6CF7"/>
-                                    <path d="M14.5 6L22.5 6L10.5 18L14.5 18L14.5 6Z" fill="#2F5BEA"/>
-                                    <path d="M14.5 26L22.5 26L10.5 14L14.5 14L14.5 26Z" fill="#2F5BEA"/>
+                            <span class="tech-item"><i class="fab fa-android"></i> Android</span>
+                            <span class="tech-item"><i class="fab fa-apple"></i> iOS</span>
+                            <span class="tech-item">
+                                <svg class="flutter-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M18.5 2L6.5 14L10.5 18L22.5 6H14.5L18.5 2Z" fill="currentColor"/>
+                                    <path d="M18.5 30L6.5 18L10.5 14L22.5 26H14.5L18.5 30Z" fill="currentColor"/>
                                 </svg>
-                                <span>Flutter</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-react"></i>
-                                <span>React Native</span>
-                            </div>
+                                Flutter
+                            </span>
+                            <span class="tech-item"><i class="fab fa-react"></i> React Native</span>
                         </div>
                     </div>
-                    <div class="tech-category">
-                        <h3>Web Technologies</h3>
+                    <div class="tech-category reveal">
+                        <h3>Web</h3>
                         <div class="tech-items">
-                            <div class="tech-item">
-                                <i class="fab fa-html5"></i>
-                                <span>HTML5</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-css3-alt"></i>
-                                <span>CSS3</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-js"></i>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-react"></i>
-                                <span>React</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-node"></i>
-                                <span>Node.js</span>
-                            </div>
+                            <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="tech-item"><i class="fab fa-react"></i> React</span>
+                            <span class="tech-item"><i class="fab fa-node"></i> Node.js</span>
                         </div>
                     </div>
-                    <div class="tech-category">
-                        <h3>Backend & Database</h3>
+                    <div class="tech-category reveal">
+                        <h3>Backend &amp; data</h3>
                         <div class="tech-items">
-                            <div class="tech-item">
-                                <i class="fas fa-database"></i>
-                                <span>MySQL</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-database"></i>
-                                <span>PostgreSQL</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-database"></i>
-                                <span>MongoDB</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-python"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-php"></i>
-                                <span>PHP</span>
-                            </div>
+                            <span class="tech-item"><i class="fas fa-database"></i> MySQL</span>
+                            <span class="tech-item"><i class="fas fa-database"></i> PostgreSQL</span>
+                            <span class="tech-item"><i class="fas fa-database"></i> MongoDB</span>
+                            <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
                         </div>
                     </div>
-                    <div class="tech-category">
-                        <h3>Cloud & DevOps</h3>
+                    <div class="tech-category reveal">
+                        <h3>Cloud &amp; DevOps</h3>
                         <div class="tech-items">
-                            <div class="tech-item">
-                                <i class="fab fa-aws"></i>
-                                <span>AWS</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-google-cloud"></i>
-                                <span>Google Cloud</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-docker"></i>
-                                <span>Docker</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-git-alt"></i>
-                                <span>Git</span>
-                            </div>
+                            <span class="tech-item"><i class="fab fa-aws"></i> AWS</span>
+                            <span class="tech-item"><i class="fab fa-google-cloud"></i> Google Cloud</span>
+                            <span class="tech-item"><i class="fab fa-docker"></i> Docker</span>
+                            <span class="tech-item"><i class="fab fa-git-alt"></i> Git</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Portfolio Section -->
+        <!-- Portfolio -->
         <section id="portfolio" class="portfolio">
             <div class="container">
-                <div class="section-header">
+                <header class="section-header reveal">
                     <span class="section-label">Portfolio</span>
-                    <h2 class="section-title">Our Recent Projects</h2>
-                    <p class="section-subtitle">Showcasing expertise across domains and technologies</p>
-                </div>
+                    <h2 class="section-title">Recent projects</h2>
+                    <p class="section-subtitle">A glimpse of the work we&rsquo;ve shipped across domains and stacks.</p>
+                </header>
                 <div class="portfolio-grid">
-                    <article class="portfolio-card">
+                    <article class="portfolio-card reveal">
                         <div class="portfolio-image">
-                            <img src="images/portfolio/hrms-project.jpg" alt="HRMS Solution" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
+                            <img src="images/portfolio/hrms-project.jpg" alt="" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
                             <div class="portfolio-overlay">
-                                <a href="#" class="portfolio-link" aria-label="View HRMS Solution project">
-                                    <i class="fas fa-external-link-alt"></i>
+                                <a href="#contact" class="portfolio-link" aria-label="Discuss an HRMS project">
+                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                                 </a>
                             </div>
-                            <div class="portfolio-placeholder">
-                                <i class="fas fa-users-cog"></i>
-                            </div>
+                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-users-cog"></i></div>
                         </div>
                         <div class="portfolio-content">
-                            <span class="portfolio-category">HRMS Solution</span>
-                            <h3>Enterprise HR Management System</h3>
-                            <p>Comprehensive HRMS platform with employee management, payroll, attendance tracking, and performance evaluation.</p>
+                            <span class="portfolio-category">HRMS</span>
+                            <h3>Enterprise HR Management</h3>
+                            <p>Employee management, payroll, attendance, and performance evaluation in one platform.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">Web App</span>
-                                <span class="tag">Mobile App</span>
+                                <span class="tag">Web app</span>
+                                <span class="tag">Mobile</span>
                                 <span class="tag">Cloud</span>
                             </div>
                         </div>
                     </article>
-                    <article class="portfolio-card">
+
+                    <article class="portfolio-card reveal">
                         <div class="portfolio-image">
-                            <img src="images/portfolio/utility-management.jpg" alt="Utility Management Platform" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
+                            <img src="images/portfolio/utility-management.jpg" alt="" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
                             <div class="portfolio-overlay">
-                                <a href="#" class="portfolio-link" aria-label="View Utility Management project">
-                                    <i class="fas fa-external-link-alt"></i>
+                                <a href="#contact" class="portfolio-link" aria-label="Discuss a utility management project">
+                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                                 </a>
                             </div>
-                            <div class="portfolio-placeholder">
-                                <i class="fas fa-tools"></i>
-                            </div>
+                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-tools"></i></div>
                         </div>
                         <div class="portfolio-content">
-                            <span class="portfolio-category">Utility Management</span>
-                            <h3>Smart Utility Management Platform</h3>
-                            <p>Integrated system for tracking, monitoring, and optimizing resource consumption across facilities.</p>
+                            <span class="portfolio-category">Utility</span>
+                            <h3>Smart utility management</h3>
+                            <p>Integrated tracking and optimization of resource consumption across facilities.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">IoT Integration</span>
+                                <span class="tag">IoT</span>
                                 <span class="tag">Analytics</span>
                                 <span class="tag">Mobile</span>
                             </div>
                         </div>
                     </article>
-                    <article class="portfolio-card">
+
+                    <article class="portfolio-card reveal">
                         <div class="portfolio-image">
-                            <img src="images/portfolio/ecommerce-app.jpg" alt="E-Commerce Shopping App" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
+                            <img src="images/portfolio/ecommerce-app.jpg" alt="" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
                             <div class="portfolio-overlay">
-                                <a href="#" class="portfolio-link" aria-label="View E-Commerce Mobile App project">
-                                    <i class="fas fa-external-link-alt"></i>
+                                <a href="#contact" class="portfolio-link" aria-label="Discuss an e-commerce project">
+                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                                 </a>
                             </div>
-                            <div class="portfolio-placeholder">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
+                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-shopping-cart"></i></div>
                         </div>
                         <div class="portfolio-content">
-                            <span class="portfolio-category">E-Commerce</span>
-                            <h3>Cross-Platform Shopping App</h3>
-                            <p>Feature-rich e-commerce app built with Flutter for Android and iOS with seamless shopping experience.</p>
+                            <span class="portfolio-category">E-commerce</span>
+                            <h3>Cross-platform shopping app</h3>
+                            <p>Feature-rich Flutter app for Android and iOS with a polished shopping experience.</p>
                             <div class="portfolio-tags">
                                 <span class="tag">Flutter</span>
                                 <span class="tag">Android</span>
@@ -534,26 +487,25 @@
                             </div>
                         </div>
                     </article>
-                    <article class="portfolio-card">
+
+                    <article class="portfolio-card reveal">
                         <div class="portfolio-image">
-                            <img src="images/portfolio/ai-analytics.jpg" alt="AI-Powered Business Analytics" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
+                            <img src="images/portfolio/ai-analytics.jpg" alt="" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
                             <div class="portfolio-overlay">
-                                <a href="#" class="portfolio-link" aria-label="View AI Analytics Platform project">
-                                    <i class="fas fa-external-link-alt"></i>
+                                <a href="#contact" class="portfolio-link" aria-label="Discuss an AI analytics project">
+                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                                 </a>
                             </div>
-                            <div class="portfolio-placeholder">
-                                <i class="fas fa-brain"></i>
-                            </div>
+                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-brain"></i></div>
                         </div>
                         <div class="portfolio-content">
-                            <span class="portfolio-category">AI Solutions</span>
-                            <h3>AI-Powered Business Analytics</h3>
-                            <p>Intelligent analytics platform using machine learning for actionable insights and predictive analytics.</p>
+                            <span class="portfolio-category">AI</span>
+                            <h3>AI-powered analytics</h3>
+                            <p>Machine-learning platform turning operational data into actionable insights.</p>
                             <div class="portfolio-tags">
                                 <span class="tag">AI/ML</span>
                                 <span class="tag">Analytics</span>
-                                <span class="tag">Web App</span>
+                                <span class="tag">Web</span>
                             </div>
                         </div>
                     </article>
@@ -561,142 +513,126 @@
             </div>
         </section>
 
-        <!-- Process Section -->
+        <!-- Process -->
         <section id="process" class="process">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Our Process</span>
-                    <h2 class="section-title">How We Work</h2>
-                    <p class="section-subtitle">Proven methodology for successful project delivery</p>
-                </div>
+                <header class="section-header reveal">
+                    <span class="section-label">Our process</span>
+                    <h2 class="section-title">How we work</h2>
+                    <p class="section-subtitle">A proven methodology for successful delivery — every project, every time.</p>
+                </header>
                 <div class="process-timeline">
-                    <div class="process-step">
+                    <div class="process-step reveal">
                         <div class="process-number">01</div>
-                        <div class="process-icon">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </div>
+                        <div class="process-icon" aria-hidden="true"><i class="fas fa-search"></i></div>
                         <h3>Discover</h3>
-                        <p>Understanding your business goals, requirements, and challenges through consultation.</p>
+                        <p>Understand your goals, constraints, and success criteria through structured consultation.</p>
                     </div>
-                    <div class="process-step">
+                    <div class="process-step reveal">
                         <div class="process-number">02</div>
-                        <div class="process-icon">
-                            <i class="fas fa-pencil-ruler" aria-hidden="true"></i>
-                        </div>
+                        <div class="process-icon" aria-hidden="true"><i class="fas fa-pencil-ruler"></i></div>
                         <h3>Design</h3>
-                        <p>Creating designs, wireframes, and prototypes to visualize the solution.</p>
+                        <p>Create wireframes, designs, and prototypes to validate the solution before building.</p>
                     </div>
-                    <div class="process-step">
+                    <div class="process-step reveal">
                         <div class="process-number">03</div>
-                        <div class="process-icon">
-                            <i class="fas fa-code" aria-hidden="true"></i>
-                        </div>
-                        <h3>Develop</h3>
-                        <p>Building your solution with agile methodology, regular updates, and testing.</p>
+                        <div class="process-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
+                        <h3>Build</h3>
+                        <p>Develop in tight iterations with regular updates, code review, and testing.</p>
                     </div>
-                    <div class="process-step">
+                    <div class="process-step reveal">
                         <div class="process-number">04</div>
-                        <div class="process-icon">
-                            <i class="fas fa-rocket" aria-hidden="true"></i>
-                        </div>
-                        <h3>Deploy</h3>
-                        <p>Smooth deployment with comprehensive testing, documentation, and training.</p>
+                        <div class="process-icon" aria-hidden="true"><i class="fas fa-rocket"></i></div>
+                        <h3>Ship</h3>
+                        <p>Deploy with full documentation, monitoring, and team training in place.</p>
                     </div>
-                    <div class="process-step">
+                    <div class="process-step reveal">
                         <div class="process-number">05</div>
-                        <div class="process-icon">
-                            <i class="fas fa-headset" aria-hidden="true"></i>
-                        </div>
+                        <div class="process-icon" aria-hidden="true"><i class="fas fa-headset"></i></div>
                         <h3>Support</h3>
-                        <p>Ongoing maintenance, updates, and support to keep your solution running optimally.</p>
+                        <p>Ongoing maintenance, updates, and incident response keep things running.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
+        <!-- CTA -->
         <section class="cta">
             <div class="container">
-                <div class="cta-content">
-                    <h2>Ready to Transform Your Business?</h2>
-                    <p>Let's discuss how we can help achieve your digital transformation goals.</p>
+                <div class="cta-content reveal">
+                    <h2>Ready to transform your business?</h2>
+                    <p>Let&rsquo;s talk through your goals and put a delivery plan together — no commitment required.</p>
                     <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary btn-large">Get Free Consultation</a>
-                        <a href="mailto:contect@softtechservice.site" class="btn btn-secondary btn-large">Contact Us</a>
+                        <a href="#contact" class="btn btn-primary btn-large">Get free consultation</a>
+                        <a href="mailto:contect@softtechservice.site" class="btn btn-secondary btn-large">Email us</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact -->
         <section id="contact" class="contact">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Contact Us</span>
-                    <h2 class="section-title">Let's Start Your Project</h2>
-                    <p class="section-subtitle">Get in touch to discuss your requirements and get a free quote</p>
-                </div>
+                <header class="section-header reveal">
+                    <span class="section-label">Contact us</span>
+                    <h2 class="section-title">Let&rsquo;s start your project</h2>
+                    <p class="section-subtitle">Tell us about your requirements and we&rsquo;ll send a tailored quote.</p>
+                </header>
                 <div class="contact-wrapper">
                     <div class="contact-info">
                         <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                            </div>
-                            <h3>Email Us</h3>
+                            <div class="contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+                            <h3>Email</h3>
                             <a href="mailto:contect@softtechservice.site" aria-label="Send email to SoftTech Service">contect@softtechservice.site</a>
                         </div>
                         <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-building" aria-hidden="true"></i>
-                            </div>
-                            <h3>Company Information</h3>
+                            <div class="contact-icon" aria-hidden="true"><i class="fas fa-building"></i></div>
+                            <h3>Company</h3>
                             <p><strong>SoftTech Service</strong></p>
                             <p class="owner">Proprietor: Maurya Neha Devi Ajitkumar</p>
                         </div>
                         <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock" aria-hidden="true"></i>
-                            </div>
-                            <h3>Business Hours</h3>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                            <p>Saturday: 10:00 AM - 4:00 PM</p>
+                            <div class="contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+                            <h3>Hours</h3>
+                            <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
+                            <p>Saturday: 10:00 AM – 4:00 PM</p>
                         </div>
                     </div>
                     <div class="contact-form-wrapper">
                         <form class="contact-form" id="contactForm" novalidate>
                             <div class="form-group">
-                                <label for="name">Full Name <span class="required">*</span></label>
-                                <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error">
+                                <label for="name">Full name <span class="required" aria-hidden="true">*</span></label>
+                                <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error" placeholder="Jane Doe">
                                 <span class="error-message" id="name-error" role="alert"></span>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email Address <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error">
+                                <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+                                <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error" placeholder="you@company.com">
                                 <span class="error-message" id="email-error" role="alert"></span>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" aria-describedby="phone-error">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" aria-describedby="phone-error" placeholder="+91 99999 99999">
                                 <span class="error-message" id="phone-error" role="alert"></span>
                             </div>
                             <div class="form-group">
-                                <label for="service">Service Interested In</label>
+                                <label for="service">Service interested in</label>
                                 <select id="service" name="service">
                                     <option value="">Select a service</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="mobile-app">Mobile App Development</option>
-                                    <option value="ai-solutions">AI Solutions</option>
-                                    <option value="custom-software">Custom Software</option>
-                                    <option value="hrms">HRMS Solutions</option>
+                                    <option value="web-development">Web development</option>
+                                    <option value="mobile-app">Mobile app development</option>
+                                    <option value="ai-solutions">AI solutions</option>
+                                    <option value="custom-software">Custom software</option>
+                                    <option value="hrms">HRMS solutions</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="message">Project Details <span class="required">*</span></label>
-                                <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="message-error"></textarea>
+                                <label for="message">Project details <span class="required" aria-hidden="true">*</span></label>
+                                <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="message-error" placeholder="A short description of what you&rsquo;re building, your timeline, and any constraints."></textarea>
                                 <span class="error-message" id="message-error" role="alert"></span>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                            <button type="submit" class="btn btn-primary btn-large">Send message</button>
                             <div class="form-success" id="formSuccess" role="alert" aria-live="polite"></div>
                         </form>
                     </div>
@@ -708,75 +644,77 @@
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-grid">
-                    <div class="footer-col">
-                        <div class="footer-brand">
-                            <img src="images/logo_trans.png" alt="SoftTech Service Logo" class="logo-img footer-logo">
-                            <span>SoftTech Service</span>
-                        </div>
-                        <p class="footer-description">Reliable, scalable technology solutions for businesses worldwide.</p>
-                        <div class="footer-social">
-                            <a href="mailto:contect@softtechservice.site" class="social-link" aria-label="Email us">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <img src="images/logo_trans.png" alt="" class="logo-img footer-logo">
+                        <span>SoftTech Service</span>
                     </div>
-                    <div class="footer-col">
-                        <h4>Services</h4>
-                        <ul class="footer-links">
-                            <li><a href="#services">Web Development</a></li>
-                            <li><a href="#services">Mobile App Development</a></li>
-                            <li><a href="#services">AI Solutions</a></li>
-                            <li><a href="#services">Custom Software</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Company</h4>
-                        <ul class="footer-links">
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#process">Our Process</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Contact</h4>
-                        <ul class="footer-contact">
-                            <li>
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                                <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-building" aria-hidden="true"></i>
-                                <span>SoftTech Service<br>Proprietor: Maurya Neha Devi Ajitkumar</span>
-                            </li>
-                        </ul>
+                    <p class="footer-description">Reliable, scalable technology solutions for businesses worldwide.</p>
+                    <div class="footer-social">
+                        <a href="mailto:contect@softtechservice.site" class="social-link" aria-label="Email us">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    <p class="footer-copyright">&copy; 2024 SoftTech Service. All rights reserved.</p>
-                    <div class="footer-legal">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                    </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Web development</a></li>
+                        <li><a href="#services">Mobile apps</a></li>
+                        <li><a href="#services">AI solutions</a></li>
+                        <li><a href="#services">Custom software</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-building" aria-hidden="true"></i>
+                            <span>SoftTech Service<br>Proprietor: Maurya Neha Devi Ajitkumar</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2024 SoftTech Service. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <button class="back-to-top" aria-label="Back to top" id="backToTop">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <script src="script.js"></script>
-    
-    <!-- Disable Right Click & DevTools -->
+
+    <!-- Disable right-click & devtools shortcuts -->
     <script>
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.onkeydown = function(e) {
