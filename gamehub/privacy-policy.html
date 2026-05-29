@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - GameHub | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy and Terms & Conditions for GameHub - Offline Games.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #060A14;
+            --bg-card: #0D1425;
+            --accent-cyan: #00F2FF;
+            --accent-purple: #BC00FF;
+            --text-main: #E2E8F0;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, var(--bg-card) 0%, #1A1F2E 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent-cyan), transparent);
+        }
+
+        .header-section h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-cyan);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .header-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -2rem auto 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            text-shadow: 0 0 10px var(--accent-cyan);
+            transform: translateX(-5px);
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-card);
+            border-radius: 8px 8px 0 0;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            border-bottom: 2px solid rgba(0, 242, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-button:hover {
+            color: var(--accent-cyan);
+            background: rgba(0, 242, 255, 0.05);
+        }
+
+        .tab-button.active {
+            color: var(--accent-cyan);
+            border-bottom-color: var(--accent-cyan);
+            background: rgba(0, 242, 255, 0.05);
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+
+        /* Tab Content */
+        .content-box {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            border-top: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-cyan);
+            margin: 2.5rem 0 1.25rem;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            border-left: 4px solid var(--accent-purple);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            color: var(--accent-purple);
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        p { margin-bottom: 1.25rem; color: var(--text-main); }
+        ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: var(--text-muted); }
+        li { margin-bottom: 0.75rem; }
+
+        .highlight-box {
+            background: rgba(188, 0, 255, 0.05);
+            border: 1px solid rgba(188, 0, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .content-box { padding: 1.5rem; }
+            .header-section h1 { font-size: 1.8rem; }
+            .tab-button { padding: 1rem 0.5rem; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <div class="container">
+            <h1>GameHub Security</h1>
+            <p>Privacy Policy & Terms of Service</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Return to Console</a>
+
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'privacy')">Privacy Policy</button>
+                <button class="tab-button" onclick="openTab(event, 'terms')">Terms & Conditions</button>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <!-- Privacy Policy Content -->
+            <div id="privacy" class="tab-content active">
+                <p><strong>Last Updated: May 30, 2024</strong></p>
+                
+                <section>
+                    <h2>1. Protocol Overview</h2>
+                    <p>Welcome to <strong>GameHub</strong>, an offline game console application developed by <strong>SoftTech Service</strong>. Your privacy is our top priority. GameHub is designed as an <strong>Offline-First</strong> application, meaning your data stays where it belongs: on your device.</p>
+                </section>
+
+                <section>
+                    <h2>2. Data Collection Log</h2>
+                    <h3>A. Personal Identity Data</h3>
+                    <p>We do <strong>not</strong> collect, store, or transmit any personally identifiable information (PII). No names, emails, or phone numbers are required to access the console.</p>
+                    
+                    <h3>B. Local Environment Data</h3>
+                    <p>The following data is stored locally on your device to ensure persistence:</p>
+                    <ul>
+                        <li>Mission High Scores & Achievement Logs.</li>
+                        <li>User Configuration (Sound, Theme, Haptic Feedback).</li>
+                        <li>Session Metadata (used for in-app review triggers).</li>
+                    </ul>
+                    <p>This data is encrypted within the app's local storage and is never uploaded to external servers.</p>
+                </section>
+
+                <section>
+                    <h2>3. External Uplinks</h2>
+                    <p>GameHub utilizes limited third-party services to support the application ecosystem:</p>
+                    
+                    <h3>A. Google AdMob</h3>
+                    <p>We use Google AdMob to display advertisements. AdMob may use your device's advertising ID to serve relevant content. This is governed by the <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent-cyan);">Google Privacy Policy</a>.</p>
+                    
+                    <h3>B. System Review API</h3>
+                    <p>We utilize the Google Play In-App Review API. All interactions with this API are handled by Google Play Services.</p>
+                </section>
+
+                <section>
+                    <h2>4. Hardware Permissions</h2>
+                    <ul>
+                        <li><strong>Network Access:</strong> Required only for ad synchronization and store updates.</li>
+                        <li><strong>Haptics:</strong> Used for tactile feedback during gameplay (User-configurable).</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>5. Contact Information</h2>
+                    <p>For inquiries regarding this protocol, contact our security officer at:</p>
+                    <p style="color: var(--accent-cyan); font-weight: bold;">support@softtechservice.site</p>
+                </div>
+
+            <!-- Terms & Conditions Content -->
+            <div id="terms" class="tab-content">
+                <p><strong>Last Updated: May 30, 2024</strong></p>
+
+                <section>
+                    <h2>1. Mission Acceptance</h2>
+                    <p>By accessing GameHub ("The Console"), you agree to abide by these Terms and Conditions. If you do not agree to these terms, you must terminate your session and uninstall the application.</p>
+                </section>
+
+                <section>
+                    <h2>2. License to Operate</h2>
+                    <p>SoftTech Service grants you a personal, non-exclusive, non-transferable license to use GameHub for personal, non-commercial entertainment purposes. All games bundled within the console are protected by copyright and intellectual property laws.</p>
+                    <div class="highlight-box">
+                        <p><strong>Prohibited Actions:</strong></p>
+                        <ul>
+                            <li>Reverse engineering or decompiling the application.</li>
+                            <li>Extracting game assets for external use.</li>
+                            <li>Distributing modified versions of the APK/App Bundle.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>3. User Responsibility</h2>
+                    <p>You are responsible for maintaining the security of your device. Since GameHub is an offline-first app, lost high scores or progress due to device failure or app deletion cannot be recovered by SoftTech Service.</p>
+                </section>
+
+                <section>
+                    <h2>4. Limitation of Liability</h2>
+                    <p>GameHub is provided "AS IS" without warranties of any kind. SoftTech Service shall not be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use the console.</p>
+                </section>
+
+                <section>
+                    <h2>5. Termination</h2>
+                    <p>We reserve the right to terminate access to certain games or the entire console if these terms are violated. Updates may occasionally remove or replace games within the registry.</p>
+                </section>
+
+                <section>
+                    <h2>6. Governing Law</h2>
+                    <p>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts located in Mumbai.</p>
+                </section>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 SoftTech Service. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabContent, tabButtons;
+            
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+            
+            tabButtons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>

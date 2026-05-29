@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - Ultimate Offline Game Console | 35+ Games in One App</title>
+    <meta name="description" content="Play 35+ classic offline games! Arcade, card, puzzle & board games in one premium cyberpunk console. No internet, no data required.">
+    <meta name="keywords" content="offline games, arcade games, card games, puzzle games, board games, Flutter games, cyberpunk console, GameHub">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #060A14;
+            --bg-card: #0D1425;
+            --accent-cyan: #00F2FF;
+            --accent-purple: #BC00FF;
+            --accent-neon: #39FF14;
+            --text-main: #E2E8F0;
+            --text-muted: #94A3B8;
+            --glow-cyan: 0 0 10px rgba(0, 242, 255, 0.5);
+            --glow-purple: 0 0 10px rgba(188, 0, 255, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Scanline Effect */
+        body::before {
+            content: " ";
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        header {
+            background: rgba(13, 20, 37, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            text-shadow: var(--glow-cyan);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+            text-shadow: var(--glow-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(188, 0, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #00F2FF, #BC00FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3));
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-cyan);
+            color: var(--bg-deep);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.8);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(188, 0, 255, 0.1);
+            box-shadow: var(--glow-purple);
+        }
+
+        /* Features Section */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 0;
+            background: var(--accent-cyan);
+            transition: 0.5s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 242, 255, 0.4);
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+        }
+
+        /* Games Grid */
+        .games-section {
+            background: rgba(13, 20, 37, 0.3);
+            padding: 6rem 0;
+        }
+
+        .category-title {
+            color: var(--accent-purple);
+            margin: 3rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent-purple), transparent);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .game-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.25rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-cyan);
+            font-weight: 500;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .game-item i {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+        }
+
+        .game-item:hover {
+            background: rgba(0, 242, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            border-top: 1px solid rgba(0, 242, 255, 0.1);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .cta-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">GAMEHUB</a>
+                <ul class="nav-links">
+                    <li><a href="#features">Console Specs</a></li>
+                    <li><a href="#games">Mission Log</a></li>
+                    <li><a href="privacy-policy.html">Security Protocol</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="badge">Offline-First Cyberpunk Console</span>
+            <h1>GAMEHUB: OFFLINE</h1>
+            <p>Access a premium collection of 35+ legendary arcade, puzzle, card, and strategy games. One app, infinite missions, zero data usage.</p>
+            <div class="cta-group">
+                <a href="#games" class="btn btn-primary"><i class="fas fa-play"></i> Launch Mission</a>
+                <a href="privacy-policy.html" class="btn btn-secondary"><i class="fas fa-shield-alt"></i> Security Protocol</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Console Specs</h2>
+                <p>Engineered for high-performance offline entertainment.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-wifi-slash"></i></div>
+                    <h3>100% Offline-First</h3>
+                    <p>Zero data usage. Every game is fully bundled locally and playable without internet access or Wi-Fi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Hybrid Engine</h3>
+                    <p>Powered by Flutter and the Flame game engine for high-framerate, responsive gameplay and stunning visuals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-battery-full"></i></div>
+                    <h3>Battery Optimized</h3>
+                    <p>Minimal battery consumption and lightweight install. Carry an entire arcade in your pocket without the bulk.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="games-section" id="games">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mission Registry</h2>
+                <p>38 high-quality games across 4 distinct categories.</p>
+            </div>
+
+            <h3 class="category-title">🕹️ Arcade Classics</h3>
+            <div class="games-grid">
+                <div class="game-item"><i class="fas fa-snake"></i> Snake</div>
+                <div class="game-item"><i class="fas fa-cubes"></i> Brick Breaker</div>
+                <div class="game-item"><i class="fas fa-dove"></i> Flappy Bird</div>
+                <div class="game-item"><i class="fas fa-rocket"></i> Space Shooter</div>
+                <div class="game-item"><i class="fas fa-running"></i> Endless Runner</div>
+                <div class="game-item"><i class="fas fa-table-tennis-paddle-ball"></i> Ping Pong</div>
+                <div class="game-item"><i class="fas fa-circle-dot"></i> Bubble Pop</div>
+                <div class="game-item"><i class="fas fa-balloon"></i> Balloon Pop</div>
+                <div class="game-item"><i class="fas fa-apple-whole"></i> Fruit Slice</div>
+                <div class="game-item"><i class="fas fa-car"></i> Car Racing</div>
+                <div class="game-item"><i class="fas fa-road"></i> Cross Road</div>
+            </div>
+
+            <h3 class="category-title">🧩 Brain Teasers & Puzzles</h3>
+            <div class="games-grid">
+                <div class="game-item"><i class="fas fa-hashtag"></i> 2048</div>
+                <div class="game-item"><i class="fas fa-th"></i> Sudoku</div>
+                <div class="game-item"><i class="fas fa-clone"></i> Memory Match</div>
+                <div class="game-item"><i class="fas fa-calculator"></i> Math Blaster</div>
+                <div class="game-item"><i class="fas fa-palette"></i> Color Tap</div>
+                <div class="game-item"><i class="fas fa-project-diagram"></i> Color Connect</div>
+                <div class="game-item"><i class="fas fa-font"></i> Word Guess</div>
+                <div class="game-item"><i class="fas fa-lightbulb"></i> Simon</div>
+                <div class="game-item"><i class="fas fa-draw-polygon"></i> Maze</div>
+                <div class="game-item"><i class="fas fa-eye"></i> Spot the Color</div>
+                <div class="game-item"><i class="fas fa-brush"></i> Color Match</div>
+                <div class="game-item"><i class="fas fa-bomb"></i> Avoid the Bomb</div>
+            </div>
+
+            <h3 class="category-title">🃏 Classic Card Games</h3>
+            <div class="games-grid">
+                <div class="game-item"><i class="fas fa-money-bill-wave"></i> Blackjack</div>
+                <div class="game-item"><i class="fas fa-crown"></i> Poker</div>
+                <div class="game-item"><i class="fas fa-om"></i> Teen Patti</div>
+                <div class="game-item"><i class="fas fa-arrows-alt-h"></i> Andar Bahar</div>
+                <div class="game-item"><i class="fas fa-fish"></i> Go Fish</div>
+                <div class="game-item"><i class="fas fa-bolt"></i> Snap</div>
+                <div class="game-item"><i class="fas fa-swords"></i> War</div>
+                <div class="game-item"><i class="fas fa-chart-line"></i> Higher or Lower</div>
+            </div>
+
+            <h3 class="category-title">🎲 Tabletop & Strategy</h3>
+            <div class="games-grid">
+                <div class="game-item"><i class="fas fa-chess-knight"></i> Chess</div>
+                <div class="game-item"><i class="fas fa-dice"></i> Ludo</div>
+                <div class="game-item"><i class="fas fa-times"></i> Tic Tac Toe</div>
+                <div class="game-item"><i class="fas fa-circle"></i> Connect 4</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="#" class="logo footer-logo">GAMEHUB</a>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="privacy-policy.html">Terms of Service</a></li>
+                <li><a href="../index.html">SoftTech Service</a></li>
+            </ul>
+            <p>&copy; 2024 SoftTech Service. All rights reserved. GameHub and all bundled games are registered trademarks.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
