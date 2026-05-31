@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - Tower Up! | SoftTech</title>
+    <meta name="description" content="Privacy Policy and Terms & Conditions for Tower Up! Android arcade game by SoftTech">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #F26419;
+            --primary-dark: #D9550F;
+            --accent: #2EC4B6;
+            --accent-light: #FF8A3D;
+            --text-dark: #1B1F3B;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #FFF8F2;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+
+        h1, h2, h3 { font-family: 'Baloo 2', 'Inter', sans-serif; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(242, 100, 25, 0.12);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+        }
+
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .header-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #F1E4D9;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs::-webkit-scrollbar { height: 4px; }
+        .tabs::-webkit-scrollbar-track { background: #F1F5F9; }
+        .tabs::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
+
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(242, 100, 25, 0.05);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(242, 100, 25, 0.05);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section { margin-bottom: 3rem; }
+        .section:last-child { margin-bottom: 0; }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        h3 {
+            color: #1E293B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        a { color: var(--primary-dark); }
+
+        .highlight {
+            background: rgba(242, 100, 25, 0.06);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+
+        .highlight p:last-child { margin-bottom: 0; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #F1E4D9;
+            color: #475569;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: #FFF8F2; }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 { color: white; margin-top: 0; margin-bottom: 1rem; }
+        .contact-box p { color: rgba(255, 255, 255, 0.95); margin-bottom: 0.5rem; }
+        .contact-box a { color: white; text-decoration: underline; font-weight: 600; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .tab-content { padding: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 0.5rem; }
+            .container { border-radius: 12px; }
+            .header-section { padding: 1.5rem; }
+            .header-section h1 { font-size: 2rem; line-height: 1.3; }
+            .tab-button { min-width: 120px; padding: 1rem 1.5rem; font-size: 0.9rem; }
+            .tab-content { padding: 2rem 1.5rem; }
+            h2 { font-size: 1.75rem; margin-top: 2.5rem; }
+            h3 { font-size: 1.25rem; margin-top: 1.5rem; }
+            h4 { font-size: 1.125rem; }
+            .section { margin-bottom: 2.5rem; }
+            table { font-size: 0.875rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            thead, tbody, tr { display: table; width: 100%; table-layout: fixed; }
+            th, td { padding: 0.75rem 0.5rem; word-wrap: break-word; }
+            .contact-box { padding: 1.5rem; }
+            .highlight { padding: 1.25rem; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0.25rem; }
+            .header-section { padding: 1.25rem 1rem; }
+            .header-section h1 { font-size: 1.75rem; }
+            .tab-button { min-width: 100px; padding: 0.875rem 1rem; font-size: 0.875rem; }
+            .tab-content { padding: 1.5rem 1rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.125rem; }
+            p, li { font-size: 0.9375rem; }
+            .back-link { font-size: 0.875rem; padding: 0.5rem; }
+            table { font-size: 0.8125rem; }
+            th, td { padding: 0.5rem 0.375rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <h1>Tower Up!</h1>
+            <p class="subtitle">Legal Information &amp; Policies</p>
+            <p><strong>Last updated:</strong> May 31, 2026 | <strong>Developer:</strong> SoftTech</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li><button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button></li>
+                <li><button class="tab-button" data-tab="terms">📜 Terms &amp; Conditions</button></li>
+                <li><button class="tab-button" data-tab="license">⚖️ License &amp; Copyright</button></li>
+            </ul>
+        </div>
+
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>This privacy policy governs your use of the mobile application <strong>Tower Up!</strong> (the "Application"), which was created by SoftTech ("we", "us", or "our"). The Application is a casual arcade stacking game. This policy is designed to inform you of our practices regarding the collection, use, and disclosure of information when you download, install, or use the Application.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔍 Information Collection and Use</h2>
+
+                <h3>A. Personal Data</h3>
+                <p>The Application does <strong>NOT</strong> require any user registration. We do <strong>NOT</strong> collect, store, or solicit any personal identification information (such as your name, email address, physical address, or phone number).</p>
+
+                <div class="highlight">
+                    <p><strong>Important:</strong> No account, login, or personal information is required to play Tower Up!</p>
+                </div>
+
+                <h3>B. Automatically Collected Data (Third-Party Services)</h3>
+                <p>The Application uses third-party services that may automatically collect information used to identify your device. This information is handled by our third-party service providers according to their respective privacy policies:</p>
+
+                <h4>1. Google AdMob (Google Play Services)</h4>
+                <ul>
+                    <li>The Application integrates the Google AdMob SDK to serve advertising.</li>
+                    <li>AdMob may collect and process device identifiers, advertising IDs (e.g., Android Advertising ID), coarse location data, IP address, and app interaction data.</li>
+                    <li>This data is used to provide, personalize, and analyze advertising.</li>
+                    <li>For more details, review <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from sites or apps that use our services</a>.</li>
+                </ul>
+
+                <h4>2. Google Play Services (In-App Review &amp; In-App Update)</h4>
+                <ul>
+                    <li>The Application uses Google Play APIs to check for system updates and prompt in-app reviews.</li>
+                    <li>These APIs may collect diagnostic and telemetry data to manage software delivery and store interactions.</li>
+                    <li>Review the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>💾 Local Storage and Preferences</h2>
+                <p>The Application stores simple, non-personal configurations locally on your device via Android's SharedPreferences framework:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stored Data</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Game Settings</strong></td>
+                            <td>Sound effects toggles and haptic feedback options</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Game State</strong></td>
+                            <td>Selected speed / difficulty level</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gameplay Statistics</strong></td>
+                            <td>Local scoreboard lists (score values, dates, and ranks)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>This data is kept locally on your device and is <strong>not</strong> uploaded to our servers. You can erase this data at any time by selecting <strong>"Clear Scores"</strong> in the app's Scoreboard menu, or by clearing the Application's storage via your device settings.</p>
+            </div>
+
+            <div class="section">
+                <h2>👶 Children's Privacy</h2>
+                <p>These services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we can perform the necessary deletion actions.</p>
+            </div>
+
+            <div class="section">
+                <h2>🚫 Opt-Out Rights</h2>
+                <p>You can easily stop all collection of information by the Application by uninstalling it. Use the standard uninstall processes available as part of your mobile device or via the mobile application marketplace.</p>
+                <p>Additionally, you can opt out of personalized advertising served by Google AdMob by managing your device settings:</p>
+                <ul>
+                    <li>Go to <strong>Settings &gt; Privacy &gt; Ads</strong> on your Android device and enable <strong>"Opt out of Ads Personalization"</strong> or <strong>"Reset advertising ID"</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔄 Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Us</h2>
+                <p>If you have any questions regarding privacy while using the Application, or have questions about our practices, please contact us:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech</p>
+                    <p><strong>Support Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By downloading or using <strong>Tower Up!</strong>, you agree to the following Terms &amp; Conditions.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. App Usage</h2>
+                <ul>
+                    <li>The app is provided "as is".</li>
+                    <li>You agree to use the app for lawful purposes only.</li>
+                    <li>You are responsible for how you use the Application.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. Advertising</h2>
+                <p>Tower Up! displays advertising served through Google AdMob. Ads are provided by third parties, and we are not responsible for the content of any advertisement or any external website or app it may link to.</p>
+            </div>
+
+            <div class="section">
+                <h2>3. In-App Reviews &amp; Updates</h2>
+                <p>The app uses the Google Play In-App Review and In-App Update APIs to prompt reviews and deliver new versions. These features are handled by Google Play Services and are subject to Google's terms.</p>
+            </div>
+
+            <div class="section">
+                <h2>4. Intellectual Property</h2>
+                <ul>
+                    <li>App design, UI, code, artwork, and branding belong to SoftTech.</li>
+                    <li>You may not copy, modify, or redistribute the app without permission.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <p><strong>SoftTech is not liable for:</strong></p>
+                <ul>
+                    <li>Loss of local game data or high scores</li>
+                    <li>Damage caused by third-party ads or external content</li>
+                    <li>Any indirect or incidental damages arising from use of the app</li>
+                </ul>
+                <p>Use the app at your own discretion.</p>
+            </div>
+
+            <div class="section">
+                <h2>6. Termination</h2>
+                <p>We may suspend or terminate access if the app is misused or violates applicable laws.</p>
+            </div>
+
+            <div class="section">
+                <h2>7. Changes to Terms</h2>
+                <p>Terms may be updated periodically. Continued use of the app means you accept the updated terms.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright © 2026 SoftTech. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">This software and associated documentation files (the "Software") are proprietary and confidential.
+                    Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited
+                    without the express written permission of SoftTech.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <ul>
+                    <li>All app design, UI, code, artwork, and branding belong to SoftTech.</li>
+                    <li>Tower Up! and all related trademarks are property of SoftTech.</li>
+                    <li>You may not copy, modify, or redistribute the app without permission.</li>
+                    <li>Reverse engineering, decompiling, or disassembling the software is prohibited.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Third-Party Libraries</h2>
+                <p>This software uses third-party libraries that are subject to their respective licenses:</p>
+                <ul>
+                    <li>AndroidX Jetpack (ViewBinding, SplashScreen) by Google (Apache License 2.0)</li>
+                    <li>Google Play Services Ads / AdMob by Google (Apache License 2.0)</li>
+                    <li>Google Play In-App Updates &amp; Reviews by Google (Apache License 2.0)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <div class="highlight">
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+                    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+                    IN NO EVENT SHALL SOFTTECH BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+                    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    button.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+
+                    document.getElementById(targetTab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            // Handle URL hash for direct tab access
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
