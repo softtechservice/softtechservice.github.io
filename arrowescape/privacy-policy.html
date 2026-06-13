@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Arrow Escape 🏹 | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy and Terms & Conditions for Arrow Escape, the cartoon-style directional grid puzzle game by SoftTech Service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF5A8C;
+            --primary-dark: #E63E73;
+            --accent: #2DD4BF;
+            --accent-light: #5EEAD4;
+            --sky-dark: #0EA5E9;
+            --text-dark: #1E293B;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #EFF9FF;
+            --bg-white: #FFFFFF;
+            --success: #22C55E;
+        }
+
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Baloo 2', 'Nunito', sans-serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 22px;
+            box-shadow: 0 8px 0 rgba(14,165,233,0.12), 0 16px 36px rgba(14, 165, 233, 0.14);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #FBBF24 100%);
+            color: white;
+        }
+
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 800;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs::-webkit-scrollbar { height: 4px; }
+        .tabs::-webkit-scrollbar-track { background: #F1F5F9; }
+        .tabs::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
+
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: 'Baloo 2', inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(255, 90, 140, 0.06);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(255, 90, 140, 0.06);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section { margin-bottom: 3rem; }
+        .section:last-child { margin-bottom: 0; }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        h3 {
+            color: #1E293B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 700;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .highlight {
+            background: rgba(255, 90, 140, 0.06);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 600;
+        }
+
+        .highlight p:last-child { margin-bottom: 0; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: #F8FAFC; }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--sky-dark) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 { color: white; margin-top: 0; margin-bottom: 1rem; }
+        .contact-box p { color: rgba(255, 255, 255, 0.97); margin-bottom: 0.5rem; font-weight: 600; }
+        .contact-box a { color: white; text-decoration: underline; font-weight: 700; }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content { padding: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 0.5rem; }
+            .container { border-radius: 16px; }
+            .header-section { padding: 1.5rem; }
+            .header-section h1 { font-size: 2rem; line-height: 1.3; }
+            .tab-button { min-width: 120px; padding: 1rem 1.5rem; font-size: 0.9rem; }
+            .tab-content { padding: 2rem 1.5rem; }
+            h2 { font-size: 1.75rem; margin-top: 2.5rem; }
+            h3 { font-size: 1.25rem; margin-top: 1.5rem; }
+            h4 { font-size: 1.125rem; }
+            .section { margin-bottom: 2.5rem; }
+            table { font-size: 0.875rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            thead, tbody, tr { display: table; width: 100%; table-layout: fixed; }
+            th, td { padding: 0.75rem 0.5rem; word-wrap: break-word; }
+            .contact-box { padding: 1.5rem; }
+            .highlight { padding: 1.25rem; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0.25rem; }
+            .header-section { padding: 1.25rem 1rem; }
+            .header-section h1 { font-size: 1.75rem; }
+            .tab-button { min-width: 100px; padding: 0.875rem 1rem; font-size: 0.875rem; }
+            .tab-content { padding: 1.5rem 1rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.125rem; }
+            p, li { font-size: 0.9375rem; }
+            .back-link { font-size: 0.875rem; padding: 0.5rem; }
+            table { font-size: 0.8125rem; }
+            th, td { padding: 0.5rem 0.375rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <h1>🏹 Arrow Escape</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Last updated:</strong> 2026-06-14 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li><button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button></li>
+                <li><button class="tab-button" data-tab="terms">📜 Terms & Conditions</button></li>
+                <li><button class="tab-button" data-tab="license">📄 License & Copyright</button></li>
+            </ul>
+        </div>
+
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>Arrow Escape ("we", "our", "the game", or "the app") respects your privacy and is committed to protecting your data. This Privacy Policy explains how information is handled when you play our game on your mobile device.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔍 Information We Collect</h2>
+
+                <h3>1. Information You Provide</h3>
+                <p>Arrow Escape does not require you to create an account, sign in, or submit any personal information to play.</p>
+
+                <h3>2. Gameplay Data Stored On Your Device</h3>
+                <ul>
+                    <li>Level progress and chapter completion</li>
+                    <li>Stars earned and scores</li>
+                    <li>Best times and Speedrun records</li>
+                    <li>Audio and game settings (music & SFX toggles)</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>Important:</strong> All progress, statistics, and Speedrun records are saved locally on your device only. We do not upload, sync, or store this data on any server.</p>
+                </div>
+
+                <h3>3. We Do NOT Collect</h3>
+                <ul>
+                    <li>Personal identity information</li>
+                    <li>Email addresses or phone numbers</li>
+                    <li>Precise location data</li>
+                    <li>Contacts, photos, or files</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📢 Advertising (Google AdMob)</h2>
+                <p>Arrow Escape uses <strong>Google AdMob</strong> to display banner and interstitial advertisements, which helps keep the game free.</p>
+                <ul>
+                    <li>AdMob may use advertising identifiers to show relevant ads.</li>
+                    <li>Ad personalization and data handling are governed by Google's policies.</li>
+                    <li>We do not control or store the data collected by AdMob.</li>
+                </ul>
+                <p>You can learn more in <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and manage ad personalization through your device settings.</p>
+            </div>
+
+            <div class="section">
+                <h2>📱 Permissions Usage</h2>
+                <p>The game requests minimal permissions, only to provide core functionality:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Internet / Network</strong></td>
+                            <td>Load advertisements via Google AdMob</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vibration</strong></td>
+                            <td>Haptic feedback for taps and wrong moves</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage (local)</strong></td>
+                            <td>Save progress, stats and Speedrun records on device</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The game does not request access to your camera, contacts, microphone, or location.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔐 Data Storage & Security</h2>
+                <ul>
+                    <li>All game data is stored locally on your device</li>
+                    <li>No cloud sync or external server storage of your gameplay</li>
+                    <li>No login or personal account required</li>
+                    <li>You can clear all data anytime by clearing app data or uninstalling the game</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔗 Third-Party Services</h2>
+                <p>Arrow Escape may link out to external apps for specific actions:</p>
+                <ul>
+                    <li><strong>Google Play Store</strong> — opened when you choose to rate the game.</li>
+                    <li><strong>System Share Sheet</strong> — used when you share the game with friends.</li>
+                    <li><strong>Google AdMob</strong> — used to serve advertisements.</li>
+                </ul>
+                <p>These services are governed by their own privacy policies.</p>
+            </div>
+
+            <div class="section">
+                <h2>👶 Children's Privacy</h2>
+                <p>Arrow Escape is family-friendly. We do not knowingly collect any personal data from children under 13. If you believe a child has provided personal information, please contact us so we can take appropriate action.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔄 Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. Any changes will be reflected here with an updated date.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Us</h2>
+                <p>If you have questions about this Privacy Policy:</p>
+                <p><strong>Data Deletion:</strong> Since all data is stored locally, you can remove it by clearing app data or uninstalling. For any requests, contact us at <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a>.</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By downloading or playing Arrow Escape, you agree to the following Terms & Conditions.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. Game Usage</h2>
+                <ul>
+                    <li>The game is provided "as is"</li>
+                    <li>You agree to use the game for lawful, personal entertainment purposes only</li>
+                    <li>You are responsible for the device on which you play</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. Advertisements</h2>
+                <p>Arrow Escape is supported by advertisements served through Google AdMob.</p>
+                <ul>
+                    <li>Banner and interstitial ads may be shown during gameplay</li>
+                    <li>We are not responsible for the content of third-party ads</li>
+                    <li>Interacting with ads is at your own discretion</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Game Progress & Data</h2>
+                <p>All progress, stars, scores and Speedrun records are stored locally on your device.</p>
+                <ul>
+                    <li>Uninstalling the game or clearing app data will erase your progress</li>
+                    <li>We are not responsible for any loss of local game data</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Intellectual Property</h2>
+                <ul>
+                    <li>Game design, artwork, UI, code, and branding belong to SoftTech Service</li>
+                    <li>You may not copy, modify, or redistribute the game without permission</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <p><strong>SoftTech Service is not liable for:</strong></p>
+                <ul>
+                    <li>Loss of game progress or local data</li>
+                    <li>Content or behavior of third-party advertisements</li>
+                    <li>Damage caused by misuse of the game</li>
+                </ul>
+                <p>Play the game at your own discretion.</p>
+            </div>
+
+            <div class="section">
+                <h2>6. Termination</h2>
+                <p>We may suspend or terminate access if the game is misused or violates applicable laws.</p>
+            </div>
+
+            <div class="section">
+                <h2>7. Changes to Terms</h2>
+                <p>Terms may be updated periodically. Continued use of the game means you accept the updated terms.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright © 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">Arrow Escape and its associated artwork, code, and documentation (the "Software") are proprietary and confidential.
+                    Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited
+                    without the express written permission of SoftTech Service.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <ul>
+                    <li>All game design, artwork, UI, code, and branding belong to SoftTech Service</li>
+                    <li>Arrow Escape and all related trademarks are property of SoftTech Service</li>
+                    <li>You may not copy, modify, or redistribute the game without permission</li>
+                    <li>Reverse engineering, decompiling, or disassembling the software is prohibited</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Third-Party Libraries</h2>
+                <p>This software uses third-party libraries and services that are subject to their respective licenses:</p>
+                <ul>
+                    <li>Flutter SDK by Google (BSD 3-Clause License)</li>
+                    <li>Babylon.js (Apache License 2.0)</li>
+                    <li>webview_flutter (BSD 3-Clause License)</li>
+                    <li>Google Mobile Ads / AdMob SDK (Google Terms)</li>
+                    <li>url_launcher (BSD 3-Clause License)</li>
+                    <li>share_plus (BSD 3-Clause License)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <div class="highlight">
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+                    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+                    IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+                    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                    document.getElementById(targetTab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) targetButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
