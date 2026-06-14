@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuts &amp; Bolts: Screw Puzzle - Premium Physics Puzzle Game | SoftTech Service</title>
+    <meta name="description" content="Solve the ultimate screw puzzle! Unscrew nuts, bolts, & metal plates to win. Experience realistic physics, local web server integration, and bidirectional bridge features in Flutter.">
+    <meta name="keywords" content="Nuts and Bolts, Screw Puzzle, Physics Puzzle, Flutter Game, Construct 3, Mobile Game, SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #6D28D9;
+            --primary-glow: rgba(124, 58, 237, 0.4);
+            --secondary: #A78BFA;
+            --accent: #F43F5E;
+            --accent-glow: rgba(244, 63, 94, 0.4);
+            --bg-dark: #0F0F23;
+            --bg-card: rgba(22, 22, 51, 0.7);
+            --bg-card-hover: rgba(31, 27, 78, 0.85);
+            --text-light: #E2E8F0;
+            --text-gray: #94A3B8;
+            --text-dark: #0B0F19;
+            --border-glow: rgba(124, 58, 237, 0.2);
+            --border-glow-active: rgba(244, 63, 94, 0.4);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 12px 36px rgba(124, 58, 237, 0.25);
+            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            --gradient-dark: linear-gradient(135deg, #0F0F23 0%, #1A1647 100%);
+            --gradient-card: linear-gradient(135deg, rgba(22, 22, 51, 0.8) 0%, rgba(15, 15, 35, 0.9) 100%);
+        }
+        
+        body {
+            font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--bg-dark);
+            background-image: var(--gradient-dark);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Russo One', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 15, 35, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-glow);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            font-size: 1.75rem;
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+            animation: gearRotate 8s linear infinite;
+        }
+
+        @keyframes gearRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links .btn-nav {
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-links .btn-nav:hover {
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            filter: blur(150px);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+            width: 250px;
+            height: 250px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-content {
+            z-index: 1;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(244, 63, 94, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.1);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            cursor: pointer;
+            font-family: 'Russo One', sans-serif;
+            letter-spacing: 0.03em;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--accent-glow);
+            background: #f45b73;
+        }
+        
+        .btn-secondary {
+            background: rgba(124, 58, 237, 0.15);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(124, 58, 237, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-wrapper {
+            width: 100%;
+            max-width: 460px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid var(--border-glow);
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-card);
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+
+        .banner-wrapper:hover {
+            transform: translateY(-5px) rotate(1deg);
+            border-color: var(--border-glow-active);
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: rgba(15, 15, 35, 0.85);
+            border: 1px solid var(--accent);
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(8px);
+        }
+
+        .badge-tl {
+            top: 20px;
+            left: -15px;
+            animation: floatAnim 4s ease-in-out infinite;
+        }
+
+        .badge-br {
+            bottom: 20px;
+            right: -15px;
+            animation: floatAnim 4s ease-in-out infinite 2s;
+        }
+
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        /* Section styling */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .bento-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-glow);
+            padding: 2.25rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-glow-active);
+            background: var(--bg-card-hover);
+        }
+        
+        .bento-card-large {
+            grid-column: span 2;
+        }
+
+        .bento-card-full {
+            grid-column: span 3;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            text-shadow: 0 0 12px var(--accent-glow);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .bento-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .bento-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        .bento-card-list {
+            list-style: none;
+            margin-top: 1.25rem;
+            padding-left: 0;
+        }
+        
+        .bento-card-list li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .bento-card-list li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Tech Details / Architecture */
+        .tech-section {
+            background: rgba(15, 15, 35, 0.5);
+            border-radius: 32px;
+            border: 1px solid var(--border-glow);
+            padding: 4rem 3rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tech-left h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .tech-left p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .tech-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tech-feat-card {
+            background: rgba(10, 10, 20, 0.6);
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            padding: 1.25rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .tech-feat-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.1);
+        }
+
+        .tech-feat-card h4 {
+            color: white;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-feat-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 0;
+        }
+
+        /* Developer Test Bench Mockup */
+        .console-mockup {
+            background: #050512;
+            border-radius: 16px;
+            border: 1px solid rgba(244, 63, 94, 0.3);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .console-header {
+            background: #0E0E27;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .console-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #EF4444; }
+        .dot-yellow { background: #F59E0B; }
+        .dot-green { background: #10B981; }
+
+        .console-title {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .console-body {
+            padding: 1.5rem;
+            height: 280px;
+            overflow-y: auto;
+            color: #10B981;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .console-line {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .console-timestamp {
+            color: #6366F1;
+            flex-shrink: 0;
+        }
+
+        .console-tag {
+            color: var(--accent);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .console-msg {
+            color: #E2E8F0;
+        }
+
+        /* Monetization Info */
+        .monetization-section {
+            padding: 4rem 2rem;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(244, 63, 94, 0.15) 100%);
+            border: 1px solid var(--border-glow);
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .monetization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .monetization-card {
+            background: rgba(15, 15, 35, 0.6);
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .monetization-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .monetization-card h3 {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .monetization-card h3 i {
+            color: var(--accent);
+        }
+
+        .monetization-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Play Store Description Card */
+        .metadata-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 3.5rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .metadata-content h3 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+            padding-bottom: 0.5rem;
+        }
+
+        .metadata-content p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .metadata-column h4 {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .steps-list li {
+            margin-bottom: 1.25rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        .step-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .step-text strong {
+            color: white;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+
+        .bullet-list li i {
+            color: var(--accent);
+            margin-top: 0.25rem;
+        }
+
+        .bullet-list li strong {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #050512;
+            color: var(--text-light);
+            padding: 5rem 2rem 2rem;
+            border-top: 1px solid var(--border-glow);
+            position: relative;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .footer-section p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a {
+            color: var(--text-gray);
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(124, 58, 237, 0.15);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .menu-toggle:hover {
+            color: white;
+        }
+        
+        /* Responsive CSS */
+        @media (max-width: 1024px) {
+            .hero-container {
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento-card-large {
+                grid-column: span 2;
+            }
+
+            .bento-card-full {
+                grid-column: span 2;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 73px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 35, 0.95);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                flex-direction: column;
+                padding: 3rem 2rem;
+                box-shadow: var(--shadow-lg);
+                border-bottom: 1px solid var(--border-glow);
+                transform: translateY(-150%);
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                gap: 1.5rem;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.75rem;
+                font-size: 1.1rem;
+            }
+            
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .banner-wrapper {
+                max-width: 380px;
+                margin: 0 auto;
+            }
+
+            .floating-badge {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .badge-tl { left: -10px; }
+            .badge-br { right: -10px; }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-card-large, .bento-card-full {
+                grid-column: span 1;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .tech-features {
+                grid-template-columns: 1fr;
+            }
+
+            .metadata-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.9rem 1.5rem;
+            }
+
+            .tech-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .metadata-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo-container" aria-label="Nuts &amp; Bolts Screw Puzzle homepage">
+                <i class="fas fa-screwdriver-wrench logo-icon" aria-hidden="true"></i>
+                <div class="logo">Nuts &amp; Bolts</div>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tech">Bridge Specs</a></li>
+                <li><a href="#monetization">Monetization</a></li>
+                <li><a href="#metadata">Details</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a class="btn-nav" href="privacy-policy.html#terms">Terms</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="badge">Flutter + HTML5 Hybrid Architecture</span>
+                <h1>Nuts &amp; Bolts:<br>Screw Puzzle</h1>
+                <p class="subtitle">Ultimate Physics-Based Screw Board Mechanics</p>
+                <p class="hero-description">
+                    A premium game wrapper around a high-performance Construct 3 puzzle canvas. 
+                    Built in Flutter to serve assets locally over secure ephemeral server channels while binding native iOS/Android bridge APIs directly into the browser context.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#features" class="btn btn-primary">
+                        <i class="fas fa-wand-magic-sparkles"></i> Key Features
+                    </a>
+                    <a href="privacy-policy.html" class="btn btn-secondary">
+                        <i class="fas fa-shield-halved"></i> Legal &amp; Privacy
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="banner-wrapper">
+                    <img src="images/banner.png" alt="Nuts and Bolts Screw Puzzle board layout" class="banner-img">
+                    <div class="floating-badge badge-tl">
+                        <i class="fas fa-bolt" style="color: #F59E0B;"></i>
+                        <span>Offline WebServer</span>
+                    </div>
+                    <div class="floating-badge badge-br">
+                        <i class="fas fa-mobile-screen-button" style="color: #10B981;"></i>
+                        <span>Native Bridge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Features Section -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <span class="section-label">Capabilities</span>
+            <h2 class="section-title">App Architecture &amp; Features</h2>
+            <p class="section-subtitle">A high-performance hybrid implementation optimized for modern mobile web views.</p>
+        </div>
+        
+        <div class="bento-grid">
+            <!-- Feature 1: Local Asset Web Server -->
+            <div class="bento-card bento-card-large">
+                <div class="card-icon"><i class="fas fa-server"></i></div>
+                <h3>Local Asset Web Server</h3>
+                <p>
+                    Bypasses WebAssembly, CORS, and local file sandboxing limits enforced by modern Android &amp; iOS WebViews. 
+                    By serving the HTML5/Wasm bundle from a secure, dynamic loopback port on local device sockets, the wrapper ensures instant resource rendering.
+                </p>
+                <ul class="bento-card-list">
+                    <li><i class="fas fa-check"></i> Zero CORS errors loading assets</li>
+                    <li><i class="fas fa-check"></i> Direct Wasm execution and local caching</li>
+                    <li><i class="fas fa-check"></i> Ephemeral port binding prevents external access</li>
+                </ul>
+            </div>
+
+            <!-- Feature 2: Bidirectional Bridge -->
+            <div class="bento-card">
+                <div class="card-icon"><i class="fas fa-shuffle"></i></div>
+                <h3>Bidirectional Bridge</h3>
+                <p>
+                    Full bidirectional communication channel (`FlutterBridge`) connects the JS canvas context directly to Dart handlers.
+                </p>
+                <ul class="bento-card-list">
+                    <li><i class="fas fa-check"></i> Level progression tracking</li>
+                    <li><i class="fas fa-check"></i> Real-time coins &amp; diamonds sync</li>
+                    <li><i class="fas fa-check"></i> Instant audio/mute sync</li>
+                </ul>
+            </div>
+
+            <!-- Feature 3: Sequential Back Press -->
+            <div class="bento-card">
+                <div class="card-icon"><i class="fas fa-arrow-left"></i></div>
+                <h3>Back Press Navigation</h3>
+                <p>
+                    Intuitive native navigation flows that intercept back events depending on current game layout.
+                </p>
+                <ul class="bento-card-list">
+                    <li><i class="fas fa-check"></i> In-game back press pauses current level</li>
+                    <li><i class="fas fa-check"></i> Menu back press returns to home screen</li>
+                    <li><i class="fas fa-check"></i> Exit back press triggers native exit sheet</li>
+                </ul>
+            </div>
+
+            <!-- Feature 4: Developer Test Bench -->
+            <div class="bento-card bento-card-large">
+                <div class="card-icon"><i class="fas fa-bug"></i></div>
+                <h3>Developer Test Bench</h3>
+                <p>
+                    Built-in inspector console that renders event logs in real time. Provides developers with immediate actions to test game builds, inspect webview states, or inject custom payloads.
+                </p>
+                <ul class="bento-card-list">
+                    <li><i class="fas fa-check"></i> Event stream logging overlay</li>
+                    <li><i class="fas fa-check"></i> Quick action panel (Add coins/diamonds, unlock levels, mute)</li>
+                    <li><i class="fas fa-check"></i> Active Webview memory and state inspector</li>
+                </ul>
+            </div>
+
+            <!-- Feature 5: Native Overlays -->
+            <div class="bento-card bento-card-full">
+                <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>Custom Native Flutter Overlays</h3>
+                <p>
+                    Rather than building overlays inside the HTML canvas, the app utilizes native Flutter widgets overlaid on top of the webview stack. 
+                    This ensures completely smooth rendering, native platform fonts, and full hardware acceleration. Handles custom app rating requests, content sharing panels, and confirm-exit sheets.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs & Console Mockup -->
+    <section class="section" id="tech">
+        <div class="tech-section">
+            <div class="tech-grid">
+                <div class="tech-left">
+                    <span class="section-label">Integration</span>
+                    <h2>Javascript-to-Dart Bridge System</h2>
+                    <p>
+                        The application implements a robust event bridge. When events are fired in Construct 3, they call standard window hooks. 
+                        The Flutter wrapper registers JavaScript Channels, translating web clicks or game states into native operations.
+                    </p>
+                    <div class="tech-features">
+                        <div class="tech-feat-card">
+                            <h4>Fast Execution</h4>
+                            <p>Direct hook evaluation without complex serialization layers.</p>
+                        </div>
+                        <div class="tech-feat-card">
+                            <h4>Ad Integration</h4>
+                            <p>Fires load/show triggers directly to AdMob native services.</p>
+                        </div>
+                        <div class="tech-feat-card">
+                            <h4>Progress Save</h4>
+                            <p>Saves states locally to localStorage with Dart backups.</p>
+                        </div>
+                        <div class="tech-feat-card">
+                            <h4>Test Actions</h4>
+                            <p>Inject scripts directly from Dart to simulate game events.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-right">
+                    <div class="console-mockup">
+                        <div class="console-header">
+                            <div class="console-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span class="console-title">bridge_inspector.log</span>
+                            <span class="console-title" style="color: var(--accent);"><i class="fas fa-terminal"></i></span>
+                        </div>
+                        <div class="console-body" id="consoleBody">
+                            <div class="console-line">
+                                <span class="console-timestamp">[14:59:40]</span>
+                                <span class="console-tag">[Dart]</span>
+                                <span class="console-msg">AdMob initialized successfully.</span>
+                            </div>
+                            <div class="console-line">
+                                <span class="console-timestamp">[14:59:41]</span>
+                                <span class="console-tag">[Server]</span>
+                                <span class="console-msg">Local server listening on http://localhost:49152</span>
+                            </div>
+                            <div class="console-line">
+                                <span class="console-timestamp">[14:59:42]</span>
+                                <span class="console-tag">[JSBridge]</span>
+                                <span class="console-msg">FlutterBridge connected. Webview active.</span>
+                            </div>
+                            <div class="console-line">
+                                <span class="console-timestamp">[14:59:45]</span>
+                                <span class="console-tag">[Game]</span>
+                                <span class="console-msg">Level 1 Loaded. Grid size 5x5, metal plates: 4.</span>
+                            </div>
+                            <div class="console-line">
+                                <span class="console-timestamp">[14:59:51]</span>
+                                <span class="console-tag">[JSBridge]</span>
+                                <span class="console-msg">Trigger event: 'level_complete' (level: 1, stars: 3)</span>
+                            </div>
+                            <div class="console-line">
+                                <span class="console-timestamp">[14:59:51]</span>
+                                <span class="console-tag">[Dart]</span>
+                                <span class="console-msg">Saved coins = 100, stars = 3 to local database.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monetization Section -->
+    <section class="section" id="monetization">
+        <div class="section-header">
+            <span class="section-label">Revenue Model</span>
+            <h2 class="section-title">AdMob Monetization Flow</h2>
+            <p class="section-subtitle">Integration details of the google_mobile_ads package within the hybrid wrapper framework.</p>
+        </div>
+
+        <div class="monetization-section">
+            <div class="monetization-grid">
+                <div class="monetization-card">
+                    <h3><i class="fas fa-play"></i> App Initialization</h3>
+                    <p>
+                        Google Mobile Ads SDK is initialized on application startup within `main.dart`. 
+                        This guarantees ads are pre-cached and ready before the user completes the first levels, providing a seamless gameplay flow.
+                    </p>
+                </div>
+                <div class="monetization-card">
+                    <h3><i class="fas fa-gears"></i> Double-Mode Ads Setup</h3>
+                    <p>
+                        The `AdHelper` class in `game_page.dart` manages IDs dynamically. 
+                        In Debug builds, official standard Google test IDs are used automatically. 
+                        Release builds automatically pull live production ad unit IDs configured securely.
+                    </p>
+                </div>
+                <div class="monetization-card">
+                    <h3><i class="fas fa-rectangle-ad"></i> Ad Triggers &amp; State</h3>
+                    <p>
+                        The bridge communicates playback states dynamically. When the user requests hints, a rewarded ad triggers. 
+                        Interstitial ads display during normal game progression transitions (e.g. exit prompts or menu changes).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Play Store Metadata -->
+    <section class="section" id="metadata">
+        <div class="metadata-section">
+            <div class="section-header" style="margin-bottom: 3rem;">
+                <span class="section-label">Google Play</span>
+                <h2 class="section-title">Store Metadata Info</h2>
+                <p class="section-subtitle">Details, descriptions, and rules for store listings and optimization.</p>
+            </div>
+            
+            <div class="metadata-content">
+                <h3>Short Description (Max 80 Chars)</h3>
+                <p style="font-family: 'Russo One', sans-serif; font-size: 1.15rem; color: white; background: rgba(244, 63, 94, 0.1); padding: 1rem 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent); margin-bottom: 2.5rem;">
+                    Solve the ultimate screw puzzle! Unscrew nuts, bolts, &amp; metal plates to win.
+                </p>
+
+                <div class="metadata-grid">
+                    <div class="metadata-column">
+                        <h4>How To Play</h4>
+                        <ul class="steps-list">
+                            <li>
+                                <span class="step-number">1</span>
+                                <span class="step-text"><strong>Tap a screw</strong> to unscrew it from its current position on the board.</span>
+                            </li>
+                            <li>
+                                <span class="step-number">2</span>
+                                <span class="step-text"><strong>Tap an empty hole</strong> to insert the screw and lock adjacent pieces.</span>
+                            </li>
+                            <li>
+                                <span class="step-number">3</span>
+                                <span class="step-text"><strong>Clear all elements</strong> (plates, planks, and metal bars) to successfully pass the level.</span>
+                            </li>
+                            <li>
+                                <span class="step-number">4</span>
+                                <span class="step-text"><strong>Use boosters</strong> like the Drill or system hints when facing complex challenges.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="metadata-column">
+                        <h4>Game Features</h4>
+                        <ul class="bullet-list">
+                            <li>
+                                <i class="fas fa-brain"></i>
+                                <span><strong>Challenging Puzzles:</strong> Hundreds of handcrafted levels ranging from casual tests to complex logical challenges.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-wifi"></i>
+                                <span><strong>Offline Support:</strong> Play fully offline anywhere, anytime without an active internet connection.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-rotate"></i>
+                                <span><strong>Realistic Physics:</strong> Experience satisfying physical movement, weight shifts, and collisions.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-volume-high"></i>
+                                <span><strong>Sleek Visuals &amp; ASMR:</strong> Premium graphics matched with soothing mechanical sounds.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-gem"></i>
+                                <span><strong>Unlockable Customization:</strong> Use earned coins and diamonds to purchase unique skins for boards and screws.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <h4 style="color: var(--secondary); font-size: 1.2rem; margin-bottom: 1rem; text-transform: uppercase;">Full Description</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray); line-height: 1.8; text-align: justify; margin-bottom: 0;">
+                        Welcome to Nuts &amp; Bolts: Screw Puzzle – the ultimate brain-teasing physics puzzle game designed to test your spatial reasoning and problem-solving skills!
+                        Unscrew, reposition, and secure metal plates, bars, and wood blocks by placing screws in empty holes. Can you unravel the tangled metal structures and clear the board? Each level offers a unique design with progressively challenging logic.
+                        Are you ready to test your brain? Download Nuts &amp; Bolts: Screw Puzzle today and unscrew your way to victory!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 style="color: var(--accent); text-shadow: 0 0 10px var(--accent-glow);"><i class="fas fa-screwdriver-wrench"></i> Nuts &amp; Bolts</h3>
+                <p style="margin-top: 1rem;">
+                    Premium physics-based mobile puzzle gaming. Hybrid execution built with Construct 3 and Flutter wrappers by SoftTech Service.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Navigation</h3>
+                <a href="#features">Features</a>
+                <a href="#tech">Bridge Specs</a>
+                <a href="#monetization">Monetization</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html#terms">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support Details</h3>
+                <p><strong>Developer:</strong> SoftTech Service</p>
+                <p><strong>Support Email:</strong> <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Wrapper Version</h3>
+                <p><strong>Version:</strong> 1.0.0</p>
+                <p><strong>Engine:</strong> Construct 3 (HTML5)</p>
+                <p><strong>Framework:</strong> Flutter Hybrid</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">
+                This product is proprietary. Unauthorized redistribution or reverse engineering of the Flutter wrapper or Construct 3 asset server bundle is strictly prohibited.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive JS scripts -->
+    <script>
+        // Hamburger Menu Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.getElementById('menuIcon');
+            const links = navLinks.querySelectorAll('a');
+
+            menuToggle.addEventListener('click', () => {
+                const isActive = navLinks.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', isActive);
+                
+                if (isActive) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                } else {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when link is clicked (mobile)
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Simulation of live log updates in the console mockup
+            const consoleBody = document.getElementById('consoleBody');
+            const eventMessages = [
+                { tag: '[Game]', text: 'Tap registered on Screw #4 (x: 120, y: 340)' },
+                { tag: '[JSBridge]', text: 'Sending play_sound event (sound: unscrew)' },
+                { tag: '[Game]', text: 'Screw #4 removed from board.' },
+                { tag: '[Game]', text: 'Metal plate B rotated by 45 degrees due to gravity.' },
+                { tag: '[JSBridge]', text: 'Sending play_sound event (sound: collision)' },
+                { tag: '[Game]', text: 'Tap registered on Hole #12 (x: 150, y: 150)' },
+                { tag: '[Game]', text: 'Screw placed in Hole #12. Secure lock verified.' },
+                { tag: '[JSBridge]', text: 'Sync state: Coins = 100, Diamonds = 5' },
+                { tag: '[Game]', text: 'All metal plates cleared!' },
+                { tag: '[JSBridge]', text: 'Requesting Interstitial Ad show flow...' },
+                { tag: '[Dart]', text: 'AdMob: Native Interstitial ad showing.' },
+                { tag: '[Dart]', text: 'AdMob: Ad dismissed. Continuing game.' },
+                { tag: '[JSBridge]', text: 'Loading Level 2. Grid size 6x6, metal plates: 6.' }
+            ];
+
+            let messageIndex = 0;
+
+            function addConsoleLog() {
+                const now = new Date();
+                const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+                const log = eventMessages[messageIndex];
+                
+                const logLine = document.createElement('div');
+                logLine.className = 'console-line';
+                logLine.style.animation = 'fadeIn 0.3s ease-out';
+                
+                let tagColor = 'var(--accent)';
+                if (log.tag === '[Dart]') tagColor = '#10B981';
+                if (log.tag === '[Server]') tagColor = '#6366F1';
+                if (log.tag === '[JSBridge]') tagColor = '#F59E0B';
+
+                logLine.innerHTML = `
+                    <span class="console-timestamp">[${timeString}]</span>
+                    <span class="console-tag" style="color: ${tagColor}">${log.tag}</span>
+                    <span class="console-msg">${log.text}</span>
+                `;
+                
+                consoleBody.appendChild(logLine);
+                consoleBody.scrollTop = consoleBody.scrollHeight;
+                
+                // Limit console line count
+                while (consoleBody.children.length > 15) {
+                    consoleBody.removeChild(consoleBody.firstChild);
+                }
+
+                messageIndex = (messageIndex + 1) % eventMessages.length;
+            }
+
+            // Periodically add new log lines
+            setInterval(addConsoleLog, 3500);
+        });
+    </script>
+</body>
+</html>

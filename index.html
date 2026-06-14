@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
+    <!-- Theme: set before paint to avoid flash -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
+
     <!-- Primary Meta Tags -->
     <title>SoftTech Service - Enterprise IT Solutions | Software & Mobile App Development</title>
     <meta name="title" content="SoftTech Service - Enterprise IT Solutions | Software & Mobile App Development">
@@ -110,19 +121,25 @@
                 <img src="images/logo.png" alt="" class="logo-img">
                 <span class="logo-text">SoftTech Service</span>
             </a>
-            <ul class="nav-menu" role="menubar">
-                <li role="none"><a href="#home" role="menuitem">Home</a></li>
-                <li role="none"><a href="#services" role="menuitem">Services</a></li>
-                <li role="none"><a href="#about" role="menuitem">About</a></li>
-                <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
-                <li role="none"><a href="#process" role="menuitem">Process</a></li>
-                <li role="none" class="nav-cta"><a href="#contact" role="menuitem" class="btn btn-primary">Contact Sales</a></li>
-            </ul>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-cluster">
+                <ul class="nav-menu" id="primary-nav" role="menubar">
+                    <li role="none"><a href="#home" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="#about" role="menuitem">About</a></li>
+                    <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
+                    <li role="none"><a href="#process" role="menuitem">Process</a></li>
+                    <li role="none" class="nav-cta"><a href="#contact" role="menuitem" class="btn btn-primary">Contact Sales</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+                    <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
+                </button>
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -141,16 +158,16 @@
                         </div>
                         <div class="hero-stats" role="list">
                             <div class="stat-item" role="listitem">
-                                <div class="stat-number">100+</div>
-                                <div class="stat-label">Projects delivered</div>
+                                <div class="stat-number">13+</div>
+                                <div class="stat-label">Apps published</div>
                             </div>
                             <div class="stat-item" role="listitem">
-                                <div class="stat-number">50+</div>
-                                <div class="stat-label">Active clients</div>
+                                <div class="stat-number">6+</div>
+                                <div class="stat-label">App categories</div>
                             </div>
                             <div class="stat-item" role="listitem">
-                                <div class="stat-number">5+</div>
-                                <div class="stat-label">Years of practice</div>
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">In-house built</div>
                             </div>
                         </div>
                     </div>
@@ -278,7 +295,7 @@
                 <div class="about-content">
                     <div class="about-text reveal">
                         <p class="lead">SoftTech Service is a proprietorship IT company owned by <strong>Maurya Neha Devi Ajitkumar</strong>, specializing in enterprise software, mobile apps, and custom digital solutions.</p>
-                        <p>We deliver reliable, scalable technology for businesses of all sizes. Our expertise spans web platforms, mobile apps (Android, iOS, Flutter), AI solutions, HRMS, and utility management systems.</p>
+                        <p>We deliver reliable, scalable technology for businesses of all sizes. Our published work spans Android &amp; cross-platform mobile apps, games, AI tools, productivity utilities, and custom web platforms.</p>
                         <div class="about-features">
                             <div class="feature-item">
                                 <i class="fas fa-bullseye" aria-hidden="true"></i>
@@ -418,97 +435,230 @@
             <div class="container">
                 <header class="section-header reveal">
                     <span class="section-label">Portfolio</span>
-                    <h2 class="section-title">Recent projects</h2>
-                    <p class="section-subtitle">A glimpse of the work we&rsquo;ve shipped across domains and stacks.</p>
+                    <h2 class="section-title">Apps we&rsquo;ve shipped</h2>
+                    <p class="section-subtitle">A selection of products we&rsquo;ve designed, built, and published across games, productivity, AI, and more.</p>
                 </header>
                 <div class="portfolio-grid">
-                    <article class="portfolio-card reveal">
+                    <a class="portfolio-card reveal" href="arrowescape/">
                         <div class="portfolio-image">
-                            <img src="images/portfolio/hrms-project.jpg" alt="" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
-                            <div class="portfolio-overlay">
-                                <a href="#contact" class="portfolio-link" aria-label="Discuss an HRMS project">
-                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-users-cog"></i></div>
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-puzzle-piece"></i></div>
                         </div>
                         <div class="portfolio-content">
-                            <span class="portfolio-category">HRMS</span>
-                            <h3>Enterprise HR Management</h3>
-                            <p>Employee management, payroll, attendance, and performance evaluation in one platform.</p>
+                            <span class="portfolio-category">Game</span>
+                            <h3>Arrow Escape</h3>
+                            <p>A vibrant directional grid puzzle with 90+ hand-crafted levels and a speedrun mode.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">Web app</span>
-                                <span class="tag">Mobile</span>
-                                <span class="tag">Cloud</span>
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Puzzle</span>
+                                <span class="tag">Android</span>
                             </div>
                         </div>
-                    </article>
+                    </a>
 
-                    <article class="portfolio-card reveal">
+                    <a class="portfolio-card reveal" href="gamehub/">
                         <div class="portfolio-image">
-                            <img src="images/portfolio/utility-management.jpg" alt="" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
-                            <div class="portfolio-overlay">
-                                <a href="#contact" class="portfolio-link" aria-label="Discuss a utility management project">
-                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-gamepad"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Game</span>
+                            <h3>GameHub</h3>
+                            <p>35+ classic offline arcade, card, puzzle, and board games in one premium console.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">Offline</span>
+                                <span class="tag">Arcade</span>
                             </div>
-                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-tools"></i></div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="nutboult/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-screwdriver-wrench"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Game</span>
+                            <h3>Nuts &amp; Bolts</h3>
+                            <p>Solve the ultimate screw puzzle! Unscrew nuts, bolts, &amp; metal plates to win.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Puzzle</span>
+                                <span class="tag">Android / iOS</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="ipolive/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Finance</span>
+                            <h3>Live IPO</h3>
+                            <p>Real-time IPO GMP and subscription data for the Indian markets, right on your phone.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">Finance</span>
+                                <span class="tag">Real-time</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="vaultx/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-shield-halved"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Security</span>
+                            <h3>VaultX</h3>
+                            <p>A secure digital vault for passwords, cards, and documents with AES-256 and biometrics.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">Security</span>
+                                <span class="tag">Encryption</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="proresume/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-file-lines"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Productivity</span>
+                            <h3>Pro Resume Builder</h3>
+                            <p>Create resumes, biodata, ID and business cards with AI-assisted content and templates.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">Templates</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="docmaster/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-file-pdf"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Productivity</span>
+                            <h3>Ultra Doc Scanner</h3>
+                            <p>Turn your phone into a document scanner with OCR, PDF tools, and e-signatures.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">OCR</span>
+                                <span class="tag">PDF</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="qrmaster/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-qrcode"></i></div>
                         </div>
                         <div class="portfolio-content">
                             <span class="portfolio-category">Utility</span>
-                            <h3>Smart utility management</h3>
-                            <p>Integrated tracking and optimization of resource consumption across facilities.</p>
+                            <h3>Pro QR &amp; Barcode Scanner</h3>
+                            <p>A fast, modern QR and barcode scanner with context-aware actions for every format.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">IoT</span>
-                                <span class="tag">Analytics</span>
-                                <span class="tag">Mobile</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-card reveal">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/ecommerce-app.jpg" alt="" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
-                            <div class="portfolio-overlay">
-                                <a href="#contact" class="portfolio-link" aria-label="Discuss an e-commerce project">
-                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-shopping-cart"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">E-commerce</span>
-                            <h3>Cross-platform shopping app</h3>
-                            <p>Feature-rich Flutter app for Android and iOS with a polished shopping experience.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
+                                <span class="tag">Kotlin</span>
+                                <span class="tag">MVVM</span>
                                 <span class="tag">Android</span>
-                                <span class="tag">iOS</span>
                             </div>
                         </div>
-                    </article>
+                    </a>
 
-                    <article class="portfolio-card reveal">
+                    <a class="portfolio-card reveal" href="smartAiPrompt/">
                         <div class="portfolio-image">
-                            <img src="images/portfolio/ai-analytics.jpg" alt="" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.classList.add('show');">
-                            <div class="portfolio-overlay">
-                                <a href="#contact" class="portfolio-link" aria-label="Discuss an AI analytics project">
-                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-brain"></i></div>
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-wand-magic-sparkles"></i></div>
                         </div>
                         <div class="portfolio-content">
                             <span class="portfolio-category">AI</span>
-                            <h3>AI-powered analytics</h3>
-                            <p>Machine-learning platform turning operational data into actionable insights.</p>
+                            <h3>Smart AI Prompt</h3>
+                            <p>100+ curated prompts for ChatGPT, DALL&middot;E, Midjourney, and more — offline-first.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">AI/ML</span>
-                                <span class="tag">Analytics</span>
-                                <span class="tag">Web</span>
+                                <span class="tag">Android</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">Offline</span>
                             </div>
                         </div>
-                    </article>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="rtolearn/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-car"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Education</span>
+                            <h3>RTO Exam</h3>
+                            <p>Indian driving-licence exam prep with mock tests, traffic signs, and multilingual support.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Education</span>
+                                <span class="tag">Multilingual</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="ultraplay/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-vr-cardboard"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Media</span>
+                            <h3>UltraPlay 3D/VR</h3>
+                            <p>An immersive 3D &amp; VR video player with gestures, subtitles, playlists, and streaming.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">VR</span>
+                                <span class="tag">Media</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="lodochamp/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-dice"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Game</span>
+                            <h3>Ludo Champion</h3>
+                            <p>The classic Ludo board game with offline play and AI bots — family-friendly fun.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">Board</span>
+                                <span class="tag">Offline</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="portfolio-card reveal" href="towerup/">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
+                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-layer-group"></i></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-category">Game</span>
+                            <h3>Tower Up!</h3>
+                            <p>Stack blocks with a swinging crane and build the tallest tower you can in this arcade hit.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">Arcade</span>
+                                <span class="tag">Casual</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -655,16 +805,7 @@
                         <a href="mailto:contect@softtechservice.site" class="social-link" aria-label="Email us">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" class="social-link" aria-label="Google Play Store" target="_blank" rel="noopener noreferrer">
+                        <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" class="social-link" aria-label="Our apps on Google Play" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-google-play" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -702,10 +843,10 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-copyright">&copy; 2024 SoftTech Service. All rights reserved.</p>
+                <p class="footer-copyright">&copy; <span id="year">2026</span> SoftTech Service. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer">Our apps</a>
+                    <a href="mailto:contect@softtechservice.site">Contact</a>
                 </div>
             </div>
         </div>

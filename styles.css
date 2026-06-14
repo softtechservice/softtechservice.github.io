@@ -27,6 +27,19 @@
     --color-success: #047857;
     --color-danger: #B91C1C;
 
+    /* Deep navy surfaces (footer, CTA, image gradients) — stay dark in both themes */
+    --color-deep: #0F172A;
+    --color-deep-2: #1E293B;
+
+    /* Foreground on the CTA / primary button */
+    --btn-primary-fg: #FFFFFF;
+
+    /* Navbar glass */
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --nav-bg-scrolled: rgba(255, 255, 255, 0.96);
+
+    color-scheme: light;
+
     /* Typography */
     --font-display: 'Lexend', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --font-body: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -85,6 +98,61 @@
     --z-modal: 50;
 }
 
+/* ---------- Dark theme ---------- */
+[data-theme="dark"] {
+    --color-primary: #F1F5F9;        /* strong foreground text/icons */
+    --color-primary-strong: #E2E8F0; /* body text */
+    --color-secondary: #CBD5E1;
+    --color-muted: #94A3B8;
+    --color-subtle: #64748B;
+
+    --color-cta: #38BDF8;            /* sky-400 — readable links/accents on dark */
+    --color-cta-hover: #7DD3FC;
+    --color-cta-soft: rgba(56, 165, 233, 0.16);
+    --color-accent: #38BDF8;
+
+    --color-bg: #0B1120;             /* page background */
+    --color-surface: #111A2E;        /* cards a touch lighter than bg */
+    --color-surface-alt: #1A2740;
+    --color-border: #1E2D45;
+    --color-border-strong: #314056;
+
+    --color-success: #34D399;
+    --color-danger: #F87171;
+
+    /* Bright CTA needs dark text for contrast */
+    --btn-primary-fg: #06283D;
+
+    --color-deep: #0B1120;
+    --color-deep-2: #1E293B;
+
+    --nav-bg: rgba(15, 23, 42, 0.80);
+    --nav-bg-scrolled: rgba(15, 23, 42, 0.94);
+
+    color-scheme: dark;
+
+    /* Shadows need more weight to read on dark surfaces */
+    --sh-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.45);
+    --sh-md: 0 6px 18px rgba(0, 0, 0, 0.5);
+    --sh-lg: 0 22px 48px -16px rgba(0, 0, 0, 0.7);
+    --sh-ring: 0 0 0 3px rgba(56, 189, 248, 0.4);
+}
+
+/* Smooth the light/dark transition */
+body,
+.navbar,
+.service-card,
+.why-card,
+.tech-category,
+.portfolio-card,
+.contact-card,
+.feature-item,
+.hero-card,
+.hero-float {
+    transition: background-color var(--t-base), border-color var(--t-base), color var(--t-base), box-shadow var(--t-base);
+}
+
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -120,7 +188,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     position: absolute;
     left: -10000px;
     top: 0;
-    background: var(--color-primary);
+    background: var(--color-deep);
     color: #fff;
     padding: var(--sp-3) var(--sp-5);
     border-radius: 0 0 var(--r-md) 0;
@@ -195,12 +263,12 @@ section { padding: var(--sp-9) 0; }
 }
 .btn-primary {
     background: var(--color-cta);
-    color: #fff;
+    color: var(--btn-primary-fg);
     box-shadow: var(--sh-sm);
 }
 .btn-primary:hover {
     background: var(--color-cta-hover);
-    color: #fff;
+    color: var(--btn-primary-fg);
     box-shadow: var(--sh-md);
 }
 .btn-secondary {
@@ -209,9 +277,9 @@ section { padding: var(--sp-9) 0; }
     border-color: var(--color-border-strong);
 }
 .btn-secondary:hover {
-    background: var(--color-primary);
+    background: var(--color-deep);
     color: #fff;
-    border-color: var(--color-primary);
+    border-color: var(--color-deep);
 }
 .btn-ghost { background: transparent; color: var(--color-cta); padding: 10px 14px; }
 .btn-ghost:hover { background: var(--color-cta-soft); }
@@ -224,7 +292,7 @@ section { padding: var(--sp-9) 0; }
     left: var(--sp-4);
     right: var(--sp-4);
     z-index: var(--z-nav);
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--nav-bg);
     backdrop-filter: saturate(180%) blur(14px);
     -webkit-backdrop-filter: saturate(180%) blur(14px);
     border: 1px solid var(--color-border);
@@ -234,7 +302,7 @@ section { padding: var(--sp-9) 0; }
 }
 .navbar.scrolled {
     box-shadow: var(--sh-md);
-    background: rgba(255, 255, 255, 0.96);
+    background: var(--nav-bg-scrolled);
 }
 .navbar .container {
     display: flex;
@@ -282,9 +350,38 @@ section { padding: var(--sp-9) 0; }
 }
 .nav-menu a.btn-primary,
 .nav-menu a.btn-primary:hover {
-    color: #fff;
+    color: var(--btn-primary-fg);
 }
 .nav-cta { margin-left: var(--sp-3); }
+
+/* Right-side cluster: menu + theme toggle + hamburger */
+.nav-cluster {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+}
+
+.theme-toggle {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface-alt);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--r-md);
+    font-size: 16px;
+    transition: background-color var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+}
+.theme-toggle:hover {
+    border-color: var(--color-cta);
+    color: var(--color-cta);
+}
+.theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: inline; }
 
 .hamburger {
     display: none;
@@ -320,7 +417,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     background:
         radial-gradient(1100px 500px at 85% -10%, rgba(3, 105, 161, 0.10), transparent 60%),
         radial-gradient(900px 500px at -10% 110%, rgba(14, 165, 233, 0.08), transparent 60%),
-        linear-gradient(180deg, #FFFFFF 0%, var(--color-bg) 100%);
+        linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
     border-bottom: 1px solid var(--color-border);
 }
 .hero-grid {
@@ -402,7 +499,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     padding: var(--sp-5);
 }
 .hero-card {
-    background: #fff;
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--r-xl);
     box-shadow: var(--sh-lg);
@@ -466,7 +563,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
 .hero-float {
     position: absolute;
     z-index: var(--z-base);
-    background: #fff;
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--r-lg);
     box-shadow: var(--sh-md);
@@ -567,7 +664,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     position: relative;
     border-radius: var(--r-xl);
     overflow: hidden;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(135deg, var(--color-deep), var(--color-deep-2));
     aspect-ratio: 4 / 5;
     box-shadow: var(--sh-lg);
 }
@@ -604,7 +701,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     transform: translateY(-2px);
 }
 .service-card.featured {
-    background: linear-gradient(180deg, #FFFFFF 0%, #F5FBFF 100%);
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-cta-soft) 100%);
     border-color: var(--color-cta);
 }
 .service-badge {
@@ -612,7 +709,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     top: -12px;
     right: var(--sp-5);
     background: var(--color-cta);
-    color: #fff;
+    color: var(--btn-primary-fg);
     font-size: var(--fs-xs);
     font-weight: 600;
     padding: 5px 12px;
@@ -697,7 +794,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     height: 44px;
     border-radius: var(--r-md);
     background: var(--color-cta);
-    color: #fff;
+    color: var(--btn-primary-fg);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -762,20 +859,24 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     gap: var(--sp-5);
 }
 .portfolio-card {
+    display: block;
+    color: inherit;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--r-lg);
     overflow: hidden;
-    transition: border-color var(--t-base), box-shadow var(--t-base);
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
 }
 .portfolio-card:hover {
     border-color: var(--color-cta);
     box-shadow: var(--sh-lg);
+    transform: translateY(-2px);
 }
+.portfolio-card:hover h3 { color: var(--color-cta); }
 .portfolio-image {
     position: relative;
     aspect-ratio: 16 / 10;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(135deg, var(--color-deep), var(--color-deep-2));
     overflow: hidden;
 }
 .portfolio-img { width: 100%; height: 100%; object-fit: cover; }
@@ -806,7 +907,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     height: 40px;
     border-radius: 50%;
     background: #fff;
-    color: var(--color-primary);
+    color: var(--color-deep);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -886,7 +987,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
 
 /* ---------- CTA strip ---------- */
 .cta {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #1E293B 100%);
+    background: linear-gradient(135deg, var(--color-deep) 0%, var(--color-deep-2) 100%);
     color: #fff;
     position: relative;
     overflow: hidden;
@@ -919,7 +1020,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
 }
 .cta .btn-secondary:hover {
     background: #fff;
-    color: var(--color-primary);
+    color: var(--color-deep);
     border-color: #fff;
 }
 
@@ -1019,7 +1120,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
 
 /* ---------- Footer ---------- */
 .footer {
-    background: var(--color-primary);
+    background: var(--color-deep);
     color: rgba(255, 255, 255, 0.78);
     padding: var(--sp-9) 0 var(--sp-5);
 }
@@ -1106,7 +1207,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
     right: var(--sp-5);
     width: 44px;
     height: 44px;
-    background: var(--color-primary);
+    background: var(--color-deep);
     color: #fff;
     border: 0;
     border-radius: 50%;
@@ -1151,7 +1252,7 @@ main { padding-top: calc(var(--navbar-h) + var(--sp-6)); }
         flex-direction: column;
         align-items: stretch;
         gap: var(--sp-2);
-        background: #fff;
+        background: var(--color-surface);
         border: 1px solid var(--color-border);
         border-radius: var(--r-lg);
         padding: var(--sp-4);

@@ -7,6 +7,49 @@
     'use strict';
 
     // ============================================
+    // Theme toggle (light / dark)
+    // ============================================
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+    function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute('content', theme === 'dark' ? '#0B1120' : '#0F172A');
+        }
+        if (themeToggle) {
+            themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        }
+    }
+
+    // Sync UI with the theme set by the inline head script
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+    }
+
+    // Follow OS theme changes when the user hasn't chosen explicitly
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            let stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (err) {}
+            if (!stored) applyTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+
+    // ============================================
+    // Current year in footer
+    // ============================================
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // ============================================
     // Mobile Navigation Toggle
     // ============================================
     const hamburger = document.querySelector('.hamburger');

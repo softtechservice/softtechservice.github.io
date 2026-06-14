@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - Nuts &amp; Bolts: Screw Puzzle | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms of Service, and Licenses for Nuts &amp; Bolts: Screw Puzzle mobile app by SoftTech Service">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #6D28D9;
+            --primary-glow: rgba(124, 58, 237, 0.4);
+            --secondary: #A78BFA;
+            --accent: #F43F5E;
+            --accent-glow: rgba(244, 63, 94, 0.4);
+            --bg-dark: #0F0F23;
+            --bg-card: rgba(22, 22, 51, 0.7);
+            --bg-card-hover: rgba(31, 27, 78, 0.85);
+            --text-light: #E2E8F0;
+            --text-gray: #94A3B8;
+            --text-dark: #0B0F19;
+            --border-glow: rgba(124, 58, 237, 0.2);
+            --border-glow-active: rgba(244, 63, 94, 0.4);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --gradient-dark: linear-gradient(135deg, #0F0F23 0%, #1A1647 100%);
+        }
+        
+        body {
+            font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--bg-dark);
+            background-image: var(--gradient-dark);
+            background-attachment: fixed;
+            padding: 2rem 1rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Russo One', sans-serif;
+            letter-spacing: 0.05em;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .header-section {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(244, 63, 94, 0.2) 100%);
+            border-bottom: 1px solid var(--border-glow);
+            position: relative;
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+        }
+        
+        .header-section .subtitle {
+            color: var(--secondary);
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .header-section p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid var(--primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .back-link:hover {
+            background: var(--primary);
+            box-shadow: 0 0 12px var(--primary-glow);
+            transform: translateX(-3px);
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: rgba(10, 10, 25, 0.5);
+            border-bottom: 1px solid var(--border-glow);
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 160px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+        }
+        
+        .tab-button:hover {
+            color: white;
+            background: rgba(124, 58, 237, 0.08);
+        }
+        
+        .tab-button.active {
+            color: white;
+            border-bottom-color: var(--accent);
+            background: rgba(124, 58, 237, 0.12);
+            text-shadow: 0 0 8px var(--primary-glow);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3.5rem;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-block {
+            margin-bottom: 3rem;
+        }
+        
+        .section-block:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        strong {
+            color: white;
+        }
+        
+        ul {
+            margin-bottom: 1.25rem;
+            padding-left: 2rem;
+            color: var(--text-gray);
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: rgba(124, 58, 237, 0.1);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight p {
+            margin-bottom: 0;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(10, 10, 20, 0.4);
+            box-shadow: var(--shadow-sm);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-glow);
+        }
+        
+        thead {
+            background: rgba(124, 58, 237, 0.2);
+            color: white;
+        }
+        
+        th {
+            padding: 1.1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-glow);
+            font-family: 'Russo One', sans-serif;
+            letter-spacing: 0.05em;
+        }
+        
+        td {
+            padding: 1.1rem;
+            border-bottom: 1px solid var(--border-glow);
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: rgba(124, 58, 237, 0.05);
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(244, 63, 94, 0.15) 100%);
+            border: 1px solid var(--border-glow);
+            color: white;
+            padding: 2.25rem;
+            border-radius: 16px;
+            margin-top: 2.5rem;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-box p {
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: var(--accent);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-box a:hover {
+            color: white;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            
+            .container {
+                border-radius: 16px;
+            }
+            
+            .header-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.75rem;
+            }
+            
+            .tab-button {
+                min-width: 140px;
+                padding: 1rem 1.5rem;
+                font-size: 0.85rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+                margin-top: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+            
+            table {
+                font-size: 0.85rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            thead, tbody, tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            
+            th, td {
+                padding: 0.8rem 0.6rem;
+                word-wrap: break-word;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 1.5rem 1rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .back-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .back-link {
+                justify-content: center;
+            }
+            
+            .tab-button {
+                min-width: 120px;
+                padding: 0.8rem 1rem;
+            }
+            
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Game Details</a>
+                <a href="../index.html" class="back-link"><i class="fas fa-home"></i> Main Website</a>
+            </div>
+            <h1>Nuts &amp; Bolts: Screw Puzzle</h1>
+            <p class="subtitle">Legal Information &amp; Privacy Center</p>
+            <p><strong>Last updated:</strong> June 14, 2026 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy" aria-selected="true" role="tab">Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms" aria-selected="false" role="tab" id="termsTabButton">Terms &amp; Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license" aria-selected="false" role="tab">License &amp; Copyright</button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active" role="tabpanel">
+            <div class="section-block">
+                <p>
+                    SoftTech Service ("we", "our", or "the app") respects your privacy and is committed to protecting data security. 
+                    This Privacy Policy details how data is handled when you download, install, and play <strong>Nuts &amp; Bolts: Screw Puzzle</strong>.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>1. Information Collection and Use</h2>
+                <p>
+                    We prioritize user privacy and adhere to data minimization principles. We do not collect, store, or share any personal identity information.
+                </p>
+                
+                <h3>Gameplay Storage</h3>
+                <p>
+                    The game stores gameplay progress, achievements, coin count, and diamond count locally on your device via standard browser <strong>localStorage</strong>. 
+                    No personal or gameplay database is uploaded to remote servers. This ensures you can play the game offline with full state retention.
+                </p>
+                
+                <div class="highlight">
+                    <p>Important: Clearing your app storage, cache, or webview data will reset your local gameplay progress, coin balance, and unlock states.</p>
+                </div>
+            </div>
+            
+            <div class="section-block">
+                <h2>2. Device Permissions</h2>
+                <p>To run the hybrid puzzle canvas securely and offline, the application requests the following device permissions:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Description</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Internet Access</strong></td>
+                            <td>`android.permission.INTERNET` / iOS NSNetwork</td>
+                            <td>Strictly required to run the local ephemeral asset web server (http://localhost) to render the HTML5 Construct 3 game widget offline. No external server tracking is done.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section-block">
+                <h2>3. Third-Party Services &amp; Ad Networks</h2>
+                <p>
+                    The application integrates Google AdMob for advertisement monetization. Google AdMob may collect and use anonymous device identifiers or advertising IDs to serve relevant advertisements.
+                </p>
+                <p>
+                    We recommend reviewing Google's policies for a complete breakdown of data collection and choices:
+                    <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Privacy &amp; Terms for Advertising</a>.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>4. Children's Privacy</h2>
+                <p>
+                    Our game does not collect personal data from anyone, including children under the age of 13. 
+                    We adhere to the Children's Online Privacy Protection Act (COPPA) guidelines and do not track personal identifiers.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>5. Contact Us</h2>
+                <p>For any questions regarding this privacy policy or data security, feel free to email our support team:</p>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Support Email:</strong> <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content" role="tabpanel">
+            <div class="section-block">
+                <p>By downloading, installing, or playing Nuts &amp; Bolts: Screw Puzzle, you accept and agree to the following Terms &amp; Conditions.</p>
+            </div>
+            
+            <div class="section-block">
+                <h2>1. Terms of Use</h2>
+                <ul>
+                    <li>The game is provided on an "as is" and "as available" basis without any express or implied warranties.</li>
+                    <li>You agree to use this application for personal, non-commercial entertainment purposes only.</li>
+                    <li>You may not modify, distribute, or reverse engineer the Flutter wrapper, local server configurations, or the Construct 3 JavaScript assets.</li>
+                </ul>
+            </div>
+            
+            <div class="section-block">
+                <h2>2. Virtual Currency and Progress</h2>
+                <p>
+                    Coins, diamonds, and level progress are purely virtual tokens with no real-world monetary value. They cannot be transferred, sold, or redeemed for physical currency. 
+                    Since progress is saved locally via `localStorage`, SoftTech Service is not responsible for progress lost due to device resets, data clearing, or uninstalling the app.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>3. Monetization &amp; Advertisements</h2>
+                <p>
+                    The application displays advertisements (interstitial and rewarded) via Google Mobile Ads. 
+                    Any interaction with third-party advertisements or products shown in advertisements is subject to the terms of those specific advertisers.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>4. Intellectual Property</h2>
+                <p>
+                    All code, UI designs, logos, wrapper scripts, server implementations, sound effects, and graphics are the exclusive intellectual property of SoftTech Service and its content licensors. 
+                    All rights not explicitly granted herein are reserved.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>5. Limitation of Liability</h2>
+                <p>
+                    In no event shall SoftTech Service be liable for any indirect, incidental, special, or consequential damages arising out of the use or inability to use this mobile application.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>📧 Contact Info</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Support Email:</strong> <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content" role="tabpanel">
+            <div class="section-block">
+                <div class="highlight">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-gray);">
+                        This software and its related asset packs are proprietary. 
+                        No part of the mobile application code, dynamic localhost bridge, or assets may be reproduced, distributed, 
+                        or transmitted in any form without the prior written permission of SoftTech Service.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="section-block">
+                <h2>Open Source &amp; Third-Party Attributions</h2>
+                <p>The Nuts &amp; Bolts hybrid wrapper application utilizes several open-source libraries and engines:</p>
+                <ul>
+                    <li><strong>Construct 3 Engine:</strong> Powering the HTML5 mechanical simulation canvas and game loop logic.</li>
+                    <li><strong>Flutter SDK:</strong> Used as the native container shell, managing asset loading, layouts, overlay dialogs, and navigation logic.</li>
+                    <li><strong>google_mobile_ads package:</strong> Handles ad-playback integration with Google AdMob.</li>
+                    <li><strong>FontAwesome Icons:</strong> Under SIL Open Font License (OFL) and MIT License.</li>
+                </ul>
+            </div>
+            
+            <div class="section-block">
+                <h2>Warranty Disclaimer</h2>
+                <div class="highlight" style="background: rgba(244, 63, 94, 0.08); border-left-color: var(--accent);">
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+                        INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. 
+                        IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, 
+                        WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab system functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove active class from buttons and contents
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to selected button and content
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Check hash in URL for direct tab opening (e.g. #terms)
+            const handleHash = () => {
+                const hash = window.location.hash.substring(1);
+                if (hash === 'terms') {
+                    const termsBtn = document.getElementById('termsTabButton');
+                    if (termsBtn) termsBtn.click();
+                }
+            };
+
+            // Run on load and hash change
+            handleHash();
+            window.addEventListener('hashchange', handleHash);
+        });
+    </script>
+</body>
+</html>
