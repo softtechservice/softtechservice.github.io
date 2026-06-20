@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms – Color Sort Water Puzzle | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy and Terms & Conditions for Color Sort – Water Puzzle Android App by SoftTech Service. Learn how your data is handled.">
+    <meta name="keywords" content="color sort privacy policy, water puzzle terms, SoftTech Service privacy, Android puzzle game privacy">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary:        #7C3AED;
+            --primary-light:  #A78BFA;
+            --primary-dark:   #5B21B6;
+            --accent:         #F43F5E;
+            --accent-light:   #FB7185;
+            --cyan:           #06B6D4;
+            --green:          #10B981;
+            --yellow:         #F59E0B;
+            --bg:             #0F0F23;
+            --bg-card:        #1A1A35;
+            --bg-card2:       #16162D;
+            --text:           #E2E8F0;
+            --text-muted:     #94A3B8;
+            --text-body:      #CBD5E1;
+            --border:         rgba(124, 58, 237, 0.25);
+            --border-subtle:  rgba(255, 255, 255, 0.06);
+            --glow-purple:    0 0 30px rgba(124, 58, 237, 0.4);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 1.5rem 1rem;
+            min-height: 100vh;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(124, 58, 237, 0.12), 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        /* ===== HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, #1a0a3b 0%, #0a1a3b 50%, #0F0F23 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 2.5rem 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 50%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(124, 58, 237, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            position: relative;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        .header-app {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            position: relative;
+        }
+
+        .header-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: var(--glow-purple);
+        }
+
+        .header-info h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+        }
+
+        .header-info .subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+
+        .header-meta {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 600;
+        }
+
+        .meta-tag i { color: var(--primary-light); }
+
+        /* ===== TABS ===== */
+        .tabs-bar {
+            background: var(--bg-card2);
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs-bar::-webkit-scrollbar { height: 3px; }
+        .tabs-bar::-webkit-scrollbar-track { background: transparent; }
+        .tabs-bar::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
+
+        .tabs-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 1.1rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: all 0.25s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary-light);
+            background: rgba(124, 58, 237, 0.06);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-light);
+            border-bottom-color: var(--primary);
+            background: rgba(124, 58, 237, 0.08);
+        }
+
+        .tab-btn i { font-size: 0.85rem; }
+
+        /* ===== TAB CONTENT ===== */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeUp 0.3s ease;
+        }
+
+        .tab-content.active { display: block; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== PROSE STYLES ===== */
+        .prose-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .prose-section:last-child { margin-bottom: 0; }
+
+        h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.6rem;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        h2 i { color: var(--primary-light); font-size: 1rem; }
+
+        h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            margin-bottom: 0.85rem;
+            line-height: 1.75;
+        }
+
+        ul, ol {
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            font-size: 0.93rem;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            margin-top: 0.55rem;
+            flex-shrink: 0;
+        }
+
+        ol { counter-reset: list-counter; }
+        ol li { counter-increment: list-counter; }
+        ol li::before {
+            content: counter(list-counter) '.';
+            background: none;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            color: var(--primary-light);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-top: 0;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover { color: #C4B5FD; text-decoration: underline; }
+
+        strong { color: var(--text); font-weight: 700; }
+
+        /* ===== CALLOUT BOX ===== */
+        .callout {
+            background: rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-left: 4px solid var(--primary);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout p { margin: 0; color: var(--text); }
+        .callout p + p { margin-top: 0.5rem; }
+
+        .callout-green {
+            background: rgba(16, 185, 129, 0.06);
+            border-color: rgba(16, 185, 129, 0.3);
+            border-left-color: var(--green);
+        }
+
+        .callout-yellow {
+            background: rgba(245, 158, 11, 0.06);
+            border-color: rgba(245, 158, 11, 0.3);
+            border-left-color: var(--yellow);
+        }
+
+        /* ===== TABLE ===== */
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        thead { background: rgba(124, 58, 237, 0.25); }
+
+        th {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 0.9rem 1.25rem;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-body);
+        }
+
+        td:first-child { color: var(--text); font-weight: 600; }
+
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
+
+        /* ===== CONTACT BOX ===== */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(6, 182, 212, 0.08) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.35);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--text);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-box h3 i { color: var(--primary-light); }
+
+        .contact-box p {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box strong { color: var(--text); }
+
+        /* ===== COPYRIGHT BLOCK ===== */
+        .copyright-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin: 1.5rem 0;
+        }
+
+        .copyright-block strong { color: var(--text); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body { padding: 0.75rem 0.5rem; }
+
+            .container { border-radius: 16px; }
+
+            .page-header { padding: 1.75rem 1.5rem 1.5rem; }
+
+            .header-info h1 { font-size: 1.5rem; }
+
+            .tab-content { padding: 2rem 1.5rem; }
+
+            h2 { font-size: 1.35rem; }
+
+            .header-app { flex-direction: row; gap: 1rem; }
+
+            .header-icon { width: 52px; height: 52px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0.25rem; }
+            .container { border-radius: 12px; }
+            .page-header { padding: 1.25rem 1rem; }
+            .header-info h1 { font-size: 1.25rem; }
+            .tab-content { padding: 1.5rem 1rem; }
+            .tab-btn { min-width: 110px; padding: 0.9rem 1rem; font-size: 0.8rem; }
+            .contact-box { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ===== PAGE HEADER ===== -->
+        <div class="page-header">
+            <div class="back-links">
+                <a href="index.html" class="back-link" aria-label="Back to Color Sort landing page">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to App
+                </a>
+                <a href="../index.html" class="back-link" aria-label="Go to main website">
+                    <i class="fas fa-globe" aria-hidden="true"></i> Main Website
+                </a>
+            </div>
+            <div class="header-app">
+                <img src="icon.png" alt="Color Sort – Water Puzzle app icon" class="header-icon">
+                <div class="header-info">
+                    <h1>Color Sort – Water Puzzle</h1>
+                    <p class="subtitle">Legal Information &amp; Policies</p>
+                </div>
+            </div>
+            <div class="header-meta">
+                <span class="meta-tag"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Last updated: June 2026</span>
+                <span class="meta-tag"><i class="fas fa-user" aria-hidden="true"></i> Developer: SoftTech Service</span>
+                <span class="meta-tag"><i class="fas fa-mobile-alt" aria-hidden="true"></i> Android App</span>
+            </div>
+        </div>
+
+        <!-- ===== TABS ===== -->
+        <div class="tabs-bar">
+            <ul class="tabs-list" role="tablist" aria-label="Policy sections">
+                <li role="presentation">
+                    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-privacy" id="tab-privacy" data-tab="privacy">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i> Privacy Policy
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-terms" id="tab-terms" data-tab="terms">
+                        <i class="fas fa-file-contract" aria-hidden="true"></i> Terms &amp; Conditions
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-license" id="tab-license" data-tab="license">
+                        <i class="fas fa-copyright" aria-hidden="true"></i> License &amp; Copyright
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ===== TAB 1: PRIVACY POLICY ===== -->
+        <div class="tab-content active" id="panel-privacy" role="tabpanel" aria-labelledby="tab-privacy">
+            <div class="prose-section">
+                <p>Color Sort – Water Puzzle ("we", "our", or "the app") is developed by SoftTech Service and respects your privacy. This Privacy Policy explains how your information is handled when you use our Android application.</p>
+                <div class="callout callout-green">
+                    <p><strong>Short version:</strong> We do not collect, store, or share any personal data. All game data stays on your device. No account is required to play.</p>
+                </div>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-search" aria-hidden="true"></i> Information We Collect</h2>
+
+                <h3>1. Information You Provide</h3>
+                <p>The app stores the following data <strong>locally on your device only</strong>:</p>
+                <ul>
+                    <li>Game progress — completed levels, current level, and scores</li>
+                    <li>Daily check-in streak and coin balance</li>
+                    <li>Settings preferences (sound, display options)</li>
+                </ul>
+
+                <div class="callout callout-green">
+                    <p><strong>Important:</strong> All data is stored locally using Flutter's shared preferences and local storage. Nothing is sent to our servers or any third-party server.</p>
+                </div>
+
+                <h3>2. Information We Do NOT Collect</h3>
+                <ul>
+                    <li>Personal identity information (name, email, phone)</li>
+                    <li>Device identifiers (IMEI, advertising ID, etc.)</li>
+                    <li>Location or GPS data</li>
+                    <li>Analytics or behavioral tracking data</li>
+                    <li>Financial or payment information</li>
+                    <li>Photos, contacts, or other personal files</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-mobile-alt" aria-hidden="true"></i> Permissions Usage</h2>
+                <p>The app requests only the permissions necessary for core functionality:</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Permission</th>
+                                <th>Purpose</th>
+                                <th>Required?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Internet</td>
+                                <td>Load rewarded ads (optional), Google Fonts</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td>Storage (Read)</td>
+                                <td>Save/load game progress locally</td>
+                                <td>Core</td>
+                            </tr>
+                            <tr>
+                                <td>Vibration</td>
+                                <td>Haptic feedback during gameplay</td>
+                                <td>Optional</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>The game can be played completely offline. Internet is only used when you choose to watch a rewarded video ad for bonus coins.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-ad" aria-hidden="true"></i> Advertising</h2>
+                <p>Color Sort – Water Puzzle includes optional advertising to support free access to the game:</p>
+
+                <h3>Rewarded Video Ads</h3>
+                <ul>
+                    <li>Completely optional — you choose to watch ads to earn bonus coins</li>
+                    <li>Ads are served by Google AdMob, which may use advertising ID to serve relevant ads</li>
+                    <li>You may opt out of personalized ads through your Android device settings</li>
+                </ul>
+
+                <h3>Banner Ads</h3>
+                <ul>
+                    <li>Non-intrusive banners may appear in certain screens</li>
+                    <li>Available as a "Remove Ads" in-app purchase for an ad-free experience</li>
+                </ul>
+
+                <div class="callout callout-yellow">
+                    <p><strong>AdMob Privacy:</strong> Google AdMob may collect advertising identifiers to serve personalized ads. Visit <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> to learn more or opt out.</p>
+                </div>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-lock" aria-hidden="true"></i> Data Storage &amp; Security</h2>
+                <ul>
+                    <li>All game progress is stored locally on your device</li>
+                    <li>No cloud sync or external server storage</li>
+                    <li>No third-party analytics SDKs or tracking libraries</li>
+                    <li>No user accounts or login required</li>
+                    <li>Uninstalling the app will remove all local data</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-baby" aria-hidden="true"></i> Children's Privacy</h2>
+                <p>Color Sort – Water Puzzle is a family-friendly game suitable for all ages. We do not knowingly collect any personal data from children under 13. No registration, login, or personal information is required to play.</p>
+                <p>The game complies with Google Play's Families Policy. Ad content is filtered to be appropriate for all audiences.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-globe" aria-hidden="true"></i> Internet Usage</h2>
+                <p>The app is fully functional offline. Internet connectivity is used <strong>only</strong> when:</p>
+                <ul>
+                    <li>You choose to watch a rewarded video ad to earn bonus coins</li>
+                    <li>Loading Google Fonts for consistent typography (cached after first load)</li>
+                </ul>
+                <p>Core gameplay, level progression, and all puzzle content works without an internet connection.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-sync" aria-hidden="true"></i> Changes to This Policy</h2>
+                <p>We may update this Privacy Policy to reflect changes in the app or applicable laws. Any material changes will be communicated through app updates. The "Last updated" date at the top of this page will always reflect the most recent revision.</p>
+                <p>Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-envelope" aria-hidden="true"></i> Contact Us</h2>
+                <p>If you have questions about this Privacy Policy or wish to request deletion of any locally stored data:</p>
+                <div class="contact-box">
+                    <h3><i class="fas fa-headset" aria-hidden="true"></i> Get in Touch</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Response time:</strong> Within 3–5 business days</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== TAB 2: TERMS & CONDITIONS ===== -->
+        <div class="tab-content" id="panel-terms" role="tabpanel" aria-labelledby="tab-terms">
+            <div class="prose-section">
+                <p>By downloading, installing, or using Color Sort – Water Puzzle ("the app"), you agree to be bound by these Terms &amp; Conditions. If you do not agree to these terms, please do not use the app.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-gamepad" aria-hidden="true"></i> 1. App Usage</h2>
+                <ul>
+                    <li>The app is provided free of charge for personal, non-commercial entertainment purposes</li>
+                    <li>You agree to use the app for lawful purposes only</li>
+                    <li>You must be at least 13 years of age to use the app, or have parental consent</li>
+                    <li>You are responsible for maintaining the security of your device</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-coins" aria-hidden="true"></i> 2. In-App Currency &amp; Purchases</h2>
+                <h3>Coins (Virtual Currency)</h3>
+                <ul>
+                    <li>Coins are virtual in-app currency with no real-world monetary value</li>
+                    <li>Coins can be earned through gameplay, daily check-ins, and watching rewarded ads</li>
+                    <li>Coins can be spent on hints and extra tubes within the game</li>
+                    <li>Coins are non-transferable and cannot be exchanged for real money</li>
+                </ul>
+
+                <h3>Remove Ads Purchase</h3>
+                <ul>
+                    <li>The "Remove Ads" option is a one-time in-app purchase that removes banner and interstitial ads</li>
+                    <li>Rewarded video ads remain optional even after purchase, as they provide bonus coins</li>
+                    <li>Purchases are processed through Google Play and subject to Google's refund policy</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-video" aria-hidden="true"></i> 3. Advertising</h2>
+                <ul>
+                    <li>The app contains optional rewarded video ads (you choose to watch them for coins)</li>
+                    <li>Banner ads may be displayed in non-intrusive areas of the game</li>
+                    <li>Ad content is filtered to be family-friendly and appropriate for all ages</li>
+                    <li>We are not responsible for the content of third-party advertisements</li>
+                    <li>Purchasing "Remove Ads" removes non-rewarded advertisements</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> 4. Disclaimer of Warranties</h2>
+                <div class="callout">
+                    <p>The app is provided on an <strong>"as is" and "as available"</strong> basis without any warranties of any kind, express or implied, including but not limited to:</p>
+                </div>
+                <ul>
+                    <li>Warranty of merchantability or fitness for a particular purpose</li>
+                    <li>Guarantee of uninterrupted or error-free operation</li>
+                    <li>Accuracy, completeness, or reliability of any content</li>
+                    <li>Compatibility with all devices or Android versions</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-balance-scale" aria-hidden="true"></i> 5. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, SoftTech Service is not liable for:</p>
+                <ul>
+                    <li>Loss of game progress due to device failure, uninstallation, or OS updates</li>
+                    <li>Data loss or corruption of locally stored game data</li>
+                    <li>Interruptions to gameplay due to device or OS limitations</li>
+                    <li>Any indirect, incidental, or consequential damages</li>
+                </ul>
+                <p>Your sole remedy for dissatisfaction with the app is to stop using it.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-copyright" aria-hidden="true"></i> 6. Intellectual Property</h2>
+                <ul>
+                    <li>All app content — code, graphics, sound, UI, levels, and branding — belongs to SoftTech Service</li>
+                    <li>You may not copy, modify, reverse-engineer, decompile, or redistribute the app or its content</li>
+                    <li>Color Sort – Water Puzzle and all related trademarks are the property of SoftTech Service</li>
+                    <li>Third-party libraries used within the app retain their respective licenses (see License tab)</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-ban" aria-hidden="true"></i> 7. Prohibited Activities</h2>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Exploit bugs, glitches, or unintended features to gain an unfair advantage</li>
+                    <li>Attempt to cheat, hack, or modify the app or its local data files</li>
+                    <li>Use automated scripts, bots, or tools to interact with the app</li>
+                    <li>Reverse-engineer, decompile, or disassemble the app or its game engine</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-power-off" aria-hidden="true"></i> 8. Termination</h2>
+                <p>We reserve the right to update, modify, or discontinue the app at any time without prior notice. We may also suspend or terminate your ability to use certain features if these Terms are violated or applicable laws require it.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-edit" aria-hidden="true"></i> 9. Changes to Terms</h2>
+                <p>These Terms may be updated periodically. We will notify users of material changes through app updates. Continued use of the app after changes constitutes your acceptance of the revised Terms.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-gavel" aria-hidden="true"></i> 10. Governing Law</h2>
+                <p>These Terms are governed by the laws applicable in the jurisdiction of SoftTech Service's principal place of business. Any disputes arising from these Terms shall be resolved in accordance with applicable law.</p>
+            </div>
+
+            <div class="prose-section">
+                <div class="contact-box">
+                    <h3><i class="fas fa-envelope" aria-hidden="true"></i> Contact Information</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== TAB 3: LICENSE & COPYRIGHT ===== -->
+        <div class="tab-content" id="panel-license" role="tabpanel" aria-labelledby="tab-license">
+            <div class="prose-section">
+                <div class="copyright-block">
+                    <strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong><br><br>
+                    This software and associated documentation files (the "Software") are proprietary and confidential. Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited without the express written permission of SoftTech Service.
+                </div>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-shield-alt" aria-hidden="true"></i> Intellectual Property</h2>
+                <ul>
+                    <li>All app design, UI, artwork, sound effects, levels, and game logic belong to SoftTech Service</li>
+                    <li>Color Sort – Water Puzzle, the app icon, and all related trademarks are property of SoftTech Service</li>
+                    <li>You may not copy, modify, or redistribute the app or any of its assets without explicit written permission</li>
+                    <li>Reverse engineering, decompiling, or disassembling the software is strictly prohibited</li>
+                </ul>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-cube" aria-hidden="true"></i> Third-Party Libraries &amp; Licenses</h2>
+                <p>Color Sort – Water Puzzle is built with the following open-source frameworks and libraries, each subject to their respective licenses:</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Library / Framework</th>
+                                <th>Purpose</th>
+                                <th>License</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Flutter SDK</td>
+                                <td>Native mobile shell &amp; UI framework</td>
+                                <td>BSD 3-Clause</td>
+                            </tr>
+                            <tr>
+                                <td>Phaser 3</td>
+                                <td>HTML5 game engine for puzzle mechanics</td>
+                                <td>MIT</td>
+                            </tr>
+                            <tr>
+                                <td>flutter_inappwebview</td>
+                                <td>Embeds Phaser game in Flutter shell</td>
+                                <td>Apache 2.0</td>
+                            </tr>
+                            <tr>
+                                <td>Google Mobile Ads SDK</td>
+                                <td>Optional rewarded &amp; banner advertising</td>
+                                <td>Google Terms of Service</td>
+                            </tr>
+                            <tr>
+                                <td>Google Fonts (Josefin Sans)</td>
+                                <td>Typography within the game &amp; Flutter UI</td>
+                                <td>SIL Open Font License 1.1</td>
+                            </tr>
+                            <tr>
+                                <td>shared_preferences</td>
+                                <td>Local game data persistence</td>
+                                <td>BSD 3-Clause</td>
+                            </tr>
+                            <tr>
+                                <td>Font Awesome</td>
+                                <td>Icons in landing page &amp; privacy page</td>
+                                <td>Font Awesome Free License</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>All third-party libraries are used in compliance with their respective licenses. Full license texts for each library are available in their respective repositories.</p>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-exclamation-circle" aria-hidden="true"></i> Limitation of Liability</h2>
+                <div class="callout">
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.</p>
+                    <p style="margin-top: 0.75rem;">IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+
+            <div class="prose-section">
+                <h2><i class="fas fa-file-code" aria-hidden="true"></i> Open Source Acknowledgments</h2>
+                <p>We gratefully acknowledge the open-source community. The developers and contributors of Flutter, Phaser 3, and all libraries listed above have made this app possible.</p>
+                <p>If you believe any open-source attribution is missing or incorrect, please contact us at <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a>.</p>
+            </div>
+
+            <div class="prose-section">
+                <div class="contact-box">
+                    <h3><i class="fas fa-envelope" aria-hidden="true"></i> Contact Information</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.github.io">softtechservice.github.io</a></p>
+                </div>
+            </div>
+        </div>
+    </div><!-- end .container -->
+
+    <script>
+        // Tab switching
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const panels  = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-tab');
+
+                    // Update buttons
+                    tabBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+
+                    // Update panels
+                    panels.forEach(p => p.classList.remove('active'));
+                    const panel = document.getElementById('panel-' + target);
+                    if (panel) {
+                        panel.classList.add('active');
+                        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Handle URL hash
+            const hash = window.location.hash.substring(1);
+            if (['privacy', 'terms', 'license'].includes(hash)) {
+                const btn = document.querySelector(`[data-tab="${hash}"]`);
+                if (btn) btn.click();
+            }
+        });
+    </script>
+</body>
+</html>
