@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - 2048 Flow | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms & Conditions, and License details for 2048 Flow mobile game by SoftTech Service.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Design Tokens & Theme Variables */
+        :root {
+            --bg-dark: #0A0A16;
+            --bg-deep: #05050C;
+            --bg-card: rgba(20, 20, 42, 0.65);
+            --primary: #7C3AED;
+            --primary-light: #A78BFA;
+            --primary-glow: rgba(124, 58, 237, 0.45);
+            --accent: #F43F5E;
+            --accent-glow: rgba(244, 63, 94, 0.45);
+            --text-main: #E2E8F0;
+            --text-muted: #94A3B8;
+            --border-glow: rgba(167, 139, 250, 0.15);
+            --success: #10B981;
+            
+            --font-display: 'Russo One', -apple-system, sans-serif;
+            --font-body: 'Chakra Petch', -apple-system, sans-serif;
+            
+            --shadow-neon: 0 0 15px var(--primary-glow);
+            --shadow-accent: 0 0 15px var(--accent-glow);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(244, 63, 94, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: var(--border-glass);
+            box-shadow: 0 10px 40px rgba(10, 10, 22, 0.5);
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Header Section */
+        .header-section {
+            padding: 3rem 4rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(124, 58, 237, 0.3) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .header-section h1 {
+            font-family: var(--font-display);
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+        }
+
+        .header-section .subtitle {
+            color: var(--primary-light);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-section p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: rgba(10, 10, 22, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 180px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: white;
+            background: rgba(124, 58, 237, 0.05);
+        }
+
+        .tab-button.active {
+            color: var(--primary-light);
+            border-bottom-color: var(--primary-light);
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        /* Tab Content Section */
+        .tab-content {
+            display: none;
+            padding: 4rem;
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            color: white;
+            font-size: 1.85rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid rgba(167, 139, 250, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            color: var(--primary-light);
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        h4 {
+            font-family: var(--font-display);
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: rgba(124, 58, 237, 0.08);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-light);
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Permissions Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(10, 10, 22, 0.4);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        thead {
+            background: rgba(124, 58, 237, 0.15);
+            color: white;
+        }
+
+        th {
+            padding: 1.25rem;
+            text-align: left;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        td {
+            padding: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(244, 63, 94, 0.2) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 2.25rem;
+            border-radius: 16px;
+            margin-top: 2.5rem;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box a {
+            color: var(--primary-light);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-box a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content {
+                padding: 3rem 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .container {
+                border-radius: 16px;
+            }
+
+            .header-section {
+                padding: 2rem 2rem 1.75rem;
+            }
+
+            .header-section h1 {
+                font-size: 2.25rem;
+            }
+
+            .tab-button {
+                min-width: 130px;
+                padding: 1rem 1.25rem;
+                font-size: 0.85rem;
+            }
+
+            .tab-content {
+                padding: 2.5rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            h3 {
+                font-size: 1.15rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            thead, tbody, tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            th, td {
+                padding: 1rem 0.75rem;
+                word-wrap: break-word;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .header-section h1 {
+                font-size: 1.85rem;
+            }
+
+            .tab-button {
+                min-width: 110px;
+                padding: 0.875rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .tab-content {
+                padding: 2rem 1rem;
+            }
+
+            h2 {
+                font-size: 1.35rem;
+            }
+
+            p, li {
+                font-size: 0.9rem;
+            }
+
+            .back-link {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Game Landing Page</a>
+                <a href="../index.html" class="back-link"><i class="fas fa-home"></i> Main Website</a>
+            </div>
+            <h1>2048 Flow</h1>
+            <p class="subtitle">Legal Information &amp; Policies</p>
+            <p><strong>Last updated:</strong> 2026-07-03 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms"><i class="fas fa-file-contract"></i> Terms &amp; Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license"><i class="fas fa-copyright"></i> License Info</button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p><strong>2048 Flow</strong> ("the game", "the app", "we", "our") respects your privacy. We are committed to protecting the integrity of your personal and game data. This Privacy Policy details how data is handled during your play sessions on the mobile application.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔍 Information Handling &amp; Data Collection</h2>
+                <p>We believe in data ownership and privacy. The game operates under an **offline-first policy**, meaning all operations are performed locally on your device.</p>
+                
+                <h3>1. Personal Data</h3>
+                <p><strong>We do NOT collect, transmit, or store:</strong></p>
+                <ul>
+                    <li>Your name, email address, phone number, or physical address.</li>
+                    <li>Account details or credentials.</li>
+                    <li>Device-specific identifiers (such as IMEI or MAC address) on remote servers.</li>
+                    <li>Contact lists, messages, photo galleries, or camera data.</li>
+                </ul>
+
+                <h3>2. Locally Persisted Game Data</h3>
+                <p>To preserve your progression and achievements across sessions, the application writes metadata directly to local WebView database storage (IndexedDB/WebSQL). This includes:</p>
+                <ul>
+                    <li>Earned stars per level (100 total levels).</li>
+                    <li>Global high scores and score records.</li>
+                    <li>Total collected shop gold coins.</li>
+                    <li>Status of unlocked profile avatars (Gamer, Neon Knight, Cosmic Explorer, Cyber Hacker).</li>
+                    <li>Unlocked aesthetic grid themes (Classic, Neon, Galaxy, Cyberpunk).</li>
+                </ul>
+                <div class="highlight">
+                    <p><strong>Important:</strong> None of this local progress metadata is uploaded or synchronized with cloud infrastructure. If you clear the application's storage data or uninstall the app, this progress information will be permanently reset.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📱 Requested Device Permissions</h2>
+                <p>To deliver an immersive hybrid gaming experience, the app requires standard device permissions. Below is a breakdown of their usage:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission Identifier</th>
+                            <th>Aesthetic &amp; Functional Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Vibration / Haptic API</strong></td>
+                            <td>Synchronizes grid connection and tile merging feedback with native vibration motors.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage (Internal)</strong></td>
+                            <td>Allows cache data storage and loading of WebGL assets (particle shaders, BabylonJS textures).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Network Access</strong></td>
+                            <td>Required for downloading localized updates or redirecting to external stores for downloads.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>🔐 Third-Party SDKs &amp; Analytics</h2>
+                <p>The game is designed without invasive ad trackers, telemetry integrations, or diagnostic SDK packages. We do not share telemetry details with advertising agencies or marketing partners.</p>
+            </div>
+
+            <div class="section">
+                <h2>👶 Children's Privacy Guidelines</h2>
+                <p>2048 Flow does not collect any data, making it fully compliant with Children's Online Privacy Protection regulations (COPPA). We do not solicit data from individuals under 13 years of age.</p>
+            </div>
+
+            <div class="section">
+                <h2>🔄 Updates to This Policy</h2>
+                <p>We reserves the right to modify this statement. When modifications are performed, the document's date header will be refreshed.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Support Inquiries</h2>
+                <div class="contact-box">
+                    <p>For inquiries regarding data privacy or localized storage resets, contact:</p>
+                    <p style="margin-top: 1rem;"><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>By installing or interacting with the 2048 Flow mobile game, you agree to comply with the terms specified below.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. Acceptable Use License</h2>
+                <p>SoftTech Service grants you a revocable, non-exclusive, non-transferable license to install and play 2048 Flow on compatible devices for personal, non-commercial entertainment purposes.</p>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Decompile, disassemble, decrypt, or reverse-engineer the Flutter package or embedded WebGL resources.</li>
+                    <li>Modify the game's balance parameters, coin databases, or unlock structures through unauthorized manipulation.</li>
+                    <li>Redistribute, rent, lease, or sell the software layout or branding packages to third parties.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. WebView Performance Disclaimer</h2>
+                <p>2048 Flow operates via an integrated HTML5/BabylonJS canvas viewport. Frames-per-second performance is dependent on device GPU capacity and web view rendering agents. SoftTech Service is not responsible for localized rendering delays or device heat generation resulting from intensive particle computations.</p>
+            </div>
+
+            <div class="section">
+                <h2>3. In-App Currency &amp; Virtual Goods</h2>
+                <p>The game features virtual items (skins, themes, custom profile avatars) unlockable using in-game coins. These virtual assets are non-redeemable and possess no external financial value. Virtual coins are earned solely through gameplay achievements and daily check-ins.</p>
+            </div>
+
+            <div class="section">
+                <h2>4. Intellectual Property</h2>
+                <p>All source code, asset textures, music tracks, particle configurations, branding, and layouts are the exclusive property of SoftTech Service. Protected trademarks may not be copied or repurposed without explicit consent.</p>
+            </div>
+
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, SoftTech Service is not liable for any direct, indirect, incidental, or consequential damages (including data loss or device malfunction) arising from your use of the application.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Terms Inquiries</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: License Info -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.95rem;">This software and associated web resources are proprietary. Unauthorized redistribution, modification, reverse engineering, repackaging, or extraction of code assets and textures is strictly prohibited.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Open-Source Attributions</h2>
+                <p>2048 Flow leverages open-source engines and container components. Below are the mandatory copyright notices for libraries used:</p>
+                
+                <h3>1. Babylon.js 3D WebGL Engine</h3>
+                <p>Copyright &copy; 2026 Babylon.js contributors. Licensed under the Apache License, Version 2.0 (the "License"). You may obtain a copy of the License at <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">http://www.apache.org/licenses/LICENSE-2.0</a>.</p>
+                
+                <h3>2. Flutter Framework</h3>
+                <p>Copyright &copy; 2014 The Flutter Authors. Licensed under the BSD 3-Clause License. Redistribution and use in source and binary forms are permitted under terms specified in the BSD License guidelines.</p>
+
+                <h3>3. flutter_inappwebview</h3>
+                <p>Copyright &copy; 2026 Lorenzo Pichilli. Licensed under the Apache License, Version 2.0.</p>
+            </div>
+
+            <div class="section">
+                <h2>Warranty Disclaimer</h2>
+                <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL SOFTTECH SERVICE OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF THE SYSTEM.</p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Licensing Contacts</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Control Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Reset active states
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Activate target states
+                    button.classList.add('active');
+                    const targetEl = document.getElementById(targetTab);
+                    if (targetEl) {
+                        targetEl.classList.add('active');
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+            
+            // Check Hash Links (e.g. privacy-policy.html#terms)
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const button = document.querySelector(`[data-tab="${hash}"]`);
+                if (button) {
+                    // Slight delay to allow paint before click
+                    setTimeout(() => {
+                        button.click();
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
