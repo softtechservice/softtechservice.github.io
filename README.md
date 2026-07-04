@@ -30,7 +30,7 @@ A modern, responsive static website for SoftTech Service - an IT company special
 ## Files Structure
 
 ```
-softtect/
+softtech/
 ├── index.html      # Main HTML file
 ├── styles.css      # All styling
 ├── script.js       # JavaScript functionality
