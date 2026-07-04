@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Bubble Vibe Shooter | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms of Service, and licensing terms for Bubble Vibe Shooter mobile puzzle game.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        
+        :root {
+            /* Light theme (default) */
+            --bg: #E3E9F3;
+            --text-dark: #3A4656;
+            --text-muted: #6A778B;
+            --shadow-outset: 8px 8px 16px rgba(163, 177, 198, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.85);
+            --shadow-inset: inset 6px 6px 12px rgba(163, 177, 198, 0.5), inset -6px -6px 12px rgba(255, 255, 255, 0.85);
+            --accent: #6366F1; /* Bubble Indigo */
+            --card-bg: #E3E9F3;
+            --border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        body.dark-theme {
+            /* Dark theme variables */
+            --bg: #1B1E24;
+            --text-dark: #E2E8F0;
+            --text-muted: #94A3B8;
+            --shadow-outset: 8px 8px 18px rgba(0, 0, 0, 0.45), -6px -6px 14px rgba(255, 255, 255, 0.04);
+            --shadow-inset: inset 6px 6px 12px rgba(0, 0, 0, 0.45), inset -6px -6px 12px rgba(255, 255, 255, 0.03);
+            --accent: #818CF8;
+            --card-bg: #1B1E24;
+            --border-color: rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            padding: 2.5rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 28px;
+            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-outset);
+        }
+        
+        /* Neumorphic Header Card */
+        .header-card {
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            position: relative;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-outset);
+            border: 1px solid var(--border-color);
+        }
+        
+        .back-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .neu-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-outset);
+            cursor: pointer;
+            border-radius: 12px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .neu-btn:hover {
+            box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+        }
+        
+        body.dark-theme .neu-btn:hover {
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.35), -4px -4px 8px rgba(255, 255, 255, 0.02);
+        }
+        
+        .neu-btn:active {
+            box-shadow: var(--shadow-inset);
+            transform: translateY(1px);
+        }
+        
+        .header-card h1 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-card .subtitle {
+            color: var(--accent);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .header-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* Tab Navigation */
+        .tabs-list {
+            display: flex;
+            list-style: none;
+            margin-bottom: 2rem;
+            padding: 6px;
+            border-radius: 16px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-inset);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs-list::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs-list::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .tab-item {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .tab-btn {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: 'Lexend', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .tab-btn.active {
+            color: var(--text-dark);
+            background: var(--card-bg);
+            box-shadow: var(--shadow-outset);
+            border: 1px solid var(--border-color);
+        }
+        
+        /* Tab panels */
+        .panel {
+            display: none;
+            padding: 2rem 1.5rem;
+            animation: slideUp 0.4s ease-out;
+        }
+        
+        .panel.active {
+            display: block;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .block {
+            margin-bottom: 2.8rem;
+        }
+        
+        .block:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 1.7rem;
+            color: var(--text-dark);
+            margin-bottom: 1.2rem;
+            margin-top: 1.8rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            margin-top: 1.6rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            color: var(--text-muted);
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+        
+        .neu-highlight {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-inset);
+            border: 1px solid var(--border-color);
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .neu-highlight p {
+            margin-bottom: 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-outset);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        thead {
+            background: var(--accent);
+            color: white;
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: rgba(99, 102, 241, 0.03);
+        }
+        
+        .contact-box {
+            padding: 2.2rem;
+            border-radius: 16px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-outset);
+            border: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+        
+        .contact-box h3 {
+            margin-top: 0;
+            color: var(--text-dark);
+        }
+        
+        .contact-box a {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1.2rem 0.5rem;
+            }
+            
+            .header-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header-card h1 {
+                font-size: 2rem;
+            }
+            
+            .tab-btn {
+                min-width: 120px;
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .panel {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            table {
+                font-size: 0.82rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            thead, tbody, tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.4rem;
+                word-wrap: break-word;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header-card">
+            <div class="back-nav">
+                <a href="index.html" class="neu-btn">
+                    <i class="fas fa-arrow-left"></i> Landing Page
+                </a>
+                <a href="../index.html" class="neu-btn">
+                    <i class="fas fa-home"></i> Main Website
+                </a>
+                <button class="theme-toggle neu-btn" id="themeBtn" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <h1>Bubble Vibe Shooter</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Effective Date:</strong> July 4, 2026 | <strong>Developer Team:</strong> Antigravity Games</p>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs-list">
+                <li class="tab-item">
+                    <button class="tab-btn active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li class="tab-item">
+                    <button class="tab-btn" data-tab="terms">📜 Terms & Conditions</button>
+                </li>
+                <li class="tab-item">
+                    <button class="tab-btn" data-tab="license">⚖️ Licenses</button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="panel active">
+            <div class="block">
+                <p>
+                    Bubble Vibe Shooter is committed to protecting your privacy. This Privacy Policy details how we handle data within our mobile application.
+                </p>
+            </div>
+            
+            <div class="block">
+                <h2>1. Information Collection and Sharing</h2>
+                <p>
+                    Bubble Vibe Shooter does not collect, store, or transmit any personally identifiable information (PII) from our players. The game runs locally on your device and does not require you to create an account, log in, or provide any email addresses, phone numbers, or personal profile data.
+                </p>
+            </div>
+            
+            <div class="block">
+                <h2>2. Device Local Storage</h2>
+                <p>
+                    The app uses your device's local sandbox storage (Web Storage API / SharedPreferences API) to save and retain gameplay progress:
+                </p>
+                <ul>
+                    <li>Unlocked levels</li>
+                    <li>Game stats (high scores, games played, bubbles popped)</li>
+                    <li>Coin counts and power-up inventory (Fireballs, Bombs, Rainbows)</li>
+                    <li>Claimed daily rewards history</li>
+                </ul>
+                <div class="neu-highlight">
+                    <p>
+                        <strong>Data Retention:</strong> This data remains completely on your physical device. Uninstalling the application or clearing the application cache will remove this data. We do not sync, back up, or transmit this progress to external cloud environments.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="block">
+                <h2>3. Permissions & Device Integration</h2>
+                <p>
+                    The App requests the following system permissions to improve your gaming experience:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Internet Access</strong></td>
+                            <td>Required by the Google Mobile Ads SDK to load advertisement scripts.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Haptic/Vibration Feedback</strong></td>
+                            <td>Used to trigger physical device vibrations during pops and level completion events.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Local Notifications</strong></td>
+                            <td>Used to schedule daily alerts locally (at 7:00 PM) reminding you to claim daily coins. This does not connect to external push servers.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="block">
+                <h2>4. Third-Party Services (AdMob)</h2>
+                <p>
+                    This app displays advertisements powered by the Google Mobile Ads SDK (AdMob). AdMob may collect certain device identifiers, IP addresses, approximate geolocation, or anonymous analytics data for ad targeting, frequency capping, and performance analytics.
+                </p>
+                <p>
+                    For more information regarding how Google AdMob processes your data, please review the Google Privacy & Terms policy:
+                </p>
+                <p>
+                    <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">Google Partner Privacy Policy Details</a>
+                </p>
+            </div>
+            
+            <div class="block">
+                <h2>5. Contact Us</h2>
+                <p>
+                    If you have any questions or feedback regarding this Privacy Policy, please reach out to the development team at Antigravity Games.
+                </p>
+                <div class="contact-box">
+                    <h3>Antigravity Games Support</h3>
+                    <p>📧 Email: <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="panel">
+            <div class="block">
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    By downloading or playing Bubble Vibe Shooter, you agree to these Terms and Conditions. If you do not agree to these terms, do not install or play the game.
+                </p>
+            </div>
+            
+            <div class="block">
+                <h2>2. Personal License</h2>
+                <p>
+                    Antigravity Games grants you a revocable, non-exclusive, non-transferable, limited license to download and play Bubble Vibe Shooter for personal, non-commercial entertainment.
+                </p>
+            </div>
+            
+            <div class="block">
+                <h2>3. Game Currency & Progression</h2>
+                <p>
+                    In-game coins and power-ups (Bombs, Fireballs, Rainbow bubbles) are virtual progress elements. They have no real-world value, cannot be redeemed for legal currency, and cannot be transferred. Since all progress is stored strictly on-device, we cannot restore lost coins or levels if the application is uninstalled or if your device is wiped.
+                </p>
+            </div>
+            
+            <div class="block">
+                <h2>4. Advertising and Content</h2>
+                <p>
+                    The game includes optional rewarded ads and interstitial ads. Ads are served by Google AdMob. Antigravity Games is not responsible for the products, sites, or services advertised in the game.
+                </p>
+            </div>
+            
+            <div class="block">
+                <h2>5. Local Notification Scheduling</h2>
+                <p>
+                    The app contains a local notification scheduler that triggers reminder alerts on your phone at 7:00 PM local time. These reminders run completely offline and do not connect to network servers. You can disable these reminders at any time in your device's System Notification settings.
+                </p>
+            </div>
+            
+            <div class="block">
+                <h2>6. Limitation of Liability</h2>
+                <p>
+                    Antigravity Games and SoftTech Service provide this game "as is". We are not liable for any physical device performance degradation, loss of data, or system interruptions associated with gameplay or local WebView rendering.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Tab 3: Licenses -->
+        <div id="license" class="panel">
+            <div class="block">
+                <div class="neu-highlight">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service & Antigravity Games. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem; color: var(--text-muted); font-weight: normal;">
+                        All visual assets, neumorphic designs, HTML5 Canvas game code, and Flutter project files are proprietary items of SoftTech Service and Antigravity Games. Unauthorized reuse, modification, extraction, or decompilation is strictly prohibited.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="block">
+                <h2>Third-Party Open Source Software</h2>
+                <p>
+                    Bubble Vibe Shooter is compiled using open-source utilities:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Flutter SDK:</strong> Licensed under the BSD 3-Clause License. Copyright &copy; Google LLC.
+                    </li>
+                    <li>
+                        <strong>flutter_inappwebview:</strong> Wrapper for web asset rendering. Distributed under the Apache License 2.0.
+                    </li>
+                    <li>
+                        <strong>google_mobile_ads:</strong> Google SDK for AdMob integration. Distributed under the Apache License 2.0.
+                    </li>
+                    <li>
+                        <strong>flutter_local_notifications:</strong> Offline alarm scheduling library. Distributed under the BSD 3-Clause License.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JS Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btns = document.querySelectorAll('.tab-btn');
+            const panels = document.querySelectorAll('.panel');
+            
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-tab');
+                    
+                    // Reset active
+                    btns.forEach(b => b.classList.remove('active'));
+                    panels.forEach(p => p.classList.remove('active'));
+                    
+                    // Set active
+                    btn.classList.add('active');
+                    const panel = document.getElementById(target);
+                    if (panel) {
+                        panel.classList.add('active');
+                        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Toggle Dark Theme
+            const themeBtn = document.getElementById('themeBtn');
+            const themeIcon = themeBtn.querySelector('i');
+            
+            themeBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                const isDark = document.body.classList.contains('dark-theme');
+                themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            });
+            
+            // Allow hash navigation
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const matchedBtn = document.querySelector(`[data-tab="${hash}"]`);
+                if (matchedBtn) {
+                    matchedBtn.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
