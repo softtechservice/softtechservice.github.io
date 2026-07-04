@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Chess Champion | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms & Conditions, and License Agreement for Chess Champion Android App by SoftTech Service">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #4E3629; /* Walnut Dark */
+            --primary-dark: #3A271C;
+            --accent: #D4AF37; /* Warm Gold */
+            --bg-light: #FAF7F2; /* Warm Cream background */
+            --bg-white: #FFFFFF;
+            --text-dark: #2A1E17;
+            --text-muted: #5C4F46;
+            --border-color: rgba(78, 54, 41, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 2rem 1rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(78, 54, 41, 0.08);
+            border: 1px solid rgba(78, 54, 41, 0.06);
+            overflow: hidden;
+        }
+        
+        .header-section {
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #FAF7F2;
+            position: relative;
+        }
+        
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: rgba(250, 247, 242, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(250, 247, 242, 0.08);
+            border: 1px solid rgba(250, 247, 242, 0.1);
+        }
+        
+        .back-link:hover {
+            background: rgba(250, 247, 242, 0.15);
+            color: #FFFFFF;
+            transform: translateX(-2px);
+        }
+        
+        .header-section h1 {
+            font-family: 'Playfair Display', serif;
+            color: #FFFFFF;
+            font-size: 2.6rem;
+            margin-bottom: 0.6rem;
+            font-weight: 800;
+        }
+        
+        .header-section .subtitle {
+            color: var(--accent);
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .header-section p {
+            color: rgba(250, 247, 242, 0.75);
+            font-size: 0.9rem;
+        }
+        
+        /* Tab Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 160px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(78, 54, 41, 0.03);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+            background: rgba(78, 54, 41, 0.03);
+        }
+        
+        /* Tab Contents */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-block {
+            margin-bottom: 3rem;
+        }
+        
+        .section-block:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            margin-top: 1.8rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            color: var(--text-muted);
+        }
+        
+        li {
+            margin-bottom: 0.65rem;
+            line-height: 1.7;
+        }
+        
+        .highlight-box {
+            background: rgba(78, 54, 41, 0.04);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #FAF7F2;
+            padding: 2.2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .contact-card h3 {
+            color: #FFFFFF;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+        }
+        
+        .contact-card p {
+            color: rgba(250, 247, 242, 0.85);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        .contact-card a:hover {
+            color: #FFFFFF;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.8rem 0;
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        thead {
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: rgba(78, 54, 41, 0.02);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            
+            .header-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+            }
+            
+            .tab-button {
+                min-width: 130px;
+                padding: 1rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.15rem;
+            }
+            
+            table {
+                font-size: 0.85rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            thead, tbody, tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+                word-wrap: break-word;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-section h1 {
+                font-size: 1.7rem;
+            }
+            .header-section .subtitle {
+                font-size: 1rem;
+            }
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Landing Page
+                </a>
+                <a href="../index.html" class="back-link">
+                    <i class="fas fa-home"></i> Main Website
+                </a>
+            </div>
+            <h1>Chess Champion</h1>
+            <p class="subtitle">Legal Information & Policies</p>
+            <p><strong>Effective Date:</strong> July 4, 2026 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">📜 Terms & Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">⚖️ License & Copyright</button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section-block">
+                <h2>1. Overview</h2>
+                <p>
+                    Chess Champion ("the App") is a single-player chess game developed by SoftTech Service. We respect your privacy and are committed to protecting it. This policy explains what information is handled when you use the App.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>2. Information We Collect</h2>
+                <p>
+                    The App itself does not collect, store, or transmit any personal information to our servers. We do not require an account, login, or registration.
+                </p>
+                <div class="highlight-box">
+                    <p>
+                        <strong>Local Storage:</strong> Game data such as your coin balance, selected difficulty, and sound/vibration preferences is stored only on your device using local storage (via shared_preferences) and is never uploaded by us. Uninstalling the App removes this data.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="section-block">
+                <h2>3. Advertising</h2>
+                <p>
+                    The App displays advertisements served by Google AdMob (Google Mobile Ads). As part of serving ads, Google may collect and process certain data, such as:
+                </p>
+                <ul>
+                    <li>Device identifiers (e.g., advertising ID)</li>
+                    <li>Approximate location derived from IP address</li>
+                    <li>App interaction data related to ad delivery and performance</li>
+                </ul>
+                <p>
+                    This data is collected and processed by Google under its own policies. You can learn more here:
+                </p>
+                <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+                    <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses data from partner apps</a></li>
+                </ul>
+                <p>
+                    You can reset or opt out of ad personalization at any time in your device settings under Settings &rarr; Google &rarr; Ads.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>4. Rewarded Ads</h2>
+                <p>
+                    Watching rewarded ads (for example, to receive a move hint when you are stuck in a match) is always optional. Rewarded ads may use anonymous identifiers to personalize content, as described in Google's policies above.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>5. In-App Updates</h2>
+                <p>
+                    The App uses the Google Play in-app update service to check whether a newer version is available and to deliver updates. This process is handled by Google Play under Google's policies.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>6. Children's Privacy</h2>
+                <p>
+                    The App does not knowingly collect personal information from children. It contains no chat, social features, or user-generated content. Advertising is served in accordance with Google Play's Families and Ads policies.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>7. Data Security</h2>
+                <p>
+                    Because the App does not transmit your game data to our servers, your progress, settings, and coin rewards remain on your device under your complete control.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>8. Third-Party Services</h2>
+                <p>
+                    The App uses the following third-party services, each governed by its own privacy policy:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service Partner</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Google AdMob</strong></td>
+                            <td>Displaying banner, interstitial, and rewarded ad units</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Play Services</strong></td>
+                            <td>In-app updates and flexible app delivery flows</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section-block">
+                <h2>9. Changes to This Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date. Continued use of the App after changes constitutes acceptance of the revised policy.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>10. Contact Us</h2>
+                <p>
+                    If you have questions or concerns about this Privacy Policy, contact us at:
+                </p>
+                <div class="contact-card">
+                    <h3>SoftTech Service Support</h3>
+                    <p>📧 Email: <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section-block">
+                <h2>1. Agreement to Terms</h2>
+                <p>
+                    By downloading, installing, or using Chess Champion, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, do not install or use the App.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>2. License Grant</h2>
+                <p>
+                    SoftTech Service grants you a personal, non-exclusive, non-transferable, revocable license to use the App on your mobile device for personal, non-commercial entertainment purposes, in accordance with these Terms.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>3. Game Mechanics & Coins</h2>
+                <p>
+                    Chess Champion features an in-game coin reward system. These coins are fictitious game progression tokens. They:
+                </p>
+                <ul>
+                    <li>Have no real-world monetary value.</li>
+                    <li>Cannot be purchased, sold, or redeemed for real money.</li>
+                    <li>Are stored locally on your device. SoftTech Service is not responsible for the recovery of coins lost due to app deletion, device failure, or cache clears.</li>
+                </ul>
+            </div>
+            
+            <div class="section-block">
+                <h2>4. Advertising and Integrations</h2>
+                <p>
+                    The App contains advertisements served by Google AdMob. Any interaction with ads is subject to the policies of the respective advertisers. SoftTech Service is not responsible for the contents or safety of third-party advertisements or websites you link to through ads.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>5. Disclaimer of Warranties</h2>
+                <p>
+                    The App is provided "as is" and "as available," without warranty of any kind, express or implied. We do not warrant that the chess engine, difficulty levels, or ad service integrations will be uninterrupted or error-free.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>6. Limitation of Liability</h2>
+                <p>
+                    To the maximum extent permitted by law, SoftTech Service shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of gameplay data, coin progression, or hardware damage arising out of your use of the App.
+                </p>
+            </div>
+            
+            <div class="section-block">
+                <h2>7. Contact</h2>
+                <div class="contact-card">
+                    <h3>SoftTech Service Support</h3>
+                    <p>📧 Email: <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section-block">
+                <div class="highlight-box">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem; color: var(--text-muted); font-weight: normal;">
+                        This software application, Chess Champion, and its designs, assets, layouts, interfaces, logo, and source codes are proprietary properties of SoftTech Service. Unauthorized copying, reverse engineering, modification, distribution, or use of this software, via any medium, is strictly prohibited without the express written permission of SoftTech Service.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="section-block">
+                <h2>Third-Party Open Source Libraries</h2>
+                <p>
+                    Chess Champion is built with Flutter and utilizes several third-party libraries under open-source licenses:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Flutter Framework:</strong> Rendered under the BSD 3-Clause License. Copyright &copy; Google LLC.
+                    </li>
+                    <li>
+                        <strong>flutter_inappwebview:</strong> Used for rendering the HTML5-based chess engine wrapper. Distributed under the Apache License 2.0 or MIT License.
+                    </li>
+                    <li>
+                        <strong>shared_preferences:</strong> For local persistent key-value configuration storage. Distributed under the BSD 3-Clause License.
+                    </li>
+                    <li>
+                        <strong>in_app_update:</strong> Integrates flexible Google Play store update flows. Distributed under the Apache License 2.0.
+                    </li>
+                    <li>
+                        <strong>google_mobile_ads:</strong> Google's official SDK for serving AdMob units. Distributed under the Apache License 2.0.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section-block">
+                <h2>Disclaimer</h2>
+                <p>
+                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab navigation JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const target = button.getAttribute('data-tab');
+                    
+                    // Reset active states
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    contents.forEach(content => content.classList.remove('active'));
+                    
+                    // Activate selected
+                    button.classList.add('active');
+                    const targetEl = document.getElementById(target);
+                    if (targetEl) {
+                        targetEl.classList.add('active');
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+            
+            // Allow direct hash linking (e.g. #terms, #license)
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const matchedBtn = document.querySelector(`[data-tab="${hash}"]`);
+                if (matchedBtn) {
+                    matchedBtn.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

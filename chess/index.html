@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Champion - Classic Wood-Themed Chess Game for Android | SoftTech Service</title>
+    <meta name="description" content="Play Chess Champion, a classic wood-themed chess game for Android. Challenge a smart computer opponent, earn coins, and master your strategy. Built with Flutter.">
+    <meta name="keywords" content="chess game, Android chess, Flutter chess, wooden chess board, chess vs computer, board game, SoftTech Service">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #4E3629; /* Walnut Dark */
+            --primary-dark: #3A271C;
+            --accent: #D4AF37; /* Warm Gold */
+            --accent-hover: #C5A028;
+            --success: #4A7C59; /* Warm Sage Green */
+            --bg-light: #FAF7F2; /* Warm Cream background */
+            --bg-white: #FFFFFF;
+            --text-dark: #2A1E17;
+            --text-muted: #5C4F46;
+            --board-light: #F4ECE1;
+            --board-dark: #8E7560;
+            --shadow-sm: 0 4px 12px rgba(78, 54, 41, 0.05);
+            --shadow-md: 0 8px 24px rgba(78, 54, 41, 0.08);
+            --shadow-lg: 0 16px 48px rgba(78, 54, 41, 0.12);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        /* Sticky Header */
+        header {
+            background: rgba(250, 247, 242, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(78, 54, 41, 0.08);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active-link {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 6rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(212, 175, 55, 0.12);
+            color: #A07810;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            line-height: 1.15;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+            display: block;
+            font-size: 1.8rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 650px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.9rem 2.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(78, 54, 41, 0.25);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(78, 54, 41, 0.35);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Interactive Chessboard Widget */
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .chessboard-wrapper {
+            background: #EAE6DF;
+            padding: 16px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(78, 54, 41, 0.15);
+        }
+        
+        .chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 42px);
+            grid-template-rows: repeat(8, 42px);
+            border: 8px solid #5C4033; /* Outer wood frame */
+            border-radius: 4px;
+            background: #5C4033;
+        }
+        
+        .square {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .light-square {
+            background-color: var(--board-light);
+        }
+        
+        .dark-square {
+            background-color: var(--board-dark);
+        }
+        
+        .square i {
+            z-index: 2;
+            transition: transform 0.2s;
+        }
+        
+        .square:hover i {
+            transform: scale(1.15);
+        }
+        
+        .white-piece {
+            color: #FFFFFF;
+            filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.35));
+        }
+        
+        .black-piece {
+            color: #2E1E14;
+            filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.45));
+        }
+        
+        .move-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(74, 124, 89, 0.8);
+            border-radius: 50%;
+            position: absolute;
+            z-index: 3;
+            pointer-events: none;
+            box-shadow: 0 0 4px rgba(255,255,255,0.6);
+        }
+        
+        .highlight-selected {
+            background-color: rgba(212, 175, 55, 0.4) !important;
+        }
+        
+        .board-hint {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+        }
+        
+        /* Features Section */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(78, 54, 41, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .feature-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: rgba(78, 54, 41, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover .feature-icon-wrapper {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Highlight / Description Card */
+        .info-showcase {
+            background: linear-gradient(135deg, #4E3629 0%, #2A1E17 100%);
+            color: #FAF7F2;
+            padding: 4.5rem 3.5rem;
+            border-radius: 24px;
+            margin: 4rem auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .info-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .showcase-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .showcase-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .showcase-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+        }
+        
+        .desc-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            border-top: 1px solid rgba(250, 247, 242, 0.15);
+            padding-top: 2.5rem;
+        }
+        
+        .desc-highlight-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .desc-highlight-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-card {
+            background: var(--bg-white);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(78, 54, 41, 0.04);
+            transition: all 0.3s;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+        
+        .tech-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+        }
+        
+        .tech-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Code / Getting Started */
+        .getting-started {
+            background: #2E1E14;
+            color: #F4ECE1;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            margin-top: 4rem;
+        }
+        
+        .getting-started h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        .code-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .code-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+        
+        .code-block code {
+            color: #EAE0D5;
+        }
+        
+        .copy-btn {
+            background: transparent;
+            border: none;
+            color: rgba(244, 236, 225, 0.6);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        
+        .copy-btn:hover {
+            color: var(--accent);
+        }
+        
+        /* System Requirements Grid */
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .req-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(78, 54, 41, 0.05);
+        }
+        
+        .req-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        .req-card h3 i {
+            color: var(--accent);
+        }
+        
+        .req-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .req-card p strong {
+            color: var(--text-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background: #23160F;
+            color: #F4ECE1;
+            padding: 4.5rem 2rem 2.5rem;
+            margin-top: 6rem;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+            gap: 3.5rem;
+            margin-bottom: 3.5rem;
+        }
+        
+        .footer-logo h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-logo h3 i {
+            color: var(--accent);
+        }
+        
+        .footer-logo p {
+            color: rgba(244, 236, 225, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .footer-links h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.65rem;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(244, 236, 225, 0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: #FFFFFF;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(244, 236, 225, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(244, 236, 225, 0.5);
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Mobile Hamburger & Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Responsive Styling */
+        @media (max-width: 1024px) {
+            .hero-container {
+                gap: 2rem;
+            }
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 73px;
+                left: 0;
+                right: 0;
+                background: var(--bg-light);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                border-bottom: 1px solid rgba(78, 54, 41, 0.1);
+                transform: translateY(-120%);
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                gap: 1.5rem;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .chessboard-wrapper {
+                margin: 0 auto;
+            }
+            
+            .info-showcase {
+                padding: 3rem 1.5rem;
+            }
+            
+            .info-showcase h2 {
+                font-size: 1.8rem;
+            }
+            
+            .desc-highlights {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero h1 span {
+                font-size: 1.3rem;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .chessboard {
+                grid-template-columns: repeat(8, 35px);
+                grid-template-rows: repeat(8, 35px);
+            }
+            .square {
+                font-size: 1.3rem;
+            }
+            .code-block {
+                font-size: 0.8rem;
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a class="logo" href="index.html">
+                <i class="fas fa-chess-knight"></i> Chess Champion
+            </a>
+            <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">Game Info</a></li>
+                <li><a href="#tech">Tech Stack</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="badge">
+                    <i class="fab fa-android"></i> Android Native Board Game
+                </span>
+                <h1>♟️ Chess Champion <span>Classic Wood-Themed Chess</span></h1>
+                <p class="hero-description">
+                    Sharpen your mind with a beautifully crafted classic chess game. Play against a smart computer opponent across three difficulty levels, earn coins, and unlock hints when stuck.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#features" class="btn btn-primary">
+                        <i class="fas fa-chess-board"></i> Explore Features
+                    </a>
+                    <a href="privacy-policy.html" class="btn btn-secondary">
+                        <i class="fas fa-shield-alt"></i> Privacy Policy
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="chessboard-wrapper">
+                    <div class="chessboard"></div>
+                </div>
+                <div class="board-hint">Click the white Knight ♞ on e4 to see valid moves!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section" id="features">
+        <h2 class="section-title">✨ Game Features</h2>
+        <p class="section-subtitle">A feature-complete classic chess environment built for casual play and strategy practice.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-chess"></i>
+                </div>
+                <h3>Classic Chess vs Computer</h3>
+                <p>Full implementation of standard chess rules including castling, checkmate, stalemate, and pawn promotion.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <h3>Three Difficulty Levels</h3>
+                <p>Choose from Easy, Medium, or Hard modes. The adaptive AI scales accurately to match your skill level.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h3>Coin Rewards System</h3>
+                <p>Earn coins for wins, draws, and every completed match. Build your coin balance as you perfect your moves.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Smart Move Hints</h3>
+                <p>Stuck in a difficult tactical position? Watch a rewarded ad to trigger a smart move hint from the engine.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Classic Wood Theme</h3>
+                <p>Warm walnut-and-cream board layout inspired by traditional real-life wooden tournament chess sets.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+                <h3>Audio & Vibration Settings</h3>
+                <p>Fine-tune your audio settings. Easily mute sounds or toggle haptic feedback on board moves.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>Seamless In-App Updates</h3>
+                <p>Google Play flexible and immediate update flows deliver enhancements seamlessly without leaving the app.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Persistent Local Progress</h3>
+                <p>Your coin balance, difficulty settings, and configuration details are securely saved directly on your device.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Listing Showcase Card -->
+    <section class="section" id="about" style="padding-top: 0; padding-bottom: 0;">
+        <div class="info-showcase">
+            <div class="showcase-content">
+                <h2>♟️ Chess Champion — Tap. Move. Checkmate!</h2>
+                <p>
+                    Whether you are learning your first opening or polishing your endgame, Chess Champion gives you a clean, relaxing way to enjoy the world's greatest strategy game. Adapt to computer opponents, stack coins, use hints, and play on a beautiful walnut-and-cream chessboard with smooth animations and satisfying audio feedback.
+                </p>
+                <div class="desc-highlights">
+                    <div class="desc-highlight-item">
+                        <h4>Easy to Learn</h4>
+                        <p>Perfect for beginners testing the waters with smart move hints.</p>
+                    </div>
+                    <div class="desc-highlight-item">
+                        <h4>Hard to Master</h4>
+                        <p>Tackle the Hard mode AI to sharpen your deep positional strategy.</p>
+                    </div>
+                    <div class="desc-highlight-item">
+                        <h4>Privacy First</h4>
+                        <p>No account logins or data uploads. All progress is kept locally on-device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="section" id="tech">
+        <h2 class="section-title">🛠️ Tech Stack</h2>
+        <p class="section-subtitle">Engineered using Flutter and robust third-party mobile frameworks.</p>
+        
+        <div class="tech-grid">
+            <div class="tech-card">
+                <i class="fas fa-feather-alt"></i>
+                <h4>Flutter UI</h4>
+                <p>Cross-platform UI rendered natively on Android platforms.</p>
+            </div>
+            
+            <div class="tech-card">
+                <i class="fas fa-network-wired"></i>
+                <h4>InAppWebView Engine</h4>
+                <p>Bundled chess engine served locally via high-performance webview components.</p>
+            </div>
+            
+            <div class="tech-card">
+                <i class="fas fa-ad"></i>
+                <h4>Google Mobile Ads</h4>
+                <p>Banner, interstitial, and rewarded ad units integration.</p>
+            </div>
+            
+            <div class="tech-card">
+                <i class="fas fa-hdd"></i>
+                <h4>shared_preferences</h4>
+                <p>Local key-value storage for settings, difficulty, and coin status.</p>
+            </div>
+        </div>
+
+        <!-- Developer Command Line Section -->
+        <div class="getting-started">
+            <h3><i class="fas fa-terminal"></i> Getting Started (Development Setup)</h3>
+            <div class="code-container">
+                <div class="code-block">
+                    <code>flutter pub get</code>
+                    <button class="copy-btn" onclick="copyCode(this, 'flutter pub get')" aria-label="Copy Command"><i class="far fa-copy"></i></button>
+                </div>
+                <div class="code-block">
+                    <code>flutter run            # debug (uses Google's test ad IDs)</code>
+                    <button class="copy-btn" onclick="copyCode(this, 'flutter run')" aria-label="Copy Command"><i class="far fa-copy"></i></button>
+                </div>
+                <div class="code-block">
+                    <code>flutter build apk      # release (uses live ad IDs)</code>
+                    <button class="copy-btn" onclick="copyCode(this, 'flutter build apk')" aria-label="Copy Command"><i class="far fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System & Platform Requirements -->
+    <section class="section" style="padding-top: 0;">
+        <h2 class="section-title">📱 System Requirements</h2>
+        <p class="section-subtitle">Minimal hardware specifications required to run the game smoothly.</p>
+        
+        <div class="requirements-grid">
+            <div class="req-card">
+                <h3><i class="fab fa-android"></i> OS Platform</h3>
+                <p><strong>Minimum SDK:</strong> 23 (Android 6.0 Marshmallow)</p>
+                <p><strong>Target SDK:</strong> Latest standard releases</p>
+            </div>
+            <div class="req-card">
+                <h3><i class="fas fa-gamepad"></i> Game Category</h3>
+                <p><strong>Store Category:</strong> Board / Puzzle game</p>
+                <p><strong>Target Audience:</strong> Family-friendly / Chess enthusiasts</p>
+            </div>
+            <div class="req-card">
+                <h3><i class="fas fa-info-circle"></i> App Meta</h3>
+                <p><strong>Version:</strong> 1.0.0 (versionCode 1)</p>
+                <p><strong>Framework:</strong> Flutter</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3><i class="fas fa-chess-knight"></i> Chess Champion</h3>
+                <p>Classic walnut-themed board game for Android. Play strategy vs a smart computer opponent, collect coins, and refine openings.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Sitemap</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">Game Info</a></li>
+                    <li><a href="#tech">Tech Stack</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html#privacy">Privacy Policy</a></li>
+                    <li><a href="privacy-policy.html#terms">Terms & Conditions</a></li>
+                    <li><a href="privacy-policy.html#license">Licenses & Copyright</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Support</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Developer: SoftTech Service</p>
+                <p style="font-size: 0.9rem;">Email: <a href="mailto:contact@softtechservice.site" style="color: var(--accent); text-decoration: none;">contact@softtechservice.site</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
+            <p>
+                This software is proprietary. Unauthorized copying, modification, or distribution via any medium is strictly prohibited.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive script for Navbar & Chessboard widget -->
+    <script>
+        // Responsive Mobile Menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close nav when item clicked on mobile
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
+            });
+        });
+
+        // Code Copy utility
+        function copyCode(btn, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = btn.querySelector('i');
+                icon.className = 'fas fa-check';
+                icon.style.color = '#4A7C59';
+                setTimeout(() => {
+                    icon.className = 'far fa-copy';
+                    icon.style.color = '';
+                }, 2000);
+            });
+        }
+
+        // Mini chessboard simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            const board = document.querySelector('.chessboard');
+            
+            // Layout indices matching squares on 8x8 grid
+            // knight is on index 28 (e4 square, since 0 is a8 and 63 is h1)
+            // Let's map our piece setup
+            // 12 -> e8 Black King
+            // 27 -> d4 White Pawn
+            // 28 -> e4 White Knight
+            // 35 -> d5 Black Knight
+            // 52 -> e1 White King
+            const pieceIndices = {
+                12: '<i class="fas fa-chess-king black-piece"></i>',
+                27: '<i class="fas fa-chess-pawn white-piece"></i>',
+                28: '<i class="fas fa-chess-knight white-piece"></i>',
+                35: '<i class="fas fa-chess-knight black-piece"></i>',
+                52: '<i class="fas fa-chess-king white-piece"></i>'
+            };
+
+            // Valid moves for Knight on e4 (index 28)
+            // L-shape: row diff 2, col diff 1 OR row diff 1, col diff 2
+            // For e4 (row 3, col 4):
+            // row 1, col 3 -> index 11 (c5)
+            // row 1, col 5 -> index 13 (g5)
+            // row 2, col 2 -> index 18 (c3)
+            // row 2, col 6 -> index 22 (g3)
+            // row 4, col 2 -> index 34 (c5 equivalent on lower? no, row 4 is index 32-39. row 4, col 2 is 34. row 4, col 6 is 38.)
+            // Let's pre-define exact indices for simplicity
+            const validKnightMoves = [11, 13, 18, 22, 34, 38, 43, 45];
+            
+            let highlightsShowing = false;
+
+            for (let i = 0; i < 64; i++) {
+                const row = Math.floor(i / 8);
+                const col = i % 8;
+                
+                const square = document.createElement('div');
+                square.className = 'square ' + ((row + col) % 2 === 0 ? 'light-square' : 'dark-square');
+                square.dataset.index = i;
+                
+                if (pieceIndices[i]) {
+                    square.innerHTML = pieceIndices[i];
+                }
+                
+                // Add click handler for the Knight
+                square.addEventListener('click', () => {
+                    if (parseInt(square.dataset.index) === 28) {
+                        toggleKnightMoves();
+                    }
+                });
+                
+                board.appendChild(square);
+            }
+
+            function toggleKnightMoves() {
+                const knightSquare = board.querySelector('[data-index="28"]');
+                
+                if (highlightsShowing) {
+                    // Remove highlights
+                    knightSquare.classList.remove('highlight-selected');
+                    document.querySelectorAll('.move-dot').forEach(el => el.remove());
+                    highlightsShowing = false;
+                } else {
+                    // Show highlights
+                    knightSquare.classList.add('highlight-selected');
+                    validKnightMoves.forEach(idx => {
+                        const sq = board.querySelector(`[data-index="${idx}"]`);
+                        if (sq) {
+                            const dot = document.createElement('div');
+                            dot.className = 'move-dot';
+                            sq.appendChild(dot);
+                        }
+                    });
+                    highlightsShowing = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
