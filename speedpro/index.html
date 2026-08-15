@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedoMeter Pro: GPS Speed - Driving Dashboard, HUD & Trip Tracker | SoftTech Service</title>
+    <meta name="description" content="Turn your phone into a complete driving dashboard and vehicle management assistant. SpeedoMeter Pro is a GPS speedometer, odometer, trip tracker, travel allowance logger, vehicle service book, head-up display and dash cam in one app.">
+    <meta name="keywords" content="GPS speedometer, digital speedometer, HUD display, trip tracker, travel allowance logger, vehicle service book, dash cam, driving score, OBD-II, Android app, SoftTech Service">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0EA5E9;
+            --primary-dark: #0284C7;
+            --primary-glow: rgba(14, 165, 233, 0.25);
+            --accent-cyan: #06B6D4;
+            --accent-amber: #F59E0B;
+            --accent-red: #EF4444;
+            --accent-green: #10B981;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #94A3B8;
+            --bg-cockpit: #0B132B;
+            --bg-cockpit-card: #141E3C;
+            --bg-cockpit-border: rgba(14, 165, 233, 0.2);
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --shadow-sm: 0 2px 8px rgba(11, 19, 43, 0.08);
+            --shadow-md: 0 6px 20px rgba(11, 19, 43, 0.12);
+            --shadow-lg: 0 12px 36px rgba(11, 19, 43, 0.18);
+            --gradient-primary: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+            --gradient-hero: linear-gradient(135deg, #060B1A 0%, #0B132B 50%, #172554 100%);
+            --gradient-card-glow: linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(6, 182, 212, 0.03) 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Top Navigation Header */
+        header {
+            background: rgba(6, 11, 26, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        nav {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-badge-link {
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            background: rgba(14, 165, 233, 0.15);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            color: var(--primary) !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-badge-link:hover {
+            background: var(--primary);
+            color: white !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 6rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            background: rgba(14, 165, 233, 0.12);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.2px;
+        }
+
+        .hero-pill-safe {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #34D399;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.95rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 16px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(14, 165, 233, 0.45);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .hero-specs-row {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hero-spec-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-spec-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .hero-spec-lbl {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Interactive Cockpit Preview Simulator */
+        .cockpit-preview-card {
+            background: var(--bg-cockpit-card);
+            border: 1px solid var(--bg-cockpit-border);
+            border-radius: 24px;
+            padding: 1.75rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(14, 165, 233, 0.15);
+            position: relative;
+        }
+
+        .cockpit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .cockpit-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #34D399;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10B981;
+            box-shadow: 0 0 8px #10B981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.15); }
+        }
+
+        .mode-toggles {
+            display: flex;
+            gap: 0.4rem;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 0.25rem;
+            border-radius: 8px;
+        }
+
+        .mode-btn {
+            padding: 0.35rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.6);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mode-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Gauge Display Area */
+        .gauge-display {
+            background: radial-gradient(circle at center, rgba(14, 165, 233, 0.1) 0%, rgba(11, 19, 43, 0.9) 80%);
+            border-radius: 16px;
+            padding: 2.25rem 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(14, 165, 233, 0.15);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .gauge-display.hud-mode {
+            background: #050811;
+            border-color: rgba(239, 68, 68, 0.4);
+            transform: scaleY(-1);
+            filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.5));
+        }
+
+        .gauge-speed-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 4.8rem;
+            font-weight: 800;
+            line-height: 1;
+            color: #FFFFFF;
+            letter-spacing: -2px;
+            text-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
+        }
+
+        .gauge-display.hud-mode .gauge-speed-val {
+            color: #EF4444;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+        }
+
+        .gauge-unit {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-top: 0.25rem;
+        }
+
+        .gauge-display.hud-mode .gauge-unit {
+            color: #F87171;
+        }
+
+        .telemetry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .telemetry-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+        }
+
+        .telemetry-label {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .telemetry-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-top: 0.2rem;
+        }
+
+        /* Section Global Styles */
+        .section {
+            padding: 5.5rem 2rem;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 2.25rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .feature-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: var(--gradient-card-glow);
+            border: 1px solid rgba(14, 165, 233, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-bullets {
+            list-style: none;
+            margin-top: auto;
+            border-top: 1px solid #F1F5F9;
+            padding-top: 1rem;
+        }
+
+        .feature-bullets li {
+            padding: 0.35rem 0;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .feature-bullets li i {
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        /* Safety & Policy Banner */
+        .safety-banner {
+            background: linear-gradient(135deg, #0B132B 0%, #1E293B 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            color: white;
+            margin: 4rem auto;
+            max-width: 1240px;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .safety-icon {
+            font-size: 3.5rem;
+            color: var(--accent-amber);
+        }
+
+        .safety-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .safety-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Tech Matrix */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-card {
+            background: var(--bg-white);
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 1.75rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tech-card-icon {
+            font-size: 2.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .tech-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* System Specs Section */
+        .specs-container {
+            background: var(--bg-white);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid #E2E8F0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .spec-box {
+            padding: 1.5rem;
+            background: #F8FAFC;
+            border-radius: 14px;
+            border: 1px solid #EDF2F7;
+        }
+
+        .spec-box-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .spec-box-header i {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .spec-box-header h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .spec-detail {
+            font-size: 0.92rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #060B1A;
+            color: white;
+            padding: 5rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-grid {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #FFFFFF;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.88rem;
+        }
+
+        .footer-disclaimer-note {
+            width: 100%;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.06);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            .hero-badge-container, .cta-buttons, .hero-specs-row {
+                justify-content: center;
+            }
+            .safety-banner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .safety-icon {
+                margin: 0 auto;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: #060B1A;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+                transform: translateY(-150%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+            }
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            .hero {
+                padding: 4rem 1.25rem 3.5rem;
+            }
+            .hero h1 {
+                font-size: 2.35rem;
+            }
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+            .section {
+                padding: 4rem 1.25rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="brand">
+                <div class="brand-icon">
+                    <i class="fas fa-gauge-high"></i>
+                </div>
+                <div class="logo-text">SpeedoMeter <span>Pro</span></div>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation menu" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#hud">HUD Display</a></li>
+                <li><a href="#trips">Trip Log &amp; Allowance</a></li>
+                <li><a href="#safety">Safety &amp; SOS</a></li>
+                <li><a href="#tech">Technology</a></li>
+                <li><a href="privacy-policy.html" class="nav-badge-link"><i class="fas fa-shield-halved"></i> Privacy Policy</a></li>
+                <li><a href="disclaimer.html"><i class="fas fa-triangle-exclamation"></i> Disclaimer</a></li>
+                <li><a href="../index.html"><i class="fas fa-house"></i> Main Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge-container">
+                    <span class="hero-pill"><i class="fas fa-satellite"></i> GPS Precision Speed</span>
+                    <span class="hero-pill hero-pill-safe"><i class="fas fa-shield-check"></i> Zero Cloud Storage</span>
+                    <span class="hero-pill"><i class="fas fa-android"></i> Android 10 to 16</span>
+                </div>
+                
+                <h1>Turn Your Phone into a <span>Driving Dashboard</span></h1>
+                <p class="hero-subtitle">GPS Speedometer, HUD, Trip Allowance Logger &amp; Vehicle Service Book</p>
+                
+                <p class="hero-description">
+                    SpeedoMeter Pro reads speed directly from your phone's satellite GPS receiver — working across cars, motorcycles, scooters, trucks, boats, bicycles, running, and walking without any extra hardware.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="#features" class="btn btn-primary">
+                        <i class="fas fa-compass"></i> Explore All Features
+                    </a>
+                    <a href="privacy-policy.html" class="btn btn-secondary">
+                        <i class="fas fa-shield-alt"></i> Privacy &amp; Data Safety
+                    </a>
+                    <a href="disclaimer.html" class="btn btn-secondary">
+                        <i class="fas fa-circle-info"></i> Driving Disclaimer
+                    </a>
+                </div>
+                
+                <div class="hero-specs-row">
+                    <div class="hero-spec-item">
+                        <span class="hero-spec-val">0 Hardware</span>
+                        <span class="hero-spec-lbl">Required</span>
+                    </div>
+                    <div class="hero-spec-item">
+                        <span class="hero-spec-val">4 Units</span>
+                        <span class="hero-spec-lbl">km/h · mph · m/s · kn</span>
+                    </div>
+                    <div class="hero-spec-item">
+                        <span class="hero-spec-val">100% Local</span>
+                        <span class="hero-spec-lbl">Device Data</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cockpit Simulator Card -->
+            <div class="cockpit-preview-card">
+                <div class="cockpit-header">
+                    <div class="cockpit-status">
+                        <span class="status-dot"></span>
+                        <span>GPS LOCKED · 14 SATS</span>
+                    </div>
+                    <div class="mode-toggles">
+                        <button class="mode-btn active" id="btnDigital">Digital</button>
+                        <button class="mode-btn" id="btnHud">HUD Windshield</button>
+                        <button class="mode-btn" id="btnNight">Night Red</button>
+                    </div>
+                </div>
+
+                <div class="gauge-display" id="gaugeDisplay">
+                    <div class="gauge-speed-val" id="gaugeSpeed">74</div>
+                    <div class="gauge-unit" id="gaugeUnit">KM/H</div>
+                </div>
+
+                <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                        <div class="telemetry-label">Altitude</div>
+                        <div class="telemetry-val">412 m</div>
+                    </div>
+                    <div class="telemetry-item">
+                        <div class="telemetry-label">G-Force</div>
+                        <div class="telemetry-val">1.04 G</div>
+                    </div>
+                    <div class="telemetry-item">
+                        <div class="telemetry-label">Heading</div>
+                        <div class="telemetry-val">284° WNW</div>
+                    </div>
+                    <div class="telemetry-item">
+                        <div class="telemetry-label">Trip Distance</div>
+                        <div class="telemetry-val">38.6 km</div>
+                    </div>
+                    <div class="telemetry-item">
+                        <div class="telemetry-label">Avg Speed</div>
+                        <div class="telemetry-val">58.2 km/h</div>
+                    </div>
+                    <div class="telemetry-item">
+                        <div class="telemetry-label">Drive Score</div>
+                        <div class="telemetry-val" style="color: #34D399;">96/100</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <span class="section-badge">Comprehensive Suite</span>
+            <h2 class="section-title">Engineered for Drivers, Riders &amp; Fleets</h2>
+            <p class="section-subtitle">Everything you need for speed monitoring, expense management, safety alerts, and vehicle maintenance in one clean, local-first app.</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1: Live Speedometer -->
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-gauge"></i>
+                </div>
+                <h3>Live Speedometer</h3>
+                <p>High-precision digital and analog speedometer dials with instantaneous switching and multi-unit support.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> km/h, mph, m/s, and knots conversion with one tap</li>
+                    <li><i class="fas fa-check"></i> Live GPS accuracy, satellite count &amp; G-force meter</li>
+                    <li><i class="fas fa-check"></i> Speed limit alerts: tone, vibration, voice &amp; screen flash</li>
+                    <li><i class="fas fa-check"></i> Home-screen widgets, Quick Settings tile &amp; Android Auto</li>
+                </ul>
+            </div>
+
+            <!-- Feature 2: Head-Up Display (HUD) -->
+            <div class="feature-card" id="hud">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <h3>Head-Up Display (HUD)</h3>
+                <p>Mirrors your phone's display at night to reflect speed and navigation telemetry directly onto your vehicle windshield.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Mirrored reflection mode for crystal-clear night windshield view</li>
+                    <li><i class="fas fa-check"></i> Full, minimal, compass, and trip summary layouts</li>
+                    <li><i class="fas fa-check"></i> Night-vision OLED pure red mode to protect night eyesight</li>
+                    <li><i class="fas fa-check"></i> Landscape orientation lock &amp; Always-On Display (AOD)</li>
+                </ul>
+            </div>
+
+            <!-- Feature 3: Trip Tracker & Allowance -->
+            <div class="feature-card" id="trips">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-route"></i>
+                </div>
+                <h3>Trip Tracker &amp; Travel Allowance</h3>
+                <p>Built-in reimbursement logger tailored for FMCG reps, field engineers, delivery agents, and business commuters.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Automatic background tracking with the phone screen turned off</li>
+                    <li><i class="fas fa-check"></i> Daily allowance calculator with per-km rates &amp; total expenses</li>
+                    <li><i class="fas fa-check"></i> Auto-start on driving detect / car dock / charger connection</li>
+                    <li><i class="fas fa-check"></i> Export GPX, KML, GeoJSON &amp; CSV for employer reimbursement</li>
+                </ul>
+            </div>
+
+            <!-- Feature 4: Vehicles & Service Book -->
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <h3>Vehicles, Service Book &amp; Fuel Log</h3>
+                <p>Maintain complete maintenance logs, fuel expenses, and service histories for all your cars, bikes, and fleets.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Full-screen vehicle manager with visual type &amp; fuel selectors</li>
+                    <li><i class="fas fa-check"></i> Service schedule tracker: oil change, filters, brake pads &amp; inspection</li>
+                    <li><i class="fas fa-check"></i> Fuel expense log with automated mileage calculations (km/L, MPG)</li>
+                    <li><i class="fas fa-check"></i> Expense logger for tolls, parking, highway fees, and maintenance</li>
+                </ul>
+            </div>
+
+            <!-- Feature 5: Driving Score & Analytics -->
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Driving Score &amp; Analytics</h3>
+                <p>Analyze driving habits, improve fuel efficiency, and monitor safety with comprehensive trip analytics.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Trip driving score based on speed adherence and smooth handling</li>
+                    <li><i class="fas fa-check"></i> Harsh braking and rapid acceleration events pinned on trip map</li>
+                    <li><i class="fas fa-check"></i> Weekly, monthly, and annual speed distribution statistics</li>
+                    <li><i class="fas fa-check"></i> Interactive animated trip replay with stop duration analysis</li>
+                </ul>
+            </div>
+
+            <!-- Feature 6: Dash Cam -->
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Integrated Dash Cam</h3>
+                <p>Record your driving trips with customizable loop recording, audio toggles, and instant incident bookmarking.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Road-ahead recording with timestamp and telemetry overlays</li>
+                    <li><i class="fas fa-check"></i> One-tap incident lock to prevent overwriting critical clips</li>
+                    <li><i class="fas fa-check"></i> Automatic cyclic recycling of old clips to save storage space</li>
+                    <li><i class="fas fa-check"></i> In-app playback and secure local video sharing</li>
+                </ul>
+            </div>
+
+            <!-- Feature 7: Safety Tools & Emergency SOS -->
+            <div class="feature-card" id="safety">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-shield-heart"></i>
+                </div>
+                <h3>Safety Tools &amp; Emergency SOS</h3>
+                <p>Real-time incident response mechanisms designed to keep solo drivers and riders safe on every road.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> G-force impact and accident detection with adjustable threshold</li>
+                    <li><i class="fas fa-check"></i> Emergency SOS: countdown timer then automated SMS with live GPS location</li>
+                    <li><i class="fas fa-check"></i> Driver fatigue alert reminders at configurable rest intervals</li>
+                    <li><i class="fas fa-check"></i> Siren alarm, flashlight Morse SOS, and boundary geofence alerts</li>
+                </ul>
+            </div>
+
+            <!-- Feature 8: Sensor Tools & OBD-II -->
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3>Sensor Tools &amp; OBD-II Telemetry</h3>
+                <p>Connect your vehicle's engine computer via standard Bluetooth scanners for real-time diagnostic parameters.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> ELM327 Bluetooth OBD-II adapter pairing for live engine telemetry</li>
+                    <li><i class="fas fa-check"></i> Live engine RPM, coolant temperature, fuel level &amp; throttle position</li>
+                    <li><i class="fas fa-check"></i> Digital 3-axis inclinometer, bubble leveler &amp; pitch/roll gauges</li>
+                    <li><i class="fas fa-check"></i> Deep satellite constellation monitor (GPS, GLONASS, Galileo, BeiDou)</li>
+                </ul>
+            </div>
+
+            <!-- Feature 9: Privacy & Performance -->
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Privacy-First &amp; Zero Cloud Exposure</h3>
+                <p>Your routes, speed logs, expenses, and emergency contacts stay strictly on your phone — never uploaded to external servers.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> 100% offline-first architecture with local SQLite / Room database</li>
+                    <li><i class="fas fa-check"></i> Crash telemetry off by default; zero third-party advertising SDKs</li>
+                    <li><i class="fas fa-check"></i> Pure OLED black theme, 8 dynamic accents &amp; English + Hindi UI</li>
+                    <li><i class="fas fa-check"></i> Strict compliance with Google Play Store Listing &amp; Location policies</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prominent Driving Safety Compliance Banner -->
+    <div class="safety-banner">
+        <div class="safety-icon">
+            <i class="fas fa-triangle-exclamation"></i>
+        </div>
+        <div class="safety-content">
+            <h3>Important Driving Safety Notice</h3>
+            <p>
+                GPS speed measurements depend on satellite signal quality, atmospheric conditions, and geographical obstructions, which may cause minor variances from your vehicle's factory-calibrated speedometer. 
+                SpeedoMeter Pro is designed as a driving aid and supplemental convenience tool. It does <strong>not</strong> replace your vehicle's certified instrument cluster, tachometer, or emergency response services. Always focus on the road, maintain full vehicle control, and adhere to local traffic regulations.
+            </p>
+        </div>
+        <a href="disclaimer.html" class="btn btn-secondary" style="white-space: nowrap;">Read Disclaimer</a>
+    </div>
+
+    <!-- Tech Architecture & Permissions Section -->
+    <section class="section" id="tech" style="background: #F1F5F9; max-width: 100%; padding: 5rem 2rem;">
+        <div style="max-width: 1240px; margin: 0 auto;">
+            <div class="section-header">
+                <span class="section-badge">Under the Hood</span>
+                <h2 class="section-title">Built with Modern Android Architecture</h2>
+                <p class="section-subtitle">Crafted with 100% Kotlin following Clean MVVM architecture for ultra-low latency, fluid animations, and robust battery efficiency.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fab fa-android"></i></div>
+                    <h4>Android Native (Kotlin)</h4>
+                    <p>100% modern Kotlin with Coroutines &amp; StateFlow for zero-lag sensor updates.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fas fa-location-crosshairs"></i></div>
+                    <h4>Foreground Location Service</h4>
+                    <p>Android Foreground Service with sticky notifications for seamless background trip logging.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fas fa-database"></i></div>
+                    <h4>Room SQLite Database</h4>
+                    <p>High-speed local database storing trips, expense receipts, service records &amp; analytics.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fas fa-camera"></i></div>
+                    <h4>CameraX API</h4>
+                    <p>Hardware-accelerated Dash Cam recording with automated rolling storage management.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fab fa-bluetooth-b"></i></div>
+                    <h4>Bluetooth BLE &amp; OBD-II</h4>
+                    <p>Reliable ELM327 protocol parser for real-time engine telemetry streaming.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fas fa-palette"></i></div>
+                    <h4>Material Design 3</h4>
+                    <p>Dynamic theme switching with OLED pitch black, high-contrast HUD and multiple accent palettes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements & Permissions Transparency -->
+    <section class="section">
+        <div class="section-header">
+            <span class="section-badge">Compliance &amp; Specifications</span>
+            <h2 class="section-title">System Specs &amp; Transparent Permissions</h2>
+            <p class="section-subtitle">SpeedoMeter Pro requests only permissions required for core driver safety and logging utilities.</p>
+        </div>
+
+        <div class="specs-container">
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <div class="spec-box-header">
+                        <i class="fas fa-mobile-screen"></i>
+                        <h4>Compatibility</h4>
+                    </div>
+                    <div class="spec-detail">
+                        <strong>Min SDK:</strong> 29 (Android 10)<br>
+                        <strong>Target SDK:</strong> 37 (Android 16)<br>
+                        <strong>Package:</strong> com.softtechservice.speedometerpro<br>
+                        <strong>Devices:</strong> Phones, Tablets, Android Auto
+                    </div>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-box-header">
+                        <i class="fas fa-location-dot"></i>
+                        <h4>Location Access</h4>
+                    </div>
+                    <div class="spec-detail">
+                        Used exclusively to compute live speed, calculate distance, and log trip routes while the app is active or recording in the background with the screen off.
+                    </div>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-box-header">
+                        <i class="fas fa-video"></i>
+                        <h4>Camera &amp; Audio</h4>
+                    </div>
+                    <div class="spec-detail">
+                        Used exclusively for the optional Dash Cam feature. Video and audio recordings remain locally on your phone storage.
+                    </div>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-box-header">
+                        <i class="fas fa-comment-sms"></i>
+                        <h4>SMS Permission</h4>
+                    </div>
+                    <div class="spec-detail">
+                        Used exclusively to transmit emergency SOS location coordinates to your designated emergency contacts upon accident detection.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="brand" style="margin-bottom: 1rem;">
+                    <div class="brand-icon"><i class="fas fa-gauge-high"></i></div>
+                    <div class="logo-text">SpeedoMeter <span>Pro</span></div>
+                </div>
+                <p>
+                    All-in-one GPS speedometer, head-up display, travel allowance logger, and vehicle maintenance manager for drivers and riders worldwide.
+                </p>
+                <p style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.5);">
+                    Package: <code>com.softtechservice.speedometerpro</code>
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#features">Key Features</a></li>
+                    <li><a href="#hud">HUD Display</a></li>
+                    <li><a href="#trips">Trip &amp; Allowance Log</a></li>
+                    <li><a href="#safety">Safety &amp; Emergency SOS</a></li>
+                    <li><a href="#tech">Technology Stack</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal &amp; Policies</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="privacy-policy.html#terms">Terms of Service</a></li>
+                    <li><a href="privacy-policy.html#permissions">Permissions Breakdown</a></li>
+                    <li><a href="disclaimer.html">Driving &amp; GPS Disclaimer</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support &amp; Publisher</h4>
+                <ul>
+                    <li><a href="mailto:contact@softtechservice.site"><i class="fas fa-envelope"></i> contact@softtechservice.site</a></li>
+                    <li><a href="../index.html"><i class="fas fa-globe"></i> SoftTech Service</a></li>
+                    <li><span style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">Developer: SoftTech Service</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2026 SoftTech Service. All rights reserved.</div>
+            <div>Designed with high performance &amp; privacy first.</div>
+            <div class="footer-disclaimer-note">
+                <strong>Disclaimer:</strong> SpeedoMeter Pro is an auxiliary GPS-based driving dashboard application. Speed readings are derived from satellite telemetry and are subject to signal availability and environmental interference. SoftTech Service is not responsible for traffic violations, driving citations, accidents, or third-party expense claim disputes. Drive responsibly and comply with all applicable traffic safety laws.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            document.querySelectorAll('#navLinks a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+        }
+
+        // Cockpit Simulator Mode Toggle
+        const btnDigital = document.getElementById('btnDigital');
+        const btnHud = document.getElementById('btnHud');
+        const btnNight = document.getElementById('btnNight');
+        const gaugeDisplay = document.getElementById('gaugeDisplay');
+        const gaugeSpeed = document.getElementById('gaugeSpeed');
+        const gaugeUnit = document.getElementById('gaugeUnit');
+
+        function setMode(mode) {
+            [btnDigital, btnHud, btnNight].forEach(btn => btn && btn.classList.remove('active'));
+            
+            if (mode === 'digital') {
+                btnDigital.classList.add('active');
+                gaugeDisplay.className = 'gauge-display';
+                gaugeSpeed.style.color = '#FFFFFF';
+                gaugeUnit.style.color = 'var(--primary)';
+            } else if (mode === 'hud') {
+                btnHud.classList.add('active');
+                gaugeDisplay.className = 'gauge-display hud-mode';
+                gaugeSpeed.style.color = '#EF4444';
+                gaugeUnit.style.color = '#F87171';
+            } else if (mode === 'night') {
+                btnNight.classList.add('active');
+                gaugeDisplay.className = 'gauge-display';
+                gaugeDisplay.style.background = '#060000';
+                gaugeSpeed.style.color = '#EF4444';
+                gaugeSpeed.style.textShadow = '0 0 25px rgba(239, 68, 68, 0.9)';
+                gaugeUnit.style.color = '#EF4444';
+            }
+        }
+
+        if (btnDigital) btnDigital.addEventListener('click', () => setMode('digital'));
+        if (btnHud) btnHud.addEventListener('click', () => setMode('hud'));
+        if (btnNight) btnNight.addEventListener('click', () => setMode('night'));
+
+        // Speed fluctuation simulation for live preview
+        let baseSpeed = 74;
+        setInterval(() => {
+            if (gaugeSpeed) {
+                const delta = (Math.random() * 4 - 2);
+                baseSpeed = Math.min(88, Math.max(62, baseSpeed + delta));
+                gaugeSpeed.textContent = Math.round(baseSpeed);
+            }
+        }, 1800);
+    </script>
+</body>
+</html>

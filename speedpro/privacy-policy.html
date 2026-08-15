@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - SpeedoMeter Pro | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms of Service, Permissions Disclosure, and Driving Safety Disclaimer for SpeedoMeter Pro Android app by SoftTech Service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0EA5E9;
+            --primary-dark: #0284C7;
+            --primary-light: #38BDF8;
+            --accent-cyan: #06B6D4;
+            --accent-amber: #F59E0B;
+            --accent-red: #EF4444;
+            --accent-green: #10B981;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1.5rem 1rem;
+        }
+        
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(11, 19, 43, 0.08);
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+        }
+        
+        .header-section {
+            padding: 2.5rem 3rem 2rem;
+            background: linear-gradient(135deg, #060B1A 0%, #0B132B 60%, #0369A1 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.25) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-section .meta-info {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.92rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-section .meta-info code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #38BDF8;
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 170px;
+            padding: 1.25rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary-dark);
+            background: rgba(14, 165, 233, 0.05);
+        }
+        
+        .tab-button.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary);
+            background: rgba(14, 165, 233, 0.08);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.25s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 2.75rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #1E293B;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.75rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            color: #475569;
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: #F0F9FF;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-top: 1px solid #E0F2FE;
+            border-right: 1px solid #E0F2FE;
+            border-bottom: 1px solid #E0F2FE;
+        }
+        
+        .highlight-success {
+            background: #ECFDF5;
+            border-left-color: var(--accent-green);
+            border-color: #D1FAE5;
+        }
+
+        .highlight-warning {
+            background: #FFFBEB;
+            border-left-color: var(--accent-amber);
+            border-color: #FEF3C7;
+        }
+        
+        .highlight p {
+            margin-bottom: 0.4rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+        }
+        
+        thead {
+            background: #0B132B;
+            color: white;
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #0B132B 0%, #0369A1 100%);
+            color: white;
+            padding: 2.25rem;
+            border-radius: 14px;
+            margin-top: 2.5rem;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: #38BDF8;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            .header-section {
+                padding: 1.75rem 1.25rem;
+            }
+            .header-section h1 {
+                font-size: 1.85rem;
+            }
+            .tab-button {
+                min-width: 140px;
+                padding: 1rem 0.75rem;
+                font-size: 0.88rem;
+            }
+            .tab-content {
+                padding: 2rem 1.25rem;
+            }
+            h2 {
+                font-size: 1.45rem;
+            }
+            h3 {
+                font-size: 1.15rem;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to SpeedoMeter Pro</a>
+                <a href="disclaimer.html" class="back-link"><i class="fas fa-triangle-exclamation"></i> Driving Disclaimer</a>
+                <a href="../index.html" class="back-link"><i class="fas fa-house"></i> Main Website</a>
+            </div>
+            <h1>SpeedoMeter Pro</h1>
+            <p class="subtitle">Privacy Policy, Permissions &amp; Terms of Service</p>
+            <p class="meta-info">
+                <strong>Effective Date:</strong> August 15, 2026 &nbsp;|&nbsp; 
+                <strong>Package:</strong> <code>com.softtechservice.speedometerpro</code> &nbsp;|&nbsp; 
+                <strong>Developer:</strong> SoftTech Service
+            </p>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy"><i class="fas fa-lock"></i> Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="permissions"><i class="fas fa-list-check"></i> Permissions Disclosure</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms"><i class="fas fa-file-contract"></i> Terms of Service</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="safety"><i class="fas fa-shield-halved"></i> Data Safety</button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- ==========================================
+             TAB 1: PRIVACY POLICY
+             ========================================== -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>SpeedoMeter Pro ("we", "our", "us", or "the app"), developed by SoftTech Service, is committed to safeguarding user privacy. This Privacy Policy explains how information is handled when you use our Android application.</p>
+                <div class="highlight highlight-success">
+                    <p><strong>Local-First &amp; Zero Cloud Tracking Principle:</strong> SpeedoMeter Pro operates exclusively on your device. Your GPS routes, speedometer logs, vehicle service books, dash cam videos, travel allowance logs, and emergency contacts are stored locally on your device's internal storage and are never uploaded to any remote server without your explicit manual action.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>1. Information We Process</h2>
+                
+                <h3>1.1 GPS Location &amp; Sensor Telemetry</h3>
+                <p>The app accesses your phone's GPS sensor and accelerometer to:</p>
+                <ul>
+                    <li>Calculate real-time speed, maximum speed, and average speed</li>
+                    <li>Display altitude, compass heading, and G-force metrics</li>
+                    <li>Record route coordinates for trip history and exportable files (GPX, KML, CSV)</li>
+                    <li>Detect high G-force spikes for accident impact triggers</li>
+                </ul>
+                <p><strong>Processing Mode:</strong> All GPS and telemetry computation occurs entirely on-device in real-time. We maintain no remote tracking servers.</p>
+
+                <h3>1.2 Video &amp; Audio Data (Dash Cam)</h3>
+                <p>If you choose to use the Dash Cam feature, video and audio streams from your camera and microphone are saved locally into your device's private app cache or designated storage folder. The app performs automatic rolling file recycling to conserve storage. No video or audio is ever streamed, transmitted, or uploaded to our servers.</p>
+
+                <h3>1.3 Emergency Contacts &amp; SMS SOS</h3>
+                <p>When configured by the user, emergency contact phone numbers are stored locally on your device. In the event of a triggered SOS or accident countdown completion, the app uses your carrier SMS service to transmit an emergency notification containing your current GPS coordinates to your designated contacts.</p>
+
+                <h3>1.4 Vehicle Maintenance &amp; Expense Data</h3>
+                <p>Vehicle service records, odometer readings, fuel receipts, daily allowance rates, and reimbursement expense logs are stored exclusively in an on-device local SQLite/Room database.</p>
+            </div>
+
+            <div class="section">
+                <h2>2. Third-Party Services &amp; Advertising</h2>
+                <p>SpeedoMeter Pro does not sell, rent, or monetize your personal data or location coordinates.</p>
+                <ul>
+                    <li><strong>No Tracking SDKs:</strong> We do not integrate user fingerprinting, behavioural tracking, or advertising data brokers.</li>
+                    <li><strong>Crash Diagnostics:</strong> Crash reporting telemetry is disabled by default. If enabled for troubleshooting, only anonymous, non-identifying stack traces are processed.</li>
+                    <li><strong>Google Play Services:</strong> Core location APIs are provided by Google Play Services under Google's standard privacy guidelines.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Data Retention &amp; User Control</h2>
+                <p>You maintain full control over all data stored in SpeedoMeter Pro:</p>
+                <ul>
+                    <li>You can clear individual trips, routes, vehicle logs, or dash cam video recordings at any time from within the app.</li>
+                    <li>Uninstalling the application or clearing App Storage via Android Settings immediately purges all locally stored data, databases, and configuration settings.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Children's Privacy</h2>
+                <p>SpeedoMeter Pro is a vehicular utility intended for licensed drivers, cyclists, and adults. We do not knowingly collect or solicit personal data from children under 13 years of age.</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>Privacy Questions &amp; Support</h3>
+                <p>For any questions or inquiries regarding our Privacy Policy and data handling practices:</p>
+                <p><strong>Developer:</strong> SoftTech Service</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                <p><strong>Application:</strong> SpeedoMeter Pro: GPS Speed (<code>com.softtechservice.speedometerpro</code>)</p>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 2: PERMISSIONS DISCLOSURE
+             ========================================== -->
+        <div id="permissions" class="tab-content">
+            <div class="section">
+                <h2>Google Play Permissions Transparency</h2>
+                <p>To deliver essential driving dashboard, trip logging, and emergency safety features, SpeedoMeter Pro requests specific Android permissions. Each permission is strictly bounded to its designated utility:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Requirement</th>
+                            <th>Purpose &amp; Exact Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>ACCESS_FINE_LOCATION</code><br><code>ACCESS_COARSE_LOCATION</code></td>
+                            <td>Required for Core Speedometer</td>
+                            <td>Reads hardware GPS coordinates to compute live driving speed, distance traveled, compass bearing, and route coordinates.</td>
+                        </tr>
+                        <tr>
+                            <td><code>ACCESS_BACKGROUND_LOCATION</code></td>
+                            <td>Required for Trip Tracking</td>
+                            <td>Enables continuous trip recording and travel allowance logging while the phone screen is locked or while another app (e.g., Maps navigation) is in the foreground.</td>
+                        </tr>
+                        <tr>
+                            <td><code>FOREGROUND_SERVICE_LOCATION</code></td>
+                            <td>Required for Service Reliability</td>
+                            <td>Runs a visible sticky notification in the Android status bar ensuring the operating system does not kill GPS tracking during active journeys.</td>
+                        </tr>
+                        <tr>
+                            <td><code>CAMERA</code></td>
+                            <td>Optional (Dash Cam)</td>
+                            <td>Used exclusively to record the road ahead when the Dash Cam feature is activated by the user.</td>
+                        </tr>
+                        <tr>
+                            <td><code>RECORD_AUDIO</code></td>
+                            <td>Optional (Dash Cam)</td>
+                            <td>Used exclusively for optional audio recording within Dash Cam video clips. Can be toggled off at any time.</td>
+                        </tr>
+                        <tr>
+                            <td><code>SEND_SMS</code></td>
+                            <td>Optional (Emergency SOS)</td>
+                            <td>Used exclusively to dispatch emergency distress alerts containing your live GPS coordinates to your pre-selected contacts upon accident detection.</td>
+                        </tr>
+                        <tr>
+                            <td><code>ACTIVITY_RECOGNITION</code></td>
+                            <td>Optional (Auto Start/Stop)</td>
+                            <td>Detects vehicle driving motion to automatically start and pause trip logs without requiring manual button presses.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BLUETOOTH_CONNECT</code><br><code>BLUETOOTH_SCAN</code></td>
+                            <td>Optional (OBD-II)</td>
+                            <td>Pairs with standard ELM327 Bluetooth OBD-II automotive scanners to read engine RPM, coolant temperatures, and fuel telemetry.</td>
+                        </tr>
+                        <tr>
+                            <td><code>POST_NOTIFICATIONS</code></td>
+                            <td>Required (Android 13+)</td>
+                            <td>Displays active speedometer status, speed limit warning alerts, and fatigue rest reminders.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Background Location Policy Compliance</h2>
+                <div class="highlight highlight-warning">
+                    <p><strong>Prominent Disclosure on Background Location:</strong></p>
+                    <p>SpeedoMeter Pro collects location data to enable live speed tracking, distance calculation, and route recording even when the app is closed or not in use, provided an active trip recording session is underway. Background location tracking is visibly announced via a persistent status bar notification and stops immediately when you end your trip.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 3: TERMS OF SERVICE
+             ========================================== -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <h2>Terms and Conditions</h2>
+                <p>By downloading, installing, or using SpeedoMeter Pro, you agree to be bound by these Terms and Conditions. If you do not agree, please discontinue using the application.</p>
+            </div>
+
+            <div class="section">
+                <h3>1. License &amp; Permitted Use</h3>
+                <p>SoftTech Service grants you a revocable, non-exclusive, non-transferable, limited license to download, install, and use SpeedoMeter Pro strictly for personal, non-commercial vehicular utility or authorized commercial field allowance tracking in accordance with these Terms.</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Driving Safety &amp; User Responsibility</h3>
+                <ul>
+                    <li>You acknowledge that safe operation of your vehicle is entirely your sole legal responsibility.</li>
+                    <li>You agree never to interact with, calibrate, or adjust app settings while actively operating a motor vehicle, bicycle, or other moving craft.</li>
+                    <li>You agree to mount your phone in a legally compliant, secure vehicle dock or holder that does not obstruct your driving field of view or airbag deployment zones.</li>
+                    <li>SoftTech Service expressly disclaims liability for any traffic citations, speeding fines, collisions, property damage, personal injuries, or fatalities arising from the use or misuse of the application.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Intellectual Property</h3>
+                <p>All source code, UI designs, graphics, branding, algorithms, and documentation associated with SpeedoMeter Pro are the proprietary intellectual property of SoftTech Service and are protected by applicable copyright and trademark laws.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. "As Is" and Warranty Disclaimer</h3>
+                <div class="highlight">
+                    <p>SPEEDOMETER PRO IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. SOFTTECH SERVICE DOES NOT WARRANT THAT SATELLITE GPS READINGS WILL BE 100% UNINTERRUPTED, ACCURATE, OR ERROR-FREE UNDER ALL ENVIRONMENTAL OR ATMOSPHERIC CONDITIONS.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 4: DATA SAFETY
+             ========================================== -->
+        <div id="safety" class="tab-content">
+            <div class="section">
+                <h2>Google Play Data Safety Summary</h2>
+                <p>SpeedoMeter Pro adheres strictly to Google Play's Data Safety guidelines:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data Safety Question</th>
+                            <th>Declaration</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Data Collected</strong></td>
+                            <td>None transmitted to servers</td>
+                            <td>All GPS coordinates, videos, contacts, and vehicle logs remain strictly local on device.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Shared with Third Parties</strong></td>
+                            <td>No</td>
+                            <td>No user data is ever sold, transferred, or shared with third-party brokers or advertisers.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Security Practices</strong></td>
+                            <td>On-device isolation</td>
+                            <td>Data resides in Android protected sandboxed storage.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Deletion Mechanism</strong></td>
+                            <td>User-initiated</td>
+                            <td>Users can delete history or clear app cache/data to remove 100% of stored records.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Compliance with Google Play Policies</h2>
+                <p>SpeedoMeter Pro is developed in strict accordance with Google Play developer policies:</p>
+                <ul>
+                    <li><strong>Deceptive Behavior Policy:</strong> Clear representation of satellite GPS functionality; no deceptive claims of hardware radar detection or police detector capabilities.</li>
+                    <li><strong>Safety &amp; Distraction:</strong> Includes driving safety disclaimers, voice announcements, HUD reflection mode, and large high-contrast fonts to minimize driver distraction.</li>
+                    <li><strong>Permissions Policy:</strong> Minimal and contextual permission requests with clear runtime explanations.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for Tab Switching -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                tabButtons.forEach(btn => {
+                    if (btn.getAttribute('data-tab') === tabId) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                tabContents.forEach(content => {
+                    if (content.id === tabId) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    switchTab(tabId);
+                    window.location.hash = tabId;
+                });
+            });
+
+            // Handle deep link hash
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                if (['privacy', 'permissions', 'terms', 'safety'].includes(hash)) {
+                    switchTab(hash);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
