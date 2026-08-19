@@ -7,12 +7,18 @@
     <meta name="description" content="Slide into a neon arena where every worm is chasing the same food and crown. 4 game modes, 21 serpent species, and tactical power-ups. Free single-player arcade game for Android.">
     <meta name="keywords" content="Worm Snake.io, snake game, neon serpent arena, arcade battle, single player snake, snake io, mobile snake game, SoftTech Service">
     
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
     <!-- Open Graph / Meta -->
     <meta property="og:title" content="Worm Snake.io: Arena Battle | Neon Arcade Snake Game">
     <meta property="og:description" content="Grow your serpent, outsmart the AI rivals, and take the arena crown in a fast-paced neon arcade battle.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://softtechservice.site/snakeio/">
-    <meta property="og:image" content="https://softtechservice.site/images/logo.png">
+    <meta property="og:image" content="https://softtechservice.site/snakeio/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://softtechservice.site/snakeio/logo.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,7 +90,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0.85rem 0;
             transition: all 0.3s;
         }
 
@@ -100,24 +106,26 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.85rem;
             text-decoration: none;
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 800;
             color: #FFFFFF;
         }
 
-        .logo-icon-box {
-            width: 42px;
-            height: 42px;
+        .logo-img {
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
-            background: linear-gradient(135deg, var(--rose) 0%, var(--primary) 50%, var(--cyan) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 18px var(--primary-glow);
-            font-size: 1.3rem;
-            color: #FFFFFF;
+            object-fit: cover;
+            box-shadow: 0 0 16px var(--cyan-glow);
+            border: 1.5px solid rgba(0, 245, 212, 0.4);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.06);
+            box-shadow: 0 0 22px var(--cyan-glow);
         }
 
         .logo-text span {
@@ -179,7 +187,7 @@
         /* ===== Hero Section ===== */
         .hero {
             position: relative;
-            padding: 5.5rem 1.5rem 4rem;
+            padding: 5rem 1.5rem 4rem;
             max-width: 1240px;
             margin: 0 auto;
         }
@@ -222,12 +230,28 @@
             50% { transform: scale(1.4); opacity: 0.6; }
         }
 
+        .hero-app-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-app-icon {
+            width: 88px;
+            height: 88px;
+            border-radius: 22px;
+            object-fit: cover;
+            box-shadow: 0 0 28px rgba(0, 245, 212, 0.45);
+            border: 2px solid rgba(0, 245, 212, 0.5);
+            flex-shrink: 0;
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 900;
             line-height: 1.12;
             letter-spacing: -0.02em;
-            margin-bottom: 1.25rem;
             color: #FFFFFF;
         }
 
@@ -361,6 +385,20 @@
             padding-bottom: 1.25rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             margin-bottom: 1.5rem;
+        }
+
+        .arena-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .arena-hud-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 0 12px var(--cyan-glow);
         }
 
         .arena-title-wrap h3 {
@@ -922,6 +960,21 @@
             color: var(--text-muted);
         }
 
+        .footer-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid rgba(0, 245, 212, 0.4);
+        }
+
         .footer-links {
             list-style: none;
             display: flex;
@@ -980,6 +1033,10 @@
                 margin: 0 auto 1.25rem;
             }
 
+            .hero-app-header {
+                justify-content: center;
+            }
+
             .hero-description {
                 margin: 0 auto 2rem;
             }
@@ -1004,7 +1061,7 @@
 
             .nav-links {
                 position: fixed;
-                top: 72px;
+                top: 68px;
                 left: 0;
                 right: 0;
                 background: rgba(10, 10, 22, 0.97);
@@ -1022,8 +1079,13 @@
                 transform: translateY(0);
             }
 
+            .hero-app-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.35rem;
             }
 
             .hero .subtitle {
@@ -1045,8 +1107,14 @@
         }
 
         @media (max-width: 480px) {
+            .hero-app-icon {
+                width: 72px;
+                height: 72px;
+                border-radius: 18px;
+            }
+
             .hero h1 {
-                font-size: 2.1rem;
+                font-size: 2rem;
             }
 
             .btn {
@@ -1066,9 +1134,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">
-                <div class="logo-icon-box">
-                    <i class="fas fa-dragon"></i>
-                </div>
+                <img src="logo.png" alt="Worm Snake.io Logo" class="logo-img">
                 <div class="logo-text brand-font">Worm Snake<span>.io</span></div>
             </a>
 
@@ -1097,7 +1163,13 @@
                     <span>Single-Player Arcade Serpent Arena</span>
                 </div>
 
-                <h1>Worm Snake.io: <br><span class="gradient-text">Arena Battle</span></h1>
+                <div class="hero-app-header">
+                    <img src="logo.png" alt="Worm Snake.io Game Icon" class="hero-app-icon">
+                    <div>
+                        <h1>Worm Snake.io: <br><span class="gradient-text">Arena Battle</span></h1>
+                    </div>
+                </div>
+
                 <p class="subtitle">Grow your serpent, outsmart the AI rivals, and take the arena crown.</p>
 
                 <p class="hero-description">
@@ -1130,8 +1202,11 @@
                 <div class="arena-card">
                     <div class="arena-hud-header">
                         <div class="arena-title-wrap">
-                            <h3><i class="fas fa-crown" style="color: var(--amber);"></i> Neon Arena HUD</h3>
-                            <p>Match In Progress &bull; Infinite Mode</p>
+                            <img src="logo.png" alt="Worm Snake.io" class="arena-hud-logo">
+                            <div>
+                                <h3><i class="fas fa-crown" style="color: var(--amber);"></i> Neon Arena HUD</h3>
+                                <p>Match In Progress &bull; Infinite Mode</p>
+                            </div>
                         </div>
                         <div class="arena-rank-badge">
                             <i class="fas fa-star"></i> Rank: Mythic
@@ -1519,11 +1594,9 @@
     <footer>
         <div class="footer-content">
             <div class="footer-col">
-                <div class="logo" style="margin-bottom: 1rem;">
-                    <div class="logo-icon-box" style="width: 36px; height: 36px; font-size: 1.1rem;">
-                        <i class="fas fa-dragon"></i>
-                    </div>
-                    <div class="logo-text brand-font" style="font-size: 1.25rem;">Worm Snake<span>.io</span></div>
+                <div class="footer-logo-wrap">
+                    <img src="logo.png" alt="Worm Snake.io Logo" class="footer-logo-img">
+                    <div class="logo-text brand-font" style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF;">Worm Snake<span style="background: linear-gradient(135deg, var(--cyan) 0%, #FFFFFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">.io</span></div>
                 </div>
                 <p>
                     Worm Snake.io: Arena Battle is a high-octane neon arcade serpent battle game for Android, engineered with care by SoftTech Service.
