@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worm Snake.io: Arena Battle - Neon Arcade Snake Game for Android | SoftTech Service</title>
+    <meta name="description" content="Slide into a neon arena where every worm is chasing the same food and crown. 4 game modes, 21 serpent species, and tactical power-ups. Free single-player arcade game for Android.">
+    <meta name="keywords" content="Worm Snake.io, snake game, neon serpent arena, arcade battle, single player snake, snake io, mobile snake game, SoftTech Service">
+    
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="Worm Snake.io: Arena Battle | Neon Arcade Snake Game">
+    <meta property="og:description" content="Grow your serpent, outsmart the AI rivals, and take the arena crown in a fast-paced neon arcade battle.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://softtechservice.site/snakeio/">
+    <meta property="og:image" content="https://softtechservice.site/images/logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0A0A16;
+            --bg-card: #121226;
+            --bg-card-hover: #191935;
+            --bg-glass: rgba(18, 18, 38, 0.75);
+            --primary: #7C3AED;
+            --primary-light: #A78BFA;
+            --primary-glow: rgba(124, 58, 237, 0.4);
+            --cyan: #00F5D4;
+            --cyan-glow: rgba(0, 245, 212, 0.35);
+            --rose: #F72585;
+            --rose-glow: rgba(247, 37, 133, 0.35);
+            --amber: #FFB703;
+            --text-main: #F1F5F9;
+            --text-muted: #94A3B8;
+            --text-dim: #64748B;
+            --border-subtle: rgba(124, 58, 237, 0.22);
+            --border-highlight: rgba(0, 245, 212, 0.4);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.55);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background: var(--bg-dark);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(0, 245, 212, 0.10) 0%, transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(247, 37, 133, 0.12) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: rgba(10, 10, 22, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        nav {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .logo-icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--primary) 50%, var(--cyan) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 18px var(--primary-glow);
+            font-size: 1.3rem;
+            color: #FFFFFF;
+        }
+
+        .logo-text span {
+            background: linear-gradient(135deg, var(--cyan) 0%, #FFFFFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+            text-shadow: 0 0 10px var(--cyan-glow);
+        }
+
+        .nav-cta-btn {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--primary) 100%);
+            color: #FFFFFF !important;
+            padding: 0.55rem 1.25rem;
+            border-radius: 99px;
+            font-weight: 700 !important;
+            font-size: 0.9rem !important;
+            box-shadow: 0 0 15px var(--rose-glow);
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .nav-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 24px var(--rose-glow) !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            position: relative;
+            padding: 5.5rem 1.5rem 4rem;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-badge-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid rgba(0, 245, 212, 0.35);
+            padding: 0.4rem 1rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 16px rgba(0, 245, 212, 0.15);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 10px var(--cyan);
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.6; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+            color: #FFFFFF;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #00F5D4 0%, #7C3AED 50%, #F72585 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero .subtitle {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #E2E8F0;
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 2.25rem;
+            max-width: 620px;
+            line-height: 1.75;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .hero-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 0.35rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .hero-tag i {
+            color: var(--cyan);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.95rem 1.85rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--primary) 60%, #4F46E5 100%);
+            color: #FFFFFF;
+            box-shadow: 0 6px 20px var(--rose-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(247, 37, 133, 0.55);
+            color: #FFFFFF;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-main);
+            border: 1px solid var(--border-subtle);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--cyan-glow);
+        }
+
+        /* ===== Arena Card Preview Visual ===== */
+        .arena-card-wrap {
+            position: relative;
+        }
+
+        .arena-card-glow {
+            position: absolute;
+            inset: -10px;
+            background: linear-gradient(135deg, var(--rose-glow), var(--primary-glow), var(--cyan-glow));
+            border-radius: calc(var(--radius-lg) + 8px);
+            filter: blur(24px);
+            opacity: 0.6;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .arena-card {
+            position: relative;
+            z-index: 1;
+            background: var(--bg-card);
+            border: 1px solid rgba(124, 58, 237, 0.35);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .arena-hud-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1.5rem;
+        }
+
+        .arena-title-wrap h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .arena-title-wrap p {
+            font-size: 0.8rem;
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .arena-rank-badge {
+            background: rgba(247, 37, 133, 0.18);
+            border: 1px solid var(--rose);
+            color: #FF70A6;
+            padding: 0.35rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .arena-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-box .stat-val {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .stat-box .stat-val.highlight-cyan { color: var(--cyan); }
+        .stat-box .stat-val.highlight-rose { color: var(--rose); }
+        .stat-box .stat-val.highlight-amber { color: var(--amber); }
+
+        .arena-rivals-feed {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feed-title {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feed-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .feed-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .feed-item .player-name {
+            font-weight: 700;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feed-item .player-name.you {
+            color: var(--cyan);
+        }
+
+        .feed-item .player-score {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--amber);
+        }
+
+        /* ===== Sections Shared ===== */
+        .section {
+            padding: 5rem 1.5rem;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--cyan);
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== Cards Grid ===== */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: var(--primary-light);
+            box-shadow: 0 12px 30px var(--primary-glow);
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-light);
+            margin-bottom: 1.25rem;
+        }
+
+        .card-icon.cyan {
+            background: rgba(0, 245, 212, 0.12);
+            border-color: rgba(0, 245, 212, 0.3);
+            color: var(--cyan);
+        }
+
+        .card-icon.rose {
+            background: rgba(247, 37, 133, 0.12);
+            border-color: rgba(247, 37, 133, 0.3);
+            color: var(--rose);
+        }
+
+        .card-icon.amber {
+            background: rgba(255, 183, 3, 0.12);
+            border-color: rgba(255, 183, 3, 0.3);
+            color: var(--amber);
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-bullets {
+            list-style: none;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 1rem;
+        }
+
+        .feature-bullets li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .feature-bullets li i {
+            color: var(--cyan);
+            margin-top: 0.25rem;
+            font-size: 0.8rem;
+        }
+
+        /* ===== Game Modes Showcase ===== */
+        .mode-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan), var(--primary));
+        }
+
+        .mode-card.survival::before {
+            background: linear-gradient(90deg, var(--rose), var(--amber));
+        }
+
+        .mode-card.time-attack::before {
+            background: linear-gradient(90deg, var(--amber), var(--cyan));
+        }
+
+        .mode-card.speed::before {
+            background: linear-gradient(90deg, var(--primary), var(--rose));
+        }
+
+        .mode-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 245, 212, 0.4);
+            box-shadow: 0 12px 30px rgba(0, 245, 212, 0.15);
+        }
+
+        .mode-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .mode-badge.infinite { background: rgba(0, 245, 212, 0.15); color: var(--cyan); }
+        .mode-badge.time { background: rgba(255, 183, 3, 0.15); color: var(--amber); }
+        .mode-badge.survival { background: rgba(247, 37, 133, 0.15); color: var(--rose); }
+        .mode-badge.speed { background: rgba(124, 58, 237, 0.2); color: var(--primary-light); }
+
+        .mode-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 0.75rem;
+        }
+
+        .mode-specs {
+            margin-top: 1.25rem;
+            padding: 0.85rem;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: var(--radius-sm);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+        }
+
+        .mode-spec-item span:first-child {
+            color: var(--text-dim);
+            display: block;
+        }
+
+        .mode-spec-item span:last-child {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        /* ===== Species Showcase ===== */
+        .species-rarity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .rarity-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .rarity-pill:hover {
+            transform: translateY(-3px);
+            border-color: currentColor;
+        }
+
+        .rarity-pill.common { color: #94A3B8; }
+        .rarity-pill.rare { color: #38BDF8; }
+        .rarity-pill.epic { color: #A78BFA; }
+        .rarity-pill.legendary { color: #F59E0B; }
+        .rarity-pill.mythic { color: #F43F5E; }
+
+        .rarity-pill .tier-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+            color: inherit;
+        }
+
+        .rarity-pill .tier-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* ===== Highlight Banner ===== */
+        .highlight-banner {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.25) 0%, rgba(247, 37, 133, 0.2) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 4rem auto;
+            max-width: 1240px;
+            box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
+        }
+
+        .highlight-banner h2 {
+            font-size: 2.35rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-banner p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        /* ===== Power-ups Grid ===== */
+        .powerup-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            transition: all 0.3s;
+        }
+
+        .powerup-card:hover {
+            transform: translateX(4px);
+            border-color: var(--cyan);
+            background: var(--bg-card-hover);
+        }
+
+        .powerup-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .powerup-icon.magnet { background: rgba(56, 189, 248, 0.15); color: #38BDF8; }
+        .powerup-icon.shield { background: rgba(0, 245, 212, 0.15); color: var(--cyan); }
+        .powerup-icon.score { background: rgba(255, 183, 3, 0.15); color: var(--amber); }
+        .powerup-icon.speed { background: rgba(247, 37, 133, 0.15); color: var(--rose); }
+        .powerup-icon.growth { background: rgba(16, 185, 129, 0.15); color: #10B981; }
+
+        .powerup-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.25rem;
+        }
+
+        .powerup-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* ===== System Requirements Table & Specs ===== */
+        .specs-table-wrap {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table th {
+            background: rgba(124, 58, 237, 0.2);
+            color: #FFFFFF;
+            padding: 1.1rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .specs-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .specs-table td strong {
+            color: #FFFFFF;
+        }
+
+        /* ===== Fair Play Banner ===== */
+        .fair-play-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 245, 212, 0.25);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-top: 3rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .fair-play-icon {
+            font-size: 2rem;
+            color: var(--cyan);
+            min-width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 245, 212, 0.1);
+            border-radius: 12px;
+        }
+
+        .fair-play-content h4 {
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .fair-play-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: #06060E;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 4.5rem 1.5rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.4fr 0.9fr 0.9fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-col a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero {
+                text-align: center;
+                padding-top: 3.5rem;
+            }
+
+            .hero-badge-wrap {
+                margin: 0 auto 1.25rem;
+            }
+
+            .hero-description {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 22, 0.97);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--border-subtle);
+                transform: translateY(-120%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.15rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .arena-stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-icon-box">
+                    <i class="fas fa-dragon"></i>
+                </div>
+                <div class="logo-text brand-font">Worm Snake<span>.io</span></div>
+            </a>
+
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#how-it-plays">How It Plays</a></li>
+                <li><a href="#modes">Modes</a></li>
+                <li><a href="#species">Species</a></li>
+                <li><a href="#powerups">Power-ups</a></li>
+                <li><a href="#specs">Specs</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="#specs" class="nav-cta-btn">Arena Battle</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge-wrap">
+                    <div class="hero-badge-dot"></div>
+                    <span>Single-Player Arcade Serpent Arena</span>
+                </div>
+
+                <h1>Worm Snake.io: <br><span class="gradient-text">Arena Battle</span></h1>
+                <p class="subtitle">Grow your serpent, outsmart the AI rivals, and take the arena crown.</p>
+
+                <p class="hero-description">
+                    Slide into an electric neon arena where every worm is chasing the same food — and the same crown. 
+                    Steer your serpent through an open arena full of computer-controlled rivals, feed to grow longer, 
+                    and cut them off before they cut you off. Hit the target score and the match is yours!
+                </p>
+
+                <div class="hero-tags">
+                    <span class="hero-tag"><i class="fas fa-gamepad"></i> Single Player</span>
+                    <span class="hero-tag"><i class="fas fa-trophy"></i> 4 Game Modes</span>
+                    <span class="hero-tag"><i class="fas fa-dna"></i> 21 Serpent Species</span>
+                    <span class="hero-tag"><i class="fas fa-bolt"></i> 5 Tactical Power-ups</span>
+                    <span class="hero-tag"><i class="fas fa-mobile-screen"></i> 1-Thumb Play</span>
+                </div>
+
+                <div class="cta-group">
+                    <a href="#modes" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Explore Arena Modes
+                    </a>
+                    <a href="privacy-policy.html" class="btn btn-secondary">
+                        <i class="fas fa-shield-halved"></i> Privacy Policy
+                    </a>
+                </div>
+            </div>
+
+            <!-- Arena HUD / Live Card Visual -->
+            <div class="arena-card-wrap">
+                <div class="arena-card-glow"></div>
+                <div class="arena-card">
+                    <div class="arena-hud-header">
+                        <div class="arena-title-wrap">
+                            <h3><i class="fas fa-crown" style="color: var(--amber);"></i> Neon Arena HUD</h3>
+                            <p>Match In Progress &bull; Infinite Mode</p>
+                        </div>
+                        <div class="arena-rank-badge">
+                            <i class="fas fa-star"></i> Rank: Mythic
+                        </div>
+                    </div>
+
+                    <div class="arena-stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-label">Current Score</div>
+                            <div class="stat-val highlight-cyan">4,820 <span style="font-size: 0.8rem; color: var(--text-dim);">/ 5,000</span></div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Serpent Length</div>
+                            <div class="stat-val highlight-rose">184 Nodes</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Active Multiplier</div>
+                            <div class="stat-val highlight-amber">3.5x Combo</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Active Power-Up</div>
+                            <div class="stat-val" style="color: #38BDF8;"><i class="fas fa-magnet"></i> Magnet</div>
+                        </div>
+                    </div>
+
+                    <div class="arena-rivals-feed">
+                        <div class="feed-title">
+                            <span><i class="fas fa-satellite-dish"></i> Arena Leaderboard & Kill Feed</span>
+                            <span class="mono" style="color: var(--cyan);">7 Rivals</span>
+                        </div>
+                        <ul class="feed-list">
+                            <li class="feed-item">
+                                <span class="player-name you"><i class="fas fa-circle" style="font-size: 0.5rem;"></i> 1. Cyber Serpent (You)</span>
+                                <span class="player-score">4,820 pts</span>
+                            </li>
+                            <li class="feed-item">
+                                <span class="player-name"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--rose);"></i> 2. Magma Wyrm (AI)</span>
+                                <span class="player-score">3,910 pts</span>
+                            </li>
+                            <li class="feed-item">
+                                <span class="player-name"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--primary-light);"></i> 3. Emerald Python (AI)</span>
+                                <span class="player-score">2,740 pts</span>
+                            </li>
+                            <li class="feed-item" style="opacity: 0.6; font-style: italic; font-size: 0.75rem;">
+                                <span>⚡ You cut off Neon Viper (+250 pts)</span>
+                                <span class="mono">Combo x3</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Plays Section -->
+    <section class="section" id="how-it-plays">
+        <div class="section-header">
+            <span class="section-tag">Core Mechanics</span>
+            <h2 class="section-title">How It Plays</h2>
+            <p class="section-subtitle">Intuitive controls, high-stakes reflex maneuvers, and satisfying feeding mechanics built from the ground up for mobile.</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon cyan"><i class="fas fa-gamepad"></i></div>
+                <h3>Dual Control Schemes</h3>
+                <p>Steer seamlessly with a floating responsive joystick, or drag anywhere across the screen for effortless navigation.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Floating virtual analog stick</li>
+                    <li><i class="fas fa-check"></i> Full-screen drag steering</li>
+                    <li><i class="fas fa-check"></i> 1-thumb comfort in portrait or landscape</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon amber"><i class="fas fa-apple-whole"></i></div>
+                <h3>Eat to Grow (20 Foods)</h3>
+                <p>Navigate a glowing arena dotted with 20 distinct varieties of food items, each rewarding strategic point bonuses.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> 20 colorful food types with unique weights</li>
+                    <li><i class="fas fa-check"></i> Chain fast pickups to build combo multipliers</li>
+                    <li><i class="fas fa-check"></i> Feed on fallen rivals' energy orbs</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon rose"><i class="fas fa-fire-flame-curved"></i></div>
+                <h3>Boost & Tactical Takedowns</h3>
+                <p>Hold BOOST for an adrenaline surge of speed. It burns body length over time, so precision timing is everything.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Speed burst consumes serpent length</li>
+                    <li><i class="fas fa-check"></i> Cross in front of a rival to knock them out</li>
+                    <li><i class="fas fa-check"></i> Clip a body yourself and your run is over</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four Modes Section -->
+    <section class="section" id="modes">
+        <div class="section-header">
+            <span class="section-tag">Game Modes</span>
+            <h2 class="section-title">Four Arena Modes</h2>
+            <p class="section-subtitle">Whether you want an open tactical battle or high-speed reflex pressure, pick your favorite arena challenge.</p>
+        </div>
+
+        <div class="grid-4">
+            <div class="mode-card">
+                <span class="mode-badge infinite">Endless Battle</span>
+                <h3>Infinite Mode</h3>
+                <p>Open arena with seven tactical AI rivals. The first serpent to reach 5,000 points claims the arena crown.</p>
+                <div class="mode-specs">
+                    <div class="mode-spec-item"><span>Rivals</span><span>7 AI</span></div>
+                    <div class="mode-spec-item"><span>Goal</span><span>5,000 Pts</span></div>
+                    <div class="mode-spec-item"><span>Multiplier</span><span>1.0x</span></div>
+                </div>
+            </div>
+
+            <div class="mode-card time-attack">
+                <span class="mode-badge time">Timed Blitz</span>
+                <h3>Time Attack</h3>
+                <p>A high-octane two-minute rush. Score is boosted to 1.5x — harvest food and cut off rivals before time expires.</p>
+                <div class="mode-specs">
+                    <div class="mode-spec-item"><span>Duration</span><span>2 Min</span></div>
+                    <div class="mode-spec-item"><span>Multiplier</span><span>1.5x Score</span></div>
+                    <div class="mode-spec-item"><span>Pacing</span><span>Frenzy</span></div>
+                </div>
+            </div>
+
+            <div class="mode-card survival">
+                <span class="mode-badge survival">Hunting AI</span>
+                <h3>Survival Mode</h3>
+                <p>Eleven aggressive hunting AI rivals coordinate and chase you down. Rewards 2x score multiplier for surviving.</p>
+                <div class="mode-specs">
+                    <div class="mode-spec-item"><span>Rivals</span><span>11 Hunting AI</span></div>
+                    <div class="mode-spec-item"><span>Multiplier</span><span>2.0x Score</span></div>
+                    <div class="mode-spec-item"><span>Difficulty</span><span>Hardcore</span></div>
+                </div>
+            </div>
+
+            <div class="mode-card speed">
+                <span class="mode-badge speed">Reflex Test</span>
+                <h3>Speed Mode</h3>
+                <p>Everything moves 45% faster across the arena. The ultimate test of split-second reaction times and instincts.</p>
+                <div class="mode-specs">
+                    <div class="mode-spec-item"><span>Speed</span><span>+45% Faster</span></div>
+                    <div class="mode-spec-item"><span>Reaction</span><span>Instant</span></div>
+                    <div class="mode-spec-item"><span>Intensity</span><span>Maximum</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Species Section -->
+    <section class="section" id="species">
+        <div class="section-header">
+            <span class="section-tag">Serpent Roster</span>
+            <h2 class="section-title">21 Collectible Species</h2>
+            <p class="section-subtitle">Unlock custom serpents across five distinct rarity tiers using coins earned purely by playing. Every species is drawn with handcrafted scales, colors, and anatomy.</p>
+        </div>
+
+        <div class="species-rarity-grid">
+            <div class="rarity-pill common">
+                <div class="tier-title"><i class="fas fa-shield"></i> Common</div>
+                <div class="tier-desc">Classic scales & vibrant base pigments</div>
+            </div>
+            <div class="rarity-pill rare">
+                <div class="tier-title"><i class="fas fa-gem"></i> Rare</div>
+                <div class="tier-desc">Hoods, fangs & metallic shimmer</div>
+            </div>
+            <div class="rarity-pill epic">
+                <div class="tier-title"><i class="fas fa-bolt"></i> Epic</div>
+                <div class="tier-desc">Emerald Python & luminous rattles</div>
+            </div>
+            <div class="rarity-pill legendary">
+                <div class="tier-title"><i class="fas fa-fire"></i> Legendary</div>
+                <div class="tier-desc">Cyber Serpent & pulsing circuitry</div>
+            </div>
+            <div class="rarity-pill mythic">
+                <div class="tier-title"><i class="fas fa-crown"></i> Mythic</div>
+                <div class="tier-desc">Magma Wyrm with animated glow & horns</div>
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon" style="background: rgba(16, 185, 129, 0.15); color: #10B981;"><i class="fas fa-snake"></i></div>
+                <h3>Emerald Python</h3>
+                <p>Radiant emerald scales and aggressive hooded head anatomy that glides effortlessly through tight spaces.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Vivid bioluminescent emerald pattern</li>
+                    <li><i class="fas fa-check"></i> Unlocked with standard in-game coins</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon cyan"><i class="fas fa-microchip"></i></div>
+                <h3>Cyber Serpent</h3>
+                <p>Futuristic neon cybernetic plating with glowing circuitry nodes and pulsating light-trail segments.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Neon cyan & violet circuit trail</li>
+                    <li><i class="fas fa-check"></i> High-tech visual flair on boost</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon rose"><i class="fas fa-volcano"></i></div>
+                <h3>Magma Wyrm</h3>
+                <p>Forged in subterranean heat, boasting jagged volcanic obsidian plates, horned crown, and glowing lava core.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> Fiery radiant ember particles</li>
+                    <li><i class="fas fa-check"></i> Mythic tier prestige unlock</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Banner -->
+    <div class="highlight-banner">
+        <h2>🔥 Unlock Everything by Playing</h2>
+        <p>No paywalls, no paid pay-to-win mechanics, and zero in-app purchases. Every single serpent skin and upgrade is unlocked with coins earned directly through skill and gameplay.</p>
+        <a href="#how-it-plays" class="btn btn-primary"><i class="fas fa-crown"></i> Become the Arena Champion</a>
+    </div>
+
+    <!-- Power-ups Section -->
+    <section class="section" id="powerups">
+        <div class="section-header">
+            <span class="section-tag">Mid-Match Boosters</span>
+            <h2 class="section-title">5 Tactical Power-ups</h2>
+            <p class="section-subtitle">Power-ups spawn dynamically across the arena. Snatch them before a rival serpent does to turn the tide of battle.</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="powerup-card">
+                <div class="powerup-icon magnet"><i class="fas fa-magnet"></i></div>
+                <div class="powerup-info">
+                    <h4>Magnet</h4>
+                    <p>Pulls all nearby food items and energy orbs directly toward your head.</p>
+                </div>
+            </div>
+
+            <div class="powerup-card">
+                <div class="powerup-icon shield"><i class="fas fa-shield-virus"></i></div>
+                <div class="powerup-info">
+                    <h4>Energy Shield</h4>
+                    <p>Provides temporary invulnerability against body collisions and rival cuts.</p>
+                </div>
+            </div>
+
+            <div class="powerup-card">
+                <div class="powerup-icon score"><i class="fas fa-star"></i></div>
+                <div class="powerup-info">
+                    <h4>2x Score Multiplier</h4>
+                    <p>Doubles all points earned from feeding and rival knockouts during activation.</p>
+                </div>
+            </div>
+
+            <div class="powerup-card">
+                <div class="powerup-icon speed"><i class="fas fa-bolt-lightning"></i></div>
+                <div class="powerup-info">
+                    <h4>Speed Surge</h4>
+                    <p>Grants max velocity burst without burning down your serpent's body length.</p>
+                </div>
+            </div>
+
+            <div class="powerup-card">
+                <div class="powerup-icon growth"><i class="fas fa-up-right-and-down-left-from-center"></i></div>
+                <div class="powerup-info">
+                    <h4>Growth Surge</h4>
+                    <p>Instantly supercharges body node growth and mass expansion.</p>
+                </div>
+            </div>
+
+            <div class="powerup-card" style="border-style: dashed; border-color: rgba(255, 255, 255, 0.15);">
+                <div class="powerup-icon" style="background: rgba(255, 255, 255, 0.05); color: var(--text-dim);"><i class="fas fa-clock"></i></div>
+                <div class="powerup-info">
+                    <h4>Timed Spawn Waves</h4>
+                    <p>Spawns periodically in contested arena hot-zones to encourage intense rival skirmishes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Run Tracking & Mobile Features -->
+    <section class="section">
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-icon amber"><i class="fas fa-chart-line"></i></div>
+                <h3>Track Your Career Run</h3>
+                <p>Complete statistical progression saved across all your matches without requiring an online account:</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> <strong>Live Radar & HUD:</strong> Real-time radar locator and kill feed while playing</li>
+                    <li><i class="fas fa-check"></i> <strong>Career Ranks:</strong> Climb from Rookie to Mythic rank based on your actual performance</li>
+                    <li><i class="fas fa-check"></i> <strong>In-Game Quests:</strong> Earn bonus coins for completing daily arena objectives</li>
+                    <li><i class="fas fa-check"></i> <strong>Record Tracking:</strong> Best score, longest body, and total wins stored locally</li>
+                    <li><i class="fas fa-check"></i> <strong>Share Wins:</strong> Share your victory screen straight to friends via OS share</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon cyan"><i class="fas fa-mobile-screen-button"></i></div>
+                <h3>Built Specially for Phones</h3>
+                <p>Crafted for comfortable one-handed mobile gaming with extensive sensory and performance customization:</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-check"></i> <strong>Flexible Orientation:</strong> Play seamlessly in Portrait or Landscape mode</li>
+                    <li><i class="fas fa-check"></i> <strong>Customizable Controls:</strong> Toggle floating joystick vs full-screen drag</li>
+                    <li><i class="fas fa-check"></i> <strong>Haptics & Audio:</strong> Independent toggles for sound effects and vibration feedback</li>
+                    <li><i class="fas fa-check"></i> <strong>Zero Latency:</strong> Offline single-player engine ensures silky-smooth 60 FPS</li>
+                    <li><i class="fas fa-check"></i> <strong>Battery Efficient:</strong> Lightweight rendering architecture keeps your phone cool</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Transparent Fair Play & AI Rivals Box -->
+        <div class="fair-play-box">
+            <div class="fair-play-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="fair-play-content">
+                <h4>Honest Single-Player Design & Transparent AI Rivals</h4>
+                <p>
+                    Every opponent in the arena is computer-controlled, equipped with its own distinct name, personality, and hunting tactics. 
+                    We do not disguise AI bots as fake online players — there is no real-time multiplayer, which means you can enjoy instant match starts, 
+                    zero lag, and complete offline playability anytime. The game is 100% free to play and supported by ads (with optional rewarded videos for revival diamonds). There are zero in-app purchases.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs & Metadata -->
+    <section class="section" id="specs">
+        <div class="section-header">
+            <span class="section-tag">Specifications</span>
+            <h2 class="section-title">App Information & Metadata</h2>
+            <p class="section-subtitle">Technical details, package naming, and device compatibility.</p>
+        </div>
+
+        <div class="specs-table-wrap">
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>App Title</strong></td>
+                        <td>Worm Snake.io: Arena Battle</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package Name</strong></td>
+                        <td><code>com.softtechservice.neonsnake.snakegame</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Category</strong></td>
+                        <td>Games &rarr; Arcade / Casual / Single Player</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Content Rating</strong></td>
+                        <td>Everyone / PEGI 3 (Cartoon serpents, no blood, no real-money gambling)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>In-App Purchases</strong></td>
+                        <td>None ($0.00 — completely free to play)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monetization</strong></td>
+                        <td>Banner / Interstitial ads &amp; optional rewarded videos for run revival</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Storage</strong></td>
+                        <td>100% local on-device storage via <code>shared_preferences</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Developer</strong></td>
+                        <td>SoftTech Service (<a href="mailto:contact@softtechservice.site" style="color: var(--cyan);">contact@softtechservice.site</a>)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <div class="logo-icon-box" style="width: 36px; height: 36px; font-size: 1.1rem;">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <div class="logo-text brand-font" style="font-size: 1.25rem;">Worm Snake<span>.io</span></div>
+                </div>
+                <p>
+                    Worm Snake.io: Arena Battle is a high-octane neon arcade serpent battle game for Android, engineered with care by SoftTech Service.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#how-it-plays">How It Plays</a></li>
+                    <li><a href="#modes">Game Modes</a></li>
+                    <li><a href="#species">Serpent Species</a></li>
+                    <li><a href="#powerups">Power-ups</a></li>
+                    <li><a href="#specs">App Specs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal & Policies</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html#privacy">Privacy Policy</a></li>
+                    <li><a href="privacy-policy.html#terms">Terms & Conditions</a></li>
+                    <li><a href="privacy-policy.html#license">License & Copyright</a></li>
+                    <li><a href="../index.html">Main Website</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Developer Contact</h4>
+                <p><strong>Developer:</strong> SoftTech Service</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site" style="color: var(--cyan); text-decoration: none;">contact@softtechservice.site</a></p>
+                <p><strong>Website:</strong> <a href="https://softtechservice.site" style="color: var(--cyan); text-decoration: none;">softtechservice.site</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
+            <p>
+                Worm Snake.io: Arena Battle and all associated game designs, assets, and branding are proprietary intellectual property of SoftTech Service. 
+                Unauthorized reproduction, decompilation, or redistribution is strictly prohibited.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when clicking any navigation link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+        }
+
+        // Smooth Scrolling for Internal Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

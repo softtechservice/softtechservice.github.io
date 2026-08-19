@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms - Worm Snake.io: Arena Battle | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Data Safety disclosures, and Terms & Conditions for Worm Snake.io: Arena Battle Android App by SoftTech Service.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #5B21B6;
+            --accent-light: #9061F9;
+            --cyan: #00F5D4;
+            --rose: #F72585;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #10B981;
+            --border-color: #E2E8F0;
+            --gradient-header: linear-gradient(135deg, #0B0B1E 0%, #1E1B4B 50%, #311042 100%);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1.5rem 1rem;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .header-section {
+            padding: 2.5rem 3rem;
+            background: var(--gradient-header);
+            color: white;
+            position: relative;
+        }
+
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan), var(--primary), var(--rose));
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.25s;
+            padding: 0.45rem 1rem;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .header-section h1 {
+            color: white;
+            font-size: 2.35rem;
+            margin-bottom: 0.4rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .header-section .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 1rem;
+        }
+
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .meta-info code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            color: var(--cyan);
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 170px;
+            padding: 1.15rem 1.75rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-gray);
+            transition: all 0.25s;
+            position: relative;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(124, 58, 237, 0.04);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(124, 58, 237, 0.06);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            margin-bottom: 2.75rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            font-weight: 800;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #1E293B;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 700;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1.25rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            color: #475569;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: #F5F3FF;
+            padding: 1.35rem 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0.4rem;
+            color: #1E1B4B;
+            font-weight: 500;
+        }
+
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight.safety {
+            background: #ECFDF5;
+            border-left-color: var(--success);
+        }
+
+        .highlight.safety p {
+            color: #064E3B;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: #F1F5F9;
+            color: var(--text-dark);
+        }
+
+        th {
+            padding: 0.9rem 1.25rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.92rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 0.9rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #1E1B4B 0%, #311042 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.4rem;
+        }
+
+        .contact-box a {
+            color: var(--cyan);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .container {
+                border-radius: 12px;
+            }
+
+            .header-section {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .header-section h1 {
+                font-size: 1.75rem;
+            }
+
+            .tab-button {
+                min-width: 130px;
+                padding: 0.9rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .tab-content {
+                padding: 1.75rem 1.25rem;
+            }
+
+            h2 {
+                font-size: 1.45rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Game Page</a>
+                <a href="../index.html" class="back-link"><i class="fas fa-house"></i> Main Website</a>
+            </div>
+            
+            <h1><i class="fas fa-dragon" style="color: var(--cyan);"></i> Worm Snake.io: Arena Battle</h1>
+            <p class="subtitle">Privacy Policy, Data Safety Form Declarations &amp; Legal Terms</p>
+            
+            <div class="meta-info">
+                <span><i class="fas fa-box-archive"></i> Package: <code>com.softtechservice.neonsnake.snakegame</code></span>
+                <span><i class="fas fa-building"></i> Developer: SoftTech Service</span>
+                <span><i class="fas fa-calendar-check"></i> Last Updated: 2026-01-01</span>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs" role="tablist">
+                <li>
+                    <button class="tab-button active" data-tab="privacy" role="tab" aria-selected="true">
+                        <i class="fas fa-shield-halved"></i> Privacy Policy
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms" role="tab" aria-selected="false">
+                        <i class="fas fa-file-contract"></i> Terms &amp; Conditions
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license" role="tab" aria-selected="false">
+                        <i class="fas fa-certificate"></i> License &amp; Copyright
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active" role="tabpanel">
+            <div class="section">
+                <p>
+                    <strong>Worm Snake.io: Arena Battle</strong> ("we", "our", or "the app"), operated by <strong>SoftTech Service</strong>, 
+                    is committed to protecting user privacy and maintaining complete transparency regarding data handling. 
+                    This Privacy Policy details how data is handled when you download, install, and play our single-player mobile arcade application.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-database"></i> 1. Information Storage &amp; Data Safety Disclosures</h2>
+                
+                <h3>A. Local On-Device Storage (Single Player Engine)</h3>
+                <p>
+                    The core game is built with an offline-first architecture. All gameplay progress and player settings are stored locally on your device via Android's native <code>shared_preferences</code>. 
+                    This includes:
+                </p>
+                <ul>
+                    <li><strong>Gameplay Scores &amp; Records:</strong> Current scores, match statistics, high scores, longest body record, and total win counts.</li>
+                    <li><strong>Virtual Currencies:</strong> In-game coins and diamonds earned solely by playing or watching optional rewarded videos.</li>
+                    <li><strong>Unlocks &amp; Progress:</strong> Unlocked serpent species/skins, quest progress, and career rank achievements (Rookie to Mythic).</li>
+                    <li><strong>Preferences:</strong> Sound effects (SFX) toggle, vibration/haptics toggle, control scheme style (joystick vs. screen drag), and custom player tag.</li>
+                </ul>
+
+                <div class="highlight safety">
+                    <p><strong><i class="fas fa-lock"></i> No Account &amp; No Game Server:</strong> The app does not require account creation, social login, or email registration. We operate no remote backend database for game profiles. All game data resides strictly on your mobile device.</p>
+                </div>
+
+                <h3>B. Third-Party Advertising (Google AdMob SDK)</h3>
+                <p>
+                    <strong>Worm Snake.io</strong> is free to play and is supported by advertisements served through the <strong>Google Mobile Ads SDK (Google AdMob)</strong>. 
+                    In accordance with Google Play's Data Safety requirements and AdMob's published guidelines, the AdMob SDK collects and processes specific data for ad serving, fraud prevention, frequency capping, and ad reporting:
+                </p>
+                <ul>
+                    <li><strong>Device &amp; Advertising Identifiers:</strong> Google Advertising ID (AAID) and technical device identifiers.</li>
+                    <li><strong>Approximate Location:</strong> Coarse IP-based general region/country data to deliver regionally relevant advertising.</li>
+                    <li><strong>App Activity &amp; Diagnostics:</strong> Ad impression events, ad interactions (clicks, video completions), crash logs, and SDK performance metrics.</li>
+                </ul>
+                <p>
+                    This data is collected directly by Google LLC under the <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--primary); font-weight: 600;">Google Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" style="color: var(--primary); font-weight: 600;">How Google uses data when you use partner apps</a>.
+                </p>
+
+                <h3>C. Platform Utility Handoffs</h3>
+                <p>
+                    The application integrates standard Flutter and Android utility packages to provide seamless operating system features:
+                </p>
+                <ul>
+                    <li><code>in_app_review</code>: Hands off directly to the Google Play Store dialog if you choose to rate the app.</li>
+                    <li><code>in_app_update</code>: Prompts Google Play if an official app update is available.</li>
+                    <li><code>share_plus</code>: Opens the standard Android native share sheet when you choose to share a match victory screenshot or score.</li>
+                    <li><code>url_launcher</code>: Opens your device's default web browser when viewing legal policies or developer links.</li>
+                </ul>
+                <p>
+                    <strong>None of these utility packages collect, log, or transmit any user information independently.</strong>
+                </p>
+
+                <h3>D. Information We Do NOT Collect</h3>
+                <p>We do not collect, process, or sell any of the following:</p>
+                <ul>
+                    <li>Personal contact info (Real names, phone numbers, email addresses, physical addresses).</li>
+                    <li>Contacts, phonebook, or address book entries.</li>
+                    <li>Microphone audio, camera streams, photos, or personal files.</li>
+                    <li>Financial, credit card, bank account, or payment data.</li>
+                    <li>Precise GPS location.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-sliders"></i> 2. Device Permissions Usage</h2>
+                <p>The app requests only standard Android permissions necessary for ad rendering and sensory feedback:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Android Permission</th>
+                            <th>Purpose &amp; Usage</th>
+                            <th>Data Shared</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>android.permission.INTERNET</code></td>
+                            <td>Required for downloading and displaying AdMob advertisements and verifying updates.</td>
+                            <td>AdMob diagnostic and ad delivery data</td>
+                        </tr>
+                        <tr>
+                            <td><code>android.permission.ACCESS_NETWORK_STATE</code></td>
+                            <td>Allows the app to check whether an active Wi-Fi or mobile data connection is available before requesting ads.</td>
+                            <td>None (Local status check)</td>
+                        </tr>
+                        <tr>
+                            <td><code>android.permission.VIBRATION</code></td>
+                            <td>Enables optional tactile haptic feedback during collisions, boosting, and UI button interactions.</td>
+                            <td>None (Hardware control only)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-rectangle-ad"></i> 3. Advertising &amp; In-App Purchases Policy</h2>
+                <p>
+                    <strong>Zero In-App Purchases:</strong> Worm Snake.io: Arena Battle contains <strong>no real-money in-app purchases (IAP)</strong>. All serpent skins, tiers, power-ups, and game modes are 100% unlockable using virtual coins earned directly by playing.
+                </p>
+                <p>
+                    <strong>Ad Formats:</strong>
+                </p>
+                <ul>
+                    <li><strong>Interstitial Ads:</strong> Displayed between completed match runs or upon returning to the main menu.</li>
+                    <li><strong>Optional Rewarded Video Ads:</strong> You may voluntarily choose to watch a short rewarded video ad to receive virtual diamonds, which allow reviving a run upon collision. Rewarded ads are never forced.</li>
+                </ul>
+                <p>
+                    <strong>Ad Opt-Out &amp; Reset:</strong> You can reset or delete your Android Advertising ID at any time via your device's settings: <code>Settings &rarr; Google &rarr; Ads &rarr; Reset advertising ID</code> or <code>Delete advertising ID</code>.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-robot"></i> 4. Transparency: Computer-Controlled AI Opponents</h2>
+                <p>
+                    In accordance with our commitment to fair and honest gaming disclosures:
+                </p>
+                <ul>
+                    <li>Every rival serpent in the arena is <strong>100% computer-controlled AI</strong> with programmed navigation, food-seeking, and hunting behaviors.</li>
+                    <li>The app does not simulate fake multiplayer servers or mislead players regarding opponent identity.</li>
+                    <li>Because matches run completely locally, gameplay is lag-free and available offline anytime.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-child"></i> 5. Children's Privacy (COPPA &amp; GDPR-K)</h2>
+                <p>
+                    <strong>Content Rating:</strong> Worm Snake.io is rated <strong>Everyone / PEGI 3</strong> (featuring stylized cartoon serpents, no blood/gore, and no real-money gambling).
+                </p>
+                <p>
+                    <strong>Target Audience:</strong> The game is designed for general arcade audiences and is not directed specifically to children under the age of 13. The app is not enrolled in the Google Play Families program. We do not knowingly collect or solicit personal data from children under 13 (or under 16 in the European Union).
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-trash-can"></i> 6. Data Retention, User Rights &amp; Data Deletion</h2>
+                <p>
+                    Because all game progress is stored locally on your device via <code>shared_preferences</code>, you have complete and immediate control over your data:
+                </p>
+                <ul>
+                    <li><strong>Instant Local Deletion:</strong> You can wipe all high scores, unlocked skins, coins, and settings at any time by navigating to: <code>Android Settings &rarr; Apps &rarr; Worm Snake.io &rarr; Storage &rarr; Clear Data</code>.</li>
+                    <li><strong>Uninstall Deletion:</strong> Uninstalling the application automatically deletes all locally stored application data.</li>
+                    <li><strong>Assistance &amp; Inquiries:</strong> To request help regarding privacy or data practices, contact us at <a href="mailto:contact@softtechservice.site" style="color: var(--primary); font-weight: 600;">contact@softtechservice.site</a>.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-envelope"></i> 7. Contact Us</h2>
+                <p>If you have any questions or feedback regarding this Privacy Policy, please reach out to us:</p>
+                <div class="contact-box">
+                    <h3>SoftTech Service — Legal &amp; Privacy</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content" role="tabpanel">
+            <div class="section">
+                <p>
+                    By downloading, installing, or playing <strong>Worm Snake.io: Arena Battle</strong>, you agree to be bound by these Terms &amp; Conditions. 
+                    If you do not agree, please do not use the application.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>1. License &amp; Acceptable Use</h2>
+                <ul>
+                    <li>SoftTech Service grants you a revocable, non-exclusive, non-transferable, limited license to download and play the game for personal, non-commercial entertainment.</li>
+                    <li>You agree not to reverse engineer, decompile, modify, or extract source code from the application.</li>
+                    <li>You agree not to use unauthorized emulators, memory injections, or memory modifying tools designed to corrupt or alter game parameters.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. Single-Player &amp; AI Disclaimer</h2>
+                <p>
+                    Worm Snake.io: Arena Battle is an offline arcade game featuring computer-controlled opponents. 
+                    SoftTech Service makes no representation or warranty that opponents are human players or that real-time multiplayer networking is supported.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>3. In-Game Virtual Items &amp; Currency</h2>
+                <ul>
+                    <li>In-game coins and diamonds are virtual game tokens intended solely for unlocking gameplay items (such as serpent skins and run revivals).</li>
+                    <li>Virtual currencies have <strong>zero real-world financial value</strong>, cannot be exchanged or redeemed for real money, and cannot be transferred outside of your local device installation.</li>
+                    <li>There are no real-money in-app purchases. SoftTech Service does not charge players for virtual currencies or content unlocks.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Third-Party Advertisements &amp; External Links</h2>
+                <p>
+                    The game displays third-party ads provided by Google AdMob. SoftTech Service does not endorse or assume liability for the content, accuracy, products, or services advertised by third parties. Interacting with third-party ads is at your own discretion.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <p>
+                    The game is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind. 
+                    To the maximum extent permitted by applicable law, SoftTech Service shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the game.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>6. Changes to Terms</h2>
+                <p>
+                    SoftTech Service reserves the right to modify these Terms at any time. Any changes will be posted here with an updated revision date. 
+                    Continued use of the game following changes constitutes acceptance of the modified Terms.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content" role="tabpanel">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 0.75rem; color: #475569;">
+                        This software, game architecture, visual design, graphic assets, animations, sound design, and documentation ("the Software") 
+                        are proprietary intellectual property owned exclusively by SoftTech Service. Unauthorized copying, distribution, or decompilation 
+                        is strictly prohibited without prior written consent.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Proprietary Intellectual Property</h2>
+                <ul>
+                    <li>All serpent species artwork (including Emerald Python, Cyber Serpent, Magma Wyrm), particle designs, arena maps, and logos are property of SoftTech Service.</li>
+                    <li>Worm Snake.io and associated branding are protected under international copyright and trademark laws.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Open Source &amp; Third-Party Attributions</h2>
+                <p>This software integrates open-source frameworks and libraries subject to their respective licenses:</p>
+                <ul>
+                    <li><strong>Flutter Engine &amp; SDK:</strong> BSD 3-Clause License (Google LLC).</li>
+                    <li><strong>Google Mobile Ads SDK (AdMob):</strong> Apache License 2.0 (Google LLC).</li>
+                    <li><strong>shared_preferences:</strong> BSD 3-Clause License (Flutter Community / Google).</li>
+                    <li><strong>in_app_review, in_app_update, share_plus, url_launcher:</strong> BSD 3-Clause / MIT Licenses.</li>
+                    <li><strong>Font Awesome:</strong> CC BY 4.0 / SIL OFL 1.1 / MIT License.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Disclaimer of Warranty</h2>
+                <div class="highlight">
+                    <p style="font-size: 0.9rem; line-height: 1.6; text-transform: uppercase; color: #334155;">
+                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Details</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for Tab Switching & Hash Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(targetTabId) {
+                tabButtons.forEach(btn => {
+                    const isTarget = btn.getAttribute('data-tab') === targetTabId;
+                    btn.classList.toggle('active', isTarget);
+                    btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+                });
+
+                tabContents.forEach(content => {
+                    const isTarget = content.id === targetTabId;
+                    content.classList.toggle('active', isTarget);
+                });
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    switchTab(targetTab);
+                    window.location.hash = targetTab;
+                });
+            });
+
+            // Handle Direct Hash Navigation (e.g. #privacy, #terms, #license)
+            const currentHash = window.location.hash.substring(1);
+            if (currentHash && ['privacy', 'terms', 'license'].includes(currentHash)) {
+                switchTab(currentHash);
+            }
+        });
+    </script>
+</body>
+</html>
