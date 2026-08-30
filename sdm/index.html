@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>SDM - SoftTech Download Manager &amp; BitTorrent Client for Android | High-Speed Multi-Threaded Downloads</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="SDM - SoftTech Download Manager &amp; BitTorrent Client for Android">
+    <meta name="description" content="Fast, powerful, and reliable download manager and BitTorrent client for Android. Multi-threaded HTTP/HTTPS downloads, libtorrent engine, magnet links, scheduler, Material 3 Cyber Midnight design, and 100% on-device privacy.">
+    <meta name="keywords" content="SDM, SoftTech Download Manager, Android download manager, torrent client, BitTorrent Android, libtorrent, magnet link downloader, multi-threaded downloader, fast downloader, Material 3, open source download manager, GPLv3">
+    <meta name="author" content="SoftTech Service">
+    <meta name="theme-color" content="#080E21">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://softtechservice.site/sdm/">
+    <meta property="og:title" content="SDM - SoftTech Download Manager &amp; BitTorrent Client for Android">
+    <meta property="og:description" content="High-speed multi-threaded downloads, full-featured BitTorrent client powered by libtorrent4j, smart scheduling, and 100% on-device privacy.">
+    <meta property="og:image" content="hero-banner.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://softtechservice.site/sdm/">
+    <meta name="twitter:title" content="SDM - SoftTech Download Manager &amp; BitTorrent Client for Android">
+    <meta name="twitter:description" content="Fast, powerful, and reliable download manager and BitTorrent client for Android. 100% on-device privacy & GPLv3+ open source.">
+    <meta name="twitter:image" content="hero-banner.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SDM - SoftTech Download Manager",
+      "operatingSystem": "Android 8.0 and up",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "A fast, powerful, and reliable download manager and BitTorrent client designed for Android with multi-threaded HTTP/HTTPS downloads, libtorrent engine, and Material 3 design.",
+      "author": {
+        "@type": "Organization",
+        "name": "SoftTech Service",
+        "url": "https://softtechservice.site"
+      },
+      "license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #007AFF;
+            --primary-glow: #00D2FF;
+            --primary-dark: #0056B3;
+            --bg-midnight: #070B19;
+            --bg-surface: #0E172E;
+            --bg-card: #132048;
+            --bg-card-hover: #192A5E;
+            --border-glow: rgba(0, 210, 255, 0.2);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --text-dim: #64748B;
+            --accent-green: #00E676;
+            --accent-orange: #FF9100;
+            --accent-purple: #9D4EDD;
+            --accent-cyan: #00F5D4;
+            --accent-red: #FF5252;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D2FF 100%);
+            --gradient-hero: radial-gradient(circle at 50% 0%, #152656 0%, #070B19 75%);
+            --gradient-card: linear-gradient(145deg, rgba(19, 32, 72, 0.8) 0%, rgba(14, 23, 46, 0.9) 100%);
+            --shadow-glow: 0 8px 32px rgba(0, 102, 255, 0.25);
+            --shadow-card: 0 12px 28px rgba(0, 0, 0, 0.4);
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Outfit', 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-midnight);
+            color: var(--text-main);
+            line-height: 1.65;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Ambient Background Glow */
+        .ambient-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(140px);
+            opacity: 0.15;
+            transition: all 0.5s ease;
+        }
+        .glow-1 { top: -100px; left: -100px; background: #0066FF; }
+        .glow-2 { top: 40%; right: -150px; background: #00D2FF; }
+        .glow-3 { bottom: 10%; left: 20%; background: #7C4DFF; opacity: 0.1; }
+
+        /* Container */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(7, 11, 25, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0.85rem 0;
+            transition: all 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);
+            object-fit: cover;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            background: white;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .brand-subtitle {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #FFFFFF;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.25s ease;
+            border-radius: 2px;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta-btn {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: 0.55rem 1.25rem;
+            border-radius: 10px;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .nav-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.45);
+        }
+
+        .nav-cta-btn::after {
+            display: none !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: white;
+            font-size: 1.25rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            padding: 0.85rem 1.85rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.55);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: #FFFFFF;
+            border: 1px solid var(--border-glow);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 210, 255, 0.12);
+            border-color: var(--primary-glow);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-outline:hover {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1.1rem;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            color: var(--primary-glow);
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 4.5rem 0 3.5rem;
+            background: var(--gradient-hero);
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 1.25rem;
+        }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #CBD5E1;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .hero-desc {
+            font-size: 1.02rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* 4 Key Pillars from Banner */
+        .feature-pills-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.85rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .feature-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(19, 32, 72, 0.5);
+            border: 1px solid var(--border-subtle);
+            padding: 0.7rem 1rem;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #E2E8F0;
+            transition: all 0.25s;
+        }
+
+        .feature-pill:hover {
+            border-color: var(--border-glow);
+            background: rgba(19, 32, 72, 0.85);
+            transform: translateY(-2px);
+        }
+
+        .pill-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .pill-icon.blue { background: rgba(0, 122, 255, 0.2); color: #00D2FF; }
+        .pill-icon.green { background: rgba(0, 230, 118, 0.2); color: #00E676; }
+        .pill-icon.purple { background: rgba(157, 78, 221, 0.2); color: #C77DFF; }
+        .pill-icon.orange { background: rgba(255, 145, 0, 0.2); color: #FFAA33; }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Hero Banner Visual Showcase */
+        .hero-visual-wrapper {
+            position: relative;
+        }
+
+        .hero-banner-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 0.75rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 102, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .hero-banner-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-banner-img {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Floating Chips */
+        .floating-metric {
+            position: absolute;
+            background: rgba(14, 23, 46, 0.92);
+            border: 1px solid var(--border-glow);
+            backdrop-filter: blur(12px);
+            padding: 0.65rem 1rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            animation: float 4s ease-in-out infinite alternate;
+        }
+
+        .float-1 {
+            top: -15px;
+            right: 20px;
+            animation-delay: 0s;
+        }
+
+        .float-2 {
+            bottom: -15px;
+            left: 20px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* Stats Strip */
+        .stats-strip {
+            background: rgba(14, 23, 46, 0.8);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 2.25rem 0;
+            margin-top: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 0.5rem;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-glow);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Core Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+
+        .feature-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2.25rem 2rem;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-glow);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 102, 255, 0.2);
+        }
+
+        .feature-card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(0, 122, 255, 0.15);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-glow);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 6px 16px rgba(0, 102, 255, 0.2);
+        }
+
+        .feature-card-icon.green { background: rgba(0, 230, 118, 0.15); border-color: rgba(0, 230, 118, 0.3); color: var(--accent-green); }
+        .feature-card-icon.purple { background: rgba(157, 78, 221, 0.15); border-color: rgba(157, 78, 221, 0.3); color: var(--accent-purple); }
+        .feature-card-icon.orange { background: rgba(255, 145, 0, 0.15); border-color: rgba(255, 145, 0, 0.3); color: var(--accent-orange); }
+        .feature-card-icon.cyan { background: rgba(0, 245, 212, 0.15); border-color: rgba(0, 245, 212, 0.3); color: var(--accent-cyan); }
+        .feature-card-icon.red { background: rgba(255, 82, 82, 0.15); border-color: rgba(255, 82, 82, 0.3); color: var(--accent-red); }
+
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+            color: #FFFFFF;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-sublist {
+            list-style: none;
+            margin-top: auto;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 1rem;
+        }
+
+        .feature-sublist li {
+            font-size: 0.88rem;
+            color: #CBD5E1;
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+        }
+
+        .feature-sublist li i {
+            color: var(--primary-glow);
+            font-size: 0.75rem;
+            margin-top: 0.35rem;
+        }
+
+        /* BitTorrent Feature Deep-Dive Banner */
+        .highlight-banner {
+            background: linear-gradient(135deg, rgba(14, 23, 46, 0.95) 0%, rgba(26, 43, 94, 0.85) 100%);
+            border: 1px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 3.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .highlight-content h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .highlight-content p {
+            color: #CBD5E1;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.75rem;
+        }
+
+        .torrent-chips-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .torrent-chip {
+            background: rgba(7, 11, 25, 0.7);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 1rem;
+            border-radius: 14px;
+        }
+
+        .torrent-chip h4 {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .torrent-chip h4 i {
+            color: var(--primary-glow);
+        }
+
+        .torrent-chip p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        /* Interactive App UI Preview Simulator */
+        .simulator-section {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 5rem 0;
+        }
+
+        .simulator-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .simulator-device {
+            background: #0B132B;
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            border-radius: 36px;
+            padding: 1.5rem;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 102, 255, 0.3);
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        .simulator-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1.25rem;
+        }
+
+        .sim-title-group {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .sim-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: var(--font-display);
+        }
+
+        /* Speed Card Simulator */
+        .sim-speed-card {
+            background: linear-gradient(145deg, #101E42 0%, #0D1733 100%);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            border-radius: 18px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .speed-header {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .speed-stats-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 0.85rem;
+        }
+
+        .current-speed {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            font-family: var(--font-display);
+            display: flex;
+            align-items: baseline;
+            gap: 0.35rem;
+        }
+
+        .current-speed span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-glow);
+        }
+
+        .speed-totals {
+            text-align: right;
+            font-size: 0.8rem;
+        }
+
+        .speed-down { color: var(--primary-glow); font-weight: 600; }
+        .speed-up { color: var(--accent-green); font-weight: 600; }
+
+        /* Animated Speed Wave SVG */
+        .speed-wave-svg {
+            width: 100%;
+            height: 36px;
+            overflow: visible;
+        }
+
+        .speed-wave-path {
+            fill: none;
+            stroke: #00D2FF;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.6));
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            animation: draw-wave 3s linear infinite;
+        }
+
+        @keyframes draw-wave {
+            0% { stroke-dashoffset: 400; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -400; }
+        }
+
+        /* Status Pills Row */
+        .sim-status-pills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-pill {
+            background: #141F3C;
+            border-radius: 10px;
+            padding: 0.45rem 0.35rem;
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .status-pill.active { border-left: 3px solid #007AFF; color: #60A5FA; }
+        .status-pill.completed { border-left: 3px solid var(--accent-green); color: #4ADE80; }
+        .status-pill.paused { border-left: 3px solid var(--accent-orange); color: #FB923C; }
+        .status-pill.scheduled { border-left: 3px solid var(--accent-purple); color: #C084FC; }
+
+        /* Clipboard banner */
+        .sim-clipboard-banner {
+            background: rgba(0, 102, 255, 0.15);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            border-radius: 12px;
+            padding: 0.65rem 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.78rem;
+        }
+
+        .clip-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* Download item simulation */
+        .sim-download-item {
+            background: #141F3C;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .item-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(0, 102, 255, 0.2);
+            color: var(--primary-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .item-icon.pdf {
+            background: rgba(255, 82, 82, 0.2);
+            color: var(--accent-red);
+        }
+
+        .item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .item-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .item-meta {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .item-progress-bar {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.35rem;
+        }
+
+        .item-progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+            width: 41%;
+            animation: progress-demo 4s infinite ease-in-out;
+        }
+
+        @keyframes progress-demo {
+            0% { width: 35%; }
+            50% { width: 65%; }
+            100% { width: 35%; }
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        /* Permissions Explained Section */
+        .permissions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .permission-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 1.75rem;
+            transition: all 0.3s;
+        }
+
+        .permission-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+        }
+
+        .perm-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary-glow);
+            background: rgba(0, 102, 255, 0.15);
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .permission-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.65rem;
+            color: #FFFFFF;
+        }
+
+        .permission-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Tech Stack Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .tech-box {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.25s;
+        }
+
+        .tech-box:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-3px);
+        }
+
+        .tech-box i {
+            font-size: 2.4rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .tech-box h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-box p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* System Specs Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .spec-item {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .spec-item .spec-icon {
+            font-size: 1.75rem;
+            color: var(--primary-glow);
+            margin-bottom: 0.65rem;
+        }
+
+        .spec-item h4 {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.35rem;
+        }
+
+        .spec-item p {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .faq-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.25s;
+        }
+
+        .faq-card:hover {
+            border-color: var(--border-glow);
+        }
+
+        .faq-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.65rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .faq-card h4 i {
+            color: var(--primary-glow);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .faq-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Call To Action Banner */
+        .cta-banner {
+            background: radial-gradient(circle at 50% 50%, #172D6B 0%, #0A132C 100%);
+            border: 1px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-banner h2 {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            color: #CBD5E1;
+            font-size: 1.15rem;
+            max-width: 680px;
+            margin: 0 auto 2.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #040710;
+            border-top: 1px solid var(--border-subtle);
+            padding: 4.5rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.2px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.65rem;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-glow);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 2.8rem; }
+            .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-visual-wrapper { max-width: 600px; margin: 0 auto; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .highlight-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .simulator-layout { grid-template-columns: 1fr; }
+            .permissions-grid { grid-template-columns: 1fr; }
+            .specs-grid { grid-template-columns: repeat(2, 1fr); }
+            .faq-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #070B19;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--border-glow);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+                transform: translateY(-150%);
+                transition: transform 0.35s ease;
+                z-index: 999;
+            }
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+            .hero-title { font-size: 2.2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .feature-pills-row { grid-template-columns: 1fr; }
+            .highlight-banner { padding: 2rem 1.5rem; }
+            .torrent-chips-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .cta-banner { padding: 2.5rem 1.25rem; }
+            .cta-banner h2 { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.85rem; }
+            .hero-actions { flex-direction: column; }
+            .btn { width: 100%; }
+            .specs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glow Blobs -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="brand-link">
+                    <img src="icon.png" alt="SDM Logo" class="brand-icon">
+                    <div class="brand-text">
+                        <span class="brand-name">SDM</span>
+                        <span class="brand-subtitle">SoftTech Download Manager</span>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#torrent">BitTorrent</a></li>
+                    <li><a href="#controls">Controls</a></li>
+                    <li><a href="#permissions">Permissions</a></li>
+                    <li><a href="#tech">Tech Specs</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="#download" class="nav-cta-btn"><i class="fas fa-download"></i> Get SDM</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span>Multi-Threaded • BitTorrent • Material 3</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Fast. Smart. Reliable. <br>
+                        <span class="gradient-text">Downloads.</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        High-Speed Multi-Threaded HTTP/HTTPS &amp; Full-Featured BitTorrent Client for Android
+                    </p>
+
+                    <p class="hero-desc">
+                        SDM (SoftTech Download Manager) is designed to give you total control over your bandwidth, battery, and file storage. Whether you're downloading massive media files or joining peer swarms, SDM delivers maximum throughput with a modern Material 3 Cyber Midnight user experience.
+                    </p>
+
+                    <!-- 4 Highlights from Banner -->
+                    <div class="feature-pills-row">
+                        <div class="feature-pill">
+                            <div class="pill-icon blue"><i class="fas fa-bolt"></i></div>
+                            <span>High Speed Downloads</span>
+                        </div>
+                        <div class="feature-pill">
+                            <div class="pill-icon green"><i class="fas fa-pause"></i></div>
+                            <span>Pause &amp; Smart Resume</span>
+                        </div>
+                        <div class="feature-pill">
+                            <div class="pill-icon purple"><i class="fas fa-link"></i></div>
+                            <span>Browser &amp; Magnet Links</span>
+                        </div>
+                        <div class="feature-pill">
+                            <div class="pill-icon orange"><i class="fas fa-shield-alt"></i></div>
+                            <span>Safe, Private &amp; Secure</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#features" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Explore Features
+                        </a>
+                        <a href="privacy-policy.html" class="btn btn-secondary">
+                            <i class="fas fa-shield-halved"></i> Privacy Policy
+                        </a>
+                        <a href="#torrent" class="btn btn-outline">
+                            <i class="fas fa-network-wired"></i> BitTorrent Engine
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Banner Showcase -->
+                <div class="hero-visual-wrapper">
+                    <div class="hero-banner-card">
+                        <img src="hero-banner.jpg" alt="SDM App Interface and Dashboard" class="hero-banner-img">
+                    </div>
+                    <div class="floating-metric float-1">
+                        <i class="fas fa-bolt" style="color: #00D2FF;"></i>
+                        <span>16x Parallel Streams</span>
+                    </div>
+                    <div class="floating-metric float-2">
+                        <i class="fas fa-user-secret" style="color: #00E676;"></i>
+                        <span>100% On-Device &amp; Zero Tracking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Stats Strip -->
+    <section class="stats-strip">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">16x</div>
+                    <div class="stat-label">Parallel Byte Channels</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">libtorrent</div>
+                    <div class="stat-label">C++ Swarm Core</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">On-Device &amp; Private</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">GPLv3+</div>
+                    <div class="stat-label">Open Source Freedom</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Powerful Engine</span>
+                <h2 class="section-title">Everything You Need In A Pro Download Manager</h2>
+                <p class="section-subtitle">Engineered from the ground up for maximum throughput, resilience, and battery efficiency.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1: High-Speed Multi-Threading -->
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>⚡ High-Speed Multi-Threaded Downloads</h3>
+                    <p>Harness the full capacity of your high-speed Wi-Fi or 5G connection with segmented multi-part acceleration.</p>
+                    <ul class="feature-sublist">
+                        <li><i class="fas fa-check"></i> <strong>Parallel Connections:</strong> Splits large HTTP/HTTPS files into multiple byte-range segments to saturate bandwidth.</li>
+                        <li><i class="fas fa-check"></i> <strong>Smart Resume &amp; Recovery:</strong> Effortlessly resume interrupted downloads without starting over from 0%.</li>
+                        <li><i class="fas fa-check"></i> <strong>Automatic Error Handling:</strong> Seamlessly auto-reconnects during intermittent Wi-Fi or cellular dropouts.</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2: BitTorrent Engine -->
+                <div class="feature-card">
+                    <div class="feature-card-icon cyan">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>🌐 Full-Featured BitTorrent Client</h3>
+                    <p>A native C++ libtorrent engine running right on your device for lightning-fast peer-to-peer swarms.</p>
+                    <ul class="feature-sublist">
+                        <li><i class="fas fa-check"></i> <strong>libtorrent4j Powered:</strong> Industry-standard high-performance BitTorrent session core.</li>
+                        <li><i class="fas fa-check"></i> <strong>Magnet URIs &amp; .torrent:</strong> Instant one-tap import from browsers, clipboards, and files.</li>
+                        <li><i class="fas fa-check"></i> <strong>DHT, PeX &amp; LSD:</strong> Discover swarms and peers even without central tracker servers.</li>
+                        <li><i class="fas fa-check"></i> <strong>Sequential Download:</strong> Stream media files progressively while the download finishes.</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3: Cyber Midnight Design -->
+                <div class="feature-card">
+                    <div class="feature-card-icon purple">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>🎨 Modern Cyber Midnight Design</h3>
+                    <p>Designed around Google's Material Design 3 guidelines with a dark cyber aesthetic tailored for OLED screens.</p>
+                    <ul class="feature-sublist">
+                        <li><i class="fas fa-check"></i> <strong>Material Design 3:</strong> Rounded sheets, fluid layout transitions, and high contrast palettes.</li>
+                        <li><i class="fas fa-check"></i> <strong>Micro-Interactions:</strong> Spring physics, haptic feedback on actions, and live visualizers.</li>
+                        <li><i class="fas fa-check"></i> <strong>Adaptive Layouts:</strong> Optimized for standard phones, foldables, and large two-pane tablets.</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 4: Battery & Scheduling Controls -->
+                <div class="feature-card">
+                    <div class="feature-card-icon green">
+                        <i class="fas fa-battery-three-quarters"></i>
+                    </div>
+                    <h3>🔋 Battery, Scheduling &amp; Traffic Controls</h3>
+                    <p>Keep your data bill under control and protect your battery life with intelligent automation rules.</p>
+                    <ul class="feature-sublist">
+                        <li><i class="fas fa-check"></i> <strong>Flexible Scheduler:</strong> Set exact start and pause time windows for off-peak downloads.</li>
+                        <li><i class="fas fa-check"></i> <strong>Power Rules:</strong> Restrict heavy queues to charger-only or auto-pause on low battery.</li>
+                        <li><i class="fas fa-check"></i> <strong>Network Guard:</strong> Restrict downloads to unmetered Wi-Fi to eliminate mobile data charges.</li>
+                        <li><i class="fas fa-check"></i> <strong>Bandwidth Caps:</strong> Set independent download and upload speed limits.</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 5: Smart Storage & SAF -->
+                <div class="feature-card">
+                    <div class="feature-card-icon orange">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3>📁 Smart Storage &amp; File Management</h3>
+                    <p>Modern Android Storage Access Framework (SAF) integration with anti-fragmentation pre-allocation.</p>
+                    <ul class="feature-sublist">
+                        <li><i class="fas fa-check"></i> <strong>SAF Compatibility:</strong> Store files directly on internal storage or external SD cards safely.</li>
+                        <li><i class="fas fa-check"></i> <strong>Disk Pre-Allocation:</strong> Pre-allocates full file size upfront to avoid filesystem fragmentation and mid-download out-of-space crashes.</li>
+                        <li><i class="fas fa-check"></i> <strong>Tag Organization:</strong> Organize and filter downloads using custom color-coded tags.</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 6: Privacy & Open Source -->
+                <div class="feature-card">
+                    <div class="feature-card-icon red">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>🔒 Privacy &amp; Open Source</h3>
+                    <p>Your downloads are your business. Zero telemetry, zero accounts, and 100% on-device execution.</p>
+                    <ul class="feature-sublist">
+                        <li><i class="fas fa-check"></i> <strong>100% On-Device:</strong> No account required, zero tracking, and zero analytical telemetry sent to external servers.</li>
+                        <li><i class="fas fa-check"></i> <strong>GPLv3+ Licensed:</strong> Free and open-source software ensuring complete transparency and user rights.</li>
+                        <li><i class="fas fa-check"></i> <strong>Zero In-App Ads:</strong> Clean, unobtrusive experience focused on pure performance.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BitTorrent Deep Dive Banner -->
+    <section class="section" id="torrent" style="padding-top: 0;">
+        <div class="container">
+            <div class="highlight-banner">
+                <div class="highlight-grid">
+                    <div class="highlight-content">
+                        <span class="section-tag">BitTorrent Core</span>
+                        <h2>Industrial-Grade P2P Engine Powered by libtorrent</h2>
+                        <p>
+                            SDM incorporates <strong>libtorrent4j</strong> (JNI bindings to Arvid Norberg's renowned C++ libtorrent library). Experience unmatched peer discovery, robust NAT penetration, and seamless swarm orchestration.
+                        </p>
+                        <div class="torrent-chips-grid">
+                            <div class="torrent-chip">
+                                <h4><i class="fas fa-share-nodes"></i> Decentralized Swarms</h4>
+                                <p>Full DHT (Kademlia), PeX (Peer Exchange), and LSD (Local Service Discovery) to connect without trackers.</p>
+                            </div>
+                            <div class="torrent-chip">
+                                <h4><i class="fas fa-lock"></i> Protocol Encryption</h4>
+                                <p>Supports forced or enabled stream encryption, uTP transport protocol, and UPnP/NAT-PMP port forwarding.</p>
+                            </div>
+                            <div class="torrent-chip">
+                                <h4><i class="fas fa-list-check"></i> Selective Priority</h4>
+                                <p>Pick individual files within a multi-file torrent and assign High, Normal, or Ignore/Skip priorities.</p>
+                            </div>
+                            <div class="torrent-chip">
+                                <h4><i class="fas fa-play"></i> Sequential Streaming</h4>
+                                <p>Download pieces in sequential order from beginning to end for progressive media streaming while downloading.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-visual">
+                        <div class="sim-speed-card" style="margin-bottom: 0;">
+                            <div class="speed-header">BITTORRENT PEER SWARM METRICS</div>
+                            <div class="speed-stats-row">
+                                <div>
+                                    <div class="current-speed">4.2 <span>MB/s</span></div>
+                                    <span style="font-size: 0.75rem; color: var(--accent-green);"><i class="fas fa-circle-nodes"></i> Connected to 48 Peers (12 Seeds)</span>
+                                </div>
+                                <div class="speed-totals">
+                                    <div class="speed-down"><i class="fas fa-arrow-down"></i> 2.4 GB Down</div>
+                                    <div class="speed-up"><i class="fas fa-arrow-up"></i> 640 MB Up</div>
+                                </div>
+                            </div>
+                            <svg class="speed-wave-svg" viewBox="0 0 300 40">
+                                <path class="speed-wave-path" d="M0,20 Q40,5 80,25 T160,15 T240,30 T300,10" />
+                            </svg>
+                            <div style="margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.85rem; display: flex; justify-content: space-between; font-size: 0.78rem; color: #94A3B8;">
+                                <span><i class="fas fa-shield-halved" style="color: #00D2FF;"></i> Encryption: Forced</span>
+                                <span><i class="fas fa-network-wired" style="color: #00E676;"></i> uTP &amp; NAT-PMP: Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive App UI Simulator Section -->
+    <section class="simulator-section" id="controls">
+        <div class="container">
+            <div class="simulator-layout">
+                <div class="simulator-content">
+                    <span class="section-tag">Interactive Preview</span>
+                    <h2 class="section-title">Clean Dashboard, Total Command</h2>
+                    <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+                        SDM's Cyber Midnight UI puts real-time throughput metrics, queue status, and quick clipboard actions right at your fingertips.
+                    </p>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;"><i class="fas fa-clipboard-check" style="color: #00D2FF; margin-right: 0.5rem;"></i> Smart Clipboard Interception</h4>
+                        <p style="color: var(--text-muted); font-size: 0.92rem;">SDM automatically detects copied HTTP, HTTPS, and magnet URIs and presents a non-intrusive bottom sheet to add downloads in one tap.</p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;"><i class="fas fa-sliders" style="color: #00E676; margin-right: 0.5rem;"></i> Granular Bandwidth Throttles</h4>
+                        <p style="color: var(--text-muted); font-size: 0.92rem;">Set independent speed limits for cellular vs Wi-Fi, background downloads, or high-priority foreground transfers.</p>
+                    </div>
+
+                    <div>
+                        <h4 style="color: white; margin-bottom: 0.5rem;"><i class="fas fa-clock" style="color: #9D4EDD; margin-right: 0.5rem;"></i> Exact Alarm Scheduling</h4>
+                        <p style="color: var(--text-muted); font-size: 0.92rem;">Leverages Android's exact alarm scheduling and boot-completed receivers to accurately fire tasks during unmetered midnight windows.</p>
+                    </div>
+                </div>
+
+                <!-- Device Simulation Mockup -->
+                <div class="simulator-device">
+                    <div class="simulator-topbar">
+                        <div class="sim-title-group">
+                            <i class="fas fa-bars" style="color: #94A3B8; font-size: 0.9rem;"></i>
+                            <span class="sim-title">SDM</span>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; color: #94A3B8; font-size: 0.9rem;">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+
+                    <!-- Speed Card -->
+                    <div class="sim-speed-card">
+                        <div class="speed-header">DOWNLOAD SPEED</div>
+                        <div class="speed-stats-row">
+                            <div>
+                                <div class="current-speed">1.8 <span>MB/s</span></div>
+                                <span style="font-size: 0.72rem; color: #94A3B8;">Current Speed</span>
+                            </div>
+                            <div class="speed-totals">
+                                <div class="speed-down"><i class="fas fa-arrow-down"></i> 125.4 MB</div>
+                                <div class="speed-up"><i class="fas fa-arrow-up"></i> 8.7 MB</div>
+                            </div>
+                        </div>
+                        <svg class="speed-wave-svg" viewBox="0 0 300 40">
+                            <path class="speed-wave-path" d="M0,20 Q30,10 60,25 T120,15 T180,28 T240,12 T300,20" />
+                        </svg>
+                    </div>
+
+                    <!-- Status Pills -->
+                    <div class="sim-status-pills">
+                        <div class="status-pill active"><strong>2</strong> Active</div>
+                        <div class="status-pill completed"><strong>15</strong> Done</div>
+                        <div class="status-pill paused"><strong>1</strong> Paused</div>
+                        <div class="status-pill scheduled"><strong>0</strong> Sched</div>
+                    </div>
+
+                    <!-- Clipboard Bar -->
+                    <div class="sim-clipboard-banner">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; overflow: hidden;">
+                            <i class="fas fa-link" style="color: #00D2FF;"></i>
+                            <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #E2E8F0;">https://example.com/file.zip</span>
+                        </div>
+                        <button class="clip-btn">Add Download</button>
+                    </div>
+
+                    <!-- Download Item 1 -->
+                    <div class="sim-download-item">
+                        <div class="item-row">
+                            <div class="item-icon"><i class="fas fa-file-video"></i></div>
+                            <div class="item-info">
+                                <div class="item-name">Vacation_Video_4K.mp4</div>
+                                <div class="item-meta">
+                                    <span style="color: #60A5FA; font-weight: 600;">Downloading</span>
+                                    <span>125.4 MB / 1.2 GB</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-circle-pause" style="color: #00D2FF; font-size: 1.25rem;"></i>
+                        </div>
+                        <div class="item-progress-bar">
+                            <div class="item-progress-fill"></div>
+                        </div>
+                        <div class="item-footer">
+                            <span>41%</span>
+                            <span>1.8 MB/s</span>
+                            <span>ETA: 2m 15s</span>
+                        </div>
+                    </div>
+
+                    <!-- Download Item 2 -->
+                    <div class="sim-download-item">
+                        <div class="item-row">
+                            <div class="item-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                            <div class="item-info">
+                                <div class="item-name">Technical_Document.pdf</div>
+                                <div class="item-meta">
+                                    <span style="color: #FB923C; font-weight: 600;">Paused</span>
+                                    <span>32.6 MB / 114 MB</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-circle-play" style="color: #94A3B8; font-size: 1.25rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Required Permissions Section -->
+    <section class="section" id="permissions">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Full Transparency</span>
+                <h2 class="section-title">Required Permissions Explained</h2>
+                <p class="section-subtitle">SDM only requests permissions strictly required to execute downloads and manage storage safely.</p>
+            </div>
+
+            <div class="permissions-grid">
+                <div class="permission-card">
+                    <span class="perm-badge"><i class="fas fa-bell"></i> Foreground Service &amp; Notifications</span>
+                    <h3>Background Downloads &amp; Progress</h3>
+                    <p>
+                        Allows SDM to keep multi-part downloads active when the screen turns off or when you switch apps. Real-time progress bars and pause/resume buttons are displayed in your notification tray.
+                    </p>
+                </div>
+
+                <div class="permission-card">
+                    <span class="perm-badge"><i class="fas fa-clock"></i> Exact Alarm &amp; Boot Receiver</span>
+                    <h3>Precise Session Scheduling</h3>
+                    <p>
+                        Enables the scheduler to wake up tasks precisely at user-configured start/stop times (e.g., free midnight Wi-Fi windows) and restore pending scheduled sessions after a device reboot.
+                    </p>
+                </div>
+
+                <div class="permission-card">
+                    <span class="perm-badge"><i class="fas fa-folder-tree"></i> Storage Access Framework (SAF)</span>
+                    <h3>Direct Safe File Placement</h3>
+                    <p>
+                        Modern Android SAF permission allows you to choose exact destination folders on internal storage or external MicroSD cards without giving unrestricted storage access to your device.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section" id="tech" style="background: var(--bg-surface);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Engineering</span>
+                <h2 class="section-title">Architected with Modern Android Standards</h2>
+                <p class="section-subtitle">Clean, robust, memory-efficient native Android architecture.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-box">
+                    <i class="fab fa-android" style="color: #00E676;"></i>
+                    <h4>100% Kotlin</h4>
+                    <p>Modern coroutines &amp; StateFlow reactive pipelines</p>
+                </div>
+
+                <div class="tech-box">
+                    <i class="fas fa-network-wired" style="color: #00D2FF;"></i>
+                    <h4>libtorrent4j</h4>
+                    <p>High-performance C++ BitTorrent core via JNI</p>
+                </div>
+
+                <div class="tech-box">
+                    <i class="fas fa-database" style="color: #9D4EDD;"></i>
+                    <h4>Room Database</h4>
+                    <p>Fast SQLite persistent state &amp; queue storage</p>
+                </div>
+
+                <div class="tech-box">
+                    <i class="fas fa-palette" style="color: #FF9100;"></i>
+                    <h4>Material Design 3</h4>
+                    <p>Cyber Midnight dark theme &amp; fluid animations</p>
+                </div>
+
+                <div class="tech-box">
+                    <i class="fas fa-folder-closed" style="color: #00F5D4;"></i>
+                    <h4>Storage Access (SAF)</h4>
+                    <p>Scoped storage for internal &amp; external SD cards</p>
+                </div>
+
+                <div class="tech-box">
+                    <i class="fas fa-gear" style="color: #60A5FA;"></i>
+                    <h4>WorkManager</h4>
+                    <p>Reliable background constraint execution</p>
+                </div>
+            </div>
+
+            <!-- System Specs Table -->
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon"><i class="fas fa-mobile-screen"></i></div>
+                    <h4>Minimum Android</h4>
+                    <p>Android 8.0 (API 26)</p>
+                </div>
+
+                <div class="spec-item">
+                    <div class="spec-icon"><i class="fas fa-microchip"></i></div>
+                    <h4>Target Android</h4>
+                    <p>Android 15 (API 35+)</p>
+                </div>
+
+                <div class="spec-item">
+                    <div class="spec-icon"><i class="fas fa-cube"></i></div>
+                    <h4>Architectures</h4>
+                    <p>ARM64-v8a / x86_64</p>
+                </div>
+
+                <div class="spec-item">
+                    <div class="spec-icon"><i class="fas fa-scale-balanced"></i></div>
+                    <h4>License</h4>
+                    <p>GNU GPLv3+ Open Source</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Help &amp; FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Common questions about SDM capabilities and settings.</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h4><i class="fas fa-circle-question"></i> How does multi-threading speed up downloads?</h4>
+                    <p>
+                        SDM sends multiple simultaneous HTTP byte-range requests for different parts of the same file. This overcomes single-connection throttling from web servers and ISPs, maximizing your available bandwidth.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-circle-question"></i> Can I download torrents without a tracker server?</h4>
+                    <p>
+                        Yes! With full support for DHT (Distributed Hash Table) and Peer Exchange (PeX), SDM can find swarm peers and download complete files without relying on a central tracker.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-circle-question"></i> How does sequential piece downloading work?</h4>
+                    <p>
+                        Normally, BitTorrent downloads pieces in random order. Enabling sequential downloading forces SDM to prioritize pieces from the beginning of the file, allowing you to stream videos or audio while they finish.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-circle-question"></i> What is Disk Pre-Allocation?</h4>
+                    <p>
+                        When a download starts, SDM pre-allocates the total required file space on your storage upfront. This prevents disk fragmentation on large files and prevents unexpected "Disk Full" errors midway through large downloads.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-circle-question"></i> Does SDM track my downloaded files or URLs?</h4>
+                    <p>
+                        <strong>Never.</strong> SDM operates 100% on your device. There are zero analytical tracking SDKs, no external telemetry servers, and no user accounts. Your download links and history never leave your phone.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-circle-question"></i> Is SDM really open source?</h4>
+                    <p>
+                        Yes, SDM is released under the <strong>GNU General Public License v3.0 or later (GPLv3+)</strong>, guaranteeing freedom of use, study, and improvement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="container" id="download">
+        <div class="cta-banner">
+            <h2>Take Control Of Your Downloads Today</h2>
+            <p>Experience ultra-fast multi-threaded acceleration, peer-to-peer torrent freedom, and zero telemetry.</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="#home" class="btn btn-primary">
+                    <i class="fas fa-arrow-up"></i> Back to Top
+                </a>
+                <a href="privacy-policy.html" class="btn btn-secondary">
+                    <i class="fas fa-shield-halved"></i> Read Privacy Policy
+                </a>
+                <a href="../index.html" class="btn btn-outline">
+                    <i class="fas fa-globe"></i> SoftTech Service Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <img src="icon.png" alt="SDM Icon" style="width: 38px; height: 38px; border-radius: 10px; background: white;">
+                        <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: white;">SDM</span>
+                    </div>
+                    <p>
+                        SoftTech Download Manager (SDM) is a next-generation high-speed download accelerator and BitTorrent client for Android, built with Kotlin and libtorrent4j.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#features">Key Features</a></li>
+                        <li><a href="#torrent">BitTorrent Engine</a></li>
+                        <li><a href="#controls">Controls &amp; Scheduling</a></li>
+                        <li><a href="#permissions">Permissions Guide</a></li>
+                        <li><a href="#tech">Technology Stack</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal &amp; Policies</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="privacy-policy.html#terms">Terms &amp; Conditions</a></li>
+                        <li><a href="privacy-policy.html#license">GPLv3+ License</a></li>
+                        <li><a href="privacy-policy.html#permissions">Permissions Breakdown</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Developer Support</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">
+                        <strong>Developer:</strong> SoftTech Service<br>
+                        <strong>Email:</strong> <a href="mailto:contact@softtechservice.site" style="color: var(--primary-glow);">contact@softtechservice.site</a><br>
+                        <strong>Website:</strong> <a href="https://softtechservice.site" style="color: var(--primary-glow);">softtechservice.site</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
+                <p>
+                    SDM is free software licensed under the <strong>GNU General Public License v3.0+ (GPLv3+)</strong>.
+                </p>
+                <p style="color: var(--text-dim); font-size: 0.8rem;">
+                    BitTorrent is a registered trademark of Rainberry, Inc. Android is a trademark of Google LLC.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script & Smooth Scroll -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

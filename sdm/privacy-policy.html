@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy, Terms &amp; License - SDM (SoftTech Download Manager) | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms & Conditions, GPLv3+ Open Source License, and Permissions Guide for SDM (SoftTech Download Manager) Android App by SoftTech Service.">
+    <meta name="author" content="SoftTech Service">
+    <meta name="theme-color" content="#080E21">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #007AFF;
+            --primary-glow: #00D2FF;
+            --primary-dark: #0056B3;
+            --bg-midnight: #070B19;
+            --bg-surface: #0E172E;
+            --bg-card: #132048;
+            --border-glow: rgba(0, 210, 255, 0.2);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --text-dim: #64748B;
+            --accent-green: #00E676;
+            --accent-orange: #FF9100;
+            --accent-purple: #9D4EDD;
+            --accent-cyan: #00F5D4;
+            --accent-red: #FF5252;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D2FF 100%);
+            --gradient-card: linear-gradient(145deg, rgba(19, 32, 72, 0.8) 0%, rgba(14, 23, 46, 0.9) 100%);
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Outfit', 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: #CBD5E1;
+            background: var(--bg-midnight);
+            padding: 1.5rem 1rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--bg-surface);
+            border-radius: 24px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 102, 255, 0.15);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 2.5rem 3rem;
+            background: linear-gradient(135deg, #0A132C 0%, #152656 100%);
+            border-bottom: 1px solid var(--border-glow);
+            position: relative;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.25s;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .back-link:hover {
+            background: rgba(0, 210, 255, 0.2);
+            border-color: var(--primary-glow);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .header-branding {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.4);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            object-fit: cover;
+        }
+
+        .header-section h1 {
+            color: white;
+            font-size: 2.4rem;
+            font-weight: 800;
+            font-family: var(--font-display);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .header-section .subtitle {
+            color: var(--primary-glow);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: #090F20;
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .tabs::-webkit-scrollbar-track {
+            background: #090F20;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 170px;
+            padding: 1.2rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: #FFFFFF;
+            background: rgba(0, 102, 255, 0.08);
+        }
+
+        .tab-button.active {
+            color: var(--primary-glow);
+            border-bottom-color: var(--primary-glow);
+            background: rgba(0, 102, 255, 0.12);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: #FFFFFF;
+            font-size: 1.85rem;
+            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            font-weight: 800;
+            font-family: var(--font-display);
+            border-bottom: 2px solid var(--border-glow);
+            padding-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #F1F5F9;
+            font-size: 1.35rem;
+            margin-bottom: 0.85rem;
+            margin-top: 1.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h4 {
+            color: #E2E8F0;
+            font-size: 1.1rem;
+            margin-bottom: 0.65rem;
+            margin-top: 1.25rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #CBD5E1;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            color: #CBD5E1;
+        }
+
+        li {
+            margin-bottom: 0.65rem;
+            line-height: 1.7;
+        }
+
+        li strong {
+            color: #FFFFFF;
+        }
+
+        /* Highlights / Callouts */
+        .highlight {
+            background: rgba(0, 102, 255, 0.08);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            border-left: 4px solid var(--primary-glow);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight.success {
+            background: rgba(0, 230, 118, 0.08);
+            border-color: rgba(0, 230, 118, 0.25);
+            border-left-color: var(--accent-green);
+        }
+
+        .highlight.warning {
+            background: rgba(255, 145, 0, 0.08);
+            border-color: rgba(255, 145, 0, 0.25);
+            border-left-color: var(--accent-orange);
+        }
+
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #FFFFFF;
+            font-weight: 500;
+        }
+
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.75rem 0;
+            background: #090F20;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #0E1A38 0%, #152656 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1.1rem 1.25rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary-glow);
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #CBD5E1;
+            font-size: 0.92rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(0, 102, 255, 0.05);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(135deg, #0E1A38 0%, #172D6B 100%);
+            border: 1px solid var(--border-glow);
+            color: white;
+            padding: 2.25rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 0.85rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-box p {
+            color: #E2E8F0;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box a {
+            color: var(--primary-glow);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .container {
+                border-radius: 16px;
+            }
+
+            .header-section {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .header-section h1 {
+                font-size: 1.85rem;
+            }
+
+            .tab-button {
+                min-width: 140px;
+                padding: 1rem 1.25rem;
+                font-size: 0.88rem;
+            }
+
+            .tab-content {
+                padding: 2rem 1.25rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+                display: block;
+                overflow-x: auto;
+            }
+
+            th, td {
+                padding: 0.85rem 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to SDM Landing Page</a>
+                <a href="../index.html" class="back-link"><i class="fas fa-globe"></i> SoftTech Service Home</a>
+            </div>
+            
+            <div class="header-branding">
+                <img src="icon.png" alt="SDM Icon" class="app-icon">
+                <div>
+                    <h1>SDM (SoftTech Download Manager)</h1>
+                    <p class="subtitle">Legal Information, Privacy Policy, Terms &amp; Licenses</p>
+                </div>
+            </div>
+
+            <div class="meta-info">
+                <span><i class="fas fa-calendar-check" style="color: var(--primary-glow);"></i> <strong>Last Updated:</strong> 2026-08-30</span>
+                <span><i class="fas fa-building" style="color: var(--accent-green);"></i> <strong>Developer:</strong> SoftTech Service</span>
+                <span><i class="fas fa-scale-balanced" style="color: var(--accent-purple);"></i> <strong>License:</strong> GNU GPLv3+</span>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">
+                        <i class="fas fa-user-shield"></i> Privacy Policy
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">
+                        <i class="fas fa-file-contract"></i> Terms &amp; Conditions
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">
+                        <i class="fas fa-code-branch"></i> GPLv3+ &amp; Open Source
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="permissions">
+                        <i class="fas fa-shield-halved"></i> Permissions Guide
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- TAB 1: PRIVACY POLICY -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <div class="highlight success">
+                    <p><strong>🔒 Summary: Zero Telemetry, 100% On-Device Execution</strong></p>
+                    <p>
+                        SDM is built with a strict privacy-first architecture. We do not track you, we do not collect your URLs or files, there are no user accounts, and zero analytical telemetry is sent to SoftTech Service or any third-party servers.
+                    </p>
+                </div>
+                <p>
+                    This Privacy Policy explains how <strong>SDM (SoftTech Download Manager)</strong> ("the application", "we", "us") handles information when you use our Android application.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-database"></i> 1. Information Handled Locally On Your Device</h2>
+                <p>
+                    All data created or entered in SDM remains exclusively on your local Android device storage within the app's protected sandbox and database:
+                </p>
+                <ul>
+                    <li><strong>Download Links &amp; Magnet URIs:</strong> URLs, magnet links, or torrent file paths entered manually or intercepted from your clipboard are stored locally in the app's Room database to manage active, paused, and completed download queues.</li>
+                    <li><strong>File Metadata &amp; State:</strong> Download progress, chunk verification checksums, download speeds, file names, file sizes, and custom organizational tags.</li>
+                    <li><strong>App Preferences:</strong> Your configured settings such as download speed limits, Wi-Fi only rules, charger rules, custom storage directory paths, and schedule timers.</li>
+                </ul>
+                <p>
+                    <strong>We have no access to this data.</strong> It is never uploaded, synced, or backed up to any cloud servers operated by SoftTech Service.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-ban"></i> 2. What We Do NOT Collect</h2>
+                <ul>
+                    <li><strong>No Personal Identifiable Information (PII):</strong> We do not ask for or collect names, email addresses, phone numbers, contacts, or passwords.</li>
+                    <li><strong>No Tracking or Analytics SDKs:</strong> SDM contains zero analytical trackers (such as Google Analytics, Firebase, Facebook SDK, AppsFlyer, etc.).</li>
+                    <li><strong>No Advertising Identifiers:</strong> SDM contains zero advertising frameworks or ad trackers.</li>
+                    <li><strong>No Browsing History or Search Logs:</strong> We do not log or monitor websites you visit or files you download.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-network-wired"></i> 3. Network Communication &amp; BitTorrent Swarms</h2>
+                <p>SDM requires network access solely to fulfill user-requested file downloads and BitTorrent swarm operations:</p>
+                <ul>
+                    <li><strong>HTTP/HTTPS Direct Downloads:</strong> The app connects directly to the server specified in the URL you provide to fetch byte ranges of your file.</li>
+                    <li><strong>BitTorrent Peer-to-Peer (P2P) Swarms:</strong> When initiating torrent or magnet downloads, the underlying C++ libtorrent engine connects to tracker servers, DHT (Distributed Hash Table) nodes, and peer swarms. In accordance with the fundamental architecture of the BitTorrent protocol, your IP address is visible to other swarm peers sharing the same pieces of the torrent.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-folder-open"></i> 4. Storage &amp; SAF (Storage Access Framework)</h2>
+                <p>
+                    SDM uses Android's modern <strong>Storage Access Framework (SAF)</strong>. You choose the specific folder on internal memory or external MicroSD storage where downloaded files will be written. SDM only accesses the directory tree you explicitly authorize.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-trash-can"></i> 5. Data Retention &amp; User Deletion Rights</h2>
+                <p>
+                    Because all data is stored strictly on your device:
+                </p>
+                <ul>
+                    <li>You can delete individual downloads or torrent sessions along with their downloaded files directly from the SDM UI.</li>
+                    <li>Clearing the app's storage in Android Settings or uninstalling the app permanently removes all local task records and configurations.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-child"></i> 6. Children's Privacy</h2>
+                <p>
+                    SDM does not knowingly collect or solicit any information from children under the age of 13. The app is a general-purpose download tool that operates entirely offline/client-side without user accounts.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-envelope"></i> 7. Contact Us</h2>
+                <p>If you have any questions or feedback regarding this Privacy Policy:</p>
+                <div class="contact-box">
+                    <h3>SoftTech Service Support</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: TERMS & CONDITIONS -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <h2><i class="fas fa-handshake"></i> 1. Acceptance of Terms</h2>
+                <p>
+                    By installing, running, or using <strong>SDM (SoftTech Download Manager)</strong>, you agree to be bound by these Terms &amp; Conditions. If you do not agree to these terms, do not install or use the application.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-scale-balanced"></i> 2. Lawful &amp; Responsible Use</h2>
+                <p>
+                    SDM is a high-speed utility application designed to facilitate network transfers via HTTP, HTTPS, and peer-to-peer BitTorrent protocols.
+                </p>
+                <ul>
+                    <li><strong>User Responsibility:</strong> You are solely responsible for all content, URLs, and torrents you download or share using SDM.</li>
+                    <li><strong>Copyright &amp; Intellectual Property:</strong> You agree to use SDM only to download content that you own, have licensed, or have legal permission to access in accordance with applicable laws in your jurisdiction.</li>
+                    <li><strong>No Illegal Activities:</strong> You agree not to use the application for any unlawful purposes, including but not limited to the unauthorized distribution of copyrighted material, malware, or malicious code.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-network-wired"></i> 3. BitTorrent P2P Protocol Disclosure</h2>
+                <p>
+                    You acknowledge and understand that BitTorrent is a decentralized peer-to-peer protocol. When downloading or seeding torrents:
+                </p>
+                <ul>
+                    <li>Your device participates in a distributed swarm and may upload pieces of downloaded files to other swarm members.</li>
+                    <li>Your IP address is broadcast to other peers in the swarm and DHT network as necessary to establish peer connections.</li>
+                    <li>SoftTech Service does not host, curate, control, or monitor any torrent files, magnet links, or download servers accessed by users.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-triangle-exclamation"></i> 4. Disclaimer of Warranties ("As Is")</h2>
+                <div class="highlight warning">
+                    <p>
+                        SDM IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+                    </p>
+                </div>
+                <p>
+                    SoftTech Service does not warrant that the application will be uninterrupted, error-free, completely immune to network timeouts, or compatible with every web server or torrent swarm.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-gavel"></i> 5. Limitation of Liability</h2>
+                <p>
+                    IN NO EVENT SHALL SOFTTECH SERVICE, ITS DEVELOPERS, OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING LOSS OF DATA, DEVICE DAMAGE, NETWORK OVERAGE CHARGES, OR INTERRUPTION OF BUSINESS) ARISING OUT OF THE USE OR INABILITY TO USE THIS APPLICATION.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-arrows-rotate"></i> 6. Updates &amp; Modifications</h2>
+                <p>
+                    We reserve the right to modify these Terms &amp; Conditions at any time. Updates will be posted on this page with an updated modification date. Continued use of SDM following any changes constitutes your acceptance of the updated terms.
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB 3: OPEN SOURCE & GPLv3+ LICENSE -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight success">
+                    <p><strong>Free &amp; Open Source Software (FOSS)</strong></p>
+                    <p>
+                        SDM is free software licensed under the <strong>GNU General Public License v3.0 or later (GPLv3+)</strong>. You are free to run, study, share, and modify the software in accordance with the terms of the GPLv3.
+                    </p>
+                </div>
+                <h2><i class="fas fa-book-open"></i> GNU General Public License v3.0 Summary</h2>
+                <p>
+                    Copyright &copy; 2026 SoftTech Service.
+                </p>
+                <p>
+                    This program is free software: you can redistribute it and/or modify it under the terms of the <strong>GNU General Public License</strong> as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+                </p>
+                <p>
+                    This program is distributed in the hope that it will be useful, but <strong>WITHOUT ANY WARRANTY</strong>; without even the implied warranty of <strong>MERCHANTABILITY</strong> or <strong>FITNESS FOR A PARTICULAR PURPOSE</strong>. See the GNU General Public License for more details.
+                </p>
+                <p>
+                    You can view the full text of the GNU General Public License at <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" style="color: var(--primary-glow);">https://www.gnu.org/licenses/gpl-3.0.html</a>.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-cubes"></i> Third-Party Open Source Libraries</h2>
+                <p>SDM utilizes the following open-source libraries and components:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component / Library</th>
+                            <th>Author / Project</th>
+                            <th>License</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>libtorrent</strong></td>
+                            <td>Arvid Norberg &amp; contributors</td>
+                            <td>BSD 3-Clause / Boost</td>
+                        </tr>
+                        <tr>
+                            <td><strong>libtorrent4j</strong></td>
+                            <td>FrostWire Project</td>
+                            <td>MIT License</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kotlin Coroutines &amp; Flow</strong></td>
+                            <td>JetBrains</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AndroidX &amp; Jetpack</strong></td>
+                            <td>Google LLC</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Material Components (M3)</strong></td>
+                            <td>Google LLC</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Room Database</strong></td>
+                            <td>Google LLC</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WorkManager</strong></td>
+                            <td>Google LLC</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-copyright"></i> Trademarks</h2>
+                <p>
+                    Android, Google Play, and the Google Play logo are trademarks of Google LLC. BitTorrent is a registered trademark of Rainberry, Inc. All other trademarks are the property of their respective owners.
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB 4: REQUIRED PERMISSIONS GUIDE -->
+        <div id="permissions" class="tab-content">
+            <div class="section">
+                <h2><i class="fas fa-shield-halved"></i> Android Permissions Breakdown</h2>
+                <p>
+                    SDM strictly adheres to Android's principle of least privilege. Every permission requested is essential to core download acceleration, battery management, or storage operations.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Category</th>
+                            <th>Why It Is Needed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FOREGROUND_SERVICE<br>&amp; DATA_SYNC</strong></td>
+                            <td>Core Background</td>
+                            <td>Keeps high-speed byte segments and torrent swarms active when you switch apps or lock your screen, preventing the OS from killing the transfer.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>POST_NOTIFICATIONS</strong></td>
+                            <td>User Interface</td>
+                            <td>Displays real-time download speeds, progress percentages, ETA, and quick Pause/Resume controls in the notification drawer.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SCHEDULE_EXACT_ALARM</strong></td>
+                            <td>Scheduling</td>
+                            <td>Allows the scheduler to start or stop scheduled downloads at exact user-specified times (such as off-peak midnight Wi-Fi windows).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RECEIVE_BOOT_COMPLETED</strong></td>
+                            <td>Scheduling</td>
+                            <td>Restores user-scheduled download alarms after your device is restarted so tasks fire accurately.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ACCESS_NETWORK_STATE<br>&amp; INTERNET</strong></td>
+                            <td>Network</td>
+                            <td>Transfers file data and detects whether the device is connected to unmetered Wi-Fi or cellular data to prevent overage charges.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WAKE_LOCK</strong></td>
+                            <td>Power</td>
+                            <td>Prevents the device CPU from entering deep sleep while active file segments are downloading.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage Access Framework (SAF)</strong></td>
+                            <td>File System</td>
+                            <td>Enables you to pick any folder on internal storage or external SD cards where completed files will be saved safely.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>💡 User Control Over Permissions</strong></p>
+                    <p>
+                        You can grant or revoke optional permissions at any time through your Android device settings (<em>Settings &gt; Apps &gt; SDM &gt; Permissions</em>). Note that disabling background foreground services or network access may prevent downloads from completing in the background.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Switching Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    button.classList.add('active');
+                    const targetElement = document.getElementById(targetTab);
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Handle URL hash direct linking
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license', 'permissions'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
