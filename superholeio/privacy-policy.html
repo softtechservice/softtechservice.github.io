@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - SuperHole.io | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms & Conditions, and License for SuperHole.io Android mobile game by SoftTech Service.">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #6D28D9;
+            --primary-light: #A78BFA;
+            --accent: #06B6D4;
+            --accent-light: #67E8F9;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #10B981;
+            --border-color: #E2E8F0;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1.5rem 1rem;
+        }
+        
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        .header-section {
+            padding: 2.5rem 3rem;
+            background: linear-gradient(135deg, #2E1065 0%, #4C1D95 50%, #0891B2 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.25s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            backdrop-filter: blur(8px);
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.28);
+            transform: translateY(-1px);
+        }
+        
+        .app-badge-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .header-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-section h1 {
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 170px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-gray);
+            transition: all 0.25s ease;
+            position: relative;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(139, 92, 246, 0.05);
+        }
+        
+        .tab-button.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary);
+            background: rgba(139, 92, 246, 0.06);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3.5rem;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            font-size: 1.85rem;
+            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            color: #1E293B;
+            font-size: 1.35rem;
+            margin-bottom: 0.85rem;
+            margin-top: 1.75rem;
+            font-weight: 700;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            color: var(--text-gray);
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: rgba(139, 92, 246, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.75rem 0;
+        }
+        
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.75rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #3B0764 0%, #4C1D95 100%);
+            color: white;
+        }
+        
+        th {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #2E1065 0%, #4C1D95 50%, #0891B2 100%);
+            color: white;
+            padding: 2.25rem;
+            border-radius: 14px;
+            margin-top: 2rem;
+            box-shadow: 0 8px 24px rgba(76, 29, 149, 0.25);
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: #67E8F9;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .notice-card {
+            background: #F8FAFC;
+            border: 1px solid #CBD5E1;
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .notice-card h4 {
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content {
+                padding: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .container {
+                border-radius: 12px;
+            }
+            
+            .header-section {
+                padding: 1.75rem 1.5rem;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+            }
+            
+            .tab-button {
+                min-width: 130px;
+                padding: 1rem 1.25rem;
+                font-size: 0.9rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.55rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            table {
+                font-size: 0.88rem;
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 1.5rem 1.25rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.65rem;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 0.35rem;
+            }
+            
+            .tab-button {
+                min-width: 110px;
+                padding: 0.85rem 0.75rem;
+                font-size: 0.82rem;
+            }
+            
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.35rem;
+            }
+            
+            p, li {
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Landing Page
+                </a>
+                <a href="../index.html" class="back-link">
+                    <i class="fas fa-home"></i> SoftTech Service Website
+                </a>
+            </div>
+            <div class="app-badge-inline">
+                <img src="icon.png" alt="SuperHole.io App Icon" class="header-logo">
+                <div>
+                    <h1>SuperHole.io</h1>
+                    <p class="subtitle">Legal Information &amp; Privacy Policies</p>
+                </div>
+            </div>
+            <div class="header-meta">
+                <span><strong>Last updated:</strong> September 2026</span>
+                <span><strong>Publisher:</strong> SoftTech Service</span>
+                <span><strong>Package:</strong> com.softtechservice.superholeio</span>
+            </div>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">
+                        <i class="fas fa-shield-alt"></i> Privacy Policy
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">
+                        <i class="fas fa-file-contract"></i> Terms &amp; Conditions
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">
+                        <i class="fas fa-certificate"></i> License &amp; Copyright
+                    </button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <!-- Section 1 -->
+            <div class="section">
+                <h2>1. Introduction</h2>
+                <p>
+                    Welcome to <strong>SuperHole.io</strong>. We respect your privacy and are committed to protecting any information associated with your use of our mobile game.
+                </p>
+                <p>
+                    This Privacy Policy explains how our game operates, what data is processed, and our strict commitment to data minimization. SuperHole.io is designed from the ground up to be a privacy-safe, offline-friendly arcade game suitable for players of all ages.
+                </p>
+            </div>
+            
+            <!-- Section 2 -->
+            <div class="section">
+                <h2>2. Information We Do NOT Collect</h2>
+                <p>
+                    SuperHole.io adheres to a strict "no-surveillance, no-account" philosophy:
+                </p>
+                <ul>
+                    <li><strong>No Personal Identification Information:</strong> We do not ask for, collect, or store your name, email address, physical address, phone number, age, or gender.</li>
+                    <li><strong>No Account Creation:</strong> You do not need to register, log in with social media (e.g., Google Sign-In, Facebook, Apple), or create any online profile to play the full game.</li>
+                    <li><strong>No Sensitive Permissions:</strong> The app does not request or access your device camera, microphone, contacts, photos, files, or precise GPS location.</li>
+                </ul>
+            </div>
+            
+            <!-- Section 3 -->
+            <div class="section">
+                <h2>3. Information Processed On Your Device (Local Storage)</h2>
+                <p>
+                    To provide a seamless gaming experience, SuperHole.io stores non-personal game state locally on your physical device using Flutter's <code>SharedPreferences</code> engine.
+                </p>
+                
+                <h3>Data stored locally includes:</h3>
+                <ul>
+                    <li><strong>Campaign Progression:</strong> Highest unlocked level number (Levels 1–60) and earned stars (1 to 3 stars per level).</li>
+                    <li><strong>Virtual Currency:</strong> Virtual coin balances earned through gameplay or daily login streaks.</li>
+                    <li><strong>Unlocked Cosmetics &amp; Worlds:</strong> Unlocked hole skins (e.g., Nebula Violet, Cyber Neon, Solar Flare, Toxic Emerald, Crimson Eclipse, Golden Singularity) and active world themes (Supermarket Rush, Cosmic Galaxy, Deep Jungle).</li>
+                    <li><strong>Game Settings:</strong> Audio toggles (SFX and Music volume) and haptic vibration preferences.</li>
+                    <li><strong>Daily Rewards Timestamp:</strong> Last login date to calculate daily login bonuses.</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Important:</strong> This data is stored entirely on your local device storage. We do not transmit, sync, or backup this gameplay data to our own external servers.</p>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="section">
+                <h2>4. Third-Party Services &amp; Network Access</h2>
+                <p>
+                    SuperHole.io integrates trusted third-party SDKs to provide advertisements and app updates. These third parties may process pseudonymous technical information in compliance with their respective privacy policies.
+                </p>
+
+                <h3>A. Google Mobile Ads (AdMob)</h3>
+                <p>
+                    We use Google AdMob to deliver interstitial ads and optional rewarded video advertisements (which allow players to earn in-game coins or extra game time).
+                </p>
+                <ul>
+                    <li><strong>Data Collected by AdMob:</strong> AdMob may collect pseudonymous identifiers (such as Android Advertising ID), device telemetry, IP address (for general geolocation/country routing), and ad interaction metrics to deliver ads, prevent fraudulent traffic, and monitor ad performance.</li>
+                    <li><strong>Non-Personalized Ads:</strong> For players subject to COPPA, GDPR, or who have opted out of personalized advertising on their Android device, ad requests are configured to non-personalized modes.</li>
+                    <li><strong>Google Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
+                    <li><strong>Google Advertising Policies:</strong> <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">https://policies.google.com/technologies/ads</a></li>
+                </ul>
+
+                <h3>B. Google Play In-App Updates</h3>
+                <p>
+                    We utilize Google Play's In-App Update API to notify you when a newer version of SuperHole.io is available on the Google Play Store, ensuring you have the latest performance improvements and bug fixes.
+                </p>
+                <ul>
+                    <li><strong>Governed by Google Play Services Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="section">
+                <h2>5. Device Permissions Used</h2>
+                <p>
+                    SuperHole.io requests only the bare minimum permissions required for core functionality:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Technical Name</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Internet Access</strong></td>
+                            <td><code>android.permission.INTERNET</code></td>
+                            <td>Required to request AdMob advertisements and query Google Play for app updates. Core gameplay works 100% offline.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Network State</strong></td>
+                            <td><code>android.permission.ACCESS_NETWORK_STATE</code></td>
+                            <td>Allows the app to detect connectivity before attempting ad or update requests.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vibration / Haptics</strong></td>
+                            <td><code>android.permission.VIBRATE</code></td>
+                            <td>Powers subtle tactile haptic feedback when swallowing objects or collecting items (can be disabled in Settings).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="section">
+                <h2>6. Children’s Privacy (COPPA &amp; Family Policy Compliance)</h2>
+                <p>
+                    SuperHole.io is designed for a general audience and family entertainment:
+                </p>
+                <ul>
+                    <li>We do not knowingly collect personal identifiable information from children under the age of 13 (or under 16 in the European Union).</li>
+                    <li>Ads displayed in the game comply with Google Play's Families Policy and advertising standards.</li>
+                    <li>If you are a parent or guardian and believe that your child has provided personal information or if you have any questions regarding our ad configurations, please contact us immediately at <a href="mailto:support@softtechservice.com">support@softtechservice.com</a> so we can promptly address your concern.</li>
+                </ul>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="section">
+                <h2>7. Data Retention and Deletion</h2>
+                <p>
+                    Because all gameplay progress and preferences reside strictly within your device's local application sandbox:
+                </p>
+                <ul>
+                    <li><strong>Clearing Data:</strong> You can permanently erase all game data at any time by going to <strong>Android Settings &gt; Apps &gt; SuperHole.io &gt; Storage &gt; Clear Data / Clear Storage</strong>.</li>
+                    <li><strong>Uninstalling:</strong> Uninstalling the SuperHole.io application from your device permanently deletes all locally saved coins, skins, and level progress.</li>
+                    <li><strong>Third-Party Ad Identifiers:</strong> You can reset or delete your device's Google Advertising ID at any time via <strong>Android Settings &gt; Google &gt; Ads &gt; Reset advertising ID / Delete advertising ID</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="section">
+                <h2>8. Security</h2>
+                <p>
+                    We prioritize the security of our players. We do not maintain any cloud databases holding user profiles or passwords. All communication with third-party service providers (such as Google AdMob) occurs exclusively through encrypted protocols (HTTPS / SSL).
+                </p>
+            </div>
+
+            <!-- Section 9 -->
+            <div class="section">
+                <h2>9. Changes to This Privacy Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time to reflect changes in our legal obligations, third-party SDK updates, or new game features. We encourage you to review this policy periodically. Any changes will be indicated by updating the "Last updated" date at the top of this document and will be accessible directly within the game's Settings menu.
+                </p>
+            </div>
+
+            <!-- Contact Box -->
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <h3>Developer &amp; Publisher Support</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Application:</strong> SuperHole.io (<code>com.softtechservice.superholeio</code>)</p>
+                    <p><strong>Email:</strong> <a href="mailto:support@softtechservice.com">support@softtechservice.com</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>
+                    By downloading, installing, or playing <strong>SuperHole.io</strong>, you agree to be bound by these Terms &amp; Conditions.
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    SuperHole.io is provided for your personal, non-commercial entertainment. If you do not agree with any part of these terms, please discontinue using and uninstall the application immediately.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>2. Virtual Goods &amp; In-Game Currency</h2>
+                <ul>
+                    <li>Coins and skins earned in SuperHole.io are purely virtual items intended exclusively for in-game cosmetic progression.</li>
+                    <li>Virtual currency has no real-world monetary value and cannot be exchanged, refunded, transferred, or redeemed for cash.</li>
+                    <li>All virtual currency balances and cosmetic unlocks reside strictly within your local device storage.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Offline Gameplay &amp; Advertisements</h2>
+                <ul>
+                    <li>SuperHole.io is fully playable without an active internet connection.</li>
+                    <li>When an internet connection is present, the app may display advertisements provided by Google AdMob. Players may optionally watch rewarded ads to earn bonus coins or extra game time.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Intellectual Property</h2>
+                <p>
+                    All visual designs, 3D artwork, user interfaces, branding, audio compositions, game levels, code, and trade dress associated with SuperHole.io are the exclusive intellectual property of <strong>SoftTech Service</strong>. You may not reverse-engineer, decompile, redistribute, or create derivative works without express written authorization.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>5. Disclaimer of Warranties</h2>
+                <div class="highlight">
+                    <p>
+                        THE APPLICATION IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. SOFTTECH SERVICE DISCLAIMS ALL WARRANTIES, INCLUDING FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6. Limitation of Liability</h2>
+                <p>
+                    In no event shall SoftTech Service, its developers, or affiliates be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use the game, including data loss caused by clearing device storage or uninstalling the app.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>7. Governing Law &amp; Updates to Terms</h2>
+                <p>
+                    These terms are governed by applicable local and international commercial laws. We reserve the right to update these terms at our discretion. Continued use of the game following updates constitutes acceptance of the new terms.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>📧 Questions Regarding Terms?</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:support@softtechservice.com">support@softtechservice.com</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">
+                        This software, game logic, 3D assets, and associated documentation files (the "Software") are proprietary and confidential. Unauthorized copying, modification, distribution, extraction, or use of this software, via any medium, is strictly prohibited without the express written permission of SoftTech Service.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Third-Party Open Source Software Acknowledgments</h2>
+                <p>
+                    SuperHole.io is built using world-class open-source libraries and frameworks. We gratefully acknowledge the following components:
+                </p>
+                
+                <div class="notice-card">
+                    <h4>Flutter Framework</h4>
+                    <p>Copyright (c) 2014 The Flutter Authors. Licensed under the BSD 3-Clause License.</p>
+                </div>
+
+                <div class="notice-card">
+                    <h4>shared_preferences</h4>
+                    <p>Copyright (c) 2013 The Chromium Authors. Licensed under the BSD 3-Clause License.</p>
+                </div>
+
+                <div class="notice-card">
+                    <h4>google_mobile_ads (Google AdMob Flutter Plugin)</h4>
+                    <p>Copyright (c) 2021 Google LLC. Licensed under the Apache License, Version 2.0.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Software Warranty Disclaimer</h2>
+                <div class="highlight">
+                    <p>
+                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:support@softtechservice.com">support@softtechservice.com</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    const targetContent = document.getElementById(targetTab);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+            
+            // Handle URL hash for direct tab access (e.g. #terms, #license, #privacy)
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const targetButton = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
