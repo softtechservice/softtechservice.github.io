@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - Zuma.io: Marble Shooter | SoftTech Service</title>
+    <meta name="description" content="Official Privacy Policy, Google Play Data Safety Declarations, and Terms of Service for Zuma.io: Marble Shooter by SoftTech Service.">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0F766E;
+            --primary-dark: #042F2E;
+            --primary-light: #14B8A6;
+            --accent: #D97706;
+            --accent-gold: #F59E0B;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #10B981;
+            --danger: #EF4444;
+            --border-color: #E2E8F0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1.5rem 1rem;
+        }
+        
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: 0 6px 24px rgba(4, 47, 46, 0.09);
+            overflow: hidden;
+            border: 1px solid rgba(15, 118, 110, 0.12);
+        }
+        
+        .header-section {
+            padding: 2.75rem 3rem 2.25rem;
+            background: linear-gradient(135deg, #042F2E 0%, #0F766E 60%, #115E59 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: all 0.25s;
+            padding: 0.5rem 1.15rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.28);
+            transform: translateX(-2px);
+        }
+        
+        .app-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #FBBF24;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .header-section .subtitle {
+            color: #99F6E4;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .header-section p.meta-dates {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.88rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 175px;
+            padding: 1.2rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-gray);
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(15, 118, 110, 0.04);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(15, 118, 110, 0.05);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3.25rem 3rem;
+            animation: fadeIn 0.28s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.85rem;
+            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            font-weight: 800;
+            border-bottom: 2px solid rgba(15, 118, 110, 0.25);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #0F172A;
+            font-size: 1.35rem;
+            margin-bottom: 0.85rem;
+            margin-top: 1.75rem;
+            font-weight: 700;
+        }
+        
+        h4 {
+            color: #1E293B;
+            font-size: 1.12rem;
+            margin-bottom: 0.65rem;
+            margin-top: 1.35rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            color: var(--text-gray);
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: rgba(15, 118, 110, 0.05);
+            padding: 1.4rem 1.6rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-alert {
+            background: rgba(217, 119, 6, 0.06);
+            padding: 1.4rem 1.6rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight p, .highlight-alert p {
+            margin-bottom: 0.4rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child, .highlight-alert p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.75rem 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-color);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 0.92rem;
+        }
+        
+        thead {
+            background: #042F2E;
+            color: white;
+        }
+        
+        th {
+            padding: 1rem 1.15rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        td {
+            padding: 1rem 1.15rem;
+            border-bottom: 1px solid #F1F5F9;
+            color: var(--text-gray);
+            vertical-align: top;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .pill-no {
+            background: #DEF7EC;
+            color: #03543F;
+        }
+
+        .pill-opt {
+            background: #FEF08A;
+            color: #854D0E;
+        }
+
+        .pill-na {
+            background: #F1F5F9;
+            color: #475569;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #042F2E 0%, #0F766E 100%);
+            color: white;
+            padding: 2.25rem 2.5rem;
+            border-radius: 14px;
+            margin-top: 2.5rem;
+            box-shadow: 0 8px 24px rgba(4, 47, 46, 0.15);
+        }
+        
+        .contact-box h3 {
+            color: #FBBF24;
+            margin-top: 0;
+            margin-bottom: 0.85rem;
+            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: #5EEAD4;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .code-inline {
+            font-family: 'JetBrains Mono', monospace;
+            background: #F1F5F9;
+            color: var(--primary-dark);
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            font-size: 0.88rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.75rem 0.5rem;
+            }
+            
+            .header-section {
+                padding: 1.75rem 1.25rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.85rem;
+            }
+            
+            .tab-button {
+                min-width: 140px;
+                padding: 0.95rem 1rem;
+                font-size: 0.88rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.25rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Zuma.io Home
+                </a>
+                <span class="app-pill"><i class="fas fa-shield-halved"></i> Verified Policy</span>
+            </div>
+            <h1>Zuma.io: Privacy Policy &amp; Terms</h1>
+            <p class="subtitle">Complete Privacy Disclosures, Data Safety Declarations &amp; Legal Terms</p>
+            <p class="meta-dates">Applicable to Android Package: Zuma.io: Marble Shooter • SoftTech Service • Effective Date: January 1, 2025 (Last Revised: 2026)</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs-container">
+            <ul class="tabs" role="tablist">
+                <li>
+                    <button class="tab-button active" data-tab="privacy" role="tab" aria-selected="true">
+                        <i class="fas fa-user-shield"></i> Privacy Policy
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="datasafety" role="tab" aria-selected="false">
+                        <i class="fas fa-table-list"></i> Google Play Data Safety
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms" role="tab" aria-selected="false">
+                        <i class="fas fa-file-contract"></i> Terms &amp; Conditions
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="licenses" role="tab" aria-selected="false">
+                        <i class="fas fa-code-branch"></i> Third-Party &amp; Architecture
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- TAB 1: PRIVACY POLICY -->
+        <div id="privacy" class="tab-content active" role="tabpanel">
+            <div class="section">
+                <h2>1. Foundational Privacy Principles</h2>
+                <p>
+                    <strong>Zuma.io: Marble Shooter</strong> ("the Game", "the App") is developed and maintained by <strong>SoftTech Service</strong> ("we", "us", "our"). 
+                    We believe casual mobile games should respect player privacy without compromises. Zuma.io is built from the ground up with <strong>privacy as a foundational engineering principle</strong>:
+                </p>
+                <ul>
+                    <li><strong>No User Accounts:</strong> No registration, email address, password, social network integration, or user identity creation is ever required or requested to play the game.</li>
+                    <li><strong>No Personal Data Collection:</strong> We do not collect, request, harvest, or store your name, phone number, physical address, contacts, microphone audio, camera stream, or biometric identifiers.</li>
+                    <li><strong>No Intrusive Telemetry:</strong> Zuma.io implements a privacy-minimal, zero-PII abstract analytics seam (<code class="code-inline">GameplayAnalytics</code>). In production builds, this resolves to an internal no-op adapter that transmits zero player aim traces, zero session timelines, and zero personal device identifiers to any external server.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. 100% Local Storage Only</h2>
+                <div class="highlight">
+                    <p><strong>Offline-First &amp; Device-Encrypted:</strong> All user game data is stored exclusively on your local Android device using the operating system's sandboxed, encrypted SharedPreferences.</p>
+                </div>
+                <p>Locally retained data includes:</p>
+                <ul>
+                    <li>Completed campaign levels (1 to 50) and earned stars (out of 150 possible).</li>
+                    <li>Highest achieved scores and cascade combo records.</li>
+                    <li>Unlocked mystical narrative worlds (Jungle, Temple, Volcano, Sky Sanctuary, Eclipse).</li>
+                    <li>Tactical booster inventory earned in-game (Bomb, Color Splash, Lightning, Time Freeze).</li>
+                    <li>Player preferences: Music and sound effect volume levels, mute flags, graphic quality preset (Low, Medium, High), and Reduced Motion setting.</li>
+                </ul>
+                <p>
+                    <strong>Data Control &amp; Deletion:</strong> Players have total control over their saved progress at all times. 
+                    Navigating to <strong>Settings → Reset Progress</strong> completely purges all local game data and resets the app to factory defaults. 
+                    Furthermore, uninstalling Zuma.io or clearing the app storage via Android OS settings permanently wipes all locally stored files.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>3. Advertising &amp; Google UMP Consent Management</h2>
+                <p>
+                    Zuma.io is a free-to-play offline puzzle game supported by non-intrusive mobile advertising provided through the <strong>Google Mobile Ads SDK (Google AdMob)</strong>.
+                </p>
+                
+                <h3>A. Google User Messaging Platform (UMP)</h3>
+                <p>
+                    To comply with strict international privacy directives—including the European Union General Data Protection Regulation (<strong>GDPR</strong>), 
+                    the United Kingdom GDPR, and the California Consumer Privacy Act / California Privacy Rights Act (<strong>CCPA/CPRA</strong>)—Zuma.io integrates 
+                    Google's User Messaging Platform (UMP) SDK.
+                </p>
+                <ul>
+                    <li>Prior to requesting or serving any advertisement, the app presents a standardized, legally binding consent dialog in applicable regulatory regions.</li>
+                    <li>Players may accept, reject, or customize partner data processing and personalized advertising preferences.</li>
+                </ul>
+
+                <h3>B. Fail-Closed Privacy Logic</h3>
+                <p>
+                    Our game code operates under strict <strong>fail-closed privacy logic</strong>: If consent resolution fails, if consent is denied, or if you are playing completely offline, 
+                    ad requests are strictly halted. The game remains 100% playable offline without any penalty, paywall, or loss of features.
+                </p>
+
+                <h3>C. Re-Open Consent Preferences Anytime</h3>
+                <p>
+                    Consent is never a one-way decision. In regions where privacy regulations apply, players can re-examine, modify, or revoke their consent preferences at any time directly inside the game:
+                </p>
+                <ol>
+                    <li>Tap the <strong>Settings</strong> gear icon on the home screen or pause menu.</li>
+                    <li>Tap <strong>Privacy Choices</strong> to immediately re-launch the official Google UMP consent form.</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>4. Child Protection &amp; Under-Age Tagging (COPPA &amp; GDPR-K)</h2>
+                <p>
+                    Zuma.io is committed to the protection of children's digital safety and complies with the Children's Online Privacy Protection Act (<strong>COPPA</strong>), 
+                    the European Union General Data Protection Regulation regarding children (<strong>GDPR-K</strong>), and the Google Play Families Policy.
+                </p>
+                <div class="highlight-alert">
+                    <p><strong>Compile-Time Compliance Gating:</strong> In production builds, Zuma.io strictly requires an owner-approved compile-time flag <code class="code-inline">--dart-define=ZUMA_TAG_FOR_UNDER_AGE=true|false</code>. The build intentionally fails closed if this flag is omitted or malformed.</p>
+                </div>
+                <p>
+                    When configured for child-directed audiences or when under-age users are indicated, the Google Mobile Ads SDK sets:
+                </p>
+                <ul>
+                    <li><code class="code-inline">tagForUnderAgeOfConsent = true</code></li>
+                    <li><code class="code-inline">tagForChildDirectedTreatment = true</code></li>
+                    <li>Disables personalized ads, behavioral profiling, and interest-based remarketing.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5. In-App Privacy Controls</h2>
+                <p>Zuma.io puts direct, transparent controls into the hands of the player:</p>
+                <ul>
+                    <li><strong>Open Official Privacy Policy:</strong> Tap Settings → Privacy Policy to inspect this document at any time via your system's secure browser.</li>
+                    <li><strong>Privacy Choices (Consent Management):</strong> Modify or revoke AdMob and cookie preferences at will.</li>
+                    <li><strong>Reset Progress:</strong> Instantly wipe all campaign stars, unlocked stages, and local scores.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6. Security of Data &amp; Communications</h2>
+                <p>
+                    Any external network transmission triggered by the application—such as Google UMP consent fetching, Google Mobile Ads mediation requests, 
+                    or opening external legal resources—is enforced exclusively through encrypted, authenticated <strong>HTTPS</strong> protocols (TLS 1.2+). 
+                    No unencrypted HTTP connections are permitted in production builds.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>7. Contact Information</h2>
+                <div class="contact-box">
+                    <h3><i class="fas fa-envelope"></i> SoftTech Service Privacy Team</h3>
+                    <p>If you have any questions, feedback, or inquiries regarding our privacy standards or data safety practices, please contact us at:</p>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Official Inquiries:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank" rel="noopener">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: GOOGLE PLAY DATA SAFETY -->
+        <div id="datasafety" class="tab-content" role="tabpanel">
+            <div class="section">
+                <h2>Google Play Console Data Safety Declarations</h2>
+                <p>
+                    The following table provides the precise, pre-cleared declarations submitted for Zuma.io on the Google Play Console Data Safety section. 
+                    It accurately reflects our client-side architecture and third-party advertising SDK handling:
+                </p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Data Type</th>
+                                <th>Collected?</th>
+                                <th>Shared?</th>
+                                <th>Purpose</th>
+                                <th>Optional / Mandatory</th>
+                                <th>Encrypted in Transit?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Location</strong></td>
+                                <td>Approximate / Precise Location</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>N/A (Game does not access GPS or coarse location)</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Personal Info</strong></td>
+                                <td>Name, Email, Phone, Physical Address, User IDs</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>N/A (No registration, no sign-in, no social login)</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Financial Info</strong></td>
+                                <td>Credit Card, Bank details, Purchase History</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>N/A (Zuma.io has zero In-App Purchases / No IAP)</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>App Activity</strong></td>
+                                <td>In-app actions, marble aim traces, gameplay inputs</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>Gameplay is processed 100% client-side via pure Dart simulation</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>App Info &amp; Performance</strong></td>
+                                <td>Diagnostics, crash logs, ANR traces</td>
+                                <td><span class="status-pill pill-opt">Optional</span></td>
+                                <td><span class="status-pill pill-opt">Play Console</span></td>
+                                <td>App performance, stability &amp; bug fixes (aggregated via Google Play Services)</td>
+                                <td>Automatic via Play Services</td>
+                                <td><strong>Yes (HTTPS)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Device or Other IDs</strong></td>
+                                <td>Android Advertising ID (AAID)</td>
+                                <td>Handled by Google Mobile Ads</td>
+                                <td>Shared with Google AdMob</td>
+                                <td>Advertising, attribution &amp; fraud prevention (subject to UMP consent)</td>
+                                <td>Optional (User can opt out via UMP or Android OS ad settings)</td>
+                                <td><strong>Yes (HTTPS)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Data Deletion Mechanism</h3>
+                <div class="highlight">
+                    <p><strong>Complete User Control:</strong> Players can delete all locally stored game progression, earned stars, and booster inventories at any time by selecting <strong>Settings → Reset Progress</strong> in-game, or by clearing application storage in Android OS settings. Because no cloud account exists, no remote records remain upon deletion.</p>
+                </div>
+
+                <h3>Network Security</h3>
+                <p>
+                    All external network transmissions (including Google UMP consent queries, legal privacy policy links, and AdMob banner/rewarded requests) 
+                    are strictly transmitted over encrypted HTTPS connections using modern TLS protocols.
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB 3: TERMS & CONDITIONS -->
+        <div id="terms" class="tab-content" role="tabpanel">
+            <div class="section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    By downloading, installing, accessing, or playing <strong>Zuma.io: Marble Shooter</strong>, you agree to be bound by these Terms &amp; Conditions. 
+                    If you do not agree with any portion of these terms, please discontinue use and uninstall the application immediately.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>2. Intellectual Property Rights</h2>
+                <p>
+                    All title, ownership rights, and intellectual property rights in and to Zuma.io—including but not limited to the pure-Dart simulation algorithms, 
+                    track geometry, custom boss controllers, graphics, audio compositions, visual particle systems, and the "Zuma.io" brand name—are the proprietary property of <strong>SoftTech Service</strong>.
+                </p>
+                <p>
+                    You are granted a limited, personal, non-exclusive, non-transferable, revocable license to install and play the application on authorized Android devices solely for personal entertainment.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>3. Prohibited Conduct</h2>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Decompile, reverse engineer, disassemble, or attempt to derive source code from the compiled Android APK or AAB bundle.</li>
+                    <li>Modify, adapt, translate, or create derivative works based upon Zuma.io.</li>
+                    <li>Exploit cheats, automated aim bots, memory injection tools, or unauthorized modifications to manipulate game scores or star progression.</li>
+                    <li>Redistribute, sublicense, rent, lease, or commercially exploit any part of the software.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Disclaimer of Warranties</h2>
+                <div class="highlight">
+                    <p><strong>PROVIDED "AS IS":</strong> ZUMA.IO AND ALL ASSOCIATED MATERIALS ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. SOFTTECH SERVICE DOES NOT WARRANT THAT THE OPERATION OF THE GAME WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE FROM HARMFUL COMPONENTS.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <div class="highlight">
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL SOFTTECH SERVICE, ITS DIRECTORS, EMPLOYEES, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR IN CONNECTION WITH YOUR ACCESS TO, USE OF, OR INABILITY TO USE THE APPLICATION.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6. Modifications to Terms</h2>
+                <p>
+                    SoftTech Service reserves the right to revise or update these terms at any time. Any changes will be published directly on this webpage with an updated revision date. 
+                    Continued use of the game following any revisions constitutes your acceptance of the new terms.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>7. Governing Law</h2>
+                <p>
+                    These Terms shall be governed by and construed in accordance with applicable governing laws, without giving effect to any principles of conflicts of law.
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB 4: THIRD-PARTY & ARCHITECTURE -->
+        <div id="licenses" class="tab-content" role="tabpanel">
+            <div class="section">
+                <h2>Software Architecture &amp; Open Source Acknowledgements</h2>
+                <p>
+                    Zuma.io is proudly built using industry-leading open-source technologies. We acknowledge and thank the following frameworks and libraries for their contributions:
+                </p>
+
+                <h3>Core Frameworks &amp; Engines</h3>
+                <ul>
+                    <li><strong>Flutter Framework:</strong> Copyright &copy; Google LLC. Licensed under the BSD 3-Clause License.</li>
+                    <li><strong>Flame Game Engine:</strong> 2D game engine built on top of Flutter. Licensed under the MIT License.</li>
+                    <li><strong>Dart Programming Language:</strong> Copyright &copy; Google LLC. Licensed under the BSD 3-Clause License.</li>
+                </ul>
+
+                <h3>Platform Integrations &amp; Utilities</h3>
+                <ul>
+                    <li><strong>google_mobile_ads:</strong> Google Mobile Ads SDK for Flutter (Apache 2.0 License).</li>
+                    <li><strong>in_app_review:</strong> Android In-App Review API integration (MIT License).</li>
+                    <li><strong>in_app_update:</strong> Android In-App Flexible/Immediate Update client (Apache 2.0 License).</li>
+                    <li><strong>share_plus:</strong> Flutter Community native share sheet plugin (BSD 3-Clause License).</li>
+                    <li><strong>url_launcher:</strong> Secure URL launching utility for HTTPS privacy policies (BSD 3-Clause License).</li>
+                    <li><strong>shared_preferences:</strong> Android SharedPreferences local storage wrapper (BSD 3-Clause License).</li>
+                </ul>
+
+                <h3>Architectural Principles</h3>
+                <div class="highlight">
+                    <p><strong>Separation of Simulation &amp; Rendering:</strong> The simulation core (<code class="code-inline">lib/core/</code>) runs at 1/120-second fixed time steps with zero dependencies on Flutter, Flame, or AdMob, guaranteeing 100% deterministic game states and robust unit testability.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Contact Information</h2>
+                <div class="contact-box">
+                    <h3>SoftTech Service Legal &amp; Development</h3>
+                    <p>For inquiries regarding licensing, technical architecture, or enterprise partnerships:</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Web:</strong> <a href="https://softtechservice.site" target="_blank" rel="noopener">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Functionality Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            function activateTab(tabId) {
+                // Remove active class
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Activate target
+                const targetBtn = document.querySelector(`[data-tab="${tabId}"]`);
+                const targetContent = document.getElementById(tabId);
+                
+                if (targetBtn && targetContent) {
+                    targetBtn.classList.add('active');
+                    targetBtn.setAttribute('aria-selected', 'true');
+                    targetContent.classList.add('active');
+                }
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    activateTab(targetTab);
+                    window.location.hash = targetTab;
+                });
+            });
+            
+            // Handle URL hash for direct tab linking
+            const currentHash = window.location.hash.substring(1);
+            if (currentHash && ['privacy', 'datasafety', 'terms', 'licenses'].includes(currentHash)) {
+                activateTab(currentHash);
+            }
+        });
+    </script>
+</body>
+</html>

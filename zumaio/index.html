@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuma.io: Marble Shooter - Portrait Puzzle Game for Android | SoftTech Service</title>
+    <meta name="description" content="Aim, match marbles, and stop the chain! Blast through 50 fun puzzle levels across 5 ancient mystical worlds in Zuma.io for Android. Built with Flutter and Flame engine.">
+    <meta name="keywords" content="Zuma.io, marble shooter, match 3 puzzle, Android game, Flame engine, Flutter game, offline puzzle game, SoftTech Service">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Zuma.io: Marble Shooter | Ancient Action-Puzzle Game">
+    <meta property="og:description" content="Aim your frog totem, match vibrant spheres, and blast rolling marble chains across 50 handcrafted & deterministic levels.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://softtechservice.site/zumaio/">
+    <meta property="og:image" content="https://softtechservice.site/zumaio/banner.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://softtechservice.site/zumaio/banner.png">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F766E;
+            --primary-dark: #042F2E;
+            --primary-light: #14B8A6;
+            --accent: #D97706;
+            --accent-gold: #F59E0B;
+            --accent-glow: rgba(245, 158, 11, 0.35);
+            --jade: #10B981;
+            --ruby: #EF4444;
+            --sapphire: #3B82F6;
+            --amethyst: #8B5CF6;
+            --lightning: #FBBF24;
+            --ice: #06B6D4;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --bg-dark-slate: #061B16;
+            --card-border: rgba(15, 118, 110, 0.12);
+            --shadow-sm: 0 2px 8px rgba(15, 118, 110, 0.08);
+            --shadow-md: 0 6px 20px rgba(15, 118, 110, 0.12);
+            --shadow-lg: 0 12px 36px rgba(4, 47, 46, 0.18);
+            --gradient-primary: linear-gradient(135deg, #0F766E 0%, #047857 50%, #D97706 100%);
+            --gradient-hero: linear-gradient(135deg, #042F2E 0%, #0F766E 40%, #061B16 100%);
+            --gradient-gold: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .ancient-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .mono-code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(15, 118, 110, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .brand-logo img {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .brand-sub {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.nav-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(15, 118, 110, 0.25);
+        }
+
+        .nav-links a.nav-btn:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 5rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 30%, rgba(20, 184, 166, 0.2) 0%, transparent 45%),
+                radial-gradient(circle at 85% 70%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(16, 185, 129, 0.15) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1rem;
+            background: rgba(20, 184, 166, 0.18);
+            border: 1px solid rgba(20, 184, 166, 0.4);
+            color: #5EEAD4;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .badge i {
+            color: var(--accent-gold);
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #F59E0B 0%, #FEF08A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.35rem;
+            color: #99F6E4;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 2.25rem;
+            line-height: 1.75;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            background: rgba(4, 47, 46, 0.6);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(20, 184, 166, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #FBBF24;
+            display: block;
+            line-height: 1.1;
+            font-family: 'Cinzel', serif;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.75);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 1.85rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: #042F2E;
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5);
+            color: #042F2E;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: rgba(255, 255, 255, 0.6);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Media / Banner Mockup */
+        .hero-preview {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .preview-card {
+            position: relative;
+            background: rgba(6, 27, 22, 0.85);
+            border: 2px solid rgba(245, 158, 11, 0.4);
+            border-radius: 20px;
+            padding: 0.75rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .preview-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .preview-card:hover img {
+            transform: scale(1.02);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            background: rgba(4, 47, 46, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+        }
+
+        .floating-badge i {
+            color: #F59E0B;
+            font-size: 1.5rem;
+        }
+
+        .floating-badge span {
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
+        /* Main Section Container */
+        .section {
+            padding: 5.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.35rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.25;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Feature Cards Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2.25rem 2rem;
+            border-radius: 18px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.65rem;
+            margin-bottom: 1.25rem;
+            background: rgba(15, 118, 110, 0.1);
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover .feature-icon-box {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1.25rem;
+            border-top: 1px dashed rgba(15, 118, 110, 0.15);
+            padding-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.45rem 0;
+            color: var(--text-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            font-size: 0.92rem;
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Banner Highlight Strip */
+        .highlight-section {
+            background: linear-gradient(135deg, #042F2E 0%, #0F766E 100%);
+            color: white;
+            padding: 4.5rem 2.5rem;
+            border-radius: 24px;
+            margin: 3rem auto 5rem;
+            max-width: 1200px;
+            text-align: center;
+            box-shadow: 0 16px 40px rgba(4, 47, 46, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .highlight-section h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .highlight-section p {
+            font-size: 1.15rem;
+            opacity: 0.92;
+            max-width: 850px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        /* Special Marbles Showcase */
+        .marbles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .marble-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            border: 1px solid rgba(15, 118, 110, 0.12);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .marble-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .marble-badge-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .marble-bomb { background: radial-gradient(circle at 30% 30%, #F87171, #991B1B); color: white; }
+        .marble-slow { background: radial-gradient(circle at 30% 30%, #60A5FA, #1E40AF); color: white; }
+        .marble-reverse { background: radial-gradient(circle at 30% 30%, #FDE047, #CA8A04); color: #042F2E; }
+        .marble-lightning { background: radial-gradient(circle at 30% 30%, #A78BFA, #5B21B6); color: white; }
+        .marble-rainbow { background: linear-gradient(135deg, #EF4444, #F59E0B, #10B981, #3B82F6, #8B5CF6); color: white; }
+        .marble-ice { background: radial-gradient(circle at 30% 30%, #67E8F9, #0E7490); color: white; }
+        .marble-armored { background: radial-gradient(circle at 30% 30%, #CBD5E1, #475569); color: white; }
+
+        .marble-card h4 {
+            font-size: 1.18rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .marble-card p {
+            font-size: 0.92rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Boosters Section */
+        .booster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .booster-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 1.75rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .booster-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .booster-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.65rem;
+        }
+
+        .booster-card h4 i {
+            color: var(--accent);
+        }
+
+        .booster-card p {
+            font-size: 0.92rem;
+            color: var(--text-gray);
+            line-height: 1.65;
+        }
+
+        /* Worlds & Campaign */
+        .worlds-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .world-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--card-border);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .world-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+        }
+
+        .world-card.w1::before { background: #10B981; }
+        .world-card.w2::before { background: #64748B; }
+        .world-card.w3::before { background: #EF4444; }
+        .world-card.w4::before { background: #06B6D4; }
+        .world-card.w5::before { background: #8B5CF6; }
+
+        .world-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .world-number {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .world-name {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+            color: var(--text-dark);
+            font-family: 'Cinzel', serif;
+        }
+
+        .world-levels {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.85rem;
+        }
+
+        .world-desc {
+            font-size: 0.88rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        /* Boss Callout Box */
+        .boss-box {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, #18181B 0%, #27272A 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .boss-icon-skull {
+            font-size: 3.5rem;
+            color: #EF4444;
+            animation: pulseSkull 2.5s infinite;
+        }
+
+        @keyframes pulseSkull {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.4)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 16px rgba(239, 68, 68, 0.8)); }
+        }
+
+        .boss-details h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #F87171;
+            margin-bottom: 0.5rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .boss-details p {
+            color: #D4D4D8;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        /* Quality Tiers & Accessibility Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2.5rem;
+        }
+
+        .spec-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .spec-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            color: var(--text-dark);
+        }
+
+        .spec-card h3 i {
+            color: var(--primary);
+        }
+
+        .spec-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        /* Architecture Tree */
+        .arch-box {
+            background: #061B16;
+            color: #A7F3D0;
+            border-radius: 16px;
+            padding: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            overflow-x: auto;
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            margin-top: 2rem;
+        }
+
+        /* Tech Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .tech-item {
+            background: var(--bg-white);
+            padding: 1.75rem 1.5rem;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tech-item i {
+            font-size: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-item h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-item p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+        }
+
+        /* Play Store Metadata Box */
+        .metadata-box {
+            background: var(--bg-white);
+            border-radius: 18px;
+            padding: 2.5rem;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            margin-top: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .meta-entry {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .meta-entry strong {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .meta-entry p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .meta-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .meta-tag {
+            background: rgba(15, 118, 110, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+        }
+
+        /* Footer */
+        footer {
+            background: #061B16;
+            color: white;
+            padding: 4.5rem 2rem 2.5rem;
+            margin-top: 6rem;
+            border-top: 2px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1.35rem;
+            color: #FBBF24;
+            font-family: 'Cinzel', serif;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.93rem;
+        }
+
+        .footer-section a:hover {
+            color: #5EEAD4;
+            padding-left: 3px;
+            transition: all 0.2s;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.88rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1.25rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: var(--bg-white);
+                flex-direction: column;
+                padding: 1.75rem 2rem;
+                box-shadow: var(--shadow-md);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                gap: 1rem;
+                border-bottom: 2px solid var(--primary);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.75rem;
+                border-radius: 8px;
+            }
+
+            .nav-links a:hover {
+                background: rgba(15, 118, 110, 0.08);
+            }
+
+            .hero {
+                padding: 3.5rem 1.25rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.35rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.15rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .section-title {
+                font-size: 1.85rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .boss-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.25rem;
+            }
+
+            .boss-icon-skull {
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.95rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="brand-logo">
+                <img src="icon.png" alt="Zuma.io Logo">
+                <div class="brand-text">
+                    <span class="logo">Zuma.io</span>
+                    <span class="brand-sub">Marble Shooter</span>
+                </div>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gameplay">Gameplay</a></li>
+                <li><a href="#marbles">Marbles</a></li>
+                <li><a href="#worlds">Worlds &amp; Bosses</a></li>
+                <li><a href="#tech">Tech &amp; Engine</a></li>
+                <li><a href="#store">Play Store</a></li>
+                <li><a href="privacy-policy.html" class="nav-btn"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="badge">
+                    <i class="fas fa-gem"></i> Portrait Action-Puzzle • Flame Engine
+                </div>
+                <h1 class="ancient-title">Zuma.io <span>Marble Shooter</span></h1>
+                <p class="subtitle">Aim, match marbles, and stop the chain! Blast through 50 fun puzzle levels.</p>
+                <p class="hero-description">
+                    Embark on an ancient puzzle adventure with Zuma.io, built natively with Flutter and the Flame engine for Android. 
+                    Featuring a deterministic 1/120-second pure-Dart simulation engine, a 50-level campaign across 5 themed worlds, 
+                    multi-phase boss encounters, zero-allocation pooled particle effects, and an offline-first privacy architecture.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">60 FPS</span>
+                        <span class="stat-label">Budget HW Target</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">50</span>
+                        <span class="stat-label">Campaign Levels</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">5</span>
+                        <span class="stat-label">Mystic Worlds</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label">Offline Playable</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#gameplay" class="btn btn-primary">
+                        <i class="fas fa-play-circle"></i> Explore Gameplay
+                    </a>
+                    <a href="privacy-policy.html" class="btn btn-secondary">
+                        <i class="fas fa-shield-alt"></i> Privacy &amp; Data Safety
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-preview">
+                <div class="preview-card">
+                    <img src="banner.png" alt="Zuma.io Gameplay Banner">
+                    <div class="floating-badge">
+                        <i class="fas fa-bolt"></i>
+                        <span><strong>Instant Tap &amp; Drag Aim:</strong> Zero latency 1/120s simulation on 1080×1920 portrait canvas.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Gameplay & Controls -->
+    <section class="section" id="gameplay">
+        <div class="section-header">
+            <span class="section-tag">Mechanics &amp; Controls</span>
+            <h2 class="section-title ancient-title">Core Gameplay &amp; Mobile Controls</h2>
+            <p class="section-subtitle">
+                Engineered from the ground up for ergonomic one-handed mobile play with responsive dual-mode aiming and tactical chain reaction dynamics.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-mobile-screen-button"></i></div>
+                <h3>Portrait Canvas (1080×1920)</h3>
+                <p>Designed natively for comfortable one-handed mobile play with a fixed 1080×1920 logical canvas, perfectly adapted across all Android screen aspect ratios.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Safe area aware HUD overlays</li>
+                    <li><i class="fas fa-check"></i> Ergonomic lower-third thumb controls</li>
+                    <li><i class="fas fa-check"></i> Ultra-fluid 60 FPS viewport rendering</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-crosshairs"></i></div>
+                <h3>Dual Aiming Modes</h3>
+                <p>Play whichever way suits your playstyle best with dual aiming mechanics that react instantly to player touch inputs.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> <strong>Instant Tap:</strong> Tap anywhere to fire immediately</li>
+                    <li><i class="fas fa-check"></i> <strong>Drag-to-Aim:</strong> Trace trajectory line and release to shoot</li>
+                    <li><i class="fas fa-check"></i> Sub-millisecond touch event processing</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-repeat"></i></div>
+                <h3>Rapid Marble Swap</h3>
+                <p>Keep the upper hand against relentless rolling tracks by swapping spheres on the fly right inside your shooter totem.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Tap center frog mascot to swap active &amp; on-deck marbles</li>
+                    <li><i class="fas fa-check"></i> Instant response with zero shot lag</li>
+                    <li><i class="fas fa-check"></i> Visual cues for next upcoming projectile</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-burst"></i></div>
+                <h3>Match-3+ &amp; Cascades</h3>
+                <p>Connect 3 or more consecutive marbles of the same hue to vaporize them from the rolling chain with dynamic particle bursts.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Magnetic rollbacks across chain gaps</li>
+                    <li><i class="fas fa-check"></i> Cascading combo multipliers up to 8×</li>
+                    <li><i class="fas fa-check"></i> Floating punchy score callouts: SCORE → CASCADE → COMBO</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-triangle-exclamation"></i></div>
+                <h3>Dynamic Danger State</h3>
+                <p>When the lead marble crosses 85% of track length, urgent visual vignettes and heart-racing audio heighten the thrill.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Pulsing red warning vignette on screen borders</li>
+                    <li><i class="fas fa-check"></i> Dynamic tension SFX and tempo-shifting music</li>
+                    <li><i class="fas fa-check"></i> Fully respects user Reduced Motion setting</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-skull"></i></div>
+                <h3>Swallowing Drain Vortex</h3>
+                <p>The golden skull threshold guards the end of the track. Fail to stop the chain, and marbles spiral into the vortex.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 100% path distance triggers drain sequence</li>
+                    <li><i class="fas fa-check"></i> Marbles shrink and sink with 3D vortex animations</li>
+                    <li><i class="fas fa-check"></i> Optional Rewarded Continue pushes chain back 20%</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Marbles in the Chain -->
+    <section class="section" id="marbles" style="background: white; border-top: 1px solid rgba(15, 118, 110, 0.08); border-bottom: 1px solid rgba(15, 118, 110, 0.08);">
+        <div class="section-header">
+            <span class="section-tag">Arcane Spheres</span>
+            <h2 class="section-title ancient-title">Special Marbles in the Chain</h2>
+            <p class="section-subtitle">
+                Level configurations introduce unique mystical marbles into the chain that unleash game-changing tactical effects when matched.
+            </p>
+        </div>
+
+        <div class="marbles-grid">
+            <div class="marble-card">
+                <div class="marble-badge-icon marble-bomb"><i class="fas fa-bomb"></i></div>
+                <h4>Bomb Marble</h4>
+                <p>Detonates nearby marbles within a 2.5× marble-spacing radius along the track upon matching, obliterating clustered obstacles.</p>
+            </div>
+
+            <div class="marble-card">
+                <div class="marble-badge-icon marble-slow"><i class="fas fa-hourglass-half"></i></div>
+                <h4>Slow Marble</h4>
+                <p>Drops the entire rolling chain's speed to 30% of normal for 8 seconds, providing clutch breathing room for precision trick shots.</p>
+            </div>
+
+            <div class="marble-card">
+                <div class="marble-badge-icon marble-reverse"><i class="fas fa-backward-step"></i></div>
+                <h4>Reverse Marble</h4>
+                <p>Forces all active chain segments backward along the track at 1.5× base speed for 3 seconds while pausing spawner output.</p>
+            </div>
+
+            <div class="marble-card">
+                <div class="marble-badge-icon marble-lightning"><i class="fas fa-bolt"></i></div>
+                <h4>Lightning Marble</h4>
+                <p>Calls down a divine celestial bolt that vaporizes every single marble of the most common alive color on the active board.</p>
+            </div>
+
+            <div class="marble-card">
+                <div class="marble-badge-icon marble-rainbow"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <h4>Rainbow Marble</h4>
+                <p>Universal wildcard marble that matches seamlessly with any adjacent color, triggering otherwise impossible chain combos.</p>
+            </div>
+
+            <div class="marble-card">
+                <div class="marble-badge-icon marble-ice"><i class="fas fa-snowflake"></i></div>
+                <h4>Ice Marble</h4>
+                <p>Enclosed in a frozen crystal shell; resists matching until cracked by an initial projectile impact before it can be destroyed.</p>
+            </div>
+
+            <div class="marble-card">
+                <div class="marble-badge-icon marble-armored"><i class="fas fa-shield-halved"></i></div>
+                <h4>Armored Marble</h4>
+                <p>Encased in tough protective plating; requires a direct impact to shatter armor before it can be inserted and cleared.</p>
+            </div>
+        </div>
+
+        <!-- Tactical Boosters Tray -->
+        <div style="margin-top: 4.5rem;">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <span class="section-tag">Player Arsenal</span>
+                <h3 class="ancient-title" style="font-size: 2rem; color: var(--text-dark);">Player Tactical Boosters</h3>
+                <p class="section-subtitle">
+                    Equip and trigger 4 active tactical powers from the HUD tray during high-stakes moments. Boosters are earned purely through gameplay and optional rewarded ads—no paywalls, no energy systems.
+                </p>
+            </div>
+
+            <div class="booster-grid">
+                <div class="booster-card">
+                    <h4><i class="fas fa-explosion"></i> Bomb Booster</h4>
+                    <p>Arm and fire a high-explosive shot that directly clears a wide sector of marbles anywhere along the track.</p>
+                </div>
+                <div class="booster-card">
+                    <h4><i class="fas fa-palette"></i> Color Splash Booster</h4>
+                    <p>Re-colors surrounding marbles into uniform clusters to prime massive cascades and multi-match combos.</p>
+                </div>
+                <div class="booster-card">
+                    <h4><i class="fas fa-cloud-bolt"></i> Lightning Booster</h4>
+                    <p>Unleashes an instant targeted lightning strike across the track to eliminate stubborn obstacle clusters.</p>
+                </div>
+                <div class="booster-card">
+                    <h4><i class="fas fa-stopwatch"></i> Time Freeze Booster</h4>
+                    <p>Completely halts marble movement for a short window, giving you absolute freedom to line up precision skill shots.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themed Worlds & Boss Battles -->
+    <section class="section" id="worlds">
+        <div class="section-header">
+            <span class="section-tag">Saga Progression</span>
+            <h2 class="section-title ancient-title">5 Mystical Worlds • 50 Campaign Levels</h2>
+            <p class="section-subtitle">
+                Journey through 50 meticulously balanced levels. Levels 1–10 are handcrafted to introduce mechanics; Levels 11–50 are deterministically generated via seeded RNG for 100% fair and repeatable track geometry.
+            </p>
+        </div>
+
+        <div class="worlds-timeline">
+            <div class="world-card w1">
+                <span class="world-number">World 1</span>
+                <h4 class="world-name">Jungle</h4>
+                <div class="world-levels">Levels 1–10</div>
+                <p class="world-desc">Dense foliage, ancient ruins, and handcrafted curves to master the fundamentals of marble shooting.</p>
+            </div>
+
+            <div class="world-card w2">
+                <span class="world-number">World 2</span>
+                <h4 class="world-name">Temple</h4>
+                <div class="world-levels">Levels 11–20</div>
+                <p class="world-desc">Stone labyrinths, dual paths, and the first appearance of frozen Ice Marbles.</p>
+            </div>
+
+            <div class="world-card w3">
+                <span class="world-number">World 3</span>
+                <h4 class="world-name">Volcano</h4>
+                <div class="world-levels">Levels 21–30</div>
+                <p class="world-desc">Blazing magma flows, accelerated track conveyor speeds, and durable Armored Marbles.</p>
+            </div>
+
+            <div class="world-card w4">
+                <span class="world-number">World 4</span>
+                <h4 class="world-name">Sky Sanctuary</h4>
+                <div class="world-levels">Levels 31–40</div>
+                <p class="world-desc">Floating aerial temples, tight spiral curves, and high-density puzzle layouts demanding trick shots.</p>
+            </div>
+
+            <div class="world-card w5">
+                <span class="world-number">World 5</span>
+                <h4 class="world-name">Eclipse</h4>
+                <div class="world-levels">Levels 41–50</div>
+                <p class="world-desc">Mystic twilight realms, intense multi-color distributions, and the ultimate test of speed and skill.</p>
+            </div>
+        </div>
+
+        <!-- Boss Battles Box -->
+        <div class="boss-box">
+            <div class="boss-icon-skull"><i class="fas fa-skull-crossbones"></i></div>
+            <div class="boss-details">
+                <h3>Milestone Boss Battles (Levels 10, 20, 30, 40, 50)</h3>
+                <p>
+                    Test your mastery at the end of every world! Every 10 levels features an epic encounter governed by deterministic multi-phase boss controllers. 
+                    Bosses summon armored marble shields, trigger sudden track speed surges, and rearrange rolling paths in real time. Defeating them unlocks the next realm and grants rare mastery stars.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Presentation & Performance Highlight -->
+    <section class="highlight-section">
+        <h2>Target 60 FPS on Budget Chipsets</h2>
+        <p>
+            Engineered within a strict 16.7 ms per-frame budget for budget Android devices (such as MediaTek Helio G85 &amp; Mali-G52). 
+            Our pure-Dart simulation runs at a deterministic 1/120s step, while the Flame presentation layer utilizes a zero-allocation pooled VFX system (VfxLayer) to prevent garbage collection frame drops.
+        </p>
+        <div class="cta-buttons" style="justify-content: center;">
+            <a href="#tech" class="btn btn-primary"><i class="fas fa-microchip"></i> View Engine Architecture</a>
+        </div>
+    </section>
+
+    <!-- Visual Quality, Accessibility & Audio -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <span class="section-tag">Player Experience</span>
+            <h2 class="section-title ancient-title">Accessibility, Graphics &amp; Haptics</h2>
+            <p class="section-subtitle">
+                Built with total comfort, accessibility, and battery optimization in mind for all Android players.
+            </p>
+        </div>
+
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h3><i class="fas fa-eye"></i> Colorblind Accessible</h3>
+                <p>Every marble color is stamped with a distinct, unmistakable geometric glyph and pattern. Players never have to rely on color hue alone to identify matches.</p>
+                <p style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Tested across Protanopia, Deuteranopia, and Tritanopia.</p>
+            </div>
+
+            <div class="spec-card">
+                <h3><i class="fas fa-universal-access"></i> Reduced Motion Mode</h3>
+                <p>A one-tap toggle in Settings disables camera zoom-punches, screen shake, pulsing vignettes, and heavy explosions without affecting the underlying deterministic physics.</p>
+                <p style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Full comfort for motion-sensitive players.</p>
+            </div>
+
+            <div class="spec-card">
+                <h3><i class="fas fa-sliders"></i> 3 Visual Quality Tiers</h3>
+                <p>Choose between <strong>Low</strong> (rasterized effects, max battery), <strong>Medium</strong> (default full particle fidelity), and <strong>High</strong> (ambient glow &amp; bloom highlights).</p>
+                <p style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Includes Adaptive Quality Engine for auto-stepping.</p>
+            </div>
+
+            <div class="spec-card">
+                <h3><i class="fas fa-music"></i> Atmospheric Audio</h3>
+                <p>Full original soundtrack featuring dedicated themes for Home Lobby, Saga Map, Stage Exploration, Danger Tension, Boss Battles, and Victory.</p>
+                <p style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Independent music &amp; SFX volume sliders + mute toggles.</p>
+            </div>
+
+            <div class="spec-card">
+                <h3><i class="fas fa-hand-pointer"></i> Tiered Smart Haptics</h3>
+                <p>4 distinct vibration feedback levels (Selection, Light, Medium, Heavy) featuring cooldown rate-limiting and interrupt priority to prevent vibration queue flooding.</p>
+                <p style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Tactile satisfaction on every marble pop.</p>
+            </div>
+
+            <div class="spec-card">
+                <h3><i class="fas fa-wifi-slash"></i> 100% Offline-Playable</h3>
+                <p>The entire 50-level campaign, star progression, settings, and gameplay function seamlessly with no internet connection required.</p>
+                <p style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">No login, no cloud dependency, no paywalls.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture & Platform Integrations -->
+    <section class="section" id="tech">
+        <div class="section-header">
+            <span class="section-tag">Engineering Excellence</span>
+            <h2 class="section-title ancient-title">Engine Architecture &amp; Tech Stack</h2>
+            <p class="section-subtitle">
+                A clean separation between authoritative pure-Dart simulation and the 1080×1920 Flame visual rendering layer.
+            </p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-item">
+                <i class="fab fa-google" style="color: #02569B;"></i>
+                <h4>Flutter 3.44.1</h4>
+                <p>Cross-platform framework</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-fire" style="color: #F59E0B;"></i>
+                <h4>Flame Engine</h4>
+                <p>2D Game Presentation</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-cube" style="color: #0175C2;"></i>
+                <h4>Pure Dart 3.12.1</h4>
+                <p>1/120s Deterministic Sim</p>
+            </div>
+            <div class="tech-item">
+                <i class="fab fa-android" style="color: #3DDC84;"></i>
+                <h4>Android Native</h4>
+                <p>Min SDK 21 • Target SDK 34</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-shield-virus" style="color: #10B981;"></i>
+                <h4>Google UMP</h4>
+                <p>GDPR &amp; CCPA Consent</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-vial-circle-check" style="color: #8B5CF6;"></i>
+                <h4>239 Unit Tests</h4>
+                <p>100% Deterministic QA</p>
+            </div>
+        </div>
+
+        <!-- Architecture Directory Tree -->
+        <div class="arch-box">
+<span style="color: #F59E0B;">lib/</span>
+├── <span style="color: #5EEAD4;">config/</span>          Compile-time environments (dev, staging, prod) &amp; security gating
+├── <span style="color: #5EEAD4;">core/</span>            Pure-Dart authoritative simulation running at a deterministic 1/120s step
+│   ├── analytics/   Privacy-minimal abstract telemetry seams (GameplayAnalytics)
+│   ├── boss/        Deterministic multi-phase boss controllers (Levels 10, 20, 30, 40, 50)
+│   ├── levels/      Handcrafted levels (1–10) &amp; deterministic seeded generator (11–50)
+│   ├── models/      Immutable models for marbles, chains, levels, paths, and scores
+│   ├── systems/     Arc path interpolation, collision broadphase, and scoring rules
+│   └── theme/       Central design tokens, palettes, typography, and visual rules
+├── <span style="color: #5EEAD4;">flame/</span>           Fixed-resolution 1080×1920 Flame presentation layer
+│   ├── components/  Animated shooter frog, marble chain presenter, track textures
+│   └── effects/     Zero-allocation pooled VFX layer (particles, pops, shockwaves)
+├── <span style="color: #5EEAD4;">services/</span>        Encapsulated persistence, audio, UMP/AdMob, in_app_review, in_app_update
+└── <span style="color: #5EEAD4;">ui/</span>              Flutter screens (Home, Saga Map, Settings) and HUD overlays
+        </div>
+
+        <!-- Platform Integrations -->
+        <div class="features-grid" style="margin-top: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-star-half-stroke"></i></div>
+                <h3>In-App Review</h3>
+                <p>Google Play In-App Review (<code class="mono-code">in_app_review</code>) intelligently prompts players on 3-star milestone victories.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-arrows-rotate"></i></div>
+                <h3>In-App Updates</h3>
+                <p>Google Play In-App Updates (<code class="mono-code">in_app_update</code>) checks for seamless flexible or immediate game updates.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-share-nodes"></i></div>
+                <h3>Native Share Sheet</h3>
+                <p>System Share Sheet (<code class="mono-code">share_plus</code>) allows players to challenge friends with their stars and high scores.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-link"></i></div>
+                <h3>Secure URL Launcher</h3>
+                <p>Sandboxed launching of the official HTTPS privacy policy and legal resources (<code class="mono-code">url_launcher</code>).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Play Store Metadata & Safety -->
+    <section class="section" id="store" style="background: white; border-top: 1px solid rgba(15, 118, 110, 0.08);">
+        <div class="section-header">
+            <span class="section-tag">Store Readiness</span>
+            <h2 class="section-title ancient-title">Google Play Store Metadata</h2>
+            <p class="section-subtitle">
+                Pre-cleared, policy-compliant metadata ready for deployment on the Google Play Console.
+            </p>
+        </div>
+
+        <div class="metadata-box">
+            <div class="metadata-grid">
+                <div class="meta-entry">
+                    <strong>Official App Title (24 / 30 chars)</strong>
+                    <p style="font-weight: 700; font-size: 1.1rem; color: var(--primary);">Zuma.io: Marble Shooter</p>
+                    <span style="font-size: 0.8rem; color: var(--text-light);">Alt: Zuma.io - Marble Puzzle</span>
+                </div>
+
+                <div class="meta-entry">
+                    <strong>Short Description (74 / 80 chars)</strong>
+                    <p>Aim, match marbles, and stop the chain! Blast through 50 fun puzzle levels.</p>
+                </div>
+
+                <div class="meta-entry">
+                    <strong>Category &amp; Content Rating</strong>
+                    <p><strong>Category:</strong> Games → Puzzle / Action-Puzzle</p>
+                    <p><strong>IARC Rating:</strong> Everyone / PEGI 3 / USK 0</p>
+                    <p><strong>In-App Purchases:</strong> None (No IAP)</p>
+                </div>
+            </div>
+
+            <div class="meta-entry" style="margin-top: 1.5rem;">
+                <strong>Categorization Tags</strong>
+                <div class="meta-tags">
+                    <span class="meta-tag">Puzzle</span>
+                    <span class="meta-tag">Marble Shooter</span>
+                    <span class="meta-tag">Match 3</span>
+                    <span class="meta-tag">Casual</span>
+                    <span class="meta-tag">Single Player</span>
+                    <span class="meta-tag">Offline</span>
+                    <span class="meta-tag">Stylized</span>
+                </div>
+            </div>
+
+            <div class="meta-entry" style="margin-top: 1.5rem;">
+                <strong>Full Store Description Preview</strong>
+                <p style="color: var(--text-gray); font-size: 0.95rem; line-height: 1.7; margin-top: 0.5rem;">
+                    Embark on an ancient puzzle adventure with Zuma.io, the thrilling portrait marble-shooter game designed for puzzle lovers! 
+                    Aim your frog totem, match vibrant spheres, and blast through rolling marble chains before they reach the sacred temple. 
+                    Can you master the paths, trigger explosive combos, and conquer all 50 challenging levels across 5 mystical worlds?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Principles Callout -->
+    <section class="section" id="privacy-section">
+        <div class="highlight-section" style="background: linear-gradient(135deg, #0F766E 0%, #042F2E 100%); margin-bottom: 0;">
+            <h2 style="color: #5EEAD4;"><i class="fas fa-user-shield"></i> Privacy by Design</h2>
+            <p>
+                Zuma.io collects zero personal data, requires no user account, and saves all game progress 100% locally on your device. 
+                Compliant with GDPR, CCPA, and Google Play Families Policy with transparent in-game consent controls.
+            </p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="privacy-policy.html" class="btn btn-primary"><i class="fas fa-file-contract"></i> Read Official Privacy Policy &amp; Data Safety</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Zuma.io: Marble Shooter</h3>
+                <p>Classic marble shooter action reimagined for Android with Flutter, Flame, and deterministic physics.</p>
+                <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.65); font-size: 0.85rem;">
+                    Developed and published by SoftTech Service.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <a href="#features">Key Features</a>
+                <a href="#gameplay">Gameplay &amp; Controls</a>
+                <a href="#marbles">Special Marbles</a>
+                <a href="#worlds">Worlds &amp; Bosses</a>
+                <a href="#tech">Engine Architecture</a>
+                <a href="#store">Google Play Store</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal &amp; Privacy</h3>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html#datasafety">Play Data Safety</a>
+                <a href="privacy-policy.html#terms">Terms &amp; Conditions</a>
+                <a href="privacy-policy.html#licenses">Third-Party Licenses</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support &amp; Specs</h3>
+                <p><strong>Developer:</strong> SoftTech Service</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site" style="display: inline; color: #5EEAD4;">contact@softtechservice.site</a></p>
+                <p><strong>Version:</strong> 1.0.0 (Release)</p>
+                <p><strong>Target:</strong> Android 5.0 - Android 14+</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025–2026 SoftTech Service. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.82rem;">
+                This software and game presentation are proprietary and confidential. Unauthorized copying, reverse engineering, 
+                or redistribution is strictly prohibited without the express written permission of SoftTech Service.
+            </p>
+            <p style="margin-top: 0.4rem; font-size: 0.82rem;">
+                Zuma.io and all related logos are trademarks of SoftTech Service.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth Scrolling for In-Page Anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
