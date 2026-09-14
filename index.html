@@ -1,995 +1,1087 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2563eb">
 
-    <!-- Theme: set before paint to avoid flash -->
-    <script>
-        (function () {
-            try {
-                var stored = localStorage.getItem('theme');
-                var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
-            } catch (e) {}
-        })();
-    </script>
+<title>SoftTech Service — Android App Development &amp; Custom Software Studio</title>
+<meta name="description" content="SoftTech Service designs and engineers Android apps, games and custom software in-house. 23 products built with Flutter and Kotlin, 11 live on Google Play.">
+<meta name="keywords" content="Android app development, Flutter development, Kotlin, custom software, mobile game development, SoftTech Service">
+<meta name="author" content="SoftTech Service">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://softtechservice.site/">
 
-    <!-- Primary Meta Tags -->
-    <title>SoftTech Service - Enterprise IT Solutions | Software & Mobile App Development</title>
-    <meta name="title" content="SoftTech Service - Enterprise IT Solutions | Software & Mobile App Development">
-    <meta name="description" content="SoftTech Service provides enterprise-grade software development, mobile app development (Android, iOS, Flutter), AI solutions, and customized digital solutions. Trusted by businesses worldwide.">
-    <meta name="keywords" content="software development, mobile app development, Android apps, iOS apps, Flutter development, web development, AI solutions, HRMS, custom software, IT solutions">
-    <meta name="author" content="SoftTech Service">
-    <meta name="robots" content="index, follow">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://softtechservice.site/">
+<meta property="og:title" content="SoftTech Service — Android App Development &amp; Custom Software Studio">
+<meta property="og:description" content="We design and engineer Android apps, games and custom software in-house. 23 products built with Flutter and Kotlin, 11 live on Google Play.">
+<meta property="og:image" content="https://softtechservice.site/images/hero-banner.jpg">
+<meta property="og:site_name" content="SoftTech Service">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://softtechservice.site/">
-    <meta property="og:title" content="SoftTech Service - Enterprise IT Solutions | Software & Mobile App Development">
-    <meta property="og:description" content="Enterprise-grade software development, mobile app development (Android, iOS, Flutter), AI solutions, and customized digital solutions. Trusted by businesses worldwide.">
-    <meta property="og:image" content="https://softtechservice.site/images/logo.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="SoftTech Service Logo">
-    <meta property="og:site_name" content="SoftTech Service">
-    <meta property="og:locale" content="en_US">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SoftTech Service — Android App Development &amp; Custom Software Studio">
+<meta name="twitter:description" content="23 products designed and engineered in-house with Flutter and Kotlin. 11 live on Google Play.">
+<meta name="twitter:image" content="https://softtechservice.site/images/hero-banner.jpg">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://softtechservice.site/">
-    <meta name="twitter:title" content="SoftTech Service - Enterprise IT Solutions | Software & Mobile App Development">
-    <meta name="twitter:description" content="Enterprise-grade software development, mobile app development (Android, iOS, Flutter), AI solutions, and customized digital solutions. Trusted by businesses worldwide.">
-    <meta name="twitter:image" content="https://softtechservice.site/images/logo.png">
-    <meta name="twitter:image:alt" content="SoftTech Service Logo">
-    <meta name="twitter:creator" content="@softtechservice">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="apple-touch-icon" href="images/logo.png">
-    <link rel="shortcut icon" type="image/png" href="images/logo.png">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600..800&family=Inter:wght@400..600&display=swap" rel="stylesheet">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://softtechservice.site/">
+<link rel="stylesheet" href="styles.css?v=4">
 
-    <!-- SEO -->
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    <meta name="distribution" content="global">
-    <meta name="rating" content="general">
-    <meta name="geo.region" content="IN">
-    <meta name="theme-color" content="#0F172A">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "SoftTech Service",
-      "url": "https://softtechservice.site",
-      "logo": "https://softtechservice.site/images/logo.png",
-      "description": "Enterprise-grade software development, mobile app development (Android, iOS, Flutter), AI solutions, and customized digital solutions.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "contect@softtechservice.site",
-        "contactType": "Customer Service"
-      },
-      "sameAs": [
-        "https://softtechservice.site"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "IN"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "SoftTech Service",
-      "description": "Enterprise IT Solutions - Software Development, Mobile App Development, AI Solutions",
-      "url": "https://softtechservice.site",
-      "serviceType": ["Software Development", "Mobile App Development", "Web Development", "AI Solutions"],
-      "areaServed": "Worldwide",
-      "provider": {
-        "@type": "Organization",
-        "name": "SoftTech Service",
-        "founder": "Maurya Neha Devi Ajitkumar"
-      }
-    }
-    </script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SoftTech Service",
+  "url": "https://softtechservice.site/",
+  "logo": "https://softtechservice.site/images/logo.png",
+  "email": "contect@softtechservice.site",
+  "description": "SoftTech Service works with businesses, enterprises and individuals to deliver reliable, scalable and user-friendly technology solutions.",
+  "founder": { "@type": "Person", "name": "Maurya Neha Devi Ajitkumar" },
+  "sameAs": ["https://play.google.com/store/apps/dev?id=8966016201726803166"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "contect@softtechservice.site",
+    "availableLanguage": ["en", "hi"]
+  }
+}
+</script>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <a class="nav-brand" href="#home" aria-label="SoftTech Service home">
-                <img src="images/logo.png" alt="" class="logo-img">
-                <span class="logo-text">SoftTech Service</span>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true" focusable="false"><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4.5 12h15M13 5.5l6.5 6.5-6.5 6.5"/></symbol><symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19.5v-15M5.5 11 12 4.5 18.5 11"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6.5 9.2 17.3 4 12.1"/></symbol><symbol id="i-magnifier" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="7.3"/><path d="M20.5 20.5 16 16"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3.8" y="10.3" width="16.4" height="10.9" rx="2.4"/><path d="M7.4 10.3V7a4.6 4.6 0 0 1 9.2 0v3.3"/></symbol><symbol id="i-envelope" viewBox="0 0 24 24"><rect x="2.4" y="4.6" width="19.2" height="14.8" rx="2.4"/><path d="m3.6 6.6 8.4 6 8.4-6"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8.8 18.2 3 12.4l5.8-5.8M15.2 6.6l5.8 5.8-5.8 5.8"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.9 2.9 5.9 6.5.95-4.7 4.6 1.1 6.5L12 17.7l-5.8 3.05 1.1-6.5-4.7-4.6 6.5-.95z"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.2" cy="8" r="3.4"/><path d="M2.6 20c0-3.7 2.9-6.2 6.6-6.2s6.6 2.5 6.6 6.2"/><path d="M16.6 5.1a3.4 3.4 0 0 1 0 5.8M18.2 14.3c2 .7 3.2 2.4 3.2 5.7"/></symbol><symbol id="i-sitemap" viewBox="0 0 24 24"><rect x="8.8" y="2.6" width="6.4" height="5.2" rx="1.4"/><rect x="1.8" y="16.2" width="6.4" height="5.2" rx="1.4"/><rect x="15.8" y="16.2" width="6.4" height="5.2" rx="1.4"/><path d="M12 7.8v4.4M5 16.2v-4.4h14v4.4"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.6l7.8 2.9v5.9c0 4.9-3.3 9.2-7.8 10.4-4.5-1.2-7.8-5.5-7.8-10.4V5.5z"/><path d="M12 2.6v19.2"/></symbol><symbol id="i-shapes" viewBox="0 0 24 24"><circle cx="7" cy="16.6" r="4.3"/><rect x="12.9" y="12.7" width="8.2" height="8.2" rx="1.4"/><path d="M12 2.9l4.3 7.4H7.7z"/></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect x="2.4" y="3.4" width="19.2" height="7" rx="2"/><rect x="2.4" y="13.6" width="19.2" height="7" rx="2"/><circle cx="6.6" cy="6.9" r="1" fill="currentColor" stroke="none"/><circle cx="6.6" cy="17.1" r="1" fill="currentColor" stroke="none"/></symbol><symbol id="i-broadcast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.1" fill="currentColor" stroke="none"/><path d="M7.9 16.1a5.8 5.8 0 0 1 0-8.2M16.1 7.9a5.8 5.8 0 0 1 0 8.2"/><path d="M5 19a9.9 9.9 0 0 1 0-14M19 5a9.9 9.9 0 0 1 0 14"/></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.6 16.4c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.85.7-2.15-.1-2.95a2.2 2.2 0 0 0-2.9-.05z"/><path d="M12 15 9 12a22 22 0 0 1 2-3.95A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22 22 0 0 1-4 2z"/><path d="M9 12H4s.55-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.55 4-2c1.1-1.6 0-5 0-5"/></symbol><symbol id="i-pen" viewBox="0 0 24 24"><path d="M15.3 3.7 20.3 8.7"/><path d="m3 21 1.35-4.75L16.6 4a2.1 2.1 0 0 1 2.95 0l.45.45a2.1 2.1 0 0 1 0 2.95L7.75 19.65 3 21z"/></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="M21.4 2.6 10.9 13.1"/><path d="M21.4 2.6 14.7 21.6l-3.8-8.5-8.5-3.8 19-6.7z"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2.4" width="12" height="19.2" rx="2.6"/><path d="M10.8 18.6h2.4"/></symbol><symbol id="i-phone-plain" viewBox="0 0 24 24"><rect x="6" y="2.4" width="12" height="19.2" rx="2.6"/><path d="M9.6 5.6h4.8"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2.7 2.8 7.2 12 11.7l9.2-4.5z"/><path d="M2.8 12.2 12 16.7l9.2-4.5M2.8 16.9 12 21.4l9.2-4.5"/></symbol><symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14.4v-2.4a8 8 0 0 1 16 0v2.4"/><rect x="1.7" y="13.4" width="4.6" height="6.8" rx="2.3"/><rect x="17.7" y="13.4" width="4.6" height="6.8" rx="2.3"/><path d="M20 20.2v.2a2.4 2.4 0 0 1-2.4 2.4H13"/></symbol><symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M7.6 8h8.8a5.4 5.4 0 0 1 5.3 4.35l.7 4.1a3 3 0 0 1-5.4 2.25l-1.25-1.75H8.25L7 18.7a3 3 0 0 1-5.4-2.25l.7-4.1A5.4 5.4 0 0 1 7.6 8z"/><path d="M7.1 11.1v3.1M5.55 12.65h3.1"/><circle cx="16.1" cy="11.9" r=".95" fill="currentColor" stroke="none"/><circle cx="18.1" cy="14.1" r=".95" fill="currentColor" stroke="none"/></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol><symbol id="i-workflow" viewBox="0 0 24 24"><rect x="2.4" y="2.8" width="7.6" height="6.2" rx="1.6"/><rect x="14" y="15" width="7.6" height="6.2" rx="1.6"/><path d="M6.2 9v6.6a2.5 2.5 0 0 0 2.5 2.5H14"/></symbol><symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5.6" rx="7.9" ry="3.2"/><path d="M4.1 5.6v12.8c0 1.77 3.54 3.2 7.9 3.2s7.9-1.43 7.9-3.2V5.6"/><path d="M4.1 12c0 1.77 3.54 3.2 7.9 3.2s7.9-1.43 7.9-3.2"/></symbol><symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.8" height="7.8" rx="1.8"/><rect x="13.2" y="3" width="7.8" height="7.8" rx="1.8"/><rect x="3" y="13.2" width="7.8" height="7.8" rx="1.8"/><rect x="13.2" y="13.2" width="7.8" height="7.8" rx="1.8"/></symbol><symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.5 20.9 7v10L12 21.5 3.1 17V7z"/><path d="M3.1 7 12 11.5 20.9 7M12 11.5v10"/></symbol><symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.2 12.2 11 15l4.8-5.4"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.7V12l3.6 2.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16.4v-4.8"/><circle cx="12" cy="8.1" r="1" fill="currentColor" stroke="none"/></symbol><symbol id="i-building" viewBox="0 0 24 24"><rect x="4.2" y="2.8" width="15.6" height="18.4" rx="2.2"/><path d="M8.2 7.2h1.8M14 7.2h1.8M8.2 11.4h1.8M14 11.4h1.8M10.2 21.2v-4.6h3.6v4.6"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.4 2.4 4.2 14h6.9l-.5 7.6L19.8 10h-6.9z"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16M21 21v-5h-5"/></symbol><symbol id="i-google-play" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M3.9 2.1a1.6 1.6 0 0 0-.6 1.3v17.2c0 .55.2 1.02.58 1.3l9.65-9.9zM14.75 13.4l2.63 2.7-11.2 6.35a1.5 1.5 0 0 1-1.4-.03zM14.75 10.6 4.78 1.58a1.5 1.5 0 0 1 1.4-.03l11.2 6.35zM18.85 8.85l2.4 1.36a2.05 2.05 0 0 1 0 3.58l-2.4 1.36L16 12z"/></symbol><symbol id="i-android" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M16.9 4.5 18.35 2a.42.42 0 0 0-.73-.42l-1.47 2.54a9.6 9.6 0 0 0-8.3 0L6.38 1.58a.42.42 0 1 0-.73.42L7.1 4.5A7.7 7.7 0 0 0 3.2 10.7h17.6a7.7 7.7 0 0 0-3.9-6.2zM8.3 8.35a.85.85 0 1 1 0-1.7.85.85 0 0 1 0 1.7zm7.4 0a.85.85 0 1 1 0-1.7.85.85 0 0 1 0 1.7zM3.3 12v6.5c0 .85.68 1.53 1.52 1.53h.9v3.05a1.6 1.6 0 0 0 3.2 0V20h6.16v3.08a1.6 1.6 0 0 0 3.2 0V20h.9c.84 0 1.52-.68 1.52-1.53V12zM1.9 12a1.6 1.6 0 0 0-1.6 1.6v5.1a1.6 1.6 0 0 0 3.2 0v-5.1A1.6 1.6 0 0 0 1.9 12zm20.2 0a1.6 1.6 0 0 0-1.6 1.6v5.1a1.6 1.6 0 0 0 3.2 0v-5.1a1.6 1.6 0 0 0-1.6-1.6z"/></symbol><symbol id="i-html5" viewBox="0 0 24 24"><path d="M4.2 2.5h15.6l-1.42 17.1L12 21.5l-6.38-1.9z"/><path d="M8.4 7.4h7.2l-.3 3.3H8.9M9.1 13.4h6.1l-.35 3.6-2.85.9-2.85-.9-.15-1.7"/></symbol></svg>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ══ Announcement ══════════════════════════════════════════════ -->
+<div class="topbar">
+  <div class="container">
+    <span class="dot" aria-hidden="true"></span>
+    <span>11 apps live on Google Play — built, shipped and maintained in-house.</span>
+    <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer">See them all</a>
+  </div>
+</div>
+
+<!-- ══ Navigation ════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar" aria-label="Main">
+  <div class="container">
+    <a class="nav-brand" href="#top" aria-label="SoftTech Service — home">
+      <img src="images/logo.webp" alt="" width="38" height="38">
+      <span class="brand-name">SoftTech<span>Service</span></span>
+    </a>
+
+    <div class="nav-cluster">
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Products</a></li>
+        <li><a href="#about">Why us</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li class="mobile-cta"><a href="#contact" class="btn btn-primary">Start a project</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary">Start a project</a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="nav-progress" id="navProgress" aria-hidden="true"></div>
+</nav>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ══ Hero ══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <span class="hero-badge reveal">
+          <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-google-play"/></svg> Google Play</span>
+          Independent Android studio
+        </span>
+
+        <h1 class="hero-title reveal" style="--d:70ms">
+          We build Android products that<br>
+          <span class="grad-text">actually ship.</span>
+        </h1>
+
+        <p class="hero-sub reveal" style="--d:140ms">
+          SoftTech Service works with businesses, enterprises and individuals to deliver reliable,
+          scalable and user-friendly technology. Twenty-three products designed, engineered and
+          maintained entirely in-house — from finance tools to 3D arcade games.
+        </p>
+
+        <div class="hero-cta reveal" style="--d:210ms">
+          <a href="#contact" class="btn btn-primary btn-lg">
+            Start a project <svg class="ic arr" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+          <a href="#portfolio" class="btn btn-secondary btn-lg">
+            <svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg> Browse our work
+          </a>
+        </div>
+
+        <div class="hero-stats reveal" style="--d:280ms">
+          <div>
+            <div class="stat-num"><span data-count="23">0</span></div>
+            <div class="stat-label">Products designed &amp; built</div>
+          </div>
+          <div>
+            <div class="stat-num"><span data-count="11">0</span></div>
+            <div class="stat-label">Live on Google Play</div>
+          </div>
+          <div>
+            <div class="stat-num"><span data-count="7">0</span></div>
+            <div class="stat-label">Play Store categories</div>
+          </div>
+          <div>
+            <div class="stat-num"><span data-count="100">0</span><span class="suffix">%</span></div>
+            <div class="stat-label">Engineered in-house</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-r" style="--d:200ms">
+        <div class="app-cloud">
+          <div class="app-cloud-head">
+            <div>
+              <h2>Shipped by our team</h2>
+              <p>A selection from the catalogue</p>
+            </div>
+            <a class="gp-badge" href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer">
+              <svg class="ic" aria-hidden="true"><use href="#i-google-play"/></svg> Google Play
             </a>
-            <div class="nav-cluster">
-                <ul class="nav-menu" id="primary-nav" role="menubar">
-                    <li role="none"><a href="#home" role="menuitem">Home</a></li>
-                    <li role="none"><a href="#services" role="menuitem">Services</a></li>
-                    <li role="none"><a href="#about" role="menuitem">About</a></li>
-                    <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
-                    <li role="none"><a href="#process" role="menuitem">Process</a></li>
-                    <li role="none" class="nav-cta"><a href="#contact" role="menuitem" class="btn btn-primary">Contact Sales</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
-                    <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
-                    <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
-                </button>
-                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+          </div>
+          <div class="icon-grid">
+            <img src="images/apps/superholeio.webp" alt="SuperHole.io" loading="eager" width="80" height="80" style="--fd:0s">
+            <img src="images/apps/snakeio.webp"     alt="Worm Snake.io" loading="eager" width="80" height="80" style="--fd:.3s">
+            <img src="images/apps/ultraplay.webp"   alt="UltraPlay"     loading="eager" width="80" height="80" style="--fd:.6s">
+            <img src="images/apps/zumaio.webp"      alt="Zuma.io"       loading="eager" width="80" height="80" style="--fd:.9s">
+            <img src="images/apps/sdm.webp"         alt="SDM"           loading="lazy" width="80" height="80" style="--fd:1.2s">
+            <img src="images/apps/ipolive.webp"     alt="Live IPO"      loading="lazy" width="80" height="80" style="--fd:1.5s">
+            <img src="images/apps/chess.webp"       alt="Chess Champion" loading="lazy" width="80" height="80" style="--fd:1.8s">
+            <img src="images/apps/bubble.webp"      alt="Bubble Vibe Shooter" loading="lazy" width="80" height="80" style="--fd:2.1s">
+            <img src="images/apps/colorsort.webp"   alt="Color Sort"    loading="lazy" width="80" height="80" style="--fd:2.4s">
+            <img src="images/apps/nutboult.webp"    alt="Nuts &amp; Bolts" loading="lazy" width="80" height="80" style="--fd:2.7s">
+            <img src="images/apps/flow2048.webp"    alt="2048 Flow"     loading="lazy" width="80" height="80" style="--fd:3s">
+            <img src="images/apps/knife.webp"       alt="Knife &amp; Apples" loading="lazy" width="80" height="80" style="--fd:3.3s">
+          </div>
         </div>
-    </nav>
 
-    <main id="main-content">
-        <!-- Hero -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-content reveal">
-                        <span class="hero-badge">Enterprise IT Solutions</span>
-                        <h1 class="hero-title">Engineering trusted software for <em>serious businesses</em>.</h1>
-                        <p class="hero-subtitle">We design, build, and ship enterprise-grade web and mobile platforms — combining clean engineering, modern architecture, and reliable delivery.</p>
-                        <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary btn-large">Get a Free Quote</a>
-                            <a href="#services" class="btn btn-secondary btn-large">Explore Services</a>
-                        </div>
-                        <div class="hero-stats" role="list">
-                            <div class="stat-item" role="listitem">
-                                <div class="stat-number">13+</div>
-                                <div class="stat-label">Apps published</div>
-                            </div>
-                            <div class="stat-item" role="listitem">
-                                <div class="stat-number">6+</div>
-                                <div class="stat-label">App categories</div>
-                            </div>
-                            <div class="stat-item" role="listitem">
-                                <div class="stat-number">100%</div>
-                                <div class="stat-label">In-house built</div>
-                            </div>
-                        </div>
-                    </div>
-                    <aside class="hero-visual reveal" aria-hidden="true">
-                        <div class="hero-float float-tl">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>SOC-grade security</span>
-                        </div>
-                        <div class="hero-card">
-                            <div class="hero-card-header">
-                                <h3 class="hero-card-title">What you get</h3>
-                                <span class="hero-card-dot" aria-label="online"></span>
-                            </div>
-                            <ul class="hero-checklist">
-                                <li><span class="check"><i class="fas fa-check"></i></span> Discovery workshop & technical scoping</li>
-                                <li><span class="check"><i class="fas fa-check"></i></span> Pixel-accurate UI &amp; modern architecture</li>
-                                <li><span class="check"><i class="fas fa-check"></i></span> Native &amp; cross-platform mobile builds</li>
-                                <li><span class="check"><i class="fas fa-check"></i></span> CI/CD, cloud deployment &amp; monitoring</li>
-                                <li><span class="check"><i class="fas fa-check"></i></span> Post-launch maintenance &amp; SLAs</li>
-                            </ul>
-                            <div class="hero-card-foot">
-                                <i class="fas fa-clock"></i>
-                                <span>Typical first deliverable in 2–3 weeks</span>
-                            </div>
-                        </div>
-                        <div class="hero-float float-br">
-                            <i class="fas fa-bolt"></i>
-                            <span>Agile delivery</span>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </section>
-
-        <!-- Trusted-by strip -->
-        <section class="trusted" aria-label="Technologies we work with">
-            <div class="container">
-                <p class="trusted-label">Tooling we ship with every release</p>
-                <div class="trusted-row">
-                    <span class="trust-item"><i class="fab fa-android"></i> Android</span>
-                    <span class="trust-item"><i class="fab fa-apple"></i> iOS</span>
-                    <span class="trust-item"><i class="fab fa-react"></i> React</span>
-                    <span class="trust-item"><i class="fab fa-node"></i> Node.js</span>
-                    <span class="trust-item"><i class="fab fa-aws"></i> AWS</span>
-                    <span class="trust-item"><i class="fab fa-google-cloud"></i> Google Cloud</span>
-                    <span class="trust-item"><i class="fab fa-docker"></i> Docker</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services -->
-        <section id="services" class="services">
-            <div class="container">
-                <header class="section-header reveal">
-                    <span class="section-label">Our services</span>
-                    <h2 class="section-title">Comprehensive IT solutions</h2>
-                    <p class="section-subtitle">Technology services scoped to your business and built to last.</p>
-                </header>
-                <div class="services-grid">
-                    <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true"><i class="fas fa-globe"></i></div>
-                        <h3>Web Development</h3>
-                        <p>Custom web applications with modern frameworks for performance, security, and scale.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Responsive design</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Progressive web apps</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> E-commerce platforms</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> API design &amp; integration</li>
-                        </ul>
-                    </article>
-
-                    <article class="service-card featured reveal">
-                        <span class="service-badge">Most popular</span>
-                        <div class="service-icon" aria-hidden="true"><i class="fas fa-mobile-alt"></i></div>
-                        <h3>Mobile App Development</h3>
-                        <p>Native and cross-platform apps for iOS, Android, and Flutter with polished user experience.</p>
-                        <div class="mobile-platforms">
-                            <div class="platform"><i class="fab fa-android" aria-hidden="true"></i><span>Android</span></div>
-                            <div class="platform"><i class="fab fa-apple" aria-hidden="true"></i><span>iOS</span></div>
-                            <div class="platform"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Flutter</span></div>
-                        </div>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Native development</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Cross-platform builds</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> App store optimization</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Maintenance &amp; support</li>
-                        </ul>
-                    </article>
-
-                    <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true"><i class="fas fa-robot"></i></div>
-                        <h3>AI Solutions</h3>
-                        <p>Practical AI to enhance business processes and decision-making — not a marketing exercise.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Machine learning models</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Analytics &amp; insights</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Chatbots &amp; assistants</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Workflow automation</li>
-                        </ul>
-                    </article>
-
-                    <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
-                        <h3>Custom Software</h3>
-                        <p>Tailored software for the unique challenges your team can&rsquo;t solve with off-the-shelf tools.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Enterprise platforms</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Process automation</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> System integration</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Cloud solutions</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- About -->
-        <section id="about" class="about">
-            <div class="container">
-                <header class="section-header reveal">
-                    <span class="section-label">About us</span>
-                    <h2 class="section-title">A trusted technology partner</h2>
-                    <p class="section-subtitle">Excellence in software development and digital innovation.</p>
-                </header>
-                <div class="about-content">
-                    <div class="about-text reveal">
-                        <p class="lead">SoftTech Service is a proprietorship IT company owned by <strong>Maurya Neha Devi Ajitkumar</strong>, specializing in enterprise software, mobile apps, and custom digital solutions.</p>
-                        <p>We deliver reliable, scalable technology for businesses of all sizes. Our published work spans Android &amp; cross-platform mobile apps, games, AI tools, productivity utilities, and custom web platforms.</p>
-                        <div class="about-features">
-                            <div class="feature-item">
-                                <i class="fas fa-bullseye" aria-hidden="true"></i>
-                                <div>
-                                    <h4>Mission</h4>
-                                    <p>Empower businesses with innovative, dependable technology.</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-eye" aria-hidden="true"></i>
-                                <div>
-                                    <h4>Vision</h4>
-                                    <p>Be the most trusted technology partner for digital transformation.</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                                <div>
-                                    <h4>Trust &amp; reliability</h4>
-                                    <p>Quality solutions with transparent communication and on-time delivery.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-image reveal">
-                        <img src="images/about-us.png" alt="SoftTech Service team at work" class="about-image-img" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
-                        <div class="image-placeholder" aria-hidden="true">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why choose us -->
-        <section class="why-choose-us">
-            <div class="container">
-                <header class="section-header reveal">
-                    <span class="section-label">Why choose us</span>
-                    <h2 class="section-title">Excellence in every project</h2>
-                    <p class="section-subtitle">What sets our delivery apart.</p>
-                </header>
-                <div class="why-grid">
-                    <div class="why-card reveal">
-                        <div class="why-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
-                        <h3>Proven experience</h3>
-                        <p>Years of delivering successful projects across industries and stacks.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <div class="why-icon" aria-hidden="true"><i class="fas fa-cogs"></i></div>
-                        <h3>Agile delivery</h3>
-                        <p>Flexible methodology that ships value early and improves continuously.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <div class="why-icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
-                        <h3>Reliable &amp; secure</h3>
-                        <p>Enterprise-grade security and infrastructure that protect your data.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <div class="why-icon" aria-hidden="true"><i class="fas fa-headset"></i></div>
-                        <h3>24/7 support</h3>
-                        <p>Comprehensive maintenance to keep your systems running smoothly.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <div class="why-icon" aria-hidden="true"><i class="fas fa-coins"></i></div>
-                        <h3>Cost-effective</h3>
-                        <p>Competitive pricing without compromising on quality or longevity.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <div class="why-icon" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <h3>Client-centric</h3>
-                        <p>Your success is our priority. We work closely to exceed expectations.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tech stack -->
-        <section class="tech-stack">
-            <div class="container">
-                <header class="section-header reveal">
-                    <span class="section-label">Technologies</span>
-                    <h2 class="section-title">Our technology stack</h2>
-                    <p class="section-subtitle">Modern tools and frameworks behind every solution we ship.</p>
-                </header>
-                <div class="tech-categories">
-                    <div class="tech-category reveal">
-                        <h3>Mobile</h3>
-                        <div class="tech-items">
-                            <span class="tech-item"><i class="fab fa-android"></i> Android</span>
-                            <span class="tech-item"><i class="fab fa-apple"></i> iOS</span>
-                            <span class="tech-item">
-                                <svg class="flutter-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M18.5 2L6.5 14L10.5 18L22.5 6H14.5L18.5 2Z" fill="currentColor"/>
-                                    <path d="M18.5 30L6.5 18L10.5 14L22.5 26H14.5L18.5 30Z" fill="currentColor"/>
-                                </svg>
-                                Flutter
-                            </span>
-                            <span class="tech-item"><i class="fab fa-react"></i> React Native</span>
-                        </div>
-                    </div>
-                    <div class="tech-category reveal">
-                        <h3>Web</h3>
-                        <div class="tech-items">
-                            <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-                            <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-                            <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-                            <span class="tech-item"><i class="fab fa-react"></i> React</span>
-                            <span class="tech-item"><i class="fab fa-node"></i> Node.js</span>
-                        </div>
-                    </div>
-                    <div class="tech-category reveal">
-                        <h3>Backend &amp; data</h3>
-                        <div class="tech-items">
-                            <span class="tech-item"><i class="fas fa-database"></i> MySQL</span>
-                            <span class="tech-item"><i class="fas fa-database"></i> PostgreSQL</span>
-                            <span class="tech-item"><i class="fas fa-database"></i> MongoDB</span>
-                            <span class="tech-item"><i class="fab fa-python"></i> Python</span>
-                            <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
-                        </div>
-                    </div>
-                    <div class="tech-category reveal">
-                        <h3>Cloud &amp; DevOps</h3>
-                        <div class="tech-items">
-                            <span class="tech-item"><i class="fab fa-aws"></i> AWS</span>
-                            <span class="tech-item"><i class="fab fa-google-cloud"></i> Google Cloud</span>
-                            <span class="tech-item"><i class="fab fa-docker"></i> Docker</span>
-                            <span class="tech-item"><i class="fab fa-git-alt"></i> Git</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio -->
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <header class="section-header reveal">
-                    <span class="section-label">Portfolio</span>
-                    <h2 class="section-title">Apps we&rsquo;ve shipped</h2>
-                    <p class="section-subtitle">A selection of products we&rsquo;ve designed, built, and published across games, productivity, AI, and more.</p>
-                </header>
-                <div class="portfolio-grid">
-                    <a class="portfolio-card reveal" href="arrowescape/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-puzzle-piece"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Game</span>
-                            <h3>Arrow Escape</h3>
-                            <p>A vibrant directional grid puzzle with 90+ hand-crafted levels and a speedrun mode.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Puzzle</span>
-                                <span class="tag">Android</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="gamehub/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-gamepad"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Game</span>
-                            <h3>GameHub</h3>
-                            <p>35+ classic offline arcade, card, puzzle, and board games in one premium console.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">Offline</span>
-                                <span class="tag">Arcade</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="nutboult/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-screwdriver-wrench"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Game</span>
-                            <h3>Nuts &amp; Bolts</h3>
-                            <p>Solve the ultimate screw puzzle! Unscrew nuts, bolts, &amp; metal plates to win.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Puzzle</span>
-                                <span class="tag">Android / iOS</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="ipolive/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Finance</span>
-                            <h3>Live IPO</h3>
-                            <p>Real-time IPO GMP and subscription data for the Indian markets, right on your phone.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">Finance</span>
-                                <span class="tag">Real-time</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="vaultx/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-shield-halved"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Security</span>
-                            <h3>VaultX</h3>
-                            <p>A secure digital vault for passwords, cards, and documents with AES-256 and biometrics.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">Security</span>
-                                <span class="tag">Encryption</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="proresume/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-file-lines"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Productivity</span>
-                            <h3>Pro Resume Builder</h3>
-                            <p>Create resumes, biodata, ID and business cards with AI-assisted content and templates.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">AI</span>
-                                <span class="tag">Templates</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="docmaster/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-file-pdf"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Productivity</span>
-                            <h3>Ultra Doc Scanner</h3>
-                            <p>Turn your phone into a document scanner with OCR, PDF tools, and e-signatures.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">OCR</span>
-                                <span class="tag">PDF</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="speedpro/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-gauge-high"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Automotive</span>
-                            <h3>SpeedoMeter Pro</h3>
-                            <p>GPS speedometer, HUD windshield projection, trip allowance logger &amp; vehicle service book.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">GPS</span>
-                                <span class="tag">HUD</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="qrmaster/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-qrcode"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Utility</span>
-                            <h3>Pro QR &amp; Barcode Scanner</h3>
-                            <p>A fast, modern QR and barcode scanner with context-aware actions for every format.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Kotlin</span>
-                                <span class="tag">MVVM</span>
-                                <span class="tag">Android</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="sdm/">
-                        <div class="portfolio-image">
-                            <img src="sdm/icon.png" alt="SDM - SoftTech Download Manager" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
-                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-download"></i></div>
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Utility</span>
-                            <h3>SDM - Download Manager</h3>
-                            <p>Fast, multi-threaded HTTP/HTTPS downloads and full BitTorrent client with Material 3 design.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">BitTorrent</span>
-                                <span class="tag">Open Source</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="chess/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-chess-knight"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Gaming</span>
-                            <h3>Chess Champion</h3>
-                            <p>A classic wood-themed chess game featuring smart AI opponents, hints, and local progression.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Android</span>
-                                <span class="tag">Board Game</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="bubble/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-circle-dot"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Gaming</span>
-                            <h3>Bubble Vibe Shooter</h3>
-                            <p>A premium modern bubble shooter featuring a high-performance Canvas engine and soft neumorphic UI.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">HTML5 Canvas</span>
-                                <span class="tag">Neumorphism</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="snakeio/">
-                        <div class="portfolio-image">
-                            <img src="images/snakeio-logo.png" alt="Worm Snake.io" class="portfolio-img">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Gaming</span>
-                            <h3>Worm Snake.io</h3>
-                            <p>Slide into a neon arena: 4 game modes, 21 serpent species, 5 power-ups, and AI rivals.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Arcade</span>
-                                <span class="tag">Single Player</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="superholeio/">
-                        <div class="portfolio-image">
-                            <img src="images/superholeio-logo.png" alt="SuperHole.io: Black Hole 3D" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
-                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-circle-notch"></i></div>
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Gaming</span>
-                            <h3>SuperHole.io</h3>
-                            <p>Control a black hole, swallow items, grow bigger, and master 60 arcade levels in 3D arenas.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">3D Arcade</span>
-                                <span class="tag">Offline</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="zumaio/">
-                        <div class="portfolio-image">
-                            <img src="images/zumaio-logo.png" alt="Zuma.io: Marble Shooter" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
-                            <div class="portfolio-placeholder" aria-hidden="true"><i class="fas fa-gem"></i></div>
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Gaming</span>
-                            <h3>Zuma.io: Marble Shooter</h3>
-                            <p>Aim, match marbles, and stop the chain! 50 campaign levels across 5 ancient worlds built with Flame engine.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Flame 2D</span>
-                                <span class="tag">Marble Shooter</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="smartAiPrompt/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-wand-magic-sparkles"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">AI</span>
-                            <h3>Smart AI Prompt</h3>
-                            <p>100+ curated prompts for ChatGPT, DALL&middot;E, Midjourney, and more — offline-first.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">AI</span>
-                                <span class="tag">Offline</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="rtolearn/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-car"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Education</span>
-                            <h3>RTO Exam</h3>
-                            <p>Indian driving-licence exam prep with mock tests, traffic signs, and multilingual support.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Education</span>
-                                <span class="tag">Multilingual</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="ultraplay/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-vr-cardboard"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Media</span>
-                            <h3>UltraPlay 3D/VR</h3>
-                            <p>An immersive 3D &amp; VR video player with gestures, subtitles, playlists, and streaming.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">VR</span>
-                                <span class="tag">Media</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="lodochamp/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-dice"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Game</span>
-                            <h3>Ludo Champion</h3>
-                            <p>The classic Ludo board game with offline play and AI bots — family-friendly fun.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">Board</span>
-                                <span class="tag">Offline</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="portfolio-card reveal" href="towerup/">
-                        <div class="portfolio-image">
-                            <div class="portfolio-overlay"><span class="portfolio-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></div>
-                            <div class="portfolio-placeholder show" aria-hidden="true"><i class="fas fa-layer-group"></i></div>
-                        </div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-category">Game</span>
-                            <h3>Tower Up!</h3>
-                            <p>Stack blocks with a swinging crane and build the tallest tower you can in this arcade hit.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Android</span>
-                                <span class="tag">Arcade</span>
-                                <span class="tag">Casual</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Process -->
-        <section id="process" class="process">
-            <div class="container">
-                <header class="section-header reveal">
-                    <span class="section-label">Our process</span>
-                    <h2 class="section-title">How we work</h2>
-                    <p class="section-subtitle">A proven methodology for successful delivery — every project, every time.</p>
-                </header>
-                <div class="process-timeline">
-                    <div class="process-step reveal">
-                        <div class="process-number">01</div>
-                        <div class="process-icon" aria-hidden="true"><i class="fas fa-search"></i></div>
-                        <h3>Discover</h3>
-                        <p>Understand your goals, constraints, and success criteria through structured consultation.</p>
-                    </div>
-                    <div class="process-step reveal">
-                        <div class="process-number">02</div>
-                        <div class="process-icon" aria-hidden="true"><i class="fas fa-pencil-ruler"></i></div>
-                        <h3>Design</h3>
-                        <p>Create wireframes, designs, and prototypes to validate the solution before building.</p>
-                    </div>
-                    <div class="process-step reveal">
-                        <div class="process-number">03</div>
-                        <div class="process-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
-                        <h3>Build</h3>
-                        <p>Develop in tight iterations with regular updates, code review, and testing.</p>
-                    </div>
-                    <div class="process-step reveal">
-                        <div class="process-number">04</div>
-                        <div class="process-icon" aria-hidden="true"><i class="fas fa-rocket"></i></div>
-                        <h3>Ship</h3>
-                        <p>Deploy with full documentation, monitoring, and team training in place.</p>
-                    </div>
-                    <div class="process-step reveal">
-                        <div class="process-number">05</div>
-                        <div class="process-icon" aria-hidden="true"><i class="fas fa-headset"></i></div>
-                        <h3>Support</h3>
-                        <p>Ongoing maintenance, updates, and incident response keep things running.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta">
-            <div class="container">
-                <div class="cta-content reveal">
-                    <h2>Ready to transform your business?</h2>
-                    <p>Let&rsquo;s talk through your goals and put a delivery plan together — no commitment required.</p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary btn-large">Get free consultation</a>
-                        <a href="mailto:contect@softtechservice.site" class="btn btn-secondary btn-large">Email us</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <header class="section-header reveal">
-                    <span class="section-label">Contact us</span>
-                    <h2 class="section-title">Let&rsquo;s start your project</h2>
-                    <p class="section-subtitle">Tell us about your requirements and we&rsquo;ll send a tailored quote.</p>
-                </header>
-                <div class="contact-wrapper">
-                    <div class="contact-info">
-                        <div class="contact-card">
-                            <div class="contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
-                            <h3>Email</h3>
-                            <a href="mailto:contect@softtechservice.site" aria-label="Send email to SoftTech Service">contect@softtechservice.site</a>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon" aria-hidden="true"><i class="fas fa-building"></i></div>
-                            <h3>Company</h3>
-                            <p><strong>SoftTech Service</strong></p>
-                            <p class="owner">Proprietor: Maurya Neha Devi Ajitkumar</p>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
-                            <h3>Hours</h3>
-                            <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
-                            <p>Saturday: 10:00 AM – 4:00 PM</p>
-                        </div>
-                    </div>
-                    <div class="contact-form-wrapper">
-                        <form class="contact-form" id="contactForm" novalidate>
-                            <div class="form-group">
-                                <label for="name">Full name <span class="required" aria-hidden="true">*</span></label>
-                                <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error" placeholder="Jane Doe">
-                                <span class="error-message" id="name-error" role="alert"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
-                                <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error" placeholder="you@company.com">
-                                <span class="error-message" id="email-error" role="alert"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="tel" id="phone" name="phone" aria-describedby="phone-error" placeholder="+91 99999 99999">
-                                <span class="error-message" id="phone-error" role="alert"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="service">Service interested in</label>
-                                <select id="service" name="service">
-                                    <option value="">Select a service</option>
-                                    <option value="web-development">Web development</option>
-                                    <option value="mobile-app">Mobile app development</option>
-                                    <option value="ai-solutions">AI solutions</option>
-                                    <option value="custom-software">Custom software</option>
-                                    <option value="hrms">HRMS solutions</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Project details <span class="required" aria-hidden="true">*</span></label>
-                                <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="message-error" placeholder="A short description of what you&rsquo;re building, your timeline, and any constraints."></textarea>
-                                <span class="error-message" id="message-error" role="alert"></span>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-large">Send message</button>
-                            <div class="form-success" id="formSuccess" role="alert" aria-live="polite"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-brand">
-                        <img src="images/logo_trans.png" alt="" class="logo-img footer-logo">
-                        <span>SoftTech Service</span>
-                    </div>
-                    <p class="footer-description">Reliable, scalable technology solutions for businesses worldwide.</p>
-                    <div class="footer-social">
-                        <a href="mailto:contect@softtechservice.site" class="social-link" aria-label="Email us">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" class="social-link" aria-label="Our apps on Google Play" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-google-play" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#services">Web development</a></li>
-                        <li><a href="#services">Mobile apps</a></li>
-                        <li><a href="#services">AI solutions</a></li>
-                        <li><a href="#services">Custom software</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#process">Process</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul class="footer-contact">
-                        <li>
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-building" aria-hidden="true"></i>
-                            <span>SoftTech Service<br>Proprietor: Maurya Neha Devi Ajitkumar</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="footer-copyright">&copy; <span id="year">2026</span> SoftTech Service. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer">Our apps</a>
-                    <a href="mailto:contect@softtechservice.site">Contact</a>
-                </div>
-            </div>
+        <div class="float-chip chip-rating">
+          <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span>
+          <span>4.4 rating<small>UltraPlay on Google Play</small></span>
         </div>
-    </footer>
+        <div class="float-chip chip-stack">
+          <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></span>
+          <span>Flutter &amp; Kotlin<small>Native Android engineering</small></span>
+        </div>
+      </div>
 
-    <button class="back-to-top" aria-label="Back to top" id="backToTop">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </button>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- ══ Tech strip ════════════════════════════════════════════════ -->
+<div class="strip">
+  <p class="strip-label">The stack behind our products</p>
+  <div class="marquee">
+    <div class="marquee-track" id="mq1">
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-phone-plain"/></svg> Flutter</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-android"/></svg> Kotlin</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-cube"/></svg> Jetpack</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-workflow"/></svg> Clean Architecture</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> MVVM</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg> Babylon.js</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-html5"/></svg> HTML5 Canvas</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg> Firebase</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-database"/></svg> SQLite / Room</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg> AES-256</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-broadcast"/></svg> REST APIs</span>
+      <span class="tech-pill"><svg class="ic" aria-hidden="true"><use href="#i-google-play"/></svg> Play Console</span>
+    </div>
+  </div>
+</div>
 
-    <!-- Disable right-click & devtools shortcuts -->
-    <script>
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123) return false;
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false;
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 74) return false;
-            if (e.ctrlKey && e.keyCode == 85) return false;
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 67) return false;
-        };
-    </script>
+<!-- ══ Services ══════════════════════════════════════════════════ -->
+<section class="section" id="services">
+  <div class="container">
+    <header class="section-header section-header--center reveal">
+      <span class="eyebrow">What we do</span>
+      <h2 class="section-title">Engineering services, end to end</h2>
+      <p class="section-sub">
+        The same team that designs, builds and maintains our own catalogue takes on client work —
+        so you get people who have shipped and supported real products, not just prototypes.
+      </p>
+    </header>
+
+    <div class="grid-3">
+      <article class="card reveal">
+        <div class="card-ico"><svg class="ic" aria-hidden="true"><use href="#i-android"/></svg></div>
+        <h3>Android app development</h3>
+        <p>Production Android apps in Kotlin or Flutter — from a first build to Play Store release, policy review and long-term maintenance.</p>
+        <ul class="card-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Kotlin, Jetpack &amp; Clean MVVM</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Flutter for one codebase</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Play Console release management</li>
+        </ul>
+      </article>
+
+      <article class="card reveal" style="--d:80ms">
+        <div class="card-ico"><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg></div>
+        <h3>Mobile game development</h3>
+        <p>Casual and arcade games with real physics, 3D rendering and level design — thirteen of them already in our own catalogue.</p>
+        <ul class="card-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> 2D &amp; 3D arcade physics</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Babylon.js &amp; HTML5 engines</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Level design &amp; progression</li>
+        </ul>
+      </article>
+
+      <article class="card reveal" style="--d:160ms">
+        <div class="card-ico"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></div>
+        <h3>Custom software</h3>
+        <p>Line-of-business tools built around how your team actually works — dashboards, internal apps, integrations and data pipelines.</p>
+        <ul class="card-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Requirement &amp; process mapping</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> REST APIs &amp; integrations</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Role-based access control</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-ico"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg></div>
+        <h3>Product &amp; UI design</h3>
+        <p>Interface design that survives contact with real users — accessible, consistent and handed over as a system, not a stack of screens.</p>
+        <ul class="card-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Design systems &amp; components</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Accessible, responsive layouts</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Prototypes before code</li>
+        </ul>
+      </article>
+
+      <article class="card reveal" style="--d:80ms">
+        <div class="card-ico"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></div>
+        <h3>Security &amp; data privacy</h3>
+        <p>Encryption, biometric access and privacy-first storage — the same approach we use in VaultX for passwords and documents.</p>
+        <ul class="card-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> AES-256 at rest</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Biometric &amp; PIN unlock</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Offline-first, no data harvesting</li>
+        </ul>
+      </article>
+
+      <article class="card reveal" style="--d:160ms">
+        <div class="card-ico"><svg class="ic" aria-hidden="true"><use href="#i-headset"/></svg></div>
+        <h3>Maintenance &amp; support</h3>
+        <p>Apps need care after launch. We handle SDK upgrades, Play policy changes, crash triage and feature work on a steady cadence.</p>
+        <ul class="card-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Target API &amp; policy updates</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Crash monitoring &amp; fixes</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Scheduled release cycles</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Portfolio ═════════════════════════════════════════════════ -->
+<section class="section section--soft" id="portfolio">
+  <div class="container">
+    <header class="section-header reveal">
+      <span class="eyebrow">Our products</span>
+      <h2 class="section-title">Twenty-three apps, all built here</h2>
+      <p class="section-sub">
+        Every product below was designed, engineered and published by our own team — no outsourcing,
+        no white-labelling. Open any one to read what it does and how it was built.
+      </p>
+    </header>
+
+    <div class="portfolio-bar reveal">
+      <div class="filters" role="group" aria-label="Filter products by category">
+        <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All products <span class="count">23</span></button>
+        <button class="filter-btn" type="button" data-filter="games" aria-pressed="false">Games <span class="count">13</span></button>
+        <button class="filter-btn" type="button" data-filter="productivity" aria-pressed="false">Productivity <span class="count">4</span></button>
+        <button class="filter-btn" type="button" data-filter="tools" aria-pressed="false">Tools &amp; Media <span class="count">4</span></button>
+        <button class="filter-btn" type="button" data-filter="finance" aria-pressed="false">Finance &amp; Learning <span class="count">2</span></button>
+      </div>
+      <div class="app-search">
+        <svg class="ic" aria-hidden="true"><use href="#i-magnifier"/></svg>
+        <label for="appSearch" class="visually-hidden">Search products</label>
+        <input type="search" id="appSearch" placeholder="Search products…" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="app-grid" id="appGrid">
+
+      <!-- Tools & Media -->
+      <article class="app-card reveal" data-cat="tools" data-name="UltraPlay Video Player 3D VR media">
+        <a class="app-link" href="ultraplay/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/ultraplay.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">UltraPlay 3D/VR</span>
+              <span class="app-cat">Video Players</span>
+            </div>
+          </div>
+          <p class="app-desc">Immersive 3D and VR video player with gestures, subtitles, playlists, MKV/4K support and Chromecast streaming.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="tools" data-name="SDM download manager torrent bittorrent">
+        <a class="app-link" href="sdm/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/sdm.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">SDM Download Manager</span>
+              <span class="app-cat">Utilities</span>
+            </div>
+          </div>
+          <p class="app-desc">Multi-threaded HTTP/HTTPS downloader with a libtorrent engine, magnet links, browser sniffer, scheduling and resume.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="tools" data-name="VaultX password manager vault security encryption">
+        <a class="app-link" href="vaultx/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/vaultx.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">VaultX</span>
+              <span class="app-cat">Security</span>
+            </div>
+          </div>
+          <p class="app-desc">Secure digital vault for passwords, cards, bank accounts and documents, with AES-256 encryption and biometric unlock.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="tools" data-name="SpeedoMeter Pro GPS speed odometer trip tracker HUD">
+        <a class="app-link" href="speedpro/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/speedpro.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">SpeedoMeter Pro</span>
+              <span class="app-cat">Maps &amp; Navigation</span>
+            </div>
+          </div>
+          <p class="app-desc">GPS speedometer, odometer, trip tracker and HUD that turns a phone into a full driving dashboard and vehicle assistant.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Productivity -->
+      <article class="app-card reveal" data-cat="productivity" data-name="Ultra Doc Scanner document PDF OCR signature">
+        <a class="app-link" href="docmaster/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/docmaster.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Ultra Doc Scanner</span>
+              <span class="app-cat">Productivity</span>
+            </div>
+          </div>
+          <p class="app-desc">Turns a phone camera into a document scanner with OCR, PDF tools and e-signature, built on Clean Architecture.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="productivity" data-name="Pro Resume BioData Builder CV ID card business card">
+        <a class="app-link" href="proresume/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/proresume.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Pro Resume Builder</span>
+              <span class="app-cat">Productivity</span>
+            </div>
+          </div>
+          <p class="app-desc">Build resumes, biodata, ID cards and business cards with AI-assisted content, multiple templates and export options.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="productivity" data-name="Pro QR Barcode Scanner reader">
+        <a class="app-link" href="qrmaster/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/qrmaster.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Pro QR &amp; Barcode Scanner</span>
+              <span class="app-cat">Productivity</span>
+            </div>
+          </div>
+          <p class="app-desc">Fast, accurate scanner supporting every QR and barcode format with context-aware actions. Kotlin and Clean MVVM.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="productivity" data-name="Smart AI Prompt ChatGPT DALL-E Midjourney library">
+        <a class="app-link" href="smartAiPrompt/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/smartAiPrompt.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Smart AI Prompt</span>
+              <span class="app-cat">Productivity</span>
+            </div>
+          </div>
+          <p class="app-desc">A curated library of 100+ prompts for ChatGPT, DALL·E, Midjourney and Stable Diffusion — offline-first and searchable.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Finance & Learning -->
+      <article class="app-card reveal" data-cat="finance" data-name="Live IPO GMP tracker grey market premium allotment finance">
+        <a class="app-link" href="ipolive/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/ipolive.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Live IPO: GMP Tracker</span>
+              <span class="app-cat">Finance</span>
+            </div>
+          </div>
+          <p class="app-desc">Live IPO grey-market premium, subscription figures, allotment status and smart IPO calculators in one place.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="finance" data-name="RTO Exam driving licence test India traffic signs education">
+        <a class="app-link" href="rtolearn/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/rtolearn.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">RTO Exam</span>
+              <span class="app-cat">Education</span>
+            </div>
+          </div>
+          <p class="app-desc">Indian driving-licence exam prep with mock tests, traffic signs, state codes, progress tracking and multilingual support.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Games -->
+      <article class="app-card reveal" data-cat="games" data-name="SuperHole.io black hole 3D arcade action">
+        <a class="app-link" href="superholeio/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/superholeio.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">SuperHole.io</span>
+              <span class="app-cat">Action</span>
+            </div>
+          </div>
+          <p class="app-desc">Control a black hole, swallow everything in sight and grow through 60 arcade levels of fast 3D physics.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Worm Snake.io arena battle neon multiplayer arcade">
+        <a class="app-link" href="snakeio/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/snakeio.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Worm Snake.io</span>
+              <span class="app-cat">Arcade</span>
+            </div>
+          </div>
+          <p class="app-desc">A neon arena where every worm chases the same crown — 4 game modes, 21 serpent species and tactical power-ups.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Android</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Zuma.io marble shooter puzzle ancient worlds">
+        <a class="app-link" href="zumaio/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/zumaio.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Zuma.io: Marble Shooter</span>
+              <span class="app-cat">Puzzle</span>
+            </div>
+          </div>
+          <p class="app-desc">Aim, match marbles and stop the chain across 50 levels set in five ancient mystical worlds.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Bubble Vibe Shooter pop bubbles neumorphic">
+        <a class="app-link" href="bubble/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/bubble.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Bubble Vibe Shooter</span>
+              <span class="app-cat">Arcade</span>
+            </div>
+          </div>
+          <p class="app-desc">A premium neumorphic bubble shooter with physics-based graphics, power-ups and more than 100 levels.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Chess Champion strategy board wood computer opponent">
+        <a class="app-link" href="chess/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/chess.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Chess Champion</span>
+              <span class="app-cat">Strategy</span>
+            </div>
+          </div>
+          <p class="app-desc">Wood-themed chess against a smart computer opponent — three difficulty levels, hints and coin rewards.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="2048 Flow number merge puzzle 3D grid">
+        <a class="app-link" href="flow2048/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/flow2048.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">2048 Flow</span>
+              <span class="app-cat">Puzzle</span>
+            </div>
+          </div>
+          <p class="app-desc">Connect matching numbers, merge tiles and solve puzzles on a stunning 3D grid powered by Babylon.js.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Color Sort Water Puzzle tubes relaxing">
+        <a class="app-link" href="colorsort/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/colorsort.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Color Sort – Water Puzzle</span>
+              <span class="app-cat">Puzzle</span>
+            </div>
+          </div>
+          <p class="app-desc">Sort coloured water into matching tubes across hundreds of handcrafted levels. No timer, no stress.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Nuts and Bolts Screw Puzzle physics unscrew">
+        <a class="app-link" href="nutboult/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/nutboult.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Nuts &amp; Bolts Screw Puzzle</span>
+              <span class="app-cat">Puzzle</span>
+            </div>
+          </div>
+          <p class="app-desc">Unscrew nuts, bolts and metal plates with realistic physics in the ultimate screw-sorting challenge.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Knife and Apples throwing timing arcade">
+        <a class="app-link" href="knife/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/knife.webp" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Knife &amp; Apples</span>
+              <span class="app-cat">Arcade</span>
+            </div>
+          </div>
+          <p class="app-desc">Tap, throw and master the art of perfect knife timing through progressively harder stages.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="GameHub 35 offline games console arcade card board">
+        <a class="app-link" href="gamehub/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/gamehub.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">GameHub</span>
+              <span class="app-cat">Arcade</span>
+            </div>
+          </div>
+          <p class="app-desc">35+ classic offline arcade, card, puzzle and board games bundled into one premium cyberpunk console.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Arrow Escape directional grid puzzle speedrun">
+        <a class="app-link" href="arrowescape/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/arrowescape.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Arrow Escape</span>
+              <span class="app-cat">Puzzle</span>
+            </div>
+          </div>
+          <p class="app-desc">A vibrant directional grid puzzle — slide arrows to safety across 90+ hand-crafted levels plus a speedrun mode.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Flutter</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Tower Up block stacking crane arcade">
+        <a class="app-link" href="towerup/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/towerup.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Tower Up!</span>
+              <span class="app-cat">Arcade</span>
+            </div>
+          </div>
+          <p class="app-desc">Stack building blocks as high as you can with a swinging crane in a polished one-more-go arcade challenge.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="app-card reveal" data-cat="games" data-name="Ludo Champion board game family offline dice">
+        <a class="app-link" href="lodochamp/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/lodochamp.svg" alt="" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">Ludo Champion</span>
+              <span class="app-cat">Board</span>
+            </div>
+          </div>
+          <p class="app-desc">Classic Ludo for the whole family — offline play against friends or AI bots, with no gambling and no real money.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Android</span><span class="tag">Free</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      <svg class="ic" aria-hidden="true"><use href="#i-magnifier"/></svg>
+      <h3>No products match that search</h3>
+      <p>Try a different keyword, or clear the filters to see all 23.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Why us ════════════════════════════════════════════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="split">
+      <div class="about-media reveal reveal-l">
+        <img src="images/about-us.webp" alt="A SoftTech Service app running on a phone" loading="lazy" width="666" height="1000" decoding="async">
+      </div>
+
+      <div class="reveal reveal-r">
+        <span class="eyebrow">Why SoftTech Service</span>
+        <h2 class="section-title">A studio that ships its own products</h2>
+        <p class="section-sub">
+          Most agencies can show you slides. We can show you twenty-three Android products we designed,
+          built, published and still maintain — which means every estimate we give you comes from
+          having done the work, not from guessing at it.
+        </p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg></span>
+            <div>
+              <h3>Proven on the Play Store</h3>
+              <p>Eleven of our apps are live on Google Play across seven categories — so we know release review, policy compliance and the target-API treadmill first-hand.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <div>
+              <h3>One team, start to finish</h3>
+              <p>Design, engineering, release and support come from the same people. No hand-offs to a third party, and no context lost between them.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></span>
+            <div>
+              <h3>Privacy by default</h3>
+              <p>Our apps work offline where they can and encrypt what they store. Every product ships with a published privacy policy before it goes live.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg></span>
+            <div>
+              <h3>Built to be maintained</h3>
+              <p>Clean Architecture and MVVM are not buzzwords here — they are why a two-year-old app in our catalogue can still take a new feature in days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Process ═══════════════════════════════════════════════════ -->
+<section class="section section--soft" id="process">
+  <div class="container">
+    <header class="section-header section-header--center reveal">
+      <span class="eyebrow">How we work</span>
+      <h2 class="section-title">From first call to store listing</h2>
+      <p class="section-sub">A predictable five-stage path, with something you can open and try at the end of every stage.</p>
+    </header>
+
+    <div class="steps">
+      <article class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Discover</h3>
+        <p>We map what you need, who uses it and what success looks like — then write it down so scope cannot drift quietly.</p>
+        <div class="step-meta">Output: scope &amp; estimate</div>
+      </article>
+      <article class="step reveal" style="--d:70ms">
+        <div class="step-num">02</div>
+        <h3>Design</h3>
+        <p>Wireframes first, then a clickable prototype and a component system you sign off before a line of production code.</p>
+        <div class="step-meta">Output: prototype</div>
+      </article>
+      <article class="step reveal" style="--d:140ms">
+        <div class="step-num">03</div>
+        <h3>Build</h3>
+        <p>Short iterations on Flutter or Kotlin, with a test build in your hands at the end of each one.</p>
+        <div class="step-meta">Output: test builds</div>
+      </article>
+      <article class="step reveal" style="--d:210ms">
+        <div class="step-num">04</div>
+        <h3>Ship</h3>
+        <p>Store assets, privacy policy, data-safety form and staged rollout — we handle the whole Play Console submission.</p>
+        <div class="step-meta">Output: live listing</div>
+      </article>
+      <article class="step reveal" style="--d:280ms">
+        <div class="step-num">05</div>
+        <h3>Support</h3>
+        <p>Crash triage, SDK and policy updates, and a steady release cadence so the app keeps working as Android changes.</p>
+        <div class="step-meta">Output: ongoing releases</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Stack ═════════════════════════════════════════════════════ -->
+<section class="section" id="stack">
+  <div class="container">
+    <header class="section-header section-header--center reveal">
+      <span class="eyebrow">Technology</span>
+      <h2 class="section-title">What we build with</h2>
+      <p class="section-sub">Chosen for maintainability, not novelty — every tool below is in production in our own catalogue today.</p>
+    </header>
+
+    <div class="stack-grid">
+      <article class="stack-card reveal">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Mobile</h3>
+        <div class="stack-tags">
+          <span>Flutter</span><span>Dart</span><span>Kotlin</span><span>Jetpack Compose</span>
+          <span>Android SDK</span><span>Material 3</span>
+        </div>
+      </article>
+      <article class="stack-card reveal" style="--d:70ms">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-shapes"/></svg> Graphics &amp; games</h3>
+        <div class="stack-tags">
+          <span>Babylon.js</span><span>HTML5 Canvas</span><span>WebGL</span>
+          <span>2D &amp; 3D physics</span><span>Custom engines</span>
+        </div>
+      </article>
+      <article class="stack-card reveal" style="--d:140ms">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-sitemap"/></svg> Architecture</h3>
+        <div class="stack-tags">
+          <span>Clean Architecture</span><span>MVVM</span><span>Repository pattern</span>
+          <span>Dependency injection</span><span>Offline-first</span>
+        </div>
+      </article>
+      <article class="stack-card reveal" style="--d:210ms">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-server"/></svg> Data &amp; backend</h3>
+        <div class="stack-tags">
+          <span>REST APIs</span><span>Firebase</span><span>SQLite</span>
+          <span>Room</span><span>libtorrent</span><span>AES-256</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Have an app idea? Let's scope it properly.</h2>
+      <p>
+        Tell us what you want to build and we'll come back with an honest assessment —
+        what it takes, what it costs, and whether it is worth building at all.
+      </p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-light btn-lg">Get a free quote <svg class="ic arr" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" aria-hidden="true"><use href="#i-google-play"/></svg> See our apps on Play
+        </a>
+      </div>
+      <p class="cta-note">Typically a reply within one business day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Contact ═══════════════════════════════════════════════════ -->
+<section class="section section--tint" id="contact">
+  <div class="container">
+    <header class="section-header reveal">
+      <span class="eyebrow">Contact</span>
+      <h2 class="section-title">Start your project</h2>
+      <p class="section-sub">Tell us about your requirements and we'll send back a tailored plan and quote.</p>
+    </header>
+
+    <div class="contact-grid">
+      <div class="reveal reveal-l">
+        <div class="info-card">
+          <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-envelope"/></svg></span>
+          <div>
+            <h3>Email us</h3>
+            <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a>
+            <p class="muted">Fastest way to reach us.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-building"/></svg></span>
+          <div>
+            <h3>Company</h3>
+            <p><strong>SoftTech Service</strong></p>
+            <p class="muted">Proprietor: Maurya Neha Devi Ajitkumar</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <div>
+            <h3>Business hours</h3>
+            <p>Mon – Fri&nbsp;&nbsp;9:00 AM – 6:00 PM</p>
+            <p>Saturday&nbsp;&nbsp;10:00 AM – 4:00 PM</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-google-play"/></svg></span>
+          <div>
+            <h3>Google Play</h3>
+            <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer">Our developer page</a>
+            <p class="muted">11 apps live across 7 categories.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card reveal reveal-r">
+        <div class="form-head">
+          <h3>Tell us about your project</h3>
+          <p>Fill this in and your email app will open with everything filled out, ready to send.</p>
+        </div>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Jane Doe" autocomplete="name" required>
+              <span class="err" id="name-err" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+              <span class="err" id="email-err" role="alert"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 99999 99999" autocomplete="tel">
+              <span class="err" id="phone-err" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option>Android app development</option>
+                <option>Mobile game development</option>
+                <option>Custom software</option>
+                <option>Product &amp; UI design</option>
+                <option>Maintenance &amp; support</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="budget">Indicative budget</label>
+            <select id="budget" name="budget">
+              <option value="">Prefer not to say</option>
+              <option>Under ₹1,00,000</option>
+              <option>₹1,00,000 – ₹3,00,000</option>
+              <option>₹3,00,000 – ₹10,00,000</option>
+              <option>Over ₹10,00,000</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Project details <span class="req">*</span></label>
+            <textarea id="message" name="message" rows="5" placeholder="What you're building, who it's for, your timeline and any constraints." required></textarea>
+            <span class="err" id="message-err" role="alert"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <svg class="ic" aria-hidden="true"><use href="#i-send"/></svg> Compose email
+          </button>
+
+          <p class="form-note">
+            <svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>
+            <span>This site is static and stores nothing. The button opens your own email app with the message
+            pre-filled to <strong>contect@softtechservice.site</strong> — you stay in control of what gets sent.</span>
+          </p>
+
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ Footer ════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="images/logo_trans.webp" alt="" width="36" height="36">
+          <span>SoftTech Service</span>
+        </div>
+        <p class="footer-about">
+          We work with businesses, enterprises and individuals to deliver reliable, scalable
+          and user-friendly technology solutions — designed and engineered in-house.
+        </p>
+        <div class="footer-social">
+          <a class="social-link" href="mailto:contect@softtechservice.site" aria-label="Email SoftTech Service">
+            <svg class="ic" aria-hidden="true"><use href="#i-envelope"/></svg>
+          </a>
+          <a class="social-link" href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer" aria-label="SoftTech Service on Google Play">
+            <svg class="ic" aria-hidden="true"><use href="#i-google-play"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Android development</a></li>
+          <li><a href="#services">Game development</a></li>
+          <li><a href="#services">Custom software</a></li>
+          <li><a href="#services">Product &amp; UI design</a></li>
+          <li><a href="#services">Maintenance &amp; support</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Products</h4>
+        <ul class="footer-links">
+          <li><a href="ultraplay/">UltraPlay 3D/VR</a></li>
+          <li><a href="ipolive/">Live IPO: GMP Tracker</a></li>
+          <li><a href="sdm/">SDM Download Manager</a></li>
+          <li><a href="superholeio/">SuperHole.io</a></li>
+          <li><a href="#portfolio">All 23 products</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="#about">Why us</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#stack">Technology</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer">Google Play</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2026</span> SoftTech Service. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a>
+        <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer">Our apps</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg class="ic" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+</button>
+
+<script src="script.js?v=4" defer></script>
 </body>
 </html>
