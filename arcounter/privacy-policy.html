@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - AR Camera Counter &amp; Tally | SoftTech Service</title>
+    <meta name="description" content="Official Privacy Policy, Device Permissions, and Terms of Service for AR Camera Counter & Tally (com.softtechservice.counterai) by SoftTech Service.">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0284C7;
+            --primary-dark: #0369A1;
+            --accent: #10B981;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --border-color: #E2E8F0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1.5rem 1rem;
+        }
+        
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: 0 6px 24px rgba(2, 132, 199, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(2, 132, 199, 0.12);
+        }
+        
+        .header-section {
+            padding: 2.75rem 3rem 2.25rem;
+            background: linear-gradient(135deg, #081226 0%, #0369A1 60%, #0284C7 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: all 0.25s;
+            padding: 0.5rem 1.15rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.28);
+            transform: translateX(-2px);
+        }
+        
+        .app-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #6EE7B7;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-section .subtitle {
+            color: #BAE6FD;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .header-section p.meta-dates {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.88rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 175px;
+            padding: 1.2rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-gray);
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(2, 132, 199, 0.04);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(2, 132, 199, 0.05);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3.25rem 3rem;
+            animation: fadeIn 0.28s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.85rem;
+            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            font-weight: 800;
+            border-bottom: 2px solid rgba(2, 132, 199, 0.25);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            letter-spacing: -0.5px;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #0F172A;
+            font-size: 1.35rem;
+            margin-bottom: 0.85rem;
+            margin-top: 1.75rem;
+            font-weight: 700;
+        }
+        
+        h4 {
+            color: #1E293B;
+            font-size: 1.12rem;
+            margin-bottom: 0.65rem;
+            margin-top: 1.35rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            color: var(--text-gray);
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: rgba(2, 132, 199, 0.05);
+            padding: 1.4rem 1.6rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-alert {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 1.4rem 1.6rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight p, .highlight-alert p {
+            margin-bottom: 0.4rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child, .highlight-alert p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.75rem 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-color);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 0.92rem;
+        }
+        
+        thead {
+            background: #081226;
+            color: white;
+        }
+        
+        th {
+            padding: 1rem 1.15rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        td {
+            padding: 1rem 1.15rem;
+            border-bottom: 1px solid #F1F5F9;
+            color: var(--text-gray);
+            vertical-align: top;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .pill-no {
+            background: #DEF7EC;
+            color: #03543F;
+        }
+
+        .pill-opt {
+            background: #E0F2FE;
+            color: #0369A1;
+        }
+
+        .pill-na {
+            background: #F1F5F9;
+            color: #475569;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #081226 0%, #0369A1 100%);
+            color: white;
+            padding: 2.25rem 2.5rem;
+            border-radius: 14px;
+            margin-top: 2.5rem;
+            box-shadow: 0 8px 24px rgba(2, 132, 199, 0.15);
+        }
+        
+        .contact-box h3 {
+            color: #38BDF8;
+            margin-top: 0;
+            margin-bottom: 0.85rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: #38BDF8;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .code-inline {
+            font-family: 'JetBrains Mono', monospace;
+            background: #F1F5F9;
+            color: var(--primary-dark);
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            font-size: 0.88rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.75rem 0.5rem;
+            }
+            
+            .header-section {
+                padding: 1.75rem 1.25rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.85rem;
+            }
+            
+            .tab-button {
+                min-width: 140px;
+                padding: 0.95rem 1rem;
+                font-size: 0.88rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.25rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to AR Camera Counter Home
+                </a>
+                <span class="app-pill"><i class="fas fa-shield-halved"></i> 100% On-Device AI</span>
+            </div>
+            <h1>AR Camera Counter: Privacy Policy &amp; Terms</h1>
+            <p class="subtitle">Complete Privacy Disclosures, Permission Transparency &amp; Google Play Data Safety</p>
+            <p class="meta-dates">Application: AR Camera Counter &amp; Tally (Package: com.softtechservice.counterai) • SoftTech Service • Effective Date: January 1, 2025 (Last Updated: 2026)</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs-container">
+            <ul class="tabs" role="tablist">
+                <li>
+                    <button class="tab-button active" data-tab="privacy" role="tab" aria-selected="true">
+                        <i class="fas fa-user-shield"></i> Privacy Policy
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="permissions" role="tab" aria-selected="false">
+                        <i class="fas fa-table-list"></i> Permissions &amp; Data Safety
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms" role="tab" aria-selected="false">
+                        <i class="fas fa-file-contract"></i> Terms &amp; Conditions
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="licenses" role="tab" aria-selected="false">
+                        <i class="fas fa-code-branch"></i> Third-Party &amp; Architecture
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- TAB 1: PRIVACY POLICY -->
+        <div id="privacy" class="tab-content active" role="tabpanel">
+            <div class="section">
+                <h2>1. Core Privacy Philosophy</h2>
+                <p>
+                    This Privacy Policy explains how <strong>AR Camera Counter &amp; Tally</strong> ("the App", "we", "us", or "our"), 
+                    developed by <strong>SoftTech Service</strong>, handles information collected or processed when you use our mobile application 
+                    available on Google Play (Package: <code class="code-inline">com.softtechservice.counterai</code>).
+                </p>
+                <div class="highlight-alert">
+                    <p><strong>Privacy-by-Design &amp; Local-First Architecture:</strong> Our core design principle is that your physical camera feed, images, inventory counts, and industrial audit data belong strictly to you. All computer vision analysis, neural network inferences, and object detection calculations happen exclusively on your local device.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. Information We Do NOT Collect</h2>
+                <p>To provide absolute transparency, we explicitly declare what is never collected by our software:</p>
+                <ul>
+                    <li><strong>No Personal Identity Information:</strong> We do not require registration, login accounts, usernames, email addresses, telephone numbers, or passwords. You can use all counting modes anonymously out of the box.</li>
+                    <li><strong>No Biometric Identifiers:</strong> The App does not perform facial recognition, iris scanning, biometric matching, or personal profiling.</li>
+                    <li><strong>No Cloud Image or Video Feeds:</strong> We do not upload, stream, store, or transmit your camera frames, scanned photos, or inventory photos to any external server or cloud service. Camera frames are evaluated in temporary device RAM and discarded immediately after bounding boxes and counts are calculated.</li>
+                    <li><strong>No Location Tracking:</strong> We do not access, track, or log your precise or approximate GPS location.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. On-Device Machine Learning &amp; Computer Vision</h2>
+                <p>
+                    The App incorporates <strong>Google MediaPipe</strong> and custom computer vision algorithms running on top of <strong>TensorFlow Lite</strong>:
+                </p>
+                <ul>
+                    <li>All neural network calculations, spatial tracking vectors, Hough circle transforms, and vertical stalk morphological filters execute <strong>100% locally on your device's hardware processor</strong>.</li>
+                    <li>No visual data, bounding boxes, or image captures leave your physical device for machine learning inference.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Local Data Storage &amp; User Control</h2>
+                <p>
+                    <strong>Counting Sessions &amp; History:</strong> All session titles, item tallies, category breakdowns ("Pass", "Defect", "Reject"), 
+                    session notes, timestamps, and thumbnail snapshots are saved exclusively in a local SQLite database (Android Room) 
+                    stored in your device's private, sandboxed application directory.
+                </p>
+                <p>
+                    <strong>Exported Files (PDF &amp; CSV):</strong> When you generate a formal PDF Inspection Report or CSV file, the document is synthesized locally on your phone. It is only transmitted when you explicitly share it via the native Android System Share Sheet.
+                </p>
+                <div class="highlight">
+                    <p><strong>Total User Deletion Control:</strong></p>
+                    <ul style="margin-bottom: 0;">
+                        <li>You can delete any individual session at any time from the local Library.</li>
+                        <li>You can permanently wipe all historical data by tapping <strong>"Clear All History"</strong> in Settings.</li>
+                        <li>Uninstalling the App immediately purges all sandboxed databases, cached snapshots, and application preferences from your device.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>5. Third-Party Services &amp; Advertising</h2>
+                <p>The App uses trusted Google SDKs strictly for monetization and application maintenance:</p>
+
+                <h3>A. Google AdMob (Google Mobile Ads SDK)</h3>
+                <p>
+                    We display banner and interstitial advertisements provided by Google AdMob. AdMob may collect and process certain data in accordance with Google's Privacy Policy, including:
+                </p>
+                <ul>
+                    <li>Device identifiers (such as the Google Advertising ID / AAID).</li>
+                    <li>IP address (used for approximate geographic location and ad fraud prevention).</li>
+                    <li>Interaction data with advertisements.</li>
+                    <li>Diagnostic and application performance metrics.</li>
+                </ul>
+                <p>
+                    You can manage your personalized advertising preferences or reset your Advertising ID directly in your Android device settings under 
+                    <strong>Settings → Google → Ads</strong>.
+                </p>
+                <p>
+                    For more details, review:
+                    <br>• <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy &amp; Terms</a>
+                    <br>• <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use our services</a>
+                </p>
+
+                <h3>B. Google Play In-App Update API</h3>
+                <p>
+                    We utilize the Google Play In-App Update library to inform you when new, secure versions of the App are available on Google Play. 
+                    This service communicates directly with Google Play Services under Google's standard privacy framework.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>6. Children's Privacy (COPPA &amp; GDPR-K Compliance)</h2>
+                <p>
+                    AR Camera Counter is an industrial, business, and productivity tool intended for general commercial and personal inventory counting. 
+                    We do not knowingly market to or collect personal information from children under the age of 13 (or under 16 in the European Economic Area). 
+                    If you believe an advertising partner has inadvertently collected data from a child in violation of applicable laws, please contact us for immediate resolution.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>7. Security of Your Information</h2>
+                <p>
+                    Because all inventory data and camera frames are retained strictly on your local device, the security of your stored sessions depends on your device's physical and operating system security. 
+                    We follow industry-standard Android security practices:
+                </p>
+                <ul>
+                    <li>Strict Android application sandboxing isolating app storage from third-party apps.</li>
+                    <li>Secure content sharing using <code class="code-inline">androidx.core.content.FileProvider</code>.</li>
+                    <li>Mandatory TLS/HTTPS encryption for all advertising network communications.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>8. Contact Information</h2>
+                <div class="contact-box">
+                    <h3><i class="fas fa-envelope"></i> SoftTech Service Privacy Team</h3>
+                    <p>If you have questions, feedback, or concerns regarding our privacy standards or data handling practices, please reach out to us at:</p>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Package:</strong> com.softtechservice.counterai</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank" rel="noopener">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: PERMISSIONS & GOOGLE PLAY DATA SAFETY -->
+        <div id="permissions" class="tab-content" role="tabpanel">
+            <div class="section">
+                <h2>Android Device Permissions Disclosure</h2>
+                <p>
+                    The App requests the following Android runtime and manifest permissions for strictly functional operations:
+                </p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Permission</th>
+                                <th>Technical Android Name</th>
+                                <th>Functional Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Camera</strong></td>
+                                <td><code class="code-inline">android.permission.CAMERA</code></td>
+                                <td>Used solely to stream video frames to the on-device AI detector for real-time object counting and to capture inventory snapshot photos. Video frames are processed in volatile memory and are never transmitted over the internet.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vibration</strong></td>
+                                <td><code class="code-inline">android.permission.VIBRATE</code></td>
+                                <td>Used to provide tactile haptic vibration feedback when an object is counted, clicked, or when a counting goal is achieved.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Internet</strong></td>
+                                <td><code class="code-inline">android.permission.INTERNET</code></td>
+                                <td>Used solely by third-party services (Google AdMob and Google Play In-App Updates) to display advertisements and check for app updates.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Network State</strong></td>
+                                <td><code class="code-inline">android.permission.ACCESS_NETWORK_STATE</code></td>
+                                <td>Used by Google AdMob to verify network availability before attempting to request advertisements.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 style="margin-top: 3rem;">Google Play Data Safety Declarations</h2>
+                <p>
+                    The declarations below represent the exact answers submitted on the Google Play Console Data Safety section:
+                </p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Data Type</th>
+                                <th>Collected?</th>
+                                <th>Shared?</th>
+                                <th>Purpose</th>
+                                <th>Optional / Mandatory</th>
+                                <th>Encrypted in Transit?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Location</strong></td>
+                                <td>Approximate / Precise</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>N/A (App does not access GPS or coarse location)</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Personal Info</strong></td>
+                                <td>Name, Email, Phone, IDs</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>N/A (No user registration, accounts, or logins)</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Photos &amp; Videos</strong></td>
+                                <td>Camera Frames, Inventory Snapshots</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>Processed 100% locally in device RAM / sandboxed storage</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Financial Info</strong></td>
+                                <td>Payment details, In-app purchases</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>N/A (100% Free with Ads, No IAP)</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>App Activity</strong></td>
+                                <td>Aim traces, count clicks</td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td><span class="status-pill pill-no">No</span></td>
+                                <td>Count calculations are client-side only</td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                                <td><span class="status-pill pill-na">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>App Diagnostics</strong></td>
+                                <td>Crash logs &amp; performance metrics</td>
+                                <td><span class="status-pill pill-opt">Optional</span></td>
+                                <td><span class="status-pill pill-opt">Play Console</span></td>
+                                <td>App stability &amp; bug fixes (Google Play Services)</td>
+                                <td>Automatic via Play Services</td>
+                                <td><strong>Yes (HTTPS)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Device or Other IDs</strong></td>
+                                <td>Android Advertising ID (AAID)</td>
+                                <td>Handled by Google Mobile Ads</td>
+                                <td>Shared with AdMob</td>
+                                <td>Advertising &amp; Fraud Prevention (managed by Google)</td>
+                                <td>Optional (User can opt out via Android OS settings)</td>
+                                <td><strong>Yes (HTTPS)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: TERMS & CONDITIONS -->
+        <div id="terms" class="tab-content" role="tabpanel">
+            <div class="section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    By downloading, installing, or using <strong>AR Camera Counter &amp; Tally</strong>, you agree to be bound by these Terms &amp; Conditions. 
+                    If you disagree with any portion of these terms, do not install or use the application.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>2. Intellectual Property Rights</h2>
+                <p>
+                    All computer vision pipelines, custom circle detection algorithms, UI designs, codebases, and the "AR Camera Counter" name are 
+                    the proprietary intellectual property of <strong>SoftTech Service</strong>. You are granted a limited, personal, non-exclusive, revocable license 
+                    to use the App for personal or business inventory counting.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>3. Measurement Accuracy Disclaimer</h2>
+                <div class="highlight">
+                    <p><strong>COMPUTER VISION ASSISTANT DISCLAIMER:</strong> AR Camera Counter uses optical machine learning algorithms to assist with counting. 
+                    Accuracy depends on camera focus, lighting, contrast, item density, and overlap. The App is provided as an productivity tool, and critical 
+                    shipments, commercial billing, or regulatory compliance counts should always be reviewed or spot-checked using the interactive manual editing features.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>4. Prohibited Uses</h2>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Decompile, reverse engineer, or disassemble the compiled application bundle.</li>
+                    <li>Bypass, disable, or tamper with security mechanisms or advertising mediation.</li>
+                    <li>Resell, distribute, or rent the software without written authorization from SoftTech Service.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <div class="highlight">
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, SOFTTECH SERVICE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOSS OF INVENTORY, MISCOUNTED GOODS, REVENUE LOSS, OR BUSINESS INTERRUPTION ARISING FROM THE USE OF THE SOFTWARE.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6. Governing Law</h2>
+                <p>
+                    These Terms are governed by applicable laws, without regard to conflict of law principles.
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB 4: THIRD-PARTY & ARCHITECTURE -->
+        <div id="licenses" class="tab-content" role="tabpanel">
+            <div class="section">
+                <h2>Open Source &amp; Architecture Acknowledgements</h2>
+                <p>
+                    AR Camera Counter relies on industry-standard open-source libraries and machine learning runtimes:
+                </p>
+
+                <h3>Core Runtimes &amp; Machine Learning</h3>
+                <ul>
+                    <li><strong>Google MediaPipe:</strong> Cross-platform on-device machine learning framework (Apache License 2.0).</li>
+                    <li><strong>TensorFlow Lite:</strong> High-performance edge inference runtime for mobile (Apache License 2.0).</li>
+                    <li><strong>Android Jetpack CameraX:</strong> Jetpack camera library for robust video capture (Apache License 2.0).</li>
+                    <li><strong>Room Database:</strong> SQLite persistence abstraction layer (Apache License 2.0).</li>
+                </ul>
+
+                <h3>Advertising &amp; Platform Utilities</h3>
+                <ul>
+                    <li><strong>Google Mobile Ads SDK (AdMob):</strong> Monitored advertising framework (Google Play Services Terms).</li>
+                    <li><strong>Google Play In-App Updates:</strong> Version discovery and update notifications (Google Play Services Terms).</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Developer Support</h2>
+                <div class="contact-box">
+                    <h3>SoftTech Service Support Team</h3>
+                    <p>For enterprise inquiries, integration requests, or bug reports:</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank" rel="noopener">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Functionality Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            function activateTab(tabId) {
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                const targetBtn = document.querySelector(`[data-tab="${tabId}"]`);
+                const targetContent = document.getElementById(tabId);
+                
+                if (targetBtn && targetContent) {
+                    targetBtn.classList.add('active');
+                    targetBtn.setAttribute('aria-selected', 'true');
+                    targetContent.classList.add('active');
+                }
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    activateTab(targetTab);
+                    window.location.hash = targetTab;
+                });
+            });
+            
+            // Handle URL hash for direct linking
+            const currentHash = window.location.hash.substring(1);
+            if (currentHash && ['privacy', 'permissions', 'terms', 'licenses'].includes(currentHash)) {
+                activateTab(currentHash);
+            }
+        });
+    </script>
+</body>
+</html>

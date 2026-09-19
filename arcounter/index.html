@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Camera Counter &amp; Tally - Smart Visual Counting for Android | SoftTech Service</title>
+    <meta name="description" content="Tired of counting inventory, components, or dense stacks by hand? AR Camera Counter combines real-time on-device AR tracking, photo AI analysis, and tactile multi-board tally clickers.">
+    <meta name="keywords" content="AR counter, camera counter, object counter, inventory scanner, timber counter, pipe counter, tally counter, Android app, SoftTech Service, com.softtechservice.counterai">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="AR Camera Counter &amp; Tally | Smart On-Device Visual Counting">
+    <meta property="og:description" content="Eliminate manual counting errors. Real-time AR live camera scanning, dense photo AI analysis, and multi-category tally clicker for Android.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://softtechservice.site/arcounter/">
+    <meta property="og:image" content="https://softtechservice.site/arcounter/banner.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://softtechservice.site/arcounter/banner.png">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0284C7;
+            --primary-dark: #0369A1;
+            --primary-deep: #075985;
+            --accent: #10B981;
+            --accent-glow: rgba(16, 185, 129, 0.3);
+            --amber: #F59E0B;
+            --danger: #EF4444;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --bg-dark: #0B1329;
+            --card-border: rgba(2, 132, 199, 0.12);
+            --shadow-sm: 0 2px 8px rgba(2, 132, 199, 0.08);
+            --shadow-md: 0 6px 20px rgba(2, 132, 199, 0.12);
+            --shadow-lg: 0 14px 38px rgba(11, 19, 41, 0.16);
+            --gradient-primary: linear-gradient(135deg, #0284C7 0%, #0369A1 50%, #10B981 100%);
+            --gradient-hero: linear-gradient(135deg, #081226 0%, #0C1E3D 50%, #061826 100%);
+            --gradient-btn: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(2, 132, 199, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+        }
+
+        .brand-logo img {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+        }
+
+        .brand-sub {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.nav-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.15rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.28);
+        }
+
+        .nav-links a.nav-btn:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 5.5rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 30%, rgba(2, 132, 199, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 70%, rgba(16, 185, 129, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1.05rem;
+            background: rgba(2, 132, 199, 0.18);
+            border: 1px solid rgba(2, 132, 199, 0.45);
+            color: #38BDF8;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #38BDF8 0%, #34D399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #BAE6FD;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.25rem;
+            line-height: 1.75;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            background: rgba(15, 23, 42, 0.65);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #38BDF8;
+            display: block;
+            line-height: 1.15;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.72);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 1.85rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-btn);
+            color: white;
+            box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(2, 132, 199, 0.55);
+            background: linear-gradient(135deg, #0369A1 0%, #0284C7 100%);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Media / Preview Mockup */
+        .hero-preview {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .preview-card {
+            position: relative;
+            background: rgba(15, 23, 42, 0.9);
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            border-radius: 20px;
+            padding: 0.75rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+            overflow: hidden;
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .preview-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .preview-card:hover img {
+            transform: scale(1.02);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            background: rgba(11, 19, 41, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+        }
+
+        .floating-badge i {
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .floating-badge span {
+            font-size: 0.84rem;
+            line-height: 1.35;
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 5.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.35rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Feature Cards Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2.25rem 2rem;
+            border-radius: 18px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.65rem;
+            margin-bottom: 1.25rem;
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover .feature-icon-box {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1.25rem;
+            border-top: 1px dashed rgba(2, 132, 199, 0.18);
+            padding-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.45rem 0;
+            color: var(--text-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            font-size: 0.92rem;
+        }
+
+        .feature-list li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Banner Highlight Strip */
+        .highlight-section {
+            background: linear-gradient(135deg, #081226 0%, #0369A1 100%);
+            color: white;
+            padding: 4.5rem 2.5rem;
+            border-radius: 24px;
+            margin: 3rem auto 5rem;
+            max-width: 1200px;
+            text-align: center;
+            box-shadow: 0 16px 40px rgba(8, 18, 38, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-section h2 {
+            font-size: 2.35rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .highlight-section p {
+            font-size: 1.15rem;
+            opacity: 0.92;
+            max-width: 850px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        /* Deep Dive Two-Column Section */
+        .deep-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .deep-card {
+            background: var(--bg-white);
+            border-radius: 18px;
+            padding: 2.25rem;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .deep-card h3 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .deep-card h3 i {
+            color: var(--primary);
+        }
+
+        .pill-tag {
+            display: inline-block;
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        /* Permission Transparency Table */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 2rem;
+            border-radius: 14px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--card-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 0.94rem;
+        }
+
+        thead {
+            background: #0B1329;
+            color: white;
+        }
+
+        th {
+            padding: 1.1rem 1.25rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid #F1F5F9;
+            color: var(--text-gray);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        /* Tech Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .tech-item {
+            background: var(--bg-white);
+            padding: 1.75rem 1.5rem;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tech-item i {
+            font-size: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-item h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-item p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+        }
+
+        /* Metadata Showcase */
+        .metadata-box {
+            background: var(--bg-white);
+            border-radius: 18px;
+            padding: 2.5rem;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            margin-top: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .meta-entry {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .meta-entry strong {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .meta-entry p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .meta-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .meta-tag {
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0B1329;
+            color: white;
+            padding: 4.5rem 2rem 2.5rem;
+            margin-top: 6rem;
+            border-top: 2px solid rgba(2, 132, 199, 0.35);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1.35rem;
+            color: #38BDF8;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.93rem;
+        }
+
+        .footer-section a:hover {
+            color: #38BDF8;
+            padding-left: 3px;
+            transition: all 0.2s;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.88rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .deep-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1.25rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: var(--bg-white);
+                flex-direction: column;
+                padding: 1.75rem 2rem;
+                box-shadow: var(--shadow-md);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                gap: 1rem;
+                border-bottom: 2px solid var(--primary);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.75rem;
+                border-radius: 8px;
+            }
+
+            .nav-links a:hover {
+                background: rgba(2, 132, 199, 0.08);
+            }
+
+            .hero {
+                padding: 3.5rem 1.25rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.35rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.15rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .section-title {
+                font-size: 1.85rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.95rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="brand-logo">
+                <img src="icon.png" alt="AR Camera Counter Logo">
+                <div class="brand-text">
+                    <span class="logo-title">AR Camera Counter</span>
+                    <span class="brand-sub">Smart On-Device Tally</span>
+                </div>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#live-ar">Live AR</a></li>
+                <li><a href="#photo-ai">Photo AI</a></li>
+                <li><a href="#tally">Tally Clicker</a></li>
+                <li><a href="#permissions">Permissions</a></li>
+                <li><a href="#store">Play Store</a></li>
+                <li><a href="privacy-policy.html" class="nav-btn"><i class="fas fa-shield-halved"></i> Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="badge">
+                    <i class="fas fa-microchip"></i> On-Device AI • 100% Private &amp; Offline
+                </div>
+                <h1>AR Camera Counter <span>&amp; Tally</span></h1>
+                <p class="subtitle">Smart On-Device Object Detection, Dense Photo Inventory &amp; Tactile Multi-Board Tally Clicker</p>
+                <p class="hero-description">
+                    Tired of counting inventory, components, or dense stacks by hand? AR Camera Counter is your all-in-one smart counting assistant, 
+                    combining real-time on-device augmented reality (AR) tracking, high-density photo analysis, and a tactile multi-category tally clicker. 
+                    Ideal for warehouse stock, shipments, timber logs, metal pipes, conveyor lines, and retail audits.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">60–120 Hz</span>
+                        <span class="stat-label">AR Interpolation</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">500%</span>
+                        <span class="stat-label">Pinch-to-Zoom</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label">On-Device AI</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">ZERO</span>
+                        <span class="stat-label">Cloud Uploads</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#features" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> Explore Features
+                    </a>
+                    <a href="privacy-policy.html" class="btn btn-secondary">
+                        <i class="fas fa-shield-alt"></i> Privacy Policy &amp; Data Safety
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-preview">
+                <div class="preview-card">
+                    <img src="banner.png" alt="AR Camera Counter in Warehouse">
+                    <div class="floating-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Industrial Grade AI:</strong> Instant circle &amp; stalk detection for pipes, timber logs, and dense inventory stacks.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Suite Overview -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <span class="section-tag">Feature Suite</span>
+            <h2 class="section-title">All-in-One Smart Counting Assistant</h2>
+            <p class="section-subtitle">
+                Engineered for speed, accuracy, and versatility across warehouse management, manufacturing, logistics, and field audits.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-camera"></i></div>
+                <h3>1. Real-Time AR Live Camera</h3>
+                <p>Point your camera at everyday objects and let on-device AI detect and highlight items instantly in real time.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 60–120 Hz smooth overlay interpolation</li>
+                    <li><i class="fas fa-check"></i> Tap individual items or tap "Add All"</li>
+                    <li><i class="fas fa-check"></i> Built-in flashlight/torch for dark warehouses</li>
+                    <li><i class="fas fa-check"></i> 3×3 framing grid &amp; manual EV exposure</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-arrows-split-up-and-left"></i></div>
+                <h3>2. Virtual Tripwire &amp; ROI Zones</h3>
+                <p>Set automated directional counting lines and custom regions of interest to count objects moving along conveyor belts.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Automatic IN / OUT directional counting</li>
+                    <li><i class="fas fa-check"></i> Perfect for conveyors, doorways, turnstiles</li>
+                    <li><i class="fas fa-check"></i> 4 ROI Zones: Center, Strip, Floor, Gate</li>
+                    <li><i class="fas fa-check"></i> Live cadence tracker (items per minute)</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-image"></i></div>
+                <h3>3. Dense Photo Inventory AI</h3>
+                <p>Snap a photo or import high-res gallery images to count hundreds of repeating objects in seconds with specialized algorithms.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Dense Circle / Blob Counter (timber, pipes, pills)</li>
+                    <li><i class="fas fa-check"></i> Vertical Stalk &amp; Rod morphological mode</li>
+                    <li><i class="fas fa-check"></i> Manual add/remove with instant Undo / Redo</li>
+                    <li><i class="fas fa-check"></i> Boxes, Numbered Badges (#1, #2), or Dots</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-calculator"></i></div>
+                <h3>4. Multi-Board Tactile Tally Clicker</h3>
+                <p>Sleek digital dial with haptic vibration feedback for manual high-speed counting with concurrent multi-category boards.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Track "Pass", "Defect", "Reject", "Box A" simultaneously</li>
+                    <li><i class="fas fa-check"></i> Physical Volume Up/Down button counting</li>
+                    <li><i class="fas fa-check"></i> Goal tracking with target threshold alerts</li>
+                    <li><i class="fas fa-check"></i> Custom color-coded tags and category names</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-file-pdf"></i></div>
+                <h3>5. PDF Reports &amp; CSV Export</h3>
+                <p>Generate formal audit-ready documentation and raw data export for seamless ERP, Excel, and spreadsheet integration.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Formal PDF reports with annotated photo snapshots</li>
+                    <li><i class="fas fa-check"></i> Session notes, timestamps, and category breakdowns</li>
+                    <li><i class="fas fa-check"></i> CSV export (Session summaries &amp; granular timestamps)</li>
+                    <li><i class="fas fa-check"></i> Native Android System Share Sheet</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box"><i class="fas fa-folder-open"></i></div>
+                <h3>6. Searchable Session Library</h3>
+                <p>Every counting session is saved locally in an organized, searchable SQLite database sandboxed on your device.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Filter by mode: Live AR, Photo AI, Manual Tally</li>
+                    <li><i class="fas fa-check"></i> Search by session title, tags, or notes</li>
+                    <li><i class="fas fa-check"></i> Inspect historical snapshots and audit logs</li>
+                    <li><i class="fas fa-check"></i> One-tap "Clear All History" privacy control</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: Live AR & Photo AI -->
+    <section class="section" id="live-ar" style="background: white; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border);">
+        <div class="section-header">
+            <span class="section-tag">Computer Vision Technology</span>
+            <h2 class="section-title">Deep-Dive: AR Scanning &amp; Dense Photo AI</h2>
+            <p class="section-subtitle">
+                Combining Google MediaPipe, TensorFlow Lite, and custom morphological filters for unmatched mobile accuracy.
+            </p>
+        </div>
+
+        <div class="deep-grid">
+            <div class="deep-card">
+                <span class="pill-tag">Live AR Camera</span>
+                <h3><i class="fas fa-crosshairs"></i> Real-Time Detection &amp; Tripwires</h3>
+                <p>
+                    Point your device at items moving across a factory table or conveyor line. The on-device neural engine detects items 
+                    and renders floating circular badges with 60–120 Hz interpolation.
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> <strong>Directional Tripwire:</strong> Set virtual line barriers across doorways or conveyors. The app detects crossing vectors and automatically tallies IN or OUT counts.</li>
+                    <li><i class="fas fa-check"></i> <strong>ROI Zones:</strong> Constrain analysis to specific screen regions (Center, Conveyor Strip, Floor/Table, Gate) to filter out background movements.</li>
+                    <li><i class="fas fa-check"></i> <strong>Cadence Tracker:</strong> Displays live items-per-minute throughput metrics.</li>
+                </ul>
+            </div>
+
+            <div class="deep-card" id="photo-ai">
+                <span class="pill-tag">Dense Photo AI</span>
+                <h3><i class="fas fa-object-group"></i> Timber, Pipes, Bundles &amp; Pills</h3>
+                <p>
+                    Counting dense cross-sections by hand is prone to fatigue and human error. AR Camera Counter's dedicated 
+                    Hough circle transform and blob detection algorithms isolate repeating items in seconds.
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> <strong>Dense Circle / Blob Mode:</strong> Tuned for timber logs, steel pipes, rebar rods, metal cylinders, pills, and produce.</li>
+                    <li><i class="fas fa-check"></i> <strong>Vertical Stalk &amp; Rod Mode:</strong> Morphological algorithms for upright bars and seedlings.</li>
+                    <li><i class="fas fa-check"></i> <strong>Interactive Editing:</strong> Tap any missed item to add a dot; tap any false positive to remove it. Instant Undo &amp; Redo.</li>
+                    <li><i class="fas fa-check"></i> <strong>500% Pinch Zoom:</strong> Deep zoom to verify dense regions with 1-tap reset.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tally Clicker Deep Dive -->
+        <div class="deep-grid" style="margin-top: 2.5rem;" id="tally">
+            <div class="deep-card">
+                <span class="pill-tag">Manual Tally</span>
+                <h3><i class="fas fa-hand-pointer"></i> Multi-Board Tactile Tally Clicker</h3>
+                <p>
+                    Need to audit multiple categories at once? Multi-Board Mode gives you independent digital counters on a single screen with haptic pulse feedback.
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> <strong>Concurrent Categories:</strong> Track "Pass", "Defect", "Reject", or custom batches simultaneously.</li>
+                    <li><i class="fas fa-check"></i> <strong>Physical Volume Buttons:</strong> Count without looking by pressing your device's Volume Up / Volume Down keys.</li>
+                    <li><i class="fas fa-check"></i> <strong>Goal Thresholds:</strong> Set target quantities and get visual &amp; haptic notifications upon reaching them.</li>
+                </ul>
+            </div>
+
+            <div class="deep-card">
+                <span class="pill-tag">Audit Documentation</span>
+                <h3><i class="fas fa-file-lines"></i> Formal PDF Reports &amp; CSV Integration</h3>
+                <p>
+                    Turn counting sessions into official audit documents ready for supervisors, clients, and inventory databases.
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> <strong>PDF Inspection Reports:</strong> Includes high-resolution annotated photo snapshots, item counts, category totals, operator notes, and timestamps.</li>
+                    <li><i class="fas fa-check"></i> <strong>Dual CSV Export:</strong> Exports both high-level session summaries and granular per-item event timestamps for ERP &amp; Excel import.</li>
+                    <li><i class="fas fa-check"></i> <strong>System Share Sheet:</strong> One-tap sharing via email, WhatsApp, Google Drive, or Slack.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="section">
+        <div class="highlight-section">
+            <h2><i class="fas fa-lock"></i> 100% Private &amp; Offline-Ready</h2>
+            <p>
+                Your privacy and industrial security are paramount. All computer vision models, neural networks, and photo analyses run 
+                <strong>100% locally on your device's processor</strong>. Your camera feed, photos, and counting records are 
+                <strong>NEVER uploaded to any external server or cloud service</strong>. The app operates with complete fidelity offline.
+            </p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="privacy-policy.html" class="btn btn-primary"><i class="fas fa-file-shield"></i> Read Official Privacy Policy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Permission Transparency Table -->
+    <section class="section" id="permissions">
+        <div class="section-header">
+            <span class="section-tag">Permission Transparency</span>
+            <h2 class="section-title">Clear &amp; Honest Permission Usage</h2>
+            <p class="section-subtitle">
+                AR Camera Counter requests only the minimal runtime permissions required to function. Here is our full disclosure:
+            </p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Permission</th>
+                        <th>Technical Android Name</th>
+                        <th>Functional Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Camera</strong></td>
+                        <td><code class="mono">android.permission.CAMERA</code></td>
+                        <td>Used solely to stream video frames to the on-device AI detector for real-time object counting and to capture inventory snapshot photos. Video frames are processed in volatile memory and are never transmitted over the internet.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vibration</strong></td>
+                        <td><code class="mono">android.permission.VIBRATE</code></td>
+                        <td>Provides tactile haptic vibration feedback when an object is counted, clicked, or when a counting goal threshold is achieved.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Internet</strong></td>
+                        <td><code class="mono">android.permission.INTERNET</code></td>
+                        <td>Used solely by third-party services (Google AdMob for non-intrusive advertisements and Google Play In-App Updates to check for new versions).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Network State</strong></td>
+                        <td><code class="mono">android.permission.ACCESS_NETWORK_STATE</code></td>
+                        <td>Used by Google AdMob to verify network connectivity before requesting advertisements, preventing unnecessary background retries when offline.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Tech Stack & Engine -->
+    <section class="section" id="tech" style="background: white; border-top: 1px solid var(--card-border);">
+        <div class="section-header">
+            <span class="section-tag">Built with Modern Tech</span>
+            <h2 class="section-title">Engineered for Performance &amp; Scalability</h2>
+            <p class="section-subtitle">
+                Built with 100% Kotlin, Android Jetpack, CameraX, and Google MediaPipe for rapid, deterministic edge inference.
+            </p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-item">
+                <i class="fab fa-android" style="color: #3DDC84;"></i>
+                <h4>100% Kotlin</h4>
+                <p>Modern, expressive Android Native codebase</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-camera-rotate" style="color: var(--primary);"></i>
+                <h4>CameraX API</h4>
+                <p>Robust lifecycle-aware camera capture</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-brain" style="color: #8B5CF6;"></i>
+                <h4>Google MediaPipe</h4>
+                <p>On-device object detection &amp; tracking</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-microchip" style="color: #F59E0B;"></i>
+                <h4>TensorFlow Lite</h4>
+                <p>Local edge inference with zero cloud latency</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-database" style="color: #10B981;"></i>
+                <h4>Room SQLite</h4>
+                <p>Sandboxed local session database</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-bolt" style="color: #EC4899;"></i>
+                <h4>Coroutines &amp; Flow</h4>
+                <p>Smooth asynchronous background processing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Play Store Metadata -->
+    <section class="section" id="store">
+        <div class="section-header">
+            <span class="section-tag">Store Readiness</span>
+            <h2 class="section-title">Google Play Store Details</h2>
+            <p class="section-subtitle">
+                Pre-cleared metadata and technical specifications for Google Play deployment.
+            </p>
+        </div>
+
+        <div class="metadata-box">
+            <div class="metadata-grid">
+                <div class="meta-entry">
+                    <strong>Application Title</strong>
+                    <p style="font-weight: 700; font-size: 1.1rem; color: var(--primary);">AR Camera Counter &amp; Tally</p>
+                    <span style="font-size: 0.8rem; color: var(--text-light);">Package: com.softtechservice.counterai</span>
+                </div>
+
+                <div class="meta-entry">
+                    <strong>Category &amp; Content Rating</strong>
+                    <p><strong>Category:</strong> Productivity / Business / Tools</p>
+                    <p><strong>IARC Rating:</strong> Everyone / PEGI 3</p>
+                    <p><strong>In-App Purchases:</strong> None (100% Free with Ads)</p>
+                </div>
+
+                <div class="meta-entry">
+                    <strong>System Requirements</strong>
+                    <p><strong>Min SDK:</strong> 24 (Android 7.0 Nougat)</p>
+                    <p><strong>Target SDK:</strong> 34 (Android 14+)</p>
+                    <p><strong>Architecture:</strong> arm64-v8a, armeabi-v7a</p>
+                </div>
+            </div>
+
+            <div class="meta-entry" style="margin-top: 1.5rem;">
+                <strong>Categorization Tags</strong>
+                <div class="meta-tags">
+                    <span class="meta-tag">AR Counter</span>
+                    <span class="meta-tag">Camera Counter</span>
+                    <span class="meta-tag">Object Counter</span>
+                    <span class="meta-tag">Inventory Scanner</span>
+                    <span class="meta-tag">Tally Counter</span>
+                    <span class="meta-tag">Pipe Counter</span>
+                    <span class="meta-tag">Timber Counter</span>
+                    <span class="meta-tag">Offline-First</span>
+                </div>
+            </div>
+
+            <div class="meta-entry" style="margin-top: 1.5rem;">
+                <strong>Short Store Description</strong>
+                <p style="color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; margin-top: 0.5rem;">
+                    Count inventory, pipes, timber, and items in seconds with on-device AR scanning, dense photo AI analysis, and tactile multi-board tally clickers. 100% private and offline-ready.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AR Camera Counter</h3>
+                <p>Smart on-device visual counting and multi-board tally assistant for Android.</p>
+                <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.65); font-size: 0.85rem;">
+                    Developed and published by SoftTech Service.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <a href="#features">Key Features</a>
+                <a href="#live-ar">Live AR &amp; Tripwires</a>
+                <a href="#photo-ai">Photo AI Counting</a>
+                <a href="#tally">Tally Clicker</a>
+                <a href="#permissions">Permissions</a>
+                <a href="#store">Play Store Info</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal &amp; Privacy</h3>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html#permissions">Permissions &amp; Data Safety</a>
+                <a href="privacy-policy.html#terms">Terms &amp; Conditions</a>
+                <a href="privacy-policy.html#licenses">Third-Party &amp; Architecture</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support &amp; Inquiries</h3>
+                <p><strong>Developer:</strong> SoftTech Service</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site" style="display: inline; color: #38BDF8;">contact@softtechservice.site</a></p>
+                <p><strong>Package:</strong> com.softtechservice.counterai</p>
+                <p><strong>Status:</strong> Active Release (2025–2026)</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025–2026 SoftTech Service. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.82rem;">
+                This software is proprietary and confidential. Unauthorized copying, reverse engineering, 
+                or redistribution is strictly prohibited without the express written permission of SoftTech Service.
+            </p>
+            <p style="margin-top: 0.4rem; font-size: 0.82rem;">
+                AR Camera Counter &amp; Tally and all related trademarks are the property of SoftTech Service.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth Scrolling for In-Page Anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
