@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Fluids: Live Wallpaper - Real-Time Fluid Color Simulation for Android | SoftTech Service</title>
+    <meta name="description" content="Turn your Android screen into living, flowing colour with Magic Fluids Live Wallpaper. Real-time GPU fluid simulation reacting to touch, gyroscope tilt, music, and charging. 100% on-device.">
+    <meta name="keywords" content="Magic Fluids, live wallpaper, fluid simulation, Android wallpaper, real-time GPU wallpaper, touch fluid, gyro slosh, SoftTech Service, fluid wallpaper">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Magic Fluids: Live Wallpaper | Living, Flowing Colour on Android">
+    <meta property="og:description" content="Every wallpaper is a real-time fluid simulation drawn by your graphics chip. Touch it, tilt it, pulse to music, and watch it flow.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://softtechservice.site/magicwallpaper/">
+    <meta property="og:image" content="https://softtechservice.site/magicwallpaper/icon.svg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #7928CA;
+            --primary-dark: #581C87;
+            --primary-glow: rgba(121, 40, 202, 0.4);
+            --cyan: #00F2FE;
+            --cyan-glow: rgba(0, 242, 254, 0.35);
+            --magenta: #F72585;
+            --magenta-glow: rgba(247, 37, 133, 0.35);
+            --gold: #FFB300;
+            --gold-glow: rgba(255, 179, 0, 0.35);
+            --emerald: #00F5D4;
+            --bg-deep: #060814;
+            --bg-card: #0B0E24;
+            --bg-card-hover: #101435;
+            --bg-glass: rgba(15, 20, 48, 0.7);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(0, 242, 254, 0.2);
+            --text-main: #FFFFFF;
+            --text-sub: #94A3B8;
+            --text-muted: #64748B;
+            --success: #10B981;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+            --gradient-fluid: linear-gradient(135deg, #00F2FE 0%, #7928CA 50%, #F72585 100%);
+            --gradient-gold: linear-gradient(135deg, #FFD166 0%, #FF9E00 50%, #FF5400 100%);
+            --gradient-hero: radial-gradient(circle at 50% 0%, #170F38 0%, #080A1C 50%, #05060E 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-deep);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(121, 40, 202, 0.12) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(0, 242, 254, 0.1) 0px, transparent 50%);
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(6, 8, 20, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-glass);
+            transition: all 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px var(--primary-glow);
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            background: var(--gradient-fluid);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--cyan);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1.6rem;
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-fluid);
+            color: #FFFFFF;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 242, 254, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1.1rem;
+            font-size: 0.85rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 5rem 0 6rem;
+            overflow: hidden;
+            background: var(--gradient-hero);
+        }
+
+        /* Hero Interactive Canvas Background */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: auto;
+            opacity: 0.75;
+        }
+
+        .hero-wrap {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .hero-left, .hero-right {
+            pointer-events: auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-full);
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            color: var(--cyan);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-badge i {
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 span.gradient-text {
+            background: var(--gradient-fluid);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #E2E8F0;
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .hero-desc {
+            font-size: 1.08rem;
+            color: var(--text-sub);
+            margin-bottom: 2rem;
+            line-height: 1.75;
+            max-width: 600px;
+        }
+
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .hero-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            color: #CBD5E1;
+        }
+
+        .hero-pill i {
+            color: var(--cyan);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-hint {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .hero-hint i {
+            color: var(--magenta);
+            animation: bounceUpDown 1.5s infinite;
+        }
+
+        @keyframes bounceUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        /* Phone Mockup */
+        .mockup-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .phone-frame {
+            width: 320px;
+            height: 640px;
+            background: #020308;
+            border-radius: 46px;
+            border: 8px solid #1E2342;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.8),
+                0 0 40px rgba(121, 40, 202, 0.35),
+                inset 0 0 10px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transform: rotate(-1.5deg) scale(1);
+            transition: transform 0.4s ease;
+        }
+
+        .phone-frame:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 
+                0 30px 70px rgba(0, 0, 0, 0.9),
+                0 0 60px rgba(0, 242, 254, 0.4);
+        }
+
+        .phone-notch {
+            width: 120px;
+            height: 22px;
+            background: #1E2342;
+            border-radius: 0 0 14px 14px;
+            margin: 0 auto;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .phone-screen canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .phone-ui-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2.5rem 1.5rem 2rem;
+            z-index: 5;
+        }
+
+        .phone-time-widget {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.92);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .phone-time {
+            font-size: 3.2rem;
+            font-weight: 200;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .phone-date {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 0.35rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .phone-bottom-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 0.75rem;
+            background: rgba(10, 12, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .phone-icon-btn {
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+
+        /* Interactive Simulator Bar */
+        .sim-control-bar {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 2rem;
+            margin-top: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            backdrop-filter: blur(16px);
+        }
+
+        .sim-label {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .preset-buttons {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .preset-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: #CBD5E1;
+            padding: 0.45rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .preset-btn .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .preset-btn.active, .preset-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+        }
+
+        /* Section Universal */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--cyan);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        /* Feature Cards Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-fluid);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            background: rgba(121, 40, 202, 0.12);
+            color: var(--cyan);
+            border: 1px solid rgba(121, 40, 202, 0.3);
+        }
+
+        .card-icon.cyan { color: var(--cyan); border-color: rgba(0, 242, 254, 0.3); background: rgba(0, 242, 254, 0.1); }
+        .card-icon.magenta { color: var(--magenta); border-color: rgba(247, 37, 133, 0.3); background: rgba(247, 37, 133, 0.1); }
+        .card-icon.gold { color: var(--gold); border-color: rgba(255, 179, 0, 0.3); background: rgba(255, 179, 0, 0.1); }
+        .card-icon.emerald { color: var(--emerald); border-color: rgba(0, 245, 212, 0.3); background: rgba(0, 245, 212, 0.1); }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-bullets {
+            list-style: none;
+        }
+
+        .feature-bullets li {
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.6rem;
+            color: #CBD5E1;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .feature-bullets li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-size: 0.85rem;
+        }
+
+        /* Studio Interactive Sliders Box */
+        .studio-showcase {
+            background: linear-gradient(135deg, rgba(11, 14, 36, 0.9) 0%, rgba(20, 11, 44, 0.9) 100%);
+            border: 1px solid rgba(121, 40, 202, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            margin-top: 3.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .studio-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.25;
+        }
+
+        .slider-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .slider-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #E2E8F0;
+        }
+
+        .slider-label-row span.val {
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .custom-range {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #1E2342;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--cyan);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--cyan);
+            border: 2px solid #FFFFFF;
+        }
+
+        /* Reactions Section */
+        .reaction-banner {
+            background: radial-gradient(circle at 50% 50%, rgba(121, 40, 202, 0.25) 0%, rgba(6, 8, 20, 0.8) 100%);
+            border: 1px solid rgba(121, 40, 202, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .reaction-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .reaction-step-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 1.75rem 1.25rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .reaction-step-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--cyan);
+            transform: translateY(-4px);
+        }
+
+        .reaction-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--cyan);
+        }
+
+        .reaction-step-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .reaction-step-card p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        /* Light on Battery Section */
+        .battery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .stat-card-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--cyan);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-desc {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* Language Badges */
+        .language-tags-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .lang-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-full);
+            padding: 0.65rem 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+        }
+
+        .lang-pill:hover {
+            background: rgba(0, 242, 254, 0.1);
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: scale(1.05);
+        }
+
+        .lang-pill span.native {
+            color: #94A3B8;
+            font-size: 0.85rem;
+        }
+
+        /* How to Set Up Step Cards */
+        .setup-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .setup-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.08);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+
+        .setup-step h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .setup-step p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Privacy Highlights Card */
+        .privacy-box {
+            background: linear-gradient(135deg, rgba(7, 9, 30, 0.9) 0%, rgba(18, 14, 46, 0.9) 100%);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .privacy-check-list {
+            list-style: none;
+        }
+
+        .privacy-check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .privacy-check-list i {
+            color: var(--emerald);
+            font-size: 1.25rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .privacy-check-list strong {
+            display: block;
+            color: #FFFFFF;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .privacy-check-list p {
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Tech Specs Section */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .spec-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .spec-icon {
+            font-size: 2rem;
+            color: var(--cyan);
+            flex-shrink: 0;
+        }
+
+        .spec-content h4 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .spec-content p {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        /* CTA Download Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #1A0D38 0%, #07152B 100%);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-banner h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -0.8px;
+        }
+
+        .cta-banner p {
+            font-size: 1.15rem;
+            color: #CBD5E1;
+            max-width: 680px;
+            margin: 0 auto 2.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #03040A;
+            border-top: 1px solid var(--border-glass);
+            padding: 4.5rem 0 2.5rem;
+            color: var(--text-sub);
+            font-size: 0.92rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-col h4 {
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.65rem;
+        }
+
+        .footer-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero-wrap {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-desc {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-pills {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-hint {
+                justify-content: center;
+            }
+
+            .studio-showcase, .battery-grid, .privacy-box {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.15rem;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: #080A1C;
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border-glass);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .sim-control-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Sticky Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="brand-link" aria-label="Magic Fluids Home">
+                    <img src="icon.svg" alt="Magic Fluids Icon" class="brand-icon">
+                    <div class="brand-info">
+                        <span class="brand-title">Magic Fluids</span>
+                        <span class="brand-subtitle">Live Wallpaper</span>
+                    </div>
+                </a>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#touch">Touch &amp; Play</a></li>
+                    <li><a href="#studio">Studio</a></li>
+                    <li><a href="#reactions">Reactions</a></li>
+                    <li><a href="#light">Performance</a></li>
+                    <li><a href="#languages">Languages</a></li>
+                    <li><a href="#setup">Setup Guide</a></li>
+                    <li><a href="privacy-policy.html">Privacy</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="#download" class="btn btn-primary btn-sm">
+                        <i class="fab fa-google-play"></i> Get Free
+                    </a>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Interactive Fluid Canvas -->
+    <section class="hero" id="home">
+        <!-- Interactive Canvas Background -->
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="container hero-wrap">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <i class="fas fa-microchip"></i> Real-Time GPU Fluid Simulation • Android
+                </div>
+
+                <h1>
+                    Living, Flowing <br>
+                    <span class="gradient-text">Colour in Motion</span>
+                </h1>
+
+                <div class="hero-tagline">
+                    Magic Fluids turns your screen into living, flowing colour. Touch it and the fluid swirls around your finger. Tilt your phone and it sloshes.
+                </div>
+
+                <p class="hero-desc">
+                    Set it as your live wallpaper and your home screen is never the same twice. Every wallpaper is a real-time fluid simulation drawn by your phone's graphics chip, so it reacts to you instead of playing a looping video.
+                </p>
+
+                <div class="hero-pills">
+                    <div class="hero-pill"><i class="fas fa-bolt"></i> Real-Time 60-120 FPS</div>
+                    <div class="hero-pill"><i class="fas fa-hand-pointer"></i> Touch &amp; Swirl</div>
+                    <div class="hero-pill"><i class="fas fa-mobile-screen"></i> Gyro Tilt Slosh</div>
+                    <div class="hero-pill"><i class="fas fa-shield-halved"></i> 100% On-Device</div>
+                    <div class="hero-pill"><i class="fas fa-leaf"></i> Zero Background Draw</div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#download" class="btn btn-primary">
+                        <i class="fab fa-google-play"></i> Download Free on Google Play
+                    </a>
+                    <a href="#touch" class="btn btn-secondary">
+                        <i class="fas fa-wand-magic-sparkles"></i> Explore Features
+                    </a>
+                </div>
+
+                <div class="hero-hint">
+                    <i class="fas fa-fingerprint"></i>
+                    <span>Interactive Preview: Drag your mouse or finger across this page to paint liquid swirls!</span>
+                </div>
+            </div>
+
+            <!-- Phone Mockup with Running Fluid Canvas -->
+            <div class="hero-right mockup-container">
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <canvas id="phone-canvas"></canvas>
+                        <div class="phone-ui-overlay">
+                            <div class="phone-time-widget">
+                                <div class="phone-time" id="liveTime">09:41</div>
+                                <div class="phone-date" id="liveDate">Sunday, September 27</div>
+                            </div>
+                            <div class="phone-bottom-actions">
+                                <div class="phone-icon-btn"><i class="fas fa-phone"></i></div>
+                                <div class="phone-icon-btn"><i class="fas fa-camera"></i></div>
+                                <div class="phone-icon-btn"><i class="fas fa-music"></i></div>
+                                <div class="phone-icon-btn"><i class="fas fa-cog"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Preset Selector -->
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="sim-control-bar">
+                <div class="sim-label">
+                    <i class="fas fa-palette" style="color: var(--cyan);"></i>
+                    <span>Test Studio Presets on Canvas:</span>
+                </div>
+                <div class="preset-buttons">
+                    <button class="preset-btn active" data-preset="cyberpunk">
+                        <span class="dot" style="background: #00F2FE;"></span> Cyberpunk Neon
+                    </button>
+                    <button class="preset-btn" data-preset="gold">
+                        <span class="dot" style="background: #FFB300;"></span> Liquid Gold
+                    </button>
+                    <button class="preset-btn" data-preset="silk">
+                        <span class="dot" style="background: #B721FF;"></span> Silk Flow
+                    </button>
+                    <button class="preset-btn" data-preset="emerald">
+                        <span class="dot" style="background: #00F5D4;"></span> Emerald Abyss
+                    </button>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-sub);">
+                    <i class="fas fa-info-circle"></i> Click to change fluid palette
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOUCH AND PLAY -->
+    <section class="section" id="touch">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interactive Physics</span>
+                <h2 class="section-title">Touch and Play</h2>
+                <p class="section-subtitle">
+                    Interact directly with pure mathematical physics. Fluid reacts with natural viscosity, momentum, and radiant light bursts.
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon cyan">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                    <h3>Drag, Swirl &amp; Splash</h3>
+                    <p>
+                        Drag anywhere across the glass to paint brilliant swirls, splashes, and luminescent particle trails.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Ultra low-latency touch response</li>
+                        <li>Multi-touch fluid streams simultaneously</li>
+                        <li>Smooth hydrodynamic particle dispersion</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon magenta">
+                        <i class="fas fa-mobile-screen-button"></i>
+                    </div>
+                    <h3>Tilt Phone to Slosh</h3>
+                    <p>
+                        Tilt your device in any direction to make the fluid slosh realistically using the built-in gyroscope and accelerometer.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Real-time gravity vector mapping</li>
+                        <li>Fluid pools and crests against screen edges</li>
+                        <li>Smooth inertial damping physics</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon gold">
+                        <i class="fas fa-arrow-rotate-right"></i>
+                    </div>
+                    <h3>Double-Tap to Jump Next</h3>
+                    <p>
+                        Double-tap your home screen at any time to instantly jump to your next favorite wallpaper style without opening the app.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Instant preset cycle on your launcher</li>
+                        <li>Configurable tap sensitivity</li>
+                        <li>Never look at a static screen again</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAKE IT YOURS (STUDIO) -->
+    <section class="section" id="studio" style="background: rgba(11, 14, 36, 0.4);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Deep Customization</span>
+                <h2 class="section-title">Make It Yours</h2>
+                <p class="section-subtitle">
+                    Unleash your creativity with deep generative tools, photo color extraction, and dynamic physical parameters.
+                </p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon cyan">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3>Studio Style Generator</h3>
+                    <p>
+                        Generate infinitely new fluid styles in one single tap, or choose from our curated signature library:
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><strong>Cyberpunk Neon:</strong> High-voltage electric cyan, magenta, and deep indigo</li>
+                        <li><strong>Liquid Gold:</strong> Molten amber and metallic incandescent ripples</li>
+                        <li><strong>Silk Flow:</strong> Hypnotic, velvety lavender and soothing pastels</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon magenta">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Colours &amp; Photo Fluid</h3>
+                    <p>
+                        Infuse your personal pictures into the fluid engine with zero privacy compromise:
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><strong>Colours from a Photo:</strong> Fluid extracts the harmonic color palette of any picture you pick</li>
+                        <li><strong>Photo Fluid:</strong> Your photo shows through wherever the liquid streams, blending memory with motion</li>
+                        <li>100% on-device image processing — your photos never leave your device</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon gold">
+                        <i class="fas fa-signature"></i>
+                    </div>
+                    <h3>Your Name in Fluid</h3>
+                    <p>
+                        Write your name, initials, or secret motto directly in glowing liquid and watch it swirl away into a cosmic mist.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Automatic unlock script: re-draws your name every time you unlock</li>
+                        <li>Customizable fluid typography and glow bloom</li>
+                        <li>Unique signature fluid trail on wake</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon emerald">
+                        <i class="fas fa-sliders"></i>
+                    </div>
+                    <h3>Fine-Tune Live Sliders</h3>
+                    <p>
+                        Total control over physical constants with live real-time feedback sliders:
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Swirl vorticity &amp; turbulence force</li>
+                        <li>Particle density &amp; lifespan</li>
+                        <li>Viscosity, fluid drag &amp; bloom radiance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Interactive Studio Showcase Demo -->
+            <div class="studio-showcase">
+                <div>
+                    <span class="section-tag">Interactive Physics Lab</span>
+                    <h3 class="studio-title">Fine-Tune Every Physical Constant</h3>
+                    <p style="color: var(--text-sub); margin-bottom: 2rem;">
+                        Adjust the sliders to see how fluid physics respond. In the Android app, every slider updates live at up to 120 FPS on your home screen.
+                    </p>
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span>Vorticity / Swirl Force</span>
+                            <span class="val" id="valSwirl">85%</span>
+                        </div>
+                        <input type="range" class="custom-range" id="sliderSwirl" min="20" max="100" value="85">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span>Glow &amp; Bloom Radiance</span>
+                            <span class="val" id="valGlow">90%</span>
+                        </div>
+                        <input type="range" class="custom-range" id="sliderGlow" min="10" max="100" value="90">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span>Particle Trail Lifespan</span>
+                            <span class="val" id="valTrail">75%</span>
+                        </div>
+                        <input type="range" class="custom-range" id="sliderTrail" min="20" max="100" value="75">
+                    </div>
+                </div>
+
+                <div style="background: rgba(0, 0, 0, 0.4); border-radius: 16px; padding: 2rem; border: 1px solid var(--border-glass);">
+                    <h4 style="margin-bottom: 1rem; color: #FFFFFF;"><i class="fas fa-microchip" style="color: var(--cyan);"></i> Hardware Pipeline</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 1rem;">
+                        Real-time Navier-Stokes fluid approximation executed on the GPU via custom OpenGL ES / Vulkan fragment shaders.
+                    </p>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; background: #04060E; padding: 1rem; border-radius: 8px; color: #38BDF8; line-height: 1.5;">
+                        // GPU Shader Pipeline<br>
+                        vec2 velocity = advect(uv, dt);<br>
+                        float divergence = calcDivergence(velocity);<br>
+                        pressure = solvePoisson(divergence);<br>
+                        gl_FragColor = renderBloom(dyeColor, glow);
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHARE YOUR CREATIONS -->
+    <section class="section" id="share">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Instant Social Sharing</span>
+                <h2 class="section-title">Share Your Creations</h2>
+                <p class="section-subtitle">
+                    Export high-framerate video clips, 4K stills, or send a magic link that opens your exact fluid recipe.
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon cyan">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>10-Second High-FPS Clip</h3>
+                    <p>
+                        Record a smooth 10-second clip of your fluid swirling and share directly to TikTok, Instagram, WhatsApp, or save to your camera roll.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Lossless hardware video encoder</li>
+                        <li>Includes audio pulsing if music mode is active</li>
+                        <li>Ready for story and status formats</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon magenta">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Up to 4K Ultra-HD Stills</h3>
+                    <p>
+                        Freeze any frame and export a razor-sharp high-resolution still image (up to 4K on supported displays) for your lock screen or desktop.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Zero compression artifacts</li>
+                        <li>Perfect for static wallpapers</li>
+                        <li>Crystal-clear vibrant color fidelity</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon gold">
+                        <i class="fas fa-share-nodes"></i>
+                    </div>
+                    <h3>Direct Link Sharing</h3>
+                    <p>
+                        Share any wallpaper as a lightweight link. Friends who install or open the app from your link immediately launch into that exact fluid.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Instant preset transfer</li>
+                        <li>Zero account or login required</li>
+                        <li>Contains only visual math parameters</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A WALLPAPER THAT REACTS -->
+    <section class="section" id="reactions" style="background: rgba(11, 14, 36, 0.4);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Dynamic Intelligence</span>
+                <h2 class="section-title">A Wallpaper That Reacts</h2>
+                <p class="section-subtitle">
+                    Magic Fluids adapts to your battery, ambient time of day, audio beats, and phone unlock events.
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon cyan">
+                        <i class="fas fa-lock-open"></i>
+                    </div>
+                    <h3>Unlock Splash</h3>
+                    <p>
+                        Greet every unlock with an energetic burst of fluid blooming outwards from your fingerprint or screen center.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Customizable splash radius &amp; colors</li>
+                        <li>Wake-up sensory delight</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon emerald">
+                        <i class="fas fa-charging-station"></i>
+                    </div>
+                    <h3>Charging Animation</h3>
+                    <p>
+                        Plug in your charger and watch luminous fluid rise up the display, matching your device's exact battery level.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Visual battery percentage feedback</li>
+                        <li>Glowing electric ripples at the surface</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon magenta">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music Mode (Optional)</h3>
+                    <p>
+                        Fluid pulses and surges to the rhythm of Spotify, YouTube, or any music playing on your phone.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Real-time FFT audio beat detection</li>
+                        <li>Audio never recorded or stored (100% ephemeral)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon gold">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Circadian Time of Day</h3>
+                    <p>
+                        Fluid colors and speed subtly shift throughout the 24-hour cycle: golden dawn, luminous midday, sunset crimson, and deep night.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Synchronized with local clock</li>
+                        <li>Calm nighttime hues reduce eye strain</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon cyan">
+                        <i class="fas fa-battery-quarter"></i>
+                    </div>
+                    <h3>Battery Aware</h3>
+                    <p>
+                        When battery falls below 20%, fluid gracefully switches to a gentle, low-speed, battery-conserving aesthetic.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Smart power governor integration</li>
+                        <li>Conserves battery when you need it most</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon emerald">
+                        <i class="fas fa-clock-rotate-left"></i>
+                    </div>
+                    <h3>Change It Up Automatically</h3>
+                    <p>
+                        Auto-change wallpaper on each unlock, every hour, or once a day with "Fluid of the Day".
+                    </p>
+                    <ul class="feature-bullets">
+                        <li>Pick from full catalog or favorites</li>
+                        <li>Includes Home Screen widget &amp; Quick Settings tile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUILT TO BE LIGHT (PERFORMANCE & BATTERY) -->
+    <section class="section" id="light">
+        <div class="container">
+            <div class="battery-grid">
+                <div>
+                    <span class="section-tag">High Performance Engineering</span>
+                    <h2 class="section-title">Built to Be Light</h2>
+                    <p style="color: var(--text-sub); font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.7;">
+                        Live wallpapers should never drain your phone or stutter your UI. Magic Fluids is meticulously engineered in native Kotlin with custom shaders to deliver maximum fluidity with minimal energy consumption.
+                    </p>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #FFFFFF; margin-bottom: 0.5rem;"><i class="fas fa-pause-circle" style="color: var(--cyan);"></i> Zero Background Draw</h4>
+                        <p style="color: var(--text-sub); font-size: 0.95rem;">
+                            The wallpaper halts rendering immediately whenever an app covers the screen or your phone goes to sleep. Zero battery is used in standby.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #FFFFFF; margin-bottom: 0.5rem;"><i class="fas fa-gauge-high" style="color: var(--emerald);"></i> Full Framerate Control</h4>
+                        <p style="color: var(--text-sub); font-size: 0.95rem;">
+                            Choose your preferred render resolution and cap framerates at 30 FPS, 60 FPS, or unleash high refresh 90/120Hz displays.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #FFFFFF; margin-bottom: 0.5rem;"><i class="fas fa-shield-heart" style="color: var(--gold);"></i> Native Battery Saver</h4>
+                        <p style="color: var(--text-sub); font-size: 0.95rem;">
+                            Automatically steps down render quality and frame rate when Android Battery Saver activates.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="stat-card-row">
+                    <div class="stat-box">
+                        <div class="stat-number">0%</div>
+                        <div class="stat-desc">Battery draw when screen is locked or apps are open</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">120</div>
+                        <div class="stat-desc">Max FPS supported on high-refresh OLED displays</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">&lt; 15MB</div>
+                        <div class="stat-desc">Ultra-compact app size with zero bloated assets</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-desc">Real-time GPU shader math — no looping videos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YOUR PRIVACY GUARANTEE -->
+    <section class="section" id="privacy" style="background: rgba(11, 14, 36, 0.4);">
+        <div class="container">
+            <div class="privacy-box">
+                <div>
+                    <span class="section-tag" style="color: var(--emerald);">100% On-Device Architecture</span>
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem;">Your Privacy Matters</h2>
+                    <p style="color: var(--text-sub); line-height: 1.7; margin-bottom: 1.5rem;">
+                        Magic Fluids requires no user account, has no private login tracking, and operates zero proprietary cloud servers. Your personal content stays strictly on your phone.
+                    </p>
+                    <a href="privacy-policy.html" class="btn btn-secondary">
+                        <i class="fas fa-file-shield"></i> Read Full Privacy Policy
+                    </a>
+                </div>
+
+                <div>
+                    <ul class="privacy-check-list">
+                        <li>
+                            <i class="fas fa-circle-check"></i>
+                            <div>
+                                <strong>Photos Never Uploaded</strong>
+                                <p>Photos you choose for photo fluid or color palettes are processed strictly on your phone's memory and private sandbox storage.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check"></i>
+                            <div>
+                                <strong>Ephemeral Music Analysis</strong>
+                                <p>Microphone permission is only used if you enable Music Mode. Audio is analyzed in real time for beat rhythm and immediately discarded. Nothing is recorded or stored.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check"></i>
+                            <div>
+                                <strong>No Accounts Required</strong>
+                                <p>Start enjoying living color immediately without typing an email or creating a profile.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORLDWIDE IN 10 LANGUAGES -->
+    <section class="section" id="languages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Global Availability</span>
+                <h2 class="section-title">Available in 10 Languages</h2>
+                <p class="section-subtitle">
+                    Magic Fluids is fully localized with native terminology for Android users across the globe.
+                </p>
+            </div>
+
+            <div class="language-tags-grid">
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--cyan);"></i>
+                    <span>English</span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--magenta);"></i>
+                    <span>Deutsch <span class="native">(German)</span></span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--gold);"></i>
+                    <span>Español <span class="native">(Spanish)</span></span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--emerald);"></i>
+                    <span>Français <span class="native">(French)</span></span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--cyan);"></i>
+                    <span>हिन्दी <span class="native">(Hindi)</span></span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--magenta);"></i>
+                    <span>Português <span class="native">(Portuguese)</span></span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--gold);"></i>
+                    <span>Bahasa Indonesia</span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--emerald);"></i>
+                    <span>Türkçe <span class="native">(Turkish)</span></span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--cyan);"></i>
+                    <span>Русский <span class="native">(Russian)</span></span>
+                </div>
+                <div class="lang-pill">
+                    <i class="fas fa-globe" style="color: var(--magenta);"></i>
+                    <span>العربية <span class="native">(Arabic)</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW TO SET IT UP -->
+    <section class="section" id="setup" style="background: rgba(11, 14, 36, 0.4);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Quick Walkthrough</span>
+                <h2 class="section-title">How to Set It Up</h2>
+                <p class="section-subtitle">
+                    Transform your Android screen in less than 30 seconds.
+                </p>
+            </div>
+
+            <div class="setup-steps-grid">
+                <div class="setup-step">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="fas fa-mobile"></i></div>
+                    <h4>Open Magic Fluids</h4>
+                    <p>Launch the app and explore curated fluid presets or generate a style in the Studio.</p>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="fas fa-sliders"></i></div>
+                    <h4>Customize Parameters</h4>
+                    <p>Adjust swirl, flow force, particle glow, or pick a color palette from your favorite photo.</p>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                    <h4>Tap "Set as Live Wallpaper"</h4>
+                    <p>Tap the wallpaper button and confirm in your phone's native wallpaper preview dialog.</p>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-number">04</div>
+                    <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                    <h4>Enjoy Living Colour</h4>
+                    <p>Swipe, tap, tilt, or double-tap anytime to watch liquid light ripple across your apps.</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 2rem;">
+                * Note: Live wallpaper support and certain motion sensors depend on your device manufacturer and Android version.
+            </p>
+        </div>
+    </section>
+
+    <!-- TECHNICAL SPECS & ARCHITECTURE -->
+    <section class="section" id="specs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Architecture &amp; Specs</span>
+                <h2 class="section-title">System Requirements</h2>
+                <p class="section-subtitle">
+                    Engineered to strict modern Android standards by SoftTech Service.
+                </p>
+            </div>
+
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <i class="fab fa-android spec-icon"></i>
+                    <div class="spec-content">
+                        <h4>Platform</h4>
+                        <p>Android 8.0+ (API 26 to API 36)</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <i class="fas fa-microchip spec-icon"></i>
+                    <div class="spec-content">
+                        <h4>Graphics API</h4>
+                        <p>OpenGL ES 3.0+ / Vulkan</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <i class="fas fa-code spec-icon"></i>
+                    <div class="spec-content">
+                        <h4>Language &amp; Arch</h4>
+                        <p>100% Kotlin • Clean MVVM</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <i class="fas fa-tag spec-icon"></i>
+                    <div class="spec-content">
+                        <h4>Pricing Model</h4>
+                        <p>Free (Ad-Supported by AdMob)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOAD CTA BANNER -->
+    <section class="section" id="download">
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Transform Your Screen Today</h2>
+                <p>
+                    Join thousands of users enjoying living, flowing color on their home screens. Free to download, light on battery, and endlessly mesmerizing.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://play.google.com/store/apps" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1.05rem; padding: 0.9rem 2.25rem;">
+                        <i class="fab fa-google-play"></i> Get on Google Play
+                    </a>
+                    <a href="privacy-policy.html" class="btn btn-secondary" style="font-size: 1.05rem; padding: 0.9rem 2rem;">
+                        <i class="fas fa-shield-alt"></i> Privacy &amp; Terms
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="icon.svg" alt="Magic Fluids Icon" style="width: 36px; height: 36px; border-radius: 8px;">
+                        <span style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF;">Magic Fluids</span>
+                    </div>
+                    <p style="line-height: 1.7; margin-bottom: 1rem;">
+                        Magic Fluids turns your Android device into living, flowing colour. Real-time fluid simulation reacting to touch, gyroscope tilt, music, and charging.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">
+                        Published by <strong>SoftTech Service</strong>.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#touch">Touch &amp; Play</a></li>
+                        <li><a href="#studio">Studio Presets</a></li>
+                        <li><a href="#reactions">Dynamic Reactions</a></li>
+                        <li><a href="#light">Performance &amp; Battery</a></li>
+                        <li><a href="#setup">Setup Instructions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal &amp; Privacy</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="privacy-policy.html#permissions">Device Permissions</a></li>
+                        <li><a href="privacy-policy.html#terms">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html#admob">AdMob &amp; GDPR</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support &amp; Contact</h4>
+                    <p style="margin-bottom: 0.75rem;">Have questions, feature ideas, or feedback?</p>
+                    <p style="margin-bottom: 0.75rem;">
+                        <strong>Email:</strong> <br>
+                        <a href="mailto:contact@softtechservice.site" style="color: var(--cyan); text-decoration: underline;">contact@softtechservice.site</a>
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">
+                        Official Website: <br>
+                        <a href="https://softtechservice.site" style="color: #CBD5E1;">https://softtechservice.site</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    &copy; 2026 SoftTech Service. All rights reserved.
+                </div>
+                <div>
+                    Magic Fluids: Live Wallpaper &bull; Built with pride for Android
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Fluid Canvas and UI Script -->
+    <script>
+        // Clock Widget
+        function updateLiveClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const timeEl = document.getElementById('liveTime');
+            if (timeEl) timeEl.textContent = `${hours}:${minutes}`;
+
+            const options = { weekday: 'short', month: 'short', day: 'numeric' };
+            const dateEl = document.getElementById('liveDate');
+            if (dateEl) dateEl.textContent = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateLiveClock, 1000);
+        updateLiveClock();
+
+        // Mobile Nav Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => navMenu.classList.remove('active'));
+            });
+        }
+
+        // Color Palettes
+        const palettes = {
+            cyberpunk: [
+                { r: 0, g: 242, b: 254 },    // Electric Cyan
+                { r: 247, g: 37, b: 133 },   // Neon Magenta
+                { r: 121, g: 40, b: 202 },   // Deep Violet
+                { r: 67, g: 97, b: 238 }     // Sapphire
+            ],
+            gold: [
+                { r: 255, g: 209, b: 102 },  // Warm Gold
+                { r: 255, g: 158, b: 0 },    // Amber
+                { r: 255, g: 84, b: 0 },     // Flame Orange
+                { r: 255, g: 235, b: 160 }   // Shimmer White
+            ],
+            silk: [
+                { r: 183, g: 33, b: 255 },   // Royal Lavender
+                { r: 114, g: 9, b: 183 },    // Violet
+                { r: 76, g: 201, b: 240 },   // Soft Blue
+                { r: 247, g: 141, b: 167 }   // Silk Pink
+            ],
+            emerald: [
+                { r: 0, g: 245, b: 212 },    // Mint Emerald
+                { r: 0, g: 187, b: 249 },    // Deep Turquoise
+                { r: 16, g: 185, b: 129 },   // Seafoam
+                { r: 5, g: 150, b: 105 }     // Deep Pine
+            ]
+        };
+
+        let currentPalette = palettes.cyberpunk;
+
+        // Preset Buttons
+        const presetBtns = document.querySelectorAll('.preset-btn');
+        presetBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                presetBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const presetKey = btn.getAttribute('data-preset');
+                if (palettes[presetKey]) {
+                    currentPalette = palettes[presetKey];
+                    // Trigger a splash on the canvas to celebrate change
+                    if (heroSimulator) heroSimulator.burstSplash(heroCanvas.width / 2, heroCanvas.height / 3);
+                    if (phoneSimulator) phoneSimulator.burstSplash(phoneCanvas.width / 2, phoneCanvas.height / 2);
+                }
+            });
+        });
+
+        // Sliders Feedback
+        const sliderSwirl = document.getElementById('sliderSwirl');
+        const valSwirl = document.getElementById('valSwirl');
+        if (sliderSwirl && valSwirl) {
+            sliderSwirl.addEventListener('input', (e) => {
+                valSwirl.textContent = `${e.target.value}%`;
+            });
+        }
+
+        const sliderGlow = document.getElementById('sliderGlow');
+        const valGlow = document.getElementById('valGlow');
+        if (sliderGlow && valGlow) {
+            sliderGlow.addEventListener('input', (e) => {
+                valGlow.textContent = `${e.target.value}%`;
+            });
+        }
+
+        const sliderTrail = document.getElementById('sliderTrail');
+        const valTrail = document.getElementById('valTrail');
+        if (sliderTrail && valTrail) {
+            sliderTrail.addEventListener('input', (e) => {
+                valTrail.textContent = `${e.target.value}%`;
+            });
+        }
+
+        // Fluid Particle Simulator Engine
+        class FluidSimulator {
+            constructor(canvas, isHero = false) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.isHero = isHero;
+                this.particles = [];
+                this.maxParticles = isHero ? 140 : 80;
+                this.width = canvas.width;
+                this.height = canvas.height;
+                this.lastX = null;
+                this.lastY = null;
+                this.autoWaveCounter = 0;
+
+                this.resize();
+                this.bindEvents();
+            }
+
+            resize() {
+                const rect = this.canvas.parentElement.getBoundingClientRect();
+                this.width = this.canvas.width = rect.width;
+                this.height = this.canvas.height = rect.height;
+            }
+
+            addParticle(x, y, vx, vy, sizeFactor = 1) {
+                if (this.particles.length > this.maxParticles) {
+                    this.particles.shift();
+                }
+                const colorObj = currentPalette[Math.floor(Math.random() * currentPalette.length)];
+                this.particles.push({
+                    x: x,
+                    y: y,
+                    vx: vx + (Math.random() - 0.5) * 1.5,
+                    vy: vy + (Math.random() - 0.5) * 1.5,
+                    life: 1.0,
+                    decay: 0.008 + Math.random() * 0.015,
+                    radius: (25 + Math.random() * 35) * sizeFactor,
+                    color: colorObj,
+                    angle: Math.random() * Math.PI * 2,
+                    angularSpeed: (Math.random() - 0.5) * 0.05
+                });
+            }
+
+            burstSplash(x, y) {
+                const count = 15;
+                for (let i = 0; i < count; i++) {
+                    const angle = (Math.PI * 2 / count) * i;
+                    const speed = 2 + Math.random() * 4;
+                    this.addParticle(x, y, Math.cos(angle) * speed, Math.sin(angle) * speed, 1.2);
+                }
+            }
+
+            bindEvents() {
+                const handleMove = (e) => {
+                    const rect = this.canvas.getBoundingClientRect();
+                    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                    const x = clientX - rect.left;
+                    const y = clientY - rect.top;
+
+                    if (this.lastX !== null && this.lastY !== null) {
+                        const dx = x - this.lastX;
+                        const dy = y - this.lastY;
+                        const dist = Math.hypot(dx, dy);
+
+                        if (dist > 2) {
+                            const steps = Math.min(Math.floor(dist / 6), 5);
+                            for (let i = 0; i <= steps; i++) {
+                                const px = this.lastX + (dx / steps) * i;
+                                const py = this.lastY + (dy / steps) * i;
+                                this.addParticle(px, py, dx * 0.12, dy * 0.12);
+                            }
+                        }
+                    }
+                    this.lastX = x;
+                    this.lastY = y;
+                };
+
+                const resetLast = () => {
+                    this.lastX = null;
+                    this.lastY = null;
+                };
+
+                this.canvas.addEventListener('mousemove', handleMove);
+                this.canvas.addEventListener('touchmove', handleMove, { passive: true });
+                this.canvas.addEventListener('mouseleave', resetLast);
+                this.canvas.addEventListener('touchend', resetLast);
+                this.canvas.addEventListener('click', (e) => {
+                    const rect = this.canvas.getBoundingClientRect();
+                    this.burstSplash(e.clientX - rect.left, e.clientY - rect.top);
+                });
+            }
+
+            updateAndRender() {
+                // Dim screen with soft alpha decay for dreamy vapor trails
+                this.ctx.globalCompositeOperation = 'source-over';
+                this.ctx.fillStyle = this.isHero ? 'rgba(6, 8, 20, 0.18)' : 'rgba(2, 3, 8, 0.22)';
+                this.ctx.fillRect(0, 0, this.width, this.height);
+
+                // Add gentle autonomous ambient motion so canvas stays alive
+                this.autoWaveCounter += 0.02;
+                if (Math.random() < 0.2) {
+                    const autoX = this.width * (0.5 + 0.35 * Math.sin(this.autoWaveCounter));
+                    const autoY = this.height * (0.45 + 0.25 * Math.cos(this.autoWaveCounter * 0.7));
+                    const autoVx = Math.cos(this.autoWaveCounter) * 1.5;
+                    const autoVy = Math.sin(this.autoWaveCounter * 1.3) * 1.5;
+                    this.addParticle(autoX, autoY, autoVx, autoVy, 0.8);
+                }
+
+                // Additive blending for vivid, glowing liquid lights
+                this.ctx.globalCompositeOperation = 'screen';
+
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vx *= 0.96; // Viscous drag
+                    p.vy *= 0.96;
+                    p.angle += p.angularSpeed;
+                    p.life -= p.decay;
+
+                    if (p.life <= 0) {
+                        this.particles.splice(i, 1);
+                        continue;
+                    }
+
+                    // Soft radial bloom gradient
+                    const currentRadius = p.radius * p.life;
+                    const grad = this.ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, Math.max(currentRadius, 1));
+                    const { r, g, b } = p.color;
+                    const alpha = p.life * 0.65;
+
+                    grad.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${alpha})`);
+                    grad.addColorStop(0.5, `rgba(${r}, ${g}, ${b}, ${alpha * 0.45})`);
+                    grad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+
+                    this.ctx.fillStyle = grad;
+                    this.ctx.beginPath();
+                    this.ctx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2);
+                    this.ctx.fill();
+                }
+            }
+        }
+
+        // Initialize Canvases
+        const heroCanvas = document.getElementById('hero-canvas');
+        const phoneCanvas = document.getElementById('phone-canvas');
+        let heroSimulator = null;
+        let phoneSimulator = null;
+
+        if (heroCanvas) {
+            heroSimulator = new FluidSimulator(heroCanvas, true);
+        }
+        if (phoneCanvas) {
+            phoneSimulator = new FluidSimulator(phoneCanvas, false);
+        }
+
+        // Handle Window Resize
+        window.addEventListener('resize', () => {
+            if (heroSimulator) heroSimulator.resize();
+            if (phoneSimulator) phoneSimulator.resize();
+        });
+
+        // Global animation loop
+        function mainLoop() {
+            if (heroSimulator) heroSimulator.updateAndRender();
+            if (phoneSimulator) phoneSimulator.updateAndRender();
+            requestAnimationFrame(mainLoop);
+        }
+        requestAnimationFrame(mainLoop);
+    </script>
+</body>
+</html>

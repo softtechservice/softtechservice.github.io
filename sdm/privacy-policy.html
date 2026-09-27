@@ -477,7 +477,7 @@
             </div>
 
             <div class="meta-info">
-                <span><i class="fas fa-calendar-check" style="color: var(--primary-glow);"></i> <strong>Last Updated:</strong> 2026-08-30</span>
+                <span><i class="fas fa-calendar-check" style="color: var(--primary-glow);"></i> <strong>Last Updated:</strong> 2026-09-27</span>
                 <span><i class="fas fa-building" style="color: var(--accent-green);"></i> <strong>Developer:</strong> SoftTech Service</span>
                 <span><i class="fas fa-scale-balanced" style="color: var(--accent-purple);"></i> <strong>License:</strong> GNU GPLv3+</span>
             </div>
@@ -513,9 +513,9 @@
         <div id="privacy" class="tab-content active">
             <div class="section">
                 <div class="highlight success">
-                    <p><strong>🔒 Summary: Zero Telemetry, 100% On-Device Execution</strong></p>
+                    <p><strong>🔒 Summary: Downloads stay on your device; ads use Google services</strong></p>
                     <p>
-                        SDM is built with a strict privacy-first architecture. We do not track you, we do not collect your URLs or files, there are no user accounts, and zero analytical telemetry is sent to SoftTech Service or any third-party servers.
+                        SDM does not require an account or send your download history or files to SoftTech Service. Download records and settings remain on your device. Banner ads are supplied by Google; its Mobile Ads SDK handles device and app-use data as described below.
                     </p>
                 </div>
                 <p>
@@ -526,48 +526,55 @@
             <div class="section">
                 <h2><i class="fas fa-database"></i> 1. Information Handled Locally On Your Device</h2>
                 <p>
-                    All data created or entered in SDM remains exclusively on your local Android device storage within the app's protected sandbox and database:
+                    Your download records and settings are stored on your Android device within the app's database:
                 </p>
                 <ul>
-                    <li><strong>Download Links &amp; Magnet URIs:</strong> URLs, magnet links, or torrent file paths entered manually or intercepted from your clipboard are stored locally in the app's Room database to manage active, paused, and completed download queues.</li>
+                    <li><strong>Download Links &amp; Magnet URIs:</strong> URLs, magnet links, or torrent file paths you add are stored locally in the app's Room database to manage active, paused, and completed downloads.</li>
                     <li><strong>File Metadata &amp; State:</strong> Download progress, chunk verification checksums, download speeds, file names, file sizes, and custom organizational tags.</li>
                     <li><strong>App Preferences:</strong> Your configured settings such as download speed limits, Wi-Fi only rules, charger rules, custom storage directory paths, and schedule timers.</li>
                 </ul>
                 <p>
-                    <strong>We have no access to this data.</strong> It is never uploaded, synced, or backed up to any cloud servers operated by SoftTech Service.
+                    <strong>SoftTech Service does not receive this data.</strong> Your downloads contact the servers or peers needed to retrieve files, and Google receives data related to ad requests as described below.
                 </p>
             </div>
 
             <div class="section">
-                <h2><i class="fas fa-ban"></i> 2. What We Do NOT Collect</h2>
+                <h2><i class="fas fa-ban"></i> 2. Accounts and Download History</h2>
                 <ul>
-                    <li><strong>No Personal Identifiable Information (PII):</strong> We do not ask for or collect names, email addresses, phone numbers, contacts, or passwords.</li>
-                    <li><strong>No Tracking or Analytics SDKs:</strong> SDM contains zero analytical trackers (such as Google Analytics, Firebase, Facebook SDK, AppsFlyer, etc.).</li>
-                    <li><strong>No Advertising Identifiers:</strong> SDM contains zero advertising frameworks or ad trackers.</li>
-                    <li><strong>No Browsing History or Search Logs:</strong> We do not log or monitor websites you visit or files you download.</li>
+                    <li><strong>No account required:</strong> SDM does not ask for your name, email address, phone number, contacts, or password to use the app.</li>
+                    <li><strong>No developer analytics:</strong> SDM does not use Firebase Analytics or send your download history to SoftTech Service.</li>
+                    <li><strong>Local browsing records:</strong> SDM does not send a browsing history or search log to SoftTech Service. Websites visited in the built-in browser may receive normal web requests.</li>
                 </ul>
             </div>
 
             <div class="section">
-                <h2><i class="fas fa-network-wired"></i> 3. Network Communication &amp; BitTorrent Swarms</h2>
-                <p>SDM requires network access solely to fulfill user-requested file downloads and BitTorrent swarm operations:</p>
+                <h2><i class="fas fa-rectangle-ad"></i> 3. Advertising and Data Shared with Google</h2>
+                <p>
+                    SDM uses the Google Mobile Ads SDK for banner ads. According to <a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">Google's SDK disclosure</a>, the SDK automatically collects and shares IP address, app interactions, diagnostic information, and device or account identifiers (including the Android advertising ID when available) for advertising, measurement, and fraud prevention. Google says this data is encrypted in transit. Google's disclosure explains available controls.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-network-wired"></i> 4. Network Communication &amp; BitTorrent Swarms</h2>
+                <p>SDM uses network access for user-requested file downloads, BitTorrent operations, and ads:</p>
                 <ul>
                     <li><strong>HTTP/HTTPS Direct Downloads:</strong> The app connects directly to the server specified in the URL you provide to fetch byte ranges of your file.</li>
                     <li><strong>BitTorrent Peer-to-Peer (P2P) Swarms:</strong> When initiating torrent or magnet downloads, the underlying C++ libtorrent engine connects to tracker servers, DHT (Distributed Hash Table) nodes, and peer swarms. In accordance with the fundamental architecture of the BitTorrent protocol, your IP address is visible to other swarm peers sharing the same pieces of the torrent.</li>
+                    <li><strong>Advertising:</strong> Ad requests connect to Google and its advertising services.</li>
                 </ul>
             </div>
 
             <div class="section">
-                <h2><i class="fas fa-folder-open"></i> 4. Storage &amp; SAF (Storage Access Framework)</h2>
+                <h2><i class="fas fa-folder-open"></i> 5. Storage &amp; SAF (Storage Access Framework)</h2>
                 <p>
                     SDM uses Android's modern <strong>Storage Access Framework (SAF)</strong>. You choose the specific folder on internal memory or external MicroSD storage where downloaded files will be written. SDM only accesses the directory tree you explicitly authorize.
                 </p>
             </div>
 
             <div class="section">
-                <h2><i class="fas fa-trash-can"></i> 5. Data Retention &amp; User Deletion Rights</h2>
+                <h2><i class="fas fa-trash-can"></i> 6. Data Retention &amp; User Deletion Rights</h2>
                 <p>
-                    Because all data is stored strictly on your device:
+                    SDM's download records and settings are stored on your device:
                 </p>
                 <ul>
                     <li>You can delete individual downloads or torrent sessions along with their downloaded files directly from the SDM UI.</li>
@@ -576,14 +583,14 @@
             </div>
 
             <div class="section">
-                <h2><i class="fas fa-child"></i> 6. Children's Privacy</h2>
+                <h2><i class="fas fa-child"></i> 7. Children's Privacy</h2>
                 <p>
-                    SDM does not knowingly collect or solicit any information from children under the age of 13. The app is a general-purpose download tool that operates entirely offline/client-side without user accounts.
+                    SDM is a general-purpose download tool and is not directed at children. It does not require an account.
                 </p>
             </div>
 
             <div class="section">
-                <h2><i class="fas fa-envelope"></i> 7. Contact Us</h2>
+                <h2><i class="fas fa-envelope"></i> 8. Contact Us</h2>
                 <p>If you have any questions or feedback regarding this Privacy Policy:</p>
                 <div class="contact-box">
                     <h3>SoftTech Service Support</h3>
@@ -742,7 +749,7 @@
             <div class="section">
                 <h2><i class="fas fa-shield-halved"></i> Android Permissions Breakdown</h2>
                 <p>
-                    SDM strictly adheres to Android's principle of least privilege. Every permission requested is essential to core download acceleration, battery management, or storage operations.
+                    SDM requests permissions for downloads, notifications, ads, and device integration. Some are optional and can be changed in Android settings.
                 </p>
 
                 <table>
@@ -778,6 +785,16 @@
                             <td><strong>ACCESS_NETWORK_STATE<br>&amp; INTERNET</strong></td>
                             <td>Network</td>
                             <td>Transfers file data and detects whether the device is connected to unmetered Wi-Fi or cellular data to prevent overage charges.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ACCESS_LOCAL_NETWORK</strong></td>
+                            <td>Local network</td>
+                            <td>On Android 17 and newer, allows downloads from local servers after you grant the Nearby devices prompt.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Advertising ID</strong></td>
+                            <td>Ads</td>
+                            <td>Allows the Google Mobile Ads SDK to use the Android advertising ID when available for ad serving.</td>
                         </tr>
                         <tr>
                             <td><strong>WAKE_LOCK</strong></td>
