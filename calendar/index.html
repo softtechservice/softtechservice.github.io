@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Calendar Panchang - Hindu Lunar Calendar, Festivals, Muhurta &amp; Kundali | SoftTech Service</title>
+    <meta name="description" content="Hindu calendar, daily Panchang, festivals, muhurta and Kundali. Real-time tithi, nakshatra, Choghadiya, Hora, Lagna, eclipses and encrypted birth charts in 9 languages.">
+    <meta name="keywords" content="Hindi Calendar, Panchang, Hindu lunar calendar, tithi, nakshatra, Choghadiya, Hora, Lagna, Kundali, festivals, vrat, eclipse, SoftTech Service">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="Hindi Calendar Panchang - Your Day, in Perfect Rhythm">
+    <meta property="og:description" content="Hindu lunar calendar, daily Panchang, festivals, muhurta and encrypted Kundali in 9 Indian languages.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://softtechservice.site/calendar/">
+    <meta property="og:image" content="https://softtechservice.site/calendar/icon.svg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #9A3412;           /* Deep terracotta saffron */
+            --primary-dark: #7C2D12;
+            --primary-light: #C2410C;
+            --accent-gold: #D97706;        /* Divine Gold */
+            --accent-gold-light: #FBBF24;
+            --cosmic-navy: #0B1120;
+            --cosmic-deep: #060913;
+            --cosmic-card: #11192E;
+            --cosmic-card-hover: #18233E;
+            --cosmic-border: rgba(251, 191, 36, 0.18);
+            --text-light: #FFFFFF;
+            --text-sub: #94A3B8;
+            --text-muted: #64748B;
+            --text-dark: #0F172A;
+            --bg-page: #060913;
+            --bg-parchment: #FFFDF9;
+            --bg-card-light: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --shadow-gold: 0 10px 30px rgba(217, 119, 6, 0.25);
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --gradient-gold: linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #D97706 100%);
+            --gradient-cosmic: linear-gradient(180deg, #0B1120 0%, #060913 100%);
+            --gradient-hero: radial-gradient(circle at 50% 20%, #1E1B4B 0%, #0F172A 45%, #060913 100%);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--bg-page);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 15%, rgba(217, 119, 6, 0.08) 0px, transparent 40%),
+                radial-gradient(at 90% 40%, rgba(99, 102, 241, 0.08) 0px, transparent 40%),
+                radial-gradient(at 50% 85%, rgba(245, 158, 11, 0.06) 0px, transparent 50%);
+        }
+
+        /* Top Notification Bar */
+        .top-banner {
+            background: linear-gradient(90deg, #7C2D12 0%, #9A3412 50%, #B45309 100%);
+            color: #FEF3C7;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .top-banner a {
+            color: #FFFFFF;
+            text-decoration: underline;
+            margin-left: 0.35rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 17, 32, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--cosmic-border);
+            transition: all 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+            flex-shrink: 0;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            background: #0B1120;
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 1.18rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #FBBF24;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 9999px;
+            background: var(--gradient-gold);
+            color: #0F172A !important;
+            font-weight: 700 !important;
+            font-size: 0.88rem !important;
+            box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(217, 119, 6, 0.5);
+            color: #000000 !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 5.5rem 0 4rem;
+            overflow: hidden;
+            background: var(--gradient-hero);
+            border-bottom: 1px solid var(--cosmic-border);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, rgba(30, 27, 75, 0.05) 50%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1rem;
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 9999px;
+            color: #FDE68A;
+            font-size: 0.84rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-badge i {
+            color: #F59E0B;
+        }
+
+        .hero h1 {
+            font-size: 3.3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+            color: #FFFFFF;
+        }
+
+        .hero h1 .highlight-gold {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #E2E8F0;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-sub);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .hero-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #CBD5E1;
+        }
+
+        .hero-chip i {
+            color: #F59E0B;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2rem;
+            border-radius: 14px;
+            font-size: 1.02rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: #0F172A;
+            box-shadow: 0 8px 24px rgba(217, 119, 6, 0.35);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(217, 119, 6, 0.5);
+            color: #000000;
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item h4 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #FDE68A;
+            line-height: 1.1;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 0.2rem;
+        }
+
+        /* Hero Phone Mockup */
+        .hero-phone-wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-phone-glow {
+            position: absolute;
+            width: 340px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.3) 0%, rgba(99, 102, 241, 0.15) 50%, transparent 70%);
+            filter: blur(40px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .phone-mockup {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 360px;
+            border-radius: 36px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(251, 191, 36, 0.25);
+            overflow: hidden;
+            transition: transform 0.4s ease;
+            background: #000000;
+        }
+
+        .phone-mockup:hover {
+            transform: translateY(-6px) scale(1.01);
+        }
+
+        .phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Floating Cards */
+        .float-pill {
+            position: absolute;
+            z-index: 3;
+            background: rgba(17, 25, 46, 0.88);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            backdrop-filter: blur(12px);
+            padding: 0.75rem 1rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            animation: floatUpDown 4s ease-in-out infinite;
+        }
+
+        .float-pill-1 {
+            top: 8%;
+            left: -20px;
+        }
+
+        .float-pill-2 {
+            bottom: 12%;
+            right: -25px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .float-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(245, 158, 11, 0.18);
+            color: #F59E0B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .float-text {
+            font-size: 0.82rem;
+            color: #E2E8F0;
+            font-weight: 600;
+        }
+
+        .float-text span {
+            display: block;
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            font-weight: 400;
+        }
+
+        /* Sections Common */
+        .section {
+            padding: 5.5rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.95rem;
+            background: rgba(217, 119, 6, 0.12);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            border-radius: 9999px;
+            color: #FDE68A;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        /* Feature Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+
+        .bento-card {
+            background: var(--cosmic-card);
+            border: 1px solid var(--cosmic-border);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(251, 191, 36, 0.4);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+            background: var(--cosmic-card-hover);
+        }
+
+        .bento-card:hover::before {
+            opacity: 1;
+        }
+
+        .bento-card.span-2 {
+            grid-column: span 2;
+        }
+
+        .bento-icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #F59E0B;
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-card h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bento-card p {
+            color: var(--text-sub);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .feature-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 1rem;
+        }
+
+        .feature-bullets li {
+            font-size: 0.9rem;
+            color: #CBD5E1;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            line-height: 1.5;
+        }
+
+        .feature-bullets li i {
+            color: #10B981;
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Showcase Carousel & Tab Slider */
+        .showcase-section {
+            background: #090D1A;
+            border-top: 1px solid var(--cosmic-border);
+            border-bottom: 1px solid var(--cosmic-border);
+        }
+
+        .showcase-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .showcase-tab {
+            padding: 0.75rem 1.4rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-sub);
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .showcase-tab:hover {
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .showcase-tab.active {
+            background: var(--gradient-gold);
+            color: #0F172A;
+            border-color: transparent;
+            box-shadow: 0 4px 18px rgba(217, 119, 6, 0.35);
+        }
+
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .screen-card {
+            background: var(--cosmic-card);
+            border: 1px solid var(--cosmic-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(251, 191, 36, 0.5);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+        }
+
+        .screen-img-wrap {
+            position: relative;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        .screen-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .screen-card:hover .screen-img-wrap img {
+            transform: scale(1.03);
+        }
+
+        .screen-meta {
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+
+        .screen-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #F59E0B;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+            display: block;
+        }
+
+        .screen-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.35rem;
+        }
+
+        .screen-desc {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            line-height: 1.4;
+        }
+
+        /* 9 Languages Section */
+        .languages-box {
+            background: linear-gradient(135deg, #11192E 0%, #1A223B 100%);
+            border: 1px solid var(--cosmic-border);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 3rem;
+            margin-top: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .languages-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .lang-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.25rem 1rem;
+            transition: all 0.25s ease;
+        }
+
+        .lang-card:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.35);
+            transform: translateY(-3px);
+        }
+
+        .lang-native {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FDE68A;
+            margin-bottom: 0.25rem;
+        }
+
+        .lang-eng {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* Notice / Cultural Note */
+        .cultural-note {
+            background: rgba(154, 52, 18, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 18px;
+            padding: 2rem 2.25rem;
+            margin: 4rem auto 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .cultural-note-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--gradient-gold);
+            color: #0F172A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .cultural-note-text h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #FDE68A;
+            margin-bottom: 0.4rem;
+        }
+
+        .cultural-note-text p {
+            font-size: 0.95rem;
+            color: #CBD5E1;
+            line-height: 1.65;
+        }
+
+        /* Tech Highlights Grid */
+        .tech-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: var(--cosmic-card);
+            border: 1px solid var(--cosmic-border);
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            text-align: center;
+            transition: all 0.25s ease;
+        }
+
+        .tech-card:hover {
+            border-color: #F59E0B;
+            transform: translateY(-4px);
+        }
+
+        .tech-card i {
+            font-size: 2.25rem;
+            color: #F59E0B;
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-card p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        /* FAQs */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .faq-card {
+            background: var(--cosmic-card);
+            border: 1px solid var(--cosmic-border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.25s ease;
+        }
+
+        .faq-card:hover {
+            border-color: rgba(251, 191, 36, 0.4);
+        }
+
+        .faq-card h4 {
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .faq-card h4 i {
+            color: #F59E0B;
+            font-size: 1rem;
+        }
+
+        .faq-card p {
+            font-size: 0.94rem;
+            color: var(--text-sub);
+            line-height: 1.65;
+        }
+
+        /* Call To Action Banner */
+        .cta-section {
+            background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 50%, #431407 100%);
+            border-radius: 28px;
+            padding: 4.5rem 3rem;
+            text-align: center;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            margin: 4rem auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #E2E8F0;
+            max-width: 720px;
+            margin: 0 auto 2.25rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #03050A;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 4.5rem 0 2rem;
+            color: var(--text-sub);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .footer-brand h3 img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .footer-brand p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #F59E0B;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.88rem;
+        }
+
+        .footer-bottom a {
+            color: #F59E0B;
+            text-decoration: none;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-badge, .hero-chips, .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento-card.span-2 {
+                grid-column: span 1;
+            }
+
+            .screens-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .tech-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: #0B1120;
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--cosmic-border);
+                transform: translateY(-120%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 3.5rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.35rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screens-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-box {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .float-pill {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.95rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .screens-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .cta-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Banner -->
+    <div class="top-banner">
+        <span>✨ All-in-One Hindu Lunar Calendar, Daily Panchang &amp; Kundali</span>
+        <span>• Available in 9 Languages</span>
+        <a href="#languages">See Languages &rarr;</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="brand-link">
+                <img src="icon.svg" alt="Hindi Calendar Panchang Icon" class="brand-icon">
+                <div class="brand-info">
+                    <span class="brand-title">Hindi Calendar Panchang</span>
+                    <span class="brand-subtitle">SoftTech Service</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#routine">Offline &amp; Routine</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li>
+                    <a href="#features" class="nav-cta">
+                        <i class="fas fa-star"></i> Explore App
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Hero Content -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-om"></i> Hindu Calendar • Daily Panchang • Kundali
+                    </div>
+                    <h1>
+                        Your Day, in <span class="highlight-gold">Perfect Rhythm</span> with the Cosmos
+                    </h1>
+                    <p class="hero-subtitle">
+                        Hindu calendar, daily Panchang, festivals, muhurta and Kundali.
+                    </p>
+                    <p class="hero-desc">
+                        Hindi Calendar Panchang brings the Hindu lunar calendar and daily Panchang together with practical tools for festivals, auspicious timings and the sky. Built with precision astronomical calculation models and on-device privacy.
+                    </p>
+
+                    <div class="hero-chips">
+                        <span class="hero-chip"><i class="fas fa-check-circle"></i> Tithi &amp; Nakshatra</span>
+                        <span class="hero-chip"><i class="fas fa-check-circle"></i> Choghadiya &amp; Hora</span>
+                        <span class="hero-chip"><i class="fas fa-check-circle"></i> Encrypted Kundali</span>
+                        <span class="hero-chip"><i class="fas fa-check-circle"></i> Eclipse Simulations</span>
+                        <span class="hero-chip"><i class="fas fa-check-circle"></i> 9 Indian Languages</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#screenshots" class="btn btn-gold">
+                            <i class="fas fa-mobile-alt"></i> View App Screens
+                        </a>
+                        <a href="privacy-policy.html" class="btn btn-glass">
+                            <i class="fas fa-shield-alt"></i> Privacy &amp; Terms
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h4>9</h4>
+                            <p>Indian Languages</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>100%</h4>
+                            <p>Encrypted Kundali</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>Drik / Lahiri</h4>
+                            <p>Precision Ephemeris</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Phone Showcase -->
+                <div class="hero-phone-wrap">
+                    <div class="hero-phone-glow"></div>
+
+                    <!-- Floating Indicator Pill 1 -->
+                    <div class="float-pill float-pill-1">
+                        <div class="float-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="float-text">
+                            Tithi Dvitiya
+                            <span>Shukla Paksha • Somavara</span>
+                        </div>
+                    </div>
+
+                    <!-- Phone Frame with Screenshot 1 -->
+                    <div class="phone-mockup">
+                        <img src="images/screen-1-daily-panchang.png" alt="Hindi Calendar Panchang Daily View" loading="eager">
+                    </div>
+
+                    <!-- Floating Indicator Pill 2 -->
+                    <div class="float-pill float-pill-2">
+                        <div class="float-icon">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
+                        <div class="float-text">
+                            Next: Amrit Muhurta
+                            <span>Choghadiya Day Timing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots Gallery Section -->
+    <section class="section showcase-section" id="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill"><i class="fas fa-images"></i> Visual Experience</span>
+                <h2 class="section-title">Designed for Calm, Cultural Clarity</h2>
+                <p class="section-subtitle">
+                    Experience an intuitive interface inspired by sacred Indian aesthetics, warm parchment, and modern typography.
+                </p>
+            </div>
+
+            <!-- Screenshots Grid -->
+            <div class="screens-grid">
+                <!-- Screen 1 -->
+                <div class="screen-card">
+                    <div class="screen-img-wrap">
+                        <img src="images/screen-1-daily-panchang.png" alt="Today's Panchang and Auspicious Timings" loading="lazy">
+                    </div>
+                    <div class="screen-meta">
+                        <span class="screen-badge">01 / Daily Flow</span>
+                        <h3 class="screen-title">Your Day in Rhythm</h3>
+                        <p class="screen-desc">Today's tithi, active Choghadiya, Dur Muhurta, and sunrise time together.</p>
+                    </div>
+                </div>
+
+                <!-- Screen 2 -->
+                <div class="screen-card">
+                    <div class="screen-img-wrap">
+                        <img src="images/screen-2-calendar-month.png" alt="Hindu Lunar Month View with Tithis" loading="lazy">
+                    </div>
+                    <div class="screen-meta">
+                        <span class="screen-badge">02 / Lunar Month</span>
+                        <h3 class="screen-title">Every Tithi at a Glance</h3>
+                        <p class="screen-desc">Browse month dates with lunar markers, Purnima, Amavasya, and Hindu months.</p>
+                    </div>
+                </div>
+
+                <!-- Screen 3 -->
+                <div class="screen-card">
+                    <div class="screen-img-wrap">
+                        <img src="images/screen-3-panchang-details.png" alt="Detailed Panchang parameters" loading="lazy">
+                    </div>
+                    <div class="screen-meta">
+                        <span class="screen-badge">03 / Deep Panchang</span>
+                        <h3 class="screen-title">Know the Day in Detail</h3>
+                        <p class="screen-desc">Tithi, Nakshatra, Yoga, Karana, Paksha, and transition times in one view.</p>
+                    </div>
+                </div>
+
+                <!-- Screen 4 -->
+                <div class="screen-card">
+                    <div class="screen-img-wrap">
+                        <img src="images/screen-4-festivals-vrat.png" alt="Festivals and Vrat Calendar" loading="lazy">
+                    </div>
+                    <div class="screen-meta">
+                        <span class="screen-badge">04 / Celebrations</span>
+                        <h3 class="screen-title">Plan Celebrations &amp; Vrats</h3>
+                        <p class="screen-desc">Upcoming festivals, monthly views, Vrat fasts, and regional observance notes.</p>
+                    </div>
+                </div>
+
+                <!-- Screen 5 -->
+                <div class="screen-card">
+                    <div class="screen-img-wrap">
+                        <img src="images/screen-5-choghadiya-muhurta.png" alt="Choghadiya, Hora & Lagna timings" loading="lazy">
+                    </div>
+                    <div class="screen-meta">
+                        <span class="screen-badge">05 / Auspicious Slot</span>
+                        <h3 class="screen-title">Find Auspicious Windows</h3>
+                        <p class="screen-desc">Day &amp; Night Choghadiya slots (Amrit, Shubh, Labh) with live next-window alerts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Bento Grid Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill"><i class="fas fa-sparkles"></i> Comprehensive Suite</span>
+                <h2 class="section-title">Everything You Need for Daily &amp; Spiritual Life</h2>
+                <p class="section-subtitle">
+                    A harmonious blend of Vedic traditions, celestial calculations, and modern digital convenience.
+                </p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Card 1: Daily Panchang -->
+                <div class="bento-card span-2">
+                    <div class="bento-icon-box">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Daily Panchang &amp; Astronomical Five Attributes</h3>
+                    <p>
+                        Read tithi, nakshatra, yoga, karana and weekday, complete with exact transition times. Check local sunrise and sunset, Moon phase, moonrise and moonset. Move seamlessly between past or future dates and see the complete Panchang for each day.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fas fa-check"></i> Complete 5 Panchang limbs: Tithi, Nakshatra, Yoga, Karana, and Vara (Weekday)</li>
+                        <li><i class="fas fa-check"></i> Exact transition timestamps (e.g., Dvitiya until 10:12 PM, then Tritiya)</li>
+                        <li><i class="fas fa-check"></i> City-specific sunrise &amp; sunset, moonrise &amp; moonset calculations</li>
+                        <li><i class="fas fa-check"></i> Shukla (waxing) and Krishna (waning) Paksha indications</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Hindu Calendar -->
+                <div class="bento-card">
+                    <div class="bento-icon-box">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Hindu Lunar Calendar</h3>
+                    <p>
+                        Browse any month with tithi numbers, Hindu months (Chaitra, Ashwin, Kartika, etc.), and lunar phase markers.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fas fa-check"></i> Full Moon (Purnima) and New Moon (Amavasya) indicators</li>
+                        <li><i class="fas fa-check"></i> Quick date jumper &amp; recent dates history</li>
+                        <li><i class="fas fa-check"></i> One-touch transition from date to detailed Panchang</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Festivals and Vrat -->
+                <div class="bento-card">
+                    <div class="bento-icon-box">
+                        <i class="fas fa-om"></i>
+                    </div>
+                    <h3>Festivals and Vrat</h3>
+                    <p>
+                        Browse upcoming festivals, month views, and dedicated Vrat calendars (Ekadashi, Pradosh, Sankashti Chaturthi, Shivratri, Navratri).
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fas fa-check"></i> Instant search for festival names and save favourites</li>
+                        <li><i class="fas fa-check"></i> Regional observance notes when traditions differ</li>
+                        <li><i class="fas fa-check"></i> Countdown badges (e.g., "Ongoing", "In 7 days")</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Muhurta and Reminders -->
+                <div class="bento-card">
+                    <div class="bento-icon-box">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Muhurta, Choghadiya &amp; Reminders</h3>
+                    <p>
+                        Check daily Choghadiya (Amrit, Kaal, Shubh, Rog, Udveg, Char), Hora, and Lagna periods for auspicious beginnings.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fas fa-check"></i> Live "Next auspicious slot" notification banners</li>
+                        <li><i class="fas fa-check"></i> Dur Muhurta, Rahu Kaal, and Gulika Kaal warnings</li>
+                        <li><i class="fas fa-check"></i> Set local on-device alarms for Vrat, festivals &amp; eclipses</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Kundali Birth Chart -->
+                <div class="bento-card">
+                    <div class="bento-icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Kundali (Birth Chart)</h3>
+                    <p>
+                        Generate accurate birth charts using birth date, time, and coordinates. Choose North Indian or South Indian chart layouts.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fas fa-check"></i> Lahiri (Chitrapaksha) or tropical zodiac calculation options</li>
+                        <li><i class="fas fa-check"></i> Charts are saved encrypted locally on your private device storage</li>
+                        <li><i class="fas fa-check"></i> Easy export and secure sharing with family or astrologers</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Eclipses and the Sky -->
+                <div class="bento-card span-2">
+                    <div class="bento-icon-box">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3>Eclipses and the Sky (Surya &amp; Chandra Grahan)</h3>
+                    <p>
+                        Browse solar and lunar eclipses with local visibility calculations for your city. Explore planetary simulations, moon phases, real-time planetary coordinates, nakshatras, and rashis in motion.
+                    </p>
+                    <ul class="feature-bullets">
+                        <li><i class="fas fa-check"></i> Solar &amp; lunar eclipse occurrence dates and peak visibility times</li>
+                        <li><i class="fas fa-check"></i> Interactive Moon phase simulations from New Moon to Full Moon</li>
+                        <li><i class="fas fa-check"></i> Real-time planetary positions across 12 Rashis and 27 Nakshatras</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Cultural Reference Disclaimer Callout -->
+            <div class="cultural-note">
+                <div class="cultural-note-icon">
+                    <i class="fas fa-info"></i>
+                </div>
+                <div class="cultural-note-text">
+                    <h4>Traditional Timing &amp; Cultural Note</h4>
+                    <p>
+                        Festival dates and traditional timings can vary by geographical location, sunrise convention (e.g., Ujjain sunrise vs. local city sunrise), and regional practice. Panchang and astrology features are provided for cultural, religious, and personal reference, not as professional advice.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9 Languages Section -->
+    <section class="section" id="languages" style="background: #090D1A; border-top: 1px solid var(--cosmic-border);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill"><i class="fas fa-language"></i> Multilingual India</span>
+                <h2 class="section-title">Available in 9 Indian Languages</h2>
+                <p class="section-subtitle">
+                    Embrace your heritage in your native tongue. Every tithi, festival, and planetary timing is translated and culturally formatted.
+                </p>
+            </div>
+
+            <div class="languages-box">
+                <p style="color: #FDE68A; font-weight: 600; font-size: 1.1rem;">
+                    Switch languages anytime with a single tap in Settings:
+                </p>
+
+                <div class="lang-grid">
+                    <div class="lang-card">
+                        <div class="lang-native">English</div>
+                        <div class="lang-eng">Default / Universal</div>
+                    </div>
+                    <div class="lang-card">
+                        <div class="lang-native">हिन्दी</div>
+                        <div class="lang-eng">Hindi</div>
+                    </div>
+                    <div class="lang-card">
+                        <div class="lang-native">मराठी</div>
+                        <div class="lang-eng">Marathi</div>
+                    </div>
+                    <div class="lang-card">
+                        <div class="lang-native">ગુજરાતી</div>
+                        <div class="lang-eng">Gujarati</div>
+                    </div>
+                    <div class="lang-card">
+                        <div class="lang-native">বাংলা</div>
+                        <div class="lang-eng">Bengali</div>
+                    </div>
+                    <div class="lang-card">
+                        <div class="lang-native">தமிழ்</div>
+                        <div class="lang-eng">Tamil</div>
+                    </div>
+                    <div class="lang-card">
+                        <div class="lang-native">తెలుగు</div>
+                        <div class="lang-eng">Telugu</div>
+                    </div>
+                    <div class="lang-card">
+                        <div class="lang-native">ಕನ್ನಡ</div>
+                        <div class="lang-eng">Kannada</div>
+                    </div>
+                    <div class="lang-card">
+                        <div class="lang-native">മലയാളം</div>
+                        <div class="lang-eng">Malayalam</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Made for Your Routine & Connectivity Section -->
+    <section class="section" id="routine">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill"><i class="fas fa-sliders-h"></i> Personalization</span>
+                <h2 class="section-title">Made for Your Daily Routine</h2>
+                <p class="section-subtitle">
+                    Designed to adapt to your lifestyle with intelligent offline storage, custom formats, and transparent connectivity.
+                </p>
+            </div>
+
+            <div class="tech-box">
+                <div class="tech-card">
+                    <i class="fas fa-adjust"></i>
+                    <h4>Light &amp; Dark Theme</h4>
+                    <p>Gentle on the eyes during early morning Sandhyavandanam or nighttime sky gazing.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    <h4>Offline Panchang Cache</h4>
+                    <p>Download supported Panchang data for smooth access even without an active cellular signal.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-wifi"></i>
+                    <h4>Internet Requirement</h4>
+                    <p>An internet connection is required for detailed real-time ephemeris calculations and AdMob ad delivery.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-ad"></i>
+                    <h4>AdMob Integration</h4>
+                    <p>Supported by Google AdMob to keep high-precision astrological calculations free and accessible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="section" id="faqs" style="background: #090D1A; border-top: 1px solid var(--cosmic-border);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill"><i class="fas fa-question-circle"></i> Got Questions?</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">
+                    Everything you need to know about Hindi Calendar Panchang.
+                </p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h4><i class="fas fa-wifi"></i> Does the app need an internet connection?</h4>
+                    <p>
+                        Yes. An internet connection is needed for precision astronomical ephemeris recalculations, cloud festival sync, and to load advertisements via Google AdMob. However, you can download supported monthly Panchang data to your device for offline reading during travel.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-lock"></i> Is my Kundali birth chart data private?</h4>
+                    <p>
+                        Absolutely. All generated birth charts (Kundali), birth times, and birthplace coordinates are stored encrypted locally on your Android device. We never upload your personal birth details to our servers.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-bell"></i> How do festival and Vrat reminders work?</h4>
+                    <p>
+                        You can set local notifications for upcoming festivals, Ekadashi, Pradosh, and Sankashti Vrats, as well as solar and lunar eclipses. Because notifications run locally on your phone, you never miss an auspicious occasion.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Why do festival dates sometimes differ by region?</h4>
+                    <p>
+                        Hindu festivals and tithis depend on the exact sunrise time at your location and whether local traditions follow Purnimanta or Amavasyanta month conventions. Our app clearly displays regional notes where observances differ.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-chart-pie"></i> Which Kundali layouts are supported?</h4>
+                    <p>
+                        You can choose between the classic North Indian diamond chart layout or the South Indian rectangular box layout, with support for both the Lahiri (Chitrapaksha) sidereal zodiac and the tropical zodiac.
+                    </p>
+                </div>
+
+                <div class="faq-card">
+                    <h4><i class="fas fa-ad"></i> Are there advertisements in the app?</h4>
+                    <p>
+                        Yes. Hindi Calendar Panchang includes non-intrusive advertisements served through Google AdMob. This allows us to keep the app free and continually update astronomical calculation engines.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA Section -->
+    <div class="container">
+        <section class="cta-section">
+            <span class="section-pill" style="margin-bottom: 1.25rem;"><i class="fas fa-om"></i> Embrace Your Heritage</span>
+            <h2>Experience the Harmony of Time</h2>
+            <p>
+                Download Hindi Calendar Panchang to check your daily tithi, auspicious Choghadiya windows, upcoming festivals, and encrypted Kundali charts.
+            </p>
+            <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
+                <a href="#screenshots" class="btn btn-gold">
+                    <i class="fas fa-mobile-alt"></i> Explore App Features
+                </a>
+                <a href="privacy-policy.html" class="btn btn-glass">
+                    <i class="fas fa-shield-alt"></i> Read Privacy Policy
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <h3>
+                        <img src="icon.svg" alt="Hindi Calendar Panchang Icon">
+                        Hindi Calendar Panchang
+                    </h3>
+                    <p>
+                        Hindu lunar calendar, daily Panchang, festivals, muhurta and Kundali. Crafted with devotion and mathematical precision by SoftTech Service.
+                    </p>
+                    <p style="font-size: 0.85rem; color: #64748B;">
+                        &copy; 2026 SoftTech Service. All rights reserved.
+                    </p>
+                </div>
+
+                <!-- Navigation -->
+                <div class="footer-col">
+                    <h4>App Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Key Features</a></li>
+                        <li><a href="#screenshots">Screenshots</a></li>
+                        <li><a href="#languages">9 Languages</a></li>
+                        <li><a href="#routine">Daily Routine</a></li>
+                        <li><a href="#faqs">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Links -->
+                <div class="footer-col">
+                    <h4>Legal &amp; Privacy</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="privacy-policy.html#terms">Terms &amp; Conditions</a></li>
+                        <li><a href="privacy-policy.html#license">License &amp; Copyright</a></li>
+                        <li><a href="privacy.html">Privacy Redirect</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support & Company -->
+                <div class="footer-col">
+                    <h4>Developer Support</h4>
+                    <p style="font-size: 0.92rem; margin-bottom: 0.75rem;">
+                        <strong>Developer:</strong> SoftTech Service
+                    </p>
+                    <p style="font-size: 0.92rem; margin-bottom: 0.75rem;">
+                        <strong>Email:</strong> <a href="mailto:contact@softtechservice.site" style="color: #F59E0B;">contact@softtechservice.site</a>
+                    </p>
+                    <p style="font-size: 0.92rem; margin-bottom: 0.75rem;">
+                        <strong>Website:</strong> <a href="../index.html" style="color: #F59E0B;">softtechservice.site</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>
+                    Crafted with care by <strong>SoftTech Service</strong>. Panchang &amp; astrology tools provided for cultural reference.
+                </p>
+                <p>
+                    <a href="privacy-policy.html">Privacy Policy</a> &bull; 
+                    <a href="privacy-policy.html#terms">Terms &amp; Conditions</a> &bull; 
+                    <a href="../index.html">Main Website</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Nav Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (navMenu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close menu when clicking link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            e.preventDefault();
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
