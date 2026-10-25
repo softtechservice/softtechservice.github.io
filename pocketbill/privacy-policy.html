@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - PocketBill | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms of Service, and License disclosures for PocketBill offline mobile billing application by SoftTech Service.">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F766E;           /* Deep Teal */
+            --primary-dark: #115E59;      /* Dark Teal */
+            --primary-deep: #042F2E;      /* Deep Midnight Teal */
+            --accent: #10B981;            /* Emerald */
+            --accent-light: #14B8A6;      /* Light Teal */
+            --text-dark: #0F172A;         /* Slate 900 */
+            --text-gray: #475569;         /* Slate 600 */
+            --text-light: #64748B;        /* Slate 500 */
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 2px 8px rgba(15, 118, 110, 0.08);
+            --shadow-md: 0 6px 20px rgba(15, 118, 110, 0.12);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1.5rem 1rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(15, 118, 110, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header Section */
+        .header-section {
+            padding: 2.75rem 3rem;
+            background: linear-gradient(135deg, #042F2E 0%, #0F766E 60%, #115E59 100%);
+            color: white;
+            position: relative;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.925rem;
+            transition: all 0.25s ease;
+            padding: 0.5rem 1.15rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(6px);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .header-brand img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: white;
+            padding: 2px;
+        }
+
+        .header-section h1 {
+            color: white;
+            font-size: 2.45rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .header-section .subtitle {
+            color: #A7F3D0;
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.925rem;
+            color: rgba(255, 255, 255, 0.85);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .header-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 170px;
+            padding: 1.25rem 1.75rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(15, 118, 110, 0.04);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(15, 118, 110, 0.05);
+            font-weight: 700;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3.5rem 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            margin-bottom: 3.25rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.85rem;
+            margin-bottom: 1.25rem;
+            margin-top: 1.5rem;
+            font-weight: 800;
+            border-bottom: 2px solid #CCFBF1;
+            padding-bottom: 0.65rem;
+            letter-spacing: -0.015em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2 i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            color: #1E293B;
+            font-size: 1.35rem;
+            margin-bottom: 0.85rem;
+            margin-top: 1.75rem;
+            font-weight: 700;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.15rem;
+            margin-bottom: 0.65rem;
+            margin-top: 1.25rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.15rem;
+            color: #475569;
+            font-size: 1.025rem;
+            line-height: 1.75;
+        }
+
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+
+        li {
+            margin-bottom: 0.65rem;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .highlight-box {
+            background: #F0FDFA;
+            padding: 1.5rem 1.75rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+            margin: 1.75rem 0;
+            border-top: 1px solid #CCFBF1;
+            border-right: 1px solid #CCFBF1;
+            border-bottom: 1px solid #CCFBF1;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+            color: #134E4A;
+            font-weight: 500;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-warning {
+            background: #FFFBEB;
+            border-left: 4px solid var(--warning);
+            border-top: 1px solid #FEF3C7;
+            border-right: 1px solid #FEF3C7;
+            border-bottom: 1px solid #FEF3C7;
+        }
+
+        .highlight-warning p {
+            color: #92400E;
+        }
+
+        /* Table */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.75rem 0;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            text-align: left;
+        }
+
+        thead {
+            background: #0F766E;
+            color: white;
+        }
+
+        th {
+            padding: 1rem 1.25rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #475569;
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .perm-tag {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .perm-runtime {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .perm-normal {
+            background: #E0F2FE;
+            color: #0369A1;
+        }
+
+        .perm-picker {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(135deg, #042F2E 0%, #0F766E 100%);
+            color: white;
+            padding: 2.25rem;
+            border-radius: 16px;
+            margin-top: 2.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.65rem;
+        }
+
+        .contact-box a {
+            color: #5EEAD4;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            color: #FFFFFF;
+        }
+
+        /* Footer */
+        .legal-footer {
+            border-top: 1px solid #E2E8F0;
+            padding: 2rem 3rem;
+            background: #F8FAFC;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .header-section {
+                padding: 1.75rem 1.5rem;
+            }
+
+            .header-section h1 {
+                font-size: 1.85rem;
+            }
+
+            .tab-button {
+                min-width: 130px;
+                padding: 1rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .tab-content {
+                padding: 2rem 1.25rem;
+            }
+
+            h2 {
+                font-size: 1.45rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p, li {
+                font-size: 0.95rem;
+            }
+
+            .contact-box {
+                padding: 1.5rem;
+            }
+
+            .legal-footer {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> PocketBill App Landing</a>
+                <a href="../index.html" class="back-link"><i class="fas fa-home"></i> SoftTech Service Main Website</a>
+            </div>
+            <div class="header-brand">
+                <img src="icon.svg" alt="PocketBill Icon">
+                <div>
+                    <h1>PocketBill</h1>
+                </div>
+            </div>
+            <p class="subtitle">Legal Information, Privacy Policy &amp; Terms of Service</p>
+            <div class="header-meta">
+                <span><i class="fas fa-calendar-check"></i> <strong>Effective Date:</strong> 22 October 2026</span>
+                <span><i class="fas fa-building"></i> <strong>Published by:</strong> SoftTech Service</span>
+                <span><i class="fas fa-envelope"></i> <strong>Privacy Contact:</strong> contact@softtechservice.site</span>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">
+                        <i class="fas fa-shield-halved"></i> 📄 Privacy Policy
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">
+                        <i class="fas fa-file-contract"></i> 📜 Terms &amp; Conditions
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">
+                        <i class="fas fa-scale-balanced"></i> ⚖️ License &amp; Notice
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- TAB 1: PRIVACY POLICY -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <p>
+                    PocketBill is provided by <strong>SoftTech Service</strong>. This policy explains how the Android app handles information when you create bills, manage customers and products, scan labels, use rewarded ads, and export or share files.
+                </p>
+                <div class="highlight-box">
+                    <p><strong>Privacy Contact:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Core Guarantee:</strong> PocketBill operates as an offline mobile billing tool. Your business records remain securely on your personal device. PocketBill does not require an account and does not operate a cloud synchronization service.</p>
+                </div>
+            </div>
+
+            <!-- 1. Business Information on your device -->
+            <div class="section">
+                <h2><i class="fas fa-database"></i> 1. Business Information on Your Device</h2>
+                <p>
+                    PocketBill stores your business profile and billing settings, products and variants, customer details, bills and drafts, payment records, invoice history, credit history, template settings, and saved logos or product images in the app's private local storage.
+                </p>
+                <p>
+                    Optional profile fields can include contact and address information, GSTIN or PAN, and bank or UPI details. Customers can include names, phone numbers, email addresses, addresses and tax details you enter.
+                </p>
+                <p>
+                    This information is used to create and manage invoices, retain historical invoice snapshots, calculate local sales and customer summaries, manage saved credits, and produce files you request. PocketBill does not require an account and does not operate a cloud synchronization service. <strong>The app does not send your business database, customer list, invoice contents, bank details or product photos to a SoftTech Service server.</strong>
+                </p>
+                <p>
+                    Payment amounts and methods are records you enter; PocketBill does not execute payments or obtain card credentials from a payment processor. Only enter customer and other third-party information you are entitled to use. You control the information placed on invoices and in exports.
+                </p>
+            </div>
+
+            <!-- 2. Camera, photos and label recognition -->
+            <div class="section">
+                <h2><i class="fas fa-camera"></i> 2. Camera, Photos and Label Recognition</h2>
+                <p>
+                    Camera access supports barcode scanning, product-label capture, and optional logo or product photography. You can also choose existing images through the system picker. Camera permission is requested when a camera feature is used, and you can deny or revoke it in Android settings. Manual product entry and search remain available.
+                </p>
+                <p>
+                    Barcode and text recognition process images on the device. <strong>Google ML Kit does not send the input images, recognized text or recognition outputs to Google servers.</strong> Its SDK can send technical information to Google, including device and app information, installation identifiers, feature configuration, performance measurements and error events, for diagnostics, usage analytics, reliability and abuse prevention. These technical transmissions use HTTPS.
+                </p>
+                <p>
+                    For additional details, consult <a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener">ML Kit privacy information</a> and <a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener">ML Kit Android data disclosures</a>.
+                </p>
+                <p>
+                    An image you deliberately save as a logo or product image remains in local app storage. Images or text included in a file you share are received by your chosen recipient.
+                </p>
+            </div>
+
+            <!-- 3. Rewarded advertising and consent -->
+            <div class="section">
+                <h2><i class="fas fa-rectangle-ad"></i> 3. Rewarded Advertising and Consent</h2>
+                <p>
+                    PocketBill uses <strong>Google Mobile Ads</strong> for optional rewarded ads and <strong>Google's User Messaging Platform (UMP)</strong> for consent choices. When online, the app refreshes Google consent information at startup; a required consent form can appear. The advertising SDK is initialized when the rewarded-ad flow needs it and the consent check permits ads. Watching an ad is a separate action you choose.
+                </p>
+                <p>
+                    Google and its advertising services can collect and share IP addresses (which can indicate approximate location), advertising or other device/app identifiers, ad and app interactions, and diagnostic data to deliver and measure advertising, perform analytics, and prevent fraud. Collection depends on SDK behavior, device settings, region and consent choices. Ad-related transmissions use TLS. <strong>PocketBill does not supply invoice contents, customer details, product images or bank details as ad-targeting data.</strong>
+                </p>
+                <div class="highlight-box">
+                    <p><strong>Managing Your Ad Choices:</strong> You can open <code>More &rarr; About and privacy &rarr; Manage ad privacy choices</code> within the app when Google makes that form available. Android also provides advertising ID and ads privacy controls in device settings.</p>
+                </div>
+                <p>
+                    See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>, <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from apps</a>, and <a href="https://developers.google.com/admob/android/privacy/play-data-disclosure" target="_blank" rel="noopener">Google Mobile Ads data disclosures</a>.
+                </p>
+                <p>
+                    Local credit and reward-session records are retained to apply completed rewards once and prevent duplicate spending. Five initial credits are granted once per store dataset; each new issued bill consumes one saved credit. With zero credits, new finalization is blocked while drafts and existing bill operations remain available. A network connection is needed for rewarded ads, but saved credits can be used offline. Declining or being unable to view an ad does not remove existing records.
+                </p>
+            </div>
+
+            <!-- 4. Permissions and device access -->
+            <div class="section">
+                <h2><i class="fas fa-key"></i> 4. Permissions and Device Access</h2>
+                <p>
+                    PocketBill requests only the permissions strictly required to perform selected features:
+                </p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Permission</th>
+                                <th>Type</th>
+                                <th>Purpose &amp; Scope</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Camera</strong></td>
+                                <td><span class="perm-tag perm-runtime">Runtime Prompt</span></td>
+                                <td>Optional barcode scanning, product-label capture, and logo/product photography. Only requested when camera features are tapped. Can be revoked anytime.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Selected photos &amp; files</strong></td>
+                                <td><span class="perm-tag perm-picker">System Picker</span></td>
+                                <td>Selecting images, importing backup datasets, and choosing export destinations via native Android system pickers. The app does not request broad access to all device files or contacts.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Internet &amp; network state</strong></td>
+                                <td><span class="perm-tag perm-normal">Normal Permission</span></td>
+                                <td>Google consent check, rewarded advertising loading, and SDK technical communications when online. Offline billing works without internet.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Advertising ID &amp; Android AdServices</strong></td>
+                                <td><span class="perm-tag perm-normal">Manifest Merged</span></td>
+                                <td>Advertising-related permissions merged by the Google advertising dependency, subject to platform availability and user privacy settings.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Wake lock &amp; foreground service</strong></td>
+                                <td><span class="perm-tag perm-normal">Normal Capability</span></td>
+                                <td>Declared by bundled dependencies for supported platform operations; these do not grant access to personal content.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="highlight-box">
+                    <p><strong>Permissions Not Requested:</strong> PocketBill does NOT request microphone, contacts, SMS, phone-call, or precise-location permission. An approximate location may still be inferred by Google's advertising services from an IP address.</p>
+                </div>
+            </div>
+
+            <!-- 5. Backups, exports, printing and sharing -->
+            <div class="section">
+                <h2><i class="fas fa-file-export"></i> 5. Backups, Exports, Printing and Sharing</h2>
+                <p>
+                    Backups can contain the complete business dataset, including images, drafts, histories and credits. CSV exports contain the selected business records. Invoices can contain customer, business, tax and payment details.
+                </p>
+                <p>
+                    These files are created locally and transferred only to destinations or applications you choose through save, share or print controls. The destination service or printer receives the content under its own privacy practices. A cloud-backed destination you select may upload the file.
+                </p>
+                <div class="highlight-box highlight-warning">
+                    <p><strong>Important Security Notice:</strong> PocketBill backups and exports are not encrypted by PocketBill. Store them in a private, secure location. Restoring a backup replaces the current app dataset after creating a local safety backup; older exported copies remain wherever you saved them. Android app cloud backup is disabled in the app manifest. Some manufacturer device-transfer behavior can differ.</p>
+                </div>
+            </div>
+
+            <!-- 6. Diagnostics -->
+            <div class="section">
+                <h2><i class="fas fa-stethoscope"></i> 6. Diagnostics</h2>
+                <p>
+                    PocketBill keeps a bounded in-memory log of allow-listed event codes and timestamps for troubleshooting. It does not automatically upload this application log.
+                </p>
+                <p>
+                    If you select <strong>Share diagnostics</strong>, the generated file contains the app version, platform, generation time, and available event codes, levels and timestamps. It is shared only with the destination you choose. Review any file before sending it. Google SDK telemetry described above is separate from this optional diagnostics file.
+                </p>
+            </div>
+
+            <!-- 7. Storage, security and retention -->
+            <div class="section">
+                <h2><i class="fas fa-lock"></i> 7. Storage, Security and Retention</h2>
+                <p>
+                    Business records remain in local storage until you remove the app's data, uninstall the app, or replace the dataset through restore. Archived products/customers and cancelled invoices can remain in the dataset and in historical invoice snapshots; archiving or cancelling is not permanent deletion. The app does not offer permanent deletion of individual historical invoices.
+                </p>
+                <p>
+                    Android's app sandbox restricts ordinary access by other apps. PocketBill does not add database encryption, an app lock or encrypted backup protection. Protect your device with its security controls and protect all exported files. No storage or transmission method is risk-free.
+                </p>
+                <p>
+                    Temporary output files can remain in the app cache until app cleanup or Android removes them. Exported files, safety backups, shared copies, recipient copies and device-transfer copies are not removed automatically when local app data is removed. Google's retention and deletion practices for SDK data are governed by its published privacy information and applicable settings; we do not promise a fixed retention period for data held by Google.
+                </p>
+            </div>
+
+            <!-- 8. Your choices and deletion -->
+            <div class="section">
+                <h2><i class="fas fa-user-gear"></i> 8. Your Choices and Data Deletion</h2>
+                <p>
+                    You may edit current profile, product and customer records, manage ad choices, revoke camera permission, stop sharing files, and export a backup. Changing current records does not rewrite saved historical invoices.
+                </p>
+                <div class="highlight-box">
+                    <p><strong>How to Erase PocketBill's Local Dataset on Android:</strong></p>
+                    <p>Navigate to <code>Settings &rarr; Apps &rarr; PocketBill &rarr; Storage &amp; cache &rarr; Clear storage</code> (wording varies slightly across device manufacturers), or simply uninstall PocketBill.</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.925rem; color: #475569;">This action permanently erases local bills, customers, products, settings, drafts, and credits. It cannot be undone without a valid backup. Separately delete backup/export files and request deletion from any recipients or services to which you sent them. Restoring an old backup brings back the information it contains.</p>
+                </div>
+                <p>
+                    <strong>There is no PocketBill account to delete.</strong> SoftTech Service cannot remotely access or erase your local business database. Contact us at <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a> with privacy questions or requests. If you email us, we use your email address and message to respond; do not send invoices, financial details or customer data unless needed for your request. We keep support correspondence only for as long as needed to handle the request and meet applicable legal obligations.
+                </p>
+            </div>
+
+            <!-- 9. Children -->
+            <div class="section">
+                <h2><i class="fas fa-child"></i> 9. Children's Privacy</h2>
+                <p>
+                    PocketBill is a business billing tool and is not directed to children. If you believe a child has provided personal information directly to SoftTech Service, contact us so we can review and address the request.
+                </p>
+            </div>
+
+            <!-- 10. Changes and contact -->
+            <div class="section">
+                <h2><i class="fas fa-bullhorn"></i> 10. Changes to This Policy and Contact</h2>
+                <p>
+                    We may update this policy when the app or its data practices change. The effective date will identify the updated version. Material changes that require notice or consent will be handled as required by applicable law.
+                </p>
+                <div class="contact-box">
+                    <h3>SoftTech Service</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Privacy &amp; Support:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>App:</strong> PocketBill (Android)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: TERMS & CONDITIONS -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <p>
+                    By downloading, installing, or using PocketBill ("the app"), provided by SoftTech Service ("we", "us", or "our"), you agree to be bound by the following Terms &amp; Conditions. If you do not agree to these terms, please do not use the application.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-handshake"></i> 1. App Usage &amp; Intended Audience</h2>
+                <ul>
+                    <li>PocketBill is designed as an offline mobile invoicing and ledger tool for small shops, retail counters, freelancers, and service providers.</li>
+                    <li>The app is provided on an "AS IS" and "AS AVAILABLE" basis for lawful business and personal operations only.</li>
+                    <li>You represent that you have the right and authority to enter all business names, tax identifiers, product descriptions, customer names, contact numbers, and invoice details you record in the application.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-triangle-exclamation"></i> 2. Disclaimers: Tax, Invoicing &amp; Calculations</h2>
+                <ul>
+                    <li><strong>No Tax Return Filing:</strong> PocketBill is not an official tax filing portal, accounting agency, or chartered accounting software. It does not calculate statutory returns, submit filings, or verify tax compliance with government authorities.</li>
+                    <li><strong>Review Responsibility:</strong> Tax modes (no tax, tax-inclusive, tax-exclusive), GST rates, item prices, quantities, and discount computations are user-configured. You are solely responsible for verifying calculations, rounding rules, and totals before issuing invoices to clients.</li>
+                    <li><strong>No Hardware Guarantee:</strong> In-app printing communicates via the Android system print service. PocketBill does not guarantee compatibility with all thermal, Bluetooth, USB, or Wi-Fi printers.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-credit-card"></i> 3. Non-Processing of Monetary Payments</h2>
+                <ul>
+                    <li>PocketBill is a billing recorder and bookkeeping ledger; it is <strong>not</strong> a payment processor, bank, or payment gateway.</li>
+                    <li>Recording cash, UPI, credit card, debit card, or bank transfers marks records in your local dataset only. PocketBill does not transfer funds, collect cardholder data, or process banking transactions.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-coins"></i> 4. Bill Credits &amp; Rewarded Ads</h2>
+                <ul>
+                    <li>Each store dataset begins with 5 complimentary bill credits granted once upon initialization.</li>
+                    <li>Finalizing and issuing each new invoice consumes one saved credit. Editing, viewing, or restoring an existing bill does not consume credits.</li>
+                    <li>Additional credits may be earned by watching available rewarded ads online. Rewarded ad availability depends on third-party ad networks (Google Mobile Ads) and regional inventory.</li>
+                    <li>Bill credits are non-monetary virtual counters stored locally on your device. Credits have no cash value, cannot be redeemed for fiat currency, and are not transferable.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-shield"></i> 5. Data Backups &amp; Security Responsibility</h2>
+                <ul>
+                    <li>Because PocketBill does not operate cloud sync, the safety of your business records depends on your device backups.</li>
+                    <li>Backup files and CSV exports are unencrypted by PocketBill. You are solely responsible for keeping backup files in a secure location.</li>
+                    <li>Restoring a backup safely replaces your active app database after creating a safety backup. SoftTech Service cannot recover deleted datasets or lost device storage.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-gavel"></i> 6. Limitation of Liability</h2>
+                <div class="highlight-box highlight-warning">
+                    <p>
+                        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SOFTTECH SERVICE SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, GOODWILL, TAX PENALTIES, HARDWARE MALFUNCTION, BUSINESS INTERRUPTION, OR DISPUTES ARISING OUT OF THE USE OF OR INABILITY TO USE POCKETBILL.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pen-to-square"></i> 7. Modifications &amp; Contact</h2>
+                <p>
+                    We reserve the right to modify these terms periodically. Continued use of the application following updates constitutes your acceptance of the revised terms.
+                </p>
+                <div class="contact-box">
+                    <h3>Legal Inquiries</h3>
+                    <p>For questions regarding these Terms &amp; Conditions, please reach out to:</p>
+                    <p><a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: LICENSE & NOTICE -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight-box">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.7; color: #134E4A;">
+                        This software, including its visual designs, layout templates, user interface, brand assets, and proprietary source code, is the intellectual property of SoftTech Service. Unauthorized copying, reverse engineering, decompilation, reproduction, or distribution of this software via any medium is strictly prohibited without explicit written authorization from SoftTech Service.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-cube"></i> Third-Party Libraries &amp; Open Source Notices</h2>
+                <p>
+                    PocketBill is built using exceptional open-source software and developer frameworks. We gratefully acknowledge the creators and maintainers of the following technologies:
+                </p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Component / Library</th>
+                                <th>Developer / Maintainer</th>
+                                <th>License Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Flutter SDK</strong></td>
+                                <td>Google LLC &amp; Flutter Community</td>
+                                <td>BSD 3-Clause License</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Drift &amp; SQLite</strong></td>
+                                <td>Simon Binder / SQLite Consortium</td>
+                                <td>MIT License / Public Domain</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BLoC (flutter_bloc)</strong></td>
+                                <td>Felix Angelov</td>
+                                <td>MIT License</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Google ML Kit</strong></td>
+                                <td>Google LLC</td>
+                                <td>Apache License 2.0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Google Mobile Ads SDK</strong></td>
+                                <td>Google LLC</td>
+                                <td>Google Mobile Ads Terms / Apache 2.0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Google User Messaging Platform</strong></td>
+                                <td>Google LLC</td>
+                                <td>Google APIs Terms of Service</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Font Awesome Free</strong></td>
+                                <td>Fonticons, Inc.</td>
+                                <td>SIL OFL 1.1 / MIT License</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-shield-virus"></i> Disclaimer of Warranty</h2>
+                <div class="highlight-box">
+                    <p style="font-family: monospace; font-size: 0.9rem; line-height: 1.7; color: #1E293B;">
+                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="contact-box">
+                    <h3>SoftTech Service Legal &amp; Licensing</h3>
+                    <p>Developer: <strong>SoftTech Service</strong></p>
+                    <p>Email: <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="legal-footer">
+            <p>&copy; 2026 SoftTech Service. All rights reserved. PocketBill is a registered product of SoftTech Service.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                <a href="index.html">Landing Page</a> &bull; 
+                <a href="privacy-policy.html#privacy">Privacy Policy</a> &bull; 
+                <a href="privacy-policy.html#terms">Terms of Service</a> &bull; 
+                <a href="privacy-policy.html#license">Open Source</a> &bull; 
+                <a href="../index.html">SoftTech Service Home</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Script for Tab Switching & Hash Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                tabButtons.forEach(btn => {
+                    if (btn.getAttribute('data-tab') === tabId) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                tabContents.forEach(content => {
+                    if (content.id === tabId) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    switchTab(targetTab);
+                    window.location.hash = targetTab;
+                    window.scrollTo({
+                        top: document.querySelector('.tabs-container').offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Handle Direct Hash Links on load or popstate
+            function handleHash() {
+                const hash = window.location.hash.substring(1);
+                if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                    switchTab(hash);
+                }
+            }
+
+            handleHash();
+            window.addEventListener('hashchange', handleHash);
+        });
+    </script>
+</body>
+</html>

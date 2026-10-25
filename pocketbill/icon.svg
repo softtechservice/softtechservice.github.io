@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="PocketBill app icon">
+  <defs>
+    <linearGradient id="pb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14B8A6"/>
+      <stop offset="60%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#042F2E"/>
+    </linearGradient>
+    <linearGradient id="pb-shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="pb-accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="url(#pb-bg)"/>
+  <rect width="256" height="256" rx="58" fill="url(#pb-shine)"/>
+  
+  <!-- Receipt / Bill card in pocket motif -->
+  <g transform="translate(48, 44)" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Bill body with zig-zag or receipt bottom -->
+    <path d="M24 16 C24 9.37 29.37 4 36 4 L124 4 C130.63 4 136 9.37 136 16 L136 156 L122 146 L108 156 L94 146 L80 156 L66 146 L52 156 L38 146 L24 156 Z" fill="rgba(255,255,255,0.12)" stroke="#FFFFFF" stroke-width="7"/>
+    
+    <!-- Receipt top badge / notch -->
+    <line x1="50" y1="36" x2="110" y2="36" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="50" y1="62" x2="110" y2="62" stroke="#FFFFFF" stroke-width="6" stroke-opacity="0.8"/>
+    <line x1="50" y1="84" x2="90" y2="84" stroke="#FFFFFF" stroke-width="6" stroke-opacity="0.8"/>
+    <line x1="50" y1="106" x2="110" y2="106" stroke="#FFFFFF" stroke-width="6" stroke-opacity="0.8"/>
+    
+    <!-- Pocket curved overlay -->
+    <path d="M12 92 C12 85.37 17.37 80 24 80 L136 80 C142.63 80 148 85.37 148 92 L148 148 C148 165.67 133.67 180 116 180 L44 180 C26.33 180 12 165.67 12 148 Z" fill="#0D5C54" stroke="#5EEAD4" stroke-width="7"/>
+    
+    <!-- Checkmark / Currency symbol on pocket -->
+    <circle cx="80" cy="130" r="24" fill="url(#pb-accent)" stroke="#FFFFFF" stroke-width="5"/>
+    <path d="M70 130 L77 137 L91 122" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

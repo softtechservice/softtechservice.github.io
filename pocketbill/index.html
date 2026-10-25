@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketBill - Offline Mobile Billing &amp; Invoicing App for Small Businesses | SoftTech Service</title>
+    <meta name="description" content="PocketBill is an offline mobile billing app for small businesses. Create bills offline, track customer dues, manage your product catalog, scan barcodes, and print invoices with complete data privacy.">
+    <meta name="keywords" content="PocketBill, offline billing app, mobile invoicing, small business billing, POS app, invoice maker Android, Flutter billing, Drift SQLite, GST invoice, customer dues tracker, SoftTech Service">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="PocketBill - Offline Mobile Billing &amp; Invoicing App">
+    <meta property="og:description" content="Create bills offline, track customer dues, and manage your product catalog with zero cloud sync. Your business records stay securely on your device.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://softtechservice.site/pocketbill/">
+    <meta property="og:image" content="https://softtechservice.site/pocketbill/icon.svg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F766E;           /* Deep Teal */
+            --primary-dark: #115E59;      /* Darker Teal */
+            --primary-deep: #042F2E;      /* Deep Midnight Teal */
+            --primary-hover: #0D9488;     /* Vibrant Teal */
+            --accent: #10B981;            /* Emerald */
+            --accent-light: #34D399;      /* Light Emerald */
+            --accent-glow: rgba(16, 185, 129, 0.2);
+            --text-dark: #0F172A;         /* Slate 900 */
+            --text-gray: #475569;         /* Slate 600 */
+            --text-light: #64748B;        /* Slate 500 */
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --border-color: rgba(15, 118, 110, 0.12);
+            --shadow-sm: 0 2px 8px rgba(15, 118, 110, 0.08);
+            --shadow-md: 0 6px 20px rgba(15, 118, 110, 0.12);
+            --shadow-lg: 0 12px 36px rgba(15, 118, 110, 0.16);
+            --gradient-primary: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+            --gradient-hero: linear-gradient(135deg, #042F2E 0%, #0F766E 55%, #134E4A 100%);
+            --gradient-accent: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.875rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .logo-text {
+            font-size: 1.45rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-btn {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: 0.55rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(15, 118, 110, 0.25);
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 5.5rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 30%, rgba(20, 184, 166, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(16, 185, 129, 0.22) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 920px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1.15rem;
+            background: rgba(255, 255, 255, 0.12);
+            color: #A7F3D0;
+            border: 1px solid rgba(167, 243, 208, 0.28);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #34D399;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #34D399;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.18;
+            letter-spacing: -0.03em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.45rem;
+            color: #E6FFFA;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.95rem 2.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--bg-white);
+            color: var(--primary-deep);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            background: #F0FDFA;
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .planning-banner {
+            max-width: 860px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.45);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            font-size: 0.925rem;
+            color: #CCFBF1;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+            backdrop-filter: blur(8px);
+        }
+
+        .planning-banner i {
+            font-size: 1.35rem;
+            color: #5EEAD4;
+            flex-shrink: 0;
+        }
+
+        /* Highlights Ribbon */
+        .ribbon-wrap {
+            max-width: 1200px;
+            margin: -2rem auto 2rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .highlight-item {
+            background: var(--bg-white);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .highlight-icon-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(15, 118, 110, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-text h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--text-dark);
+        }
+
+        .highlight-text p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.45;
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2.35rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2.25rem;
+            border-radius: 18px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 14px rgba(15, 118, 110, 0.25);
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card > p {
+            color: var(--text-gray);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            font-size: 0.975rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: auto;
+            border-top: 1px solid #F1F5F9;
+            padding-top: 1.25rem;
+        }
+
+        .feature-list li {
+            padding: 0.45rem 0;
+            color: var(--text-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.925rem;
+            line-height: 1.5;
+        }
+
+        .feature-list li i {
+            color: var(--success);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        /* Dedicated Bill Credits Section */
+        .credits-container {
+            background: linear-gradient(135deg, #042F2E 0%, #0F766E 60%, #115E59 100%);
+            border-radius: 24px;
+            color: white;
+            padding: 4rem 3rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .credits-container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .credits-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .credits-header h2 {
+            font-size: 2.35rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .credits-header p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        .credits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .credit-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            padding: 2rem 1.75rem;
+            backdrop-filter: blur(8px);
+            transition: background 0.25s, transform 0.25s;
+        }
+
+        .credit-box:hover {
+            background: rgba(255, 255, 255, 0.14);
+            transform: translateY(-3px);
+        }
+
+        .credit-box-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(52, 211, 153, 0.2);
+            color: #6EE7B7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .credit-box h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.65rem;
+            color: #FFFFFF;
+        }
+
+        .credit-box p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.935rem;
+            line-height: 1.6;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-card {
+            background: var(--bg-white);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .tech-icon {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .tech-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .tech-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Disclaimers & Practical Controls */
+        .controls-card {
+            background: #F0FDFA;
+            border: 1.5px solid #99F6E4;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+        }
+
+        .controls-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0F766E;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .controls-card p {
+            color: #134E4A;
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .disclaimer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .disclaimer-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid #CCFBF1;
+        }
+
+        .disclaimer-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0F766E;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .disclaimer-item p {
+            font-size: 0.885rem;
+            color: #334155;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* Specifications Table */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .spec-card {
+            background: white;
+            padding: 1.75rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .spec-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .spec-card h3 i {
+            color: var(--primary);
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid #F1F5F9;
+            font-size: 0.925rem;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .spec-value {
+            color: var(--text-dark);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            background: #0B132B;
+            color: white;
+            padding: 4.5rem 2rem 2.5rem;
+            margin-top: 6rem;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #FFFFFF;
+        }
+
+        .footer-section p {
+            color: #94A3B8;
+            font-size: 0.925rem;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #94A3B8;
+            text-decoration: none;
+            line-height: 1.9;
+            display: block;
+            font-size: 0.925rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-section a:hover {
+            color: #5EEAD4;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #64748B;
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.65rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            .credits-container {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: var(--bg-white);
+                flex-direction: column;
+                padding: 1.75rem 2rem;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                gap: 1.25rem;
+                align-items: stretch;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                padding: 0.65rem 0;
+                display: block;
+                font-size: 1.05rem;
+            }
+
+            .hero {
+                padding: 4rem 1.25rem 3.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.15rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .planning-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo-wrap">
+                <img src="icon.svg" alt="PocketBill Logo" class="logo-img">
+                <span class="logo-text">PocketBill</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#credits">Bill Credits</a></li>
+                <li><a href="#tech">Architecture</a></li>
+                <li><a href="#controls">Local Privacy</a></li>
+                <li><a href="#specs">Specifications</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="#support" class="nav-btn">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span> Offline Mobile Billing for Small Businesses
+            </div>
+            <h1>PocketBill</h1>
+            <p class="subtitle">Create bills offline, track customer dues and manage your product catalog.</p>
+            <p class="hero-description">
+                PocketBill helps small shops and service businesses create invoices, organize products and customers, and follow sales and outstanding payments. Your business records stay securely on your device, with no PocketBill account or cloud sync required.
+            </p>
+            <div class="cta-buttons">
+                <a href="#features" class="btn btn-primary">
+                    <i class="fas fa-receipt"></i> Explore Features
+                </a>
+                <a href="#credits" class="btn btn-secondary">
+                    <i class="fas fa-coins"></i> How Credits Work
+                </a>
+                <a href="privacy-policy.html" class="btn btn-secondary">
+                    <i class="fas fa-shield-alt"></i> Privacy &amp; Policy
+                </a>
+            </div>
+
+            <div class="planning-banner">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Current Project State:</strong> Architecture and implementation planning specification. Built with Flutter, Clean Architecture, BLoC, and local SQLite through Drift. Package name: <code>pocketbill</code> | Customer-facing name: <strong>PocketBill</strong>.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Ribbon -->
+    <div class="ribbon-wrap">
+        <div class="highlights-grid">
+            <div class="highlight-item">
+                <div class="highlight-icon-circle"><i class="fas fa-wifi-slash"></i></div>
+                <div class="highlight-text">
+                    <h3>100% Offline Core</h3>
+                    <p>Bill customers anytime, anywhere. No continuous internet connection needed.</p>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon-circle"><i class="fas fa-lock"></i></div>
+                <div class="highlight-text">
+                    <h3>Your Data Stays Yours</h3>
+                    <p>No account, no tracking servers, and no cloud synchronization.</p>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon-circle"><i class="fas fa-barcode"></i></div>
+                <div class="highlight-text">
+                    <h3>On-Device Scanner</h3>
+                    <p>Fast barcode and label OCR via Google ML Kit runs right on your phone.</p>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon-circle"><i class="fas fa-print"></i></div>
+                <div class="highlight-text">
+                    <h3>PDF &amp; System Print</h3>
+                    <p>Custom layouts, shareable PDFs, and direct Android printer output.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Features Section -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <span class="section-tag">Capabilities</span>
+            <h2 class="section-title">Designed for Fast Everyday Operations</h2>
+            <p class="section-subtitle">
+                Everything small shops, retail counters, freelance professionals, and service businesses need to run their daily billing smoothly without bloat.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1: Everyday Billing -->
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h3>Everyday Billing</h3>
+                <p>Build clean, itemized bills with quantities, saved prices, discounts, and custom additional charges in seconds.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Flexible tax options: no tax, tax-inclusive, or tax-exclusive pricing</li>
+                    <li><i class="fas fa-check-circle"></i> Configurable GST breakdowns (CGST, SGST, IGST) where required</li>
+                    <li><i class="fas fa-check-circle"></i> Review totals before finalizing and record full, partial, or unpaid sales</li>
+                    <li><i class="fas fa-check-circle"></i> Record Cash, UPI, Card, Bank transfer, and other payment modes</li>
+                    <li><i class="fas fa-check-circle"></i> PocketBill records payment methods but does not process transactions</li>
+                </ul>
+            </div>
+
+            <!-- Feature 2: Products and Customers -->
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-boxes-stacked"></i></div>
+                <h3>Products &amp; Customers</h3>
+                <p>Keep a comprehensive, searchable product catalog and customer ledger at your fingertips.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Categories, brands, item variants, selling prices, and product codes</li>
+                    <li><i class="fas fa-check-circle"></i> Scan barcodes or use on-device OCR to capture product labels</li>
+                    <li><i class="fas fa-check-circle"></i> Review text recognition scan results before saving into catalog</li>
+                    <li><i class="fas fa-check-circle"></i> Bill with saved customers or perform quick billing without saving</li>
+                    <li><i class="fas fa-check-circle"></i> View complete customer purchase history and outstanding dues</li>
+                </ul>
+            </div>
+
+            <!-- Feature 3: Bill History and Follow-Up -->
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-clock-rotate-left"></i></div>
+                <h3>Bill History &amp; Follow-Up</h3>
+                <p>Search, filter, and maintain a complete audit trail of every transaction and customer payment.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Search saved invoices and filter by date, payment status, and amount</li>
+                    <li><i class="fas fa-check-circle"></i> Record later payments as customer dues are collected</li>
+                    <li><i class="fas fa-check-circle"></i> Review audited bill revisions and snapshot change histories</li>
+                    <li><i class="fas fa-check-circle"></i> Duplicate existing bills into drafts or cancel and restore bills</li>
+                    <li><i class="fas fa-check-circle"></i> Historical invoices preserve original business, customer, and item details</li>
+                </ul>
+            </div>
+
+            <!-- Feature 4: Invoices in Your Style -->
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-palette"></i></div>
+                <h3>Invoices in Your Style</h3>
+                <p>Create branded, professional invoices that represent your business identity with elegance.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Choose invoice layouts and adjust supported colors, alignment, and spacing</li>
+                    <li><i class="fas fa-check-circle"></i> Customize shop logo, business address, header, and footer text</li>
+                    <li><i class="fas fa-check-circle"></i> Generate print-ready PDF invoices and high-resolution invoice images</li>
+                    <li><i class="fas fa-check-circle"></i> Share invoices directly through WhatsApp, Email, or messaging apps</li>
+                    <li><i class="fas fa-check-circle"></i> Print via Android system print service with compatible thermal/POS printers</li>
+                </ul>
+            </div>
+
+            <!-- Feature 5: A Clearer View of Sales -->
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-chart-line"></i></div>
+                <h3>A Clearer View of Sales</h3>
+                <p>Gain actionable visibility into revenue, customer payments, pending dues, and product performance.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> View sales, recorded collections, and pending dues across date ranges</li>
+                    <li><i class="fas fa-check-circle"></i> Track purchasing customer counts across selected business periods</li>
+                    <li><i class="fas fa-check-circle"></i> Explore product sales activity and identify top-selling items</li>
+                    <li><i class="fas fa-check-circle"></i> Follow customer balance trends and pending receivables</li>
+                    <li><i class="fas fa-check-circle"></i> 100% computed on-device from your saved local database</li>
+                </ul>
+            </div>
+
+            <!-- Feature 6: Backup and Export -->
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-file-export"></i></div>
+                <h3>Backup, Export &amp; Portability</h3>
+                <p>Safeguard your entire business ledger and export records whenever you need them for external bookkeeping.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Create a full local backup file for safekeeping and easy migration</li>
+                    <li><i class="fas fa-check-circle"></i> Export bills, customers, and products as CSV files for spreadsheets</li>
+                    <li><i class="fas fa-check-circle"></i> Safe restore routine: automatically creates a safety backup before restoring</li>
+                    <li><i class="fas fa-check-circle"></i> Backups are not encrypted by PocketBill; keep backup files private</li>
+                    <li><i class="fas fa-check-circle"></i> CSV exports are formatted for spreadsheets and cannot restore the app</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated How Bill Credits Work Section -->
+    <div class="credits-container" id="credits">
+        <div class="credits-header">
+            <span class="badge" style="background: rgba(255,255,255,0.15); color: #A7F3D0; border-color: rgba(167,243,208,0.4);">
+                Transparent Model
+            </span>
+            <h2>How Bill Credits Work</h2>
+            <p>
+                PocketBill uses a transparent, fair credit system designed for independent businesses. No recurring subscriptions or forced online accounts.
+            </p>
+        </div>
+
+        <div class="credits-grid">
+            <div class="credit-box">
+                <div class="credit-box-badge"><i class="fas fa-gift"></i></div>
+                <h3>5 Starter Credits</h3>
+                <p>Each store dataset starts with five bill credits, granted once upon initialization. You can start creating and testing invoices immediately.</p>
+            </div>
+
+            <div class="credit-box">
+                <div class="credit-box-badge"><i class="fas fa-ticket"></i></div>
+                <h3>1 Credit Per Bill</h3>
+                <p>Issuing each new finalized bill uses one saved credit. Editing, viewing, or restoring an existing bill does not consume additional credits.</p>
+            </div>
+
+            <div class="credit-box">
+                <div class="credit-box-badge"><i class="fas fa-circle-play"></i></div>
+                <h3>Earn via Rewarded Ads</h3>
+                <p>Choose to watch an available rewarded ad online whenever you wish to earn more credits. Ads and rewards depend on network availability and completion.</p>
+            </div>
+
+            <div class="credit-box">
+                <div class="credit-box-badge"><i class="fas fa-shield-halved"></i></div>
+                <h3>Offline Guarantee &amp; Grace</h3>
+                <p>Saved credits can be spent completely offline. When credits reach zero, your draft is preserved and existing bills remain fully accessible.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Practical Controls & Clarifications -->
+    <div class="controls-card" id="controls">
+        <h3><i class="fas fa-circle-info"></i> Local Records &amp; Practical Controls</h3>
+        <p>
+            PocketBill is engineered as an honest, self-contained business tool. Core billing, customer records, and invoice generation work completely offline. Rewarded ads and Google consent checks use the internet when you are online. Camera and selected-photo access support optional scanning and image attachment. Choose light, dark, or system appearance.
+        </p>
+
+        <div class="disclaimer-grid">
+            <div class="disclaimer-item">
+                <h4><i class="fas fa-calculator"></i> Tax Calculations</h4>
+                <p>PocketBill supports customizable tax and GST breakdowns. Always review tax details before issuing invoices to customers.</p>
+            </div>
+            <div class="disclaimer-item">
+                <h4><i class="fas fa-credit-card"></i> Payment Recording</h4>
+                <p>PocketBill records payment entries (cash, UPI, card, bank) but does not process monetary payments or handle card credentials.</p>
+            </div>
+            <div class="disclaimer-item">
+                <h4><i class="fas fa-cloud-slash"></i> Device Boundary</h4>
+                <p>PocketBill does not synchronize records between multiple devices. Backups and exports are managed directly by you.</p>
+            </div>
+            <div class="disclaimer-item">
+                <h4><i class="fas fa-print"></i> Printer Compatibility</h4>
+                <p>Printing utilizes Android's system print service. Printing support depends on your device, installed print service, and printer hardware.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology & Architecture Stack -->
+    <section class="section" id="tech">
+        <div class="section-header">
+            <span class="section-tag">Engineering</span>
+            <h2 class="section-title">Clean Architecture &amp; Robust Foundation</h2>
+            <p class="section-subtitle">
+                Built with industry-leading mobile technologies to ensure reliable performance, predictable state management, and strict data privacy.
+            </p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon" style="color: #02569B;"><i class="fab fa-flutter"></i></div>
+                <h4>Flutter &amp; Dart</h4>
+                <p>Modern cross-platform framework delivering smooth, reactive native performance.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon" style="color: #0F766E;"><i class="fas fa-sitemap"></i></div>
+                <h4>Clean Architecture</h4>
+                <p>Strict separation of Domain, Data, and Presentation layers for rock-solid stability.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon" style="color: #10B981;"><i class="fas fa-cubes"></i></div>
+                <h4>BLoC State Management</h4>
+                <p>Predictable, testable event-driven state containers with unidirectional data flow.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon" style="color: #0369A1;"><i class="fas fa-database"></i></div>
+                <h4>Drift ORM &amp; SQLite</h4>
+                <p>Type-safe, reactive relational local database engine running locally on your device.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon" style="color: #EA580C;"><i class="fas fa-eye"></i></div>
+                <h4>Google ML Kit</h4>
+                <p>On-device machine learning for fast barcode decoding and text label recognition.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon" style="color: #4F46E5;"><i class="fas fa-rectangle-ad"></i></div>
+                <h4>Google Mobile Ads &amp; UMP</h4>
+                <p>Optional rewarded advertising with Google User Messaging Platform consent management.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon" style="color: #DC2626;"><i class="fas fa-file-pdf"></i></div>
+                <h4>Vector PDF &amp; Printing</h4>
+                <p>Native document rendering engine compatible with Android system print services.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon" style="color: #059669;"><i class="fas fa-shield-virus"></i></div>
+                <h4>Android App Sandbox</h4>
+                <p>All business records are isolated within the private local application sandbox.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="section" id="specs">
+        <div class="section-header">
+            <span class="section-tag">Specifications</span>
+            <h2 class="section-title">App Profile &amp; Requirements</h2>
+            <p class="section-subtitle">Key architectural specifications and deployment parameters.</p>
+        </div>
+
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h3><i class="fas fa-mobile-screen"></i> Platform &amp; Build</h3>
+                <div class="spec-row">
+                    <span class="spec-label">Customer-Facing Name</span>
+                    <span class="spec-value">PocketBill</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Dart Package Name</span>
+                    <span class="spec-value">pocketbill</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Target OS</span>
+                    <span class="spec-value">Android (Phones &amp; Tablets)</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Primary Framework</span>
+                    <span class="spec-value">Flutter / Dart</span>
+                </div>
+            </div>
+
+            <div class="spec-card">
+                <h3><i class="fas fa-server"></i> Storage &amp; Network</h3>
+                <div class="spec-row">
+                    <span class="spec-label">Core Database</span>
+                    <span class="spec-value">SQLite via Drift ORM</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Cloud Synchronization</span>
+                    <span class="spec-value">None (100% On-Device)</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">User Account</span>
+                    <span class="spec-value">Not Required</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Offline Capability</span>
+                    <span class="spec-value">Full Offline Billing</span>
+                </div>
+            </div>
+
+            <div class="spec-card">
+                <h3><i class="fas fa-sliders"></i> Features &amp; Permissions</h3>
+                <div class="spec-row">
+                    <span class="spec-label">Barcode / OCR</span>
+                    <span class="spec-value">Google ML Kit (On-Device)</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Credit System</span>
+                    <span class="spec-value">5 Starter + Rewarded Ads</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">UI Themes</span>
+                    <span class="spec-value">Light, Dark &amp; System</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Export Formats</span>
+                    <span class="spec-value">PDF, PNG/JPEG, CSV, Backup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PocketBill</h3>
+                <p>Offline Mobile Billing &amp; Invoicing App for Small Businesses.</p>
+                <p>Build itemized bills, track customer dues, scan barcodes, and manage your product catalog with zero cloud sync.</p>
+                <p style="margin-top: 1rem; color: #5EEAD4; font-weight: 600;">
+                    Published by SoftTech Service
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#features">Features</a>
+                <a href="#credits">How Bill Credits Work</a>
+                <a href="#tech">Architecture &amp; Tech Stack</a>
+                <a href="#specs">Specifications</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html#terms">Terms &amp; Conditions</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support &amp; Contact</h3>
+                <p><strong>Developer:</strong> SoftTech Service</p>
+                <p><strong>Privacy Contact:</strong></p>
+                <a href="mailto:contact@softtechservice.site" style="color: #5EEAD4;">
+                    <i class="fas fa-envelope"></i> contact@softtechservice.site
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.85rem; color: #64748B;">
+                    We welcome inquiries regarding privacy, support, and technical questions.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal &amp; Privacy</h3>
+                <p><strong>Effective Date:</strong> 22 October 2026</p>
+                <p><strong>Data Processing:</strong> 100% on-device private SQLite database.</p>
+                <a href="privacy-policy.html">Read Complete Privacy Policy &rarr;</a>
+                <a href="../index.html">&larr; Back to SoftTech Service Home</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
+            <p style="font-size: 0.85rem;">
+                PocketBill is a proprietary trademark of SoftTech Service. Android is a trademark of Google LLC. Flutter and the related logo are trademarks of Google LLC.
+            </p>
+            <p style="font-size: 0.825rem; color: #475569;">
+                Unauthorized copying, modification, reverse engineering, or distribution of this software is strictly prohibited.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Navigation Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
