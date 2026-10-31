@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Keyboard - RGB Themes, DIY Studio &amp; Tactile Sounds for Android | SoftTech Service</title>
+    <meta name="description" content="Customize your keyboard with themes, RGB effects and mechanical sounds. Explore the DIY studio, tune switch acoustics, and make everyday typing feel more personal.">
+    <meta name="keywords" content="Mechanical Keyboard Android, RGB keyboard app, mechanical switch sounds, custom keyboard themes, DIY keyboard, Android IME, SoftTech Service, blue switch sound, gaming keyboard Android">
+    
+    <!-- Favicon & Touch Icon -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mechanical Keyboard - RGB Themes &amp; Tactile Sounds for Android">
+    <meta property="og:description" content="Make everyday typing feel more personal with Mechanical Keyboard. Pick a look you love, tune lighting &amp; sounds, and turn your Android keyboard into your own creation.">
+    <meta property="og:image" content="https://softtechservice.site/MechanicalKeyboard/images/icon.png">
+    <meta property="og:url" content="https://softtechservice.site/MechanicalKeyboard/">
+    <meta property="og:site_name" content="SoftTech Service">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mechanical Keyboard - Custom Android Keyboard">
+    <meta name="twitter:description" content="Customize your Android keyboard with themes, RGB lighting effects, and authentic mechanical switch sounds.">
+    <meta name="twitter:image" content="https://softtechservice.site/MechanicalKeyboard/images/keyboard-hero.jpg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-deep: #080B14;
+            --bg-surface: #0E1322;
+            --bg-card: #141B30;
+            --bg-card-hover: #1C2644;
+            --bg-glass: rgba(18, 24, 44, 0.75);
+            
+            --primary: #8B5CF6;
+            --primary-light: #A78BFA;
+            --primary-glow: rgba(139, 92, 246, 0.45);
+
+            --neon-cyan: #00F2FE;
+            --neon-cyan-glow: rgba(0, 242, 254, 0.4);
+            --neon-pink: #EC4899;
+            --neon-pink-glow: rgba(236, 72, 153, 0.4);
+            --neon-emerald: #10B981;
+            --neon-amber: #F59E0B;
+
+            --text-main: #FFFFFF;
+            --text-sub: #CBD5E1;
+            --text-muted: #94A3B8;
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(0, 242, 254, 0.4);
+
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+
+            --gradient-accent: linear-gradient(135deg, #00F2FE 0%, #8B5CF6 50%, #EC4899 100%);
+            --gradient-btn: linear-gradient(135deg, #00F2FE 0%, #8B5CF6 100%);
+            --gradient-card: linear-gradient(145deg, rgba(20, 27, 48, 0.85) 0%, rgba(14, 19, 34, 0.95) 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-deep);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 30%, rgba(0, 242, 254, 0.1) 0px, transparent 50%),
+                radial-gradient(at 50% 80%, rgba(236, 72, 153, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 11, 20, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            box-shadow: 0 0 16px var(--primary-glow);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .brand-link:hover .brand-icon {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 0 24px var(--neon-cyan-glow);
+        }
+
+        .brand-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .nav-cta {
+            padding: 0.6rem 1.4rem;
+            background: var(--gradient-btn);
+            color: #FFFFFF !important;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.925rem;
+            box-shadow: 0 4px 14px var(--primary-glow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--neon-cyan-glow) !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5.5rem 0 4.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 350px;
+            background: radial-gradient(ellipse, rgba(139, 92, 246, 0.22) 0%, rgba(0, 242, 254, 0.08) 50%, transparent 70%);
+            filter: blur(50px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 580px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.4rem 1rem;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #C4B5FD;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
+        }
+
+        .hero-badge i {
+            color: var(--neon-cyan);
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 2.25rem;
+            line-height: 1.75;
+        }
+
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            gap: 1.15rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.95rem 1.85rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-btn);
+            color: white;
+            box-shadow: 0 4px 20px var(--primary-glow);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 26px var(--neon-cyan-glow);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-main);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .hero-tag-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-sub);
+            font-size: 0.875rem;
+        }
+
+        .hero-tag-item i {
+            color: var(--neon-emerald);
+        }
+
+        /* Hero Graphic Frame */
+        .hero-media-wrap {
+            position: relative;
+        }
+
+        .hero-card-frame {
+            background: var(--gradient-card);
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(139, 92, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-card-frame:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 242, 254, 0.35);
+        }
+
+        .hero-card-frame::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: var(--gradient-accent);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.25;
+            filter: blur(6px);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: calc(var(--radius-lg) - 8px);
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            background: rgba(14, 19, 34, 0.9);
+            border: 1px solid rgba(0, 242, 254, 0.4);
+            border-radius: var(--radius-md);
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px var(--neon-cyan-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        .floating-badge img {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+        }
+
+        .badge-text-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .badge-text-sub {
+            font-size: 0.775rem;
+            color: var(--neon-cyan);
+            font-weight: 500;
+        }
+
+        /* Section Global */
+        .section {
+            padding: 5.5rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.95rem;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: var(--radius-full);
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        /* ======================================================== */
+        /* Interactive Mechanical Keyboard Sandbox                  */
+        /* ======================================================== */
+        .sandbox-card {
+            background: var(--gradient-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 2.5rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sandbox-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+        }
+
+        .sandbox-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .control-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .switch-selector, .rgb-selector {
+            display: flex;
+            background: rgba(8, 11, 20, 0.8);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-full);
+            padding: 0.25rem;
+            gap: 0.25rem;
+        }
+
+        .switch-btn, .rgb-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            padding: 0.45rem 0.95rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .switch-btn:hover, .rgb-btn:hover {
+            color: #FFFFFF;
+        }
+
+        .switch-btn.active {
+            background: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 2px 10px var(--primary-glow);
+        }
+
+        .rgb-btn.active {
+            background: linear-gradient(135deg, #00F2FE 0%, #EC4899 100%);
+            color: #FFFFFF;
+            box-shadow: 0 2px 10px rgba(0, 242, 254, 0.35);
+        }
+
+        /* Virtual Keycaps Board */
+        .keyboard-desk {
+            background: #080B14;
+            border-radius: var(--radius-md);
+            padding: 2.25rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.07);
+            box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+            transition: box-shadow 0.5s ease;
+        }
+
+        .keyboard-desk.rgb-wave {
+            box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 242, 254, 0.25);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .keyboard-desk.rgb-neon {
+            box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 35px rgba(236, 72, 153, 0.25);
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+
+        .keyboard-desk.rgb-cyber {
+            box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 35px rgba(139, 92, 246, 0.25);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .key-row {
+            display: flex;
+            gap: 0.65rem;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .keycap {
+            background: linear-gradient(180deg, #1E2638 0%, #111726 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-bottom: 4px solid #080B14;
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.15rem;
+            font-weight: 700;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.08s ease;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .keycap.accent-key {
+            border-color: rgba(0, 242, 254, 0.4);
+            color: var(--neon-cyan);
+        }
+
+        .keycap.wide-key {
+            width: 90px;
+            font-size: 0.85rem;
+        }
+
+        .keycap.space-key {
+            width: 280px;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        .keycap .key-sub {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        /* Keycap active / pressed state */
+        .keycap:active, .keycap.pressed {
+            transform: translateY(3px);
+            border-bottom-width: 1px;
+            background: linear-gradient(180deg, #141B2D 0%, #0E1320 100%);
+            color: #00F2FE;
+            box-shadow: 0 0 18px var(--neon-cyan-glow);
+            border-color: var(--neon-cyan);
+        }
+
+        .keycap.rgb-glow {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.45), inset 0 0 8px rgba(0, 242, 254, 0.3);
+        }
+
+        .sandbox-hint {
+            margin-top: 1.75rem;
+            text-align: center;
+            font-size: 0.925rem;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+        }
+
+        .sandbox-hint kbd {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-glass);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--neon-cyan);
+        }
+
+        /* ======================================================== */
+        /* 4 Core Pillars Grid (Full Description)                   */
+        /* ======================================================== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .pillar-card {
+            background: var(--gradient-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-glass);
+            padding: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.15);
+        }
+
+        .pillar-icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .pillar-icon-box.cyan {
+            background: rgba(0, 242, 254, 0.12);
+            color: var(--neon-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 15px var(--neon-cyan-glow);
+        }
+
+        .pillar-icon-box.pink {
+            background: rgba(236, 72, 153, 0.12);
+            color: var(--neon-pink);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            box-shadow: 0 0 15px var(--neon-pink-glow);
+        }
+
+        .pillar-icon-box.purple {
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--primary);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .pillar-icon-box.emerald {
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--neon-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .pillar-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-tag.cyan { color: var(--neon-cyan); }
+        .pillar-tag.pink { color: var(--neon-pink); }
+        .pillar-tag.purple { color: #C4B5FD; }
+        .pillar-tag.emerald { color: var(--neon-emerald); }
+
+        .pillar-card h3 {
+            font-size: 1.65rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.9rem;
+            color: #FFFFFF;
+        }
+
+        .pillar-card p {
+            color: var(--text-sub);
+            font-size: 1.025rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-bullets {
+            list-style: none;
+            margin-top: auto;
+            border-top: 1px solid var(--border-glass);
+            padding-top: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .pillar-bullets li {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.925rem;
+            color: var(--text-sub);
+        }
+
+        .pillar-bullets li i {
+            font-size: 0.85rem;
+        }
+
+        /* ======================================================== */
+        /* Setup Guide / Get Started                                */
+        /* ======================================================== */
+        .setup-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .step-card {
+            background: var(--gradient-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-glass);
+            padding: 2.25rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-btn);
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 14px var(--primary-glow);
+        }
+
+        .step-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #FFFFFF;
+        }
+
+        .step-card p {
+            color: var(--text-sub);
+            font-size: 0.975rem;
+            line-height: 1.65;
+        }
+
+        /* ======================================================== */
+        /* Tech Stack & Architecture (qrmaster reference)           */
+        /* ======================================================== */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tech-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 1.75rem 1.25rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 242, 254, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .tech-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: #FFFFFF;
+        }
+
+        .tech-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ======================================================== */
+        /* Privacy Guarantee Banner                                 */
+        /* ======================================================== */
+        .privacy-guarantee {
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.9) 0%, rgba(14, 19, 34, 0.95) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 92, 246, 0.15);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .privacy-shield-icon {
+            font-size: 3.5rem;
+            color: var(--neon-cyan);
+            filter: drop-shadow(0 0 12px var(--neon-cyan-glow));
+        }
+
+        .privacy-content h3 {
+            font-size: 1.65rem;
+            font-weight: 800;
+            margin-bottom: 0.65rem;
+            color: #FFFFFF;
+        }
+
+        .privacy-content p {
+            color: var(--text-sub);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        /* ======================================================== */
+        /* FAQ Section                                              */
+        /* ======================================================== */
+        .faq-grid {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: border-color 0.25s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(139, 92, 246, 0.35);
+        }
+
+        .faq-question {
+            padding: 1.35rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question i {
+            color: var(--neon-cyan);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.35rem;
+            color: var(--text-sub);
+            font-size: 0.975rem;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* ======================================================== */
+        /* Footer (qrmaster reference)                              */
+        /* ======================================================== */
+        footer {
+            background: #05070D;
+            border-top: 1px solid var(--border-glass);
+            padding: 5rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-brand h3 img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.925rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-glass);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom a {
+            color: var(--text-sub);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--neon-cyan);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-text {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .hero-ctas, .hero-tags {
+                justify-content: center;
+            }
+
+            .hero-media-wrap {
+                max-width: 650px;
+                margin: 0 auto;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+
+            .privacy-guarantee {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .privacy-shield-icon {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 14, 25, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                border-bottom: 1px solid var(--border-glass);
+                gap: 1.25rem;
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 3.5rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.35rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.15rem;
+            }
+
+            .setup-steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .keyboard-desk {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .keycap {
+                width: 44px;
+                height: 48px;
+                font-size: 0.95rem;
+            }
+
+            .keycap.wide-key {
+                width: 64px;
+                font-size: 0.75rem;
+            }
+
+            .keycap.space-key {
+                width: 180px;
+            }
+
+            .sandbox-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .control-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .switch-selector, .rgb-selector {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#top" class="brand-link" aria-label="Mechanical Keyboard Home">
+                    <img src="images/icon.png" alt="Mechanical Keyboard Icon" class="brand-icon">
+                    <span class="brand-title">Mechanical Keyboard</span>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#demo">Live Studio</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#setup">Setup Guide</a></li>
+                    <li><a href="#tech">Architecture</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="#setup" class="nav-cta"><i class="fas fa-download"></i> Get App</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="top">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <i class="fas fa-sparkles"></i> Customize Your Android Keyboard
+                        </div>
+                        <h1>
+                            Make Everyday Typing <br>
+                            <span class="gradient-text">Feel More Personal</span>
+                        </h1>
+                        <p class="subtitle">Customize your keyboard with themes, RGB effects and mechanical sounds.</p>
+                        <p class="hero-description">
+                            Pick a look you love, tune the lighting and sounds, and turn your Android keyboard into your own creation. Built for keyboard enthusiasts, gamers, and mobile power users who value tactile feedback and on-device privacy.
+                        </p>
+
+                        <div class="hero-ctas">
+                            <a href="#demo" class="btn btn-primary">
+                                <i class="fas fa-keyboard"></i> Test Switch Sounds
+                            </a>
+                            <a href="#setup" class="btn btn-secondary">
+                                <i class="fas fa-download"></i> Get Started
+                            </a>
+                            <a href="privacy-policy.html" class="btn btn-secondary" style="padding: 0.95rem 1.35rem;" title="View Privacy Policy">
+                                <i class="fas fa-shield-halved"></i>
+                            </a>
+                        </div>
+
+                        <div class="hero-tags">
+                            <div class="hero-tag-item"><i class="fas fa-check-circle"></i> 100% On-Device Typing</div>
+                            <div class="hero-tag-item"><i class="fas fa-check-circle"></i> RGB Lighting Engine</div>
+                            <div class="hero-tag-item"><i class="fas fa-check-circle"></i> Tactile Mechanical Audio</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-media-wrap">
+                        <div class="hero-card-frame">
+                            <img src="images/keyboard-hero.jpg" alt="Mechanical Keyboard with RGB backlight and tactile keys" class="hero-img">
+                            
+                            <div class="floating-badge">
+                                <img src="images/icon.png" alt="WASD Mechanical Keys">
+                                <div>
+                                    <div class="badge-text-title">Mechanical Keyboard</div>
+                                    <div class="badge-text-sub">Themes • RGB • Switch Sounds</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Mechanical Sandbox Section -->
+        <section class="section" id="demo">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-pill"><i class="fas fa-sliders"></i> Interactive Simulator</div>
+                    <h2 class="section-title">Experience the Switch &amp; RGB Studio</h2>
+                    <p class="section-subtitle">Click or tap any key below to hear authentic synthesized mechanical switch acoustics and watch the dynamic RGB backlight react in real time.</p>
+                </div>
+
+                <div class="sandbox-card">
+                    <!-- Controls Bar -->
+                    <div class="sandbox-controls">
+                        <!-- Switch Sound Profile Selector -->
+                        <div class="control-group">
+                            <span class="control-label"><i class="fas fa-volume-high"></i> Switch Profile:</span>
+                            <div class="switch-selector" id="switchSelector">
+                                <button class="switch-btn active" data-switch="blue">🔵 Blue Clicky</button>
+                                <button class="switch-btn" data-switch="brown">🟤 Brown Tactile</button>
+                                <button class="switch-btn" data-switch="red">🔴 Red Linear</button>
+                                <button class="switch-btn" data-switch="cream">🟡 Cream Thock</button>
+                            </div>
+                        </div>
+
+                        <!-- RGB Lighting Mode Selector -->
+                        <div class="control-group">
+                            <span class="control-label"><i class="fas fa-wand-magic-sparkles"></i> RGB Lighting:</span>
+                            <div class="rgb-selector" id="rgbSelector">
+                                <button class="rgb-btn active" data-rgb="wave">🌈 Wave</button>
+                                <button class="rgb-btn" data-rgb="neon">⚡ Neon Pulse</button>
+                                <button class="rgb-btn" data-rgb="cyber">🌌 Cyber Violet</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Virtual Keycap Desk -->
+                    <div class="keyboard-desk rgb-wave" id="keyboardDesk">
+                        <!-- Row 1: Esc, Numbers / Top Row Preview -->
+                        <div class="key-row">
+                            <div class="keycap wide-key accent-key" data-key="Escape">ESC<span class="key-sub">esc</span></div>
+                            <div class="keycap" data-key="Q">Q<span class="key-sub">1</span></div>
+                            <div class="keycap" data-key="W">W<span class="key-sub">2</span></div>
+                            <div class="keycap" data-key="E">E<span class="key-sub">3</span></div>
+                            <div class="keycap" data-key="R">R<span class="key-sub">4</span></div>
+                            <div class="keycap" data-key="T">T<span class="key-sub">5</span></div>
+                            <div class="keycap" data-key="Y">Y<span class="key-sub">6</span></div>
+                            <div class="keycap wide-key" data-key="Backspace"><i class="fas fa-delete-left"></i></div>
+                        </div>
+
+                        <!-- Row 2: Home Row (WASD gaming prominence) -->
+                        <div class="key-row">
+                            <div class="keycap wide-key" data-key="Tab">TAB</div>
+                            <div class="keycap accent-key" data-key="A">A<span class="key-sub">@</span></div>
+                            <div class="keycap accent-key" data-key="S">S<span class="key-sub">#</span></div>
+                            <div class="keycap accent-key" data-key="D">D<span class="key-sub">$</span></div>
+                            <div class="keycap" data-key="F">F<span class="key-sub">%</span></div>
+                            <div class="keycap" data-key="G">G<span class="key-sub">&amp;</span></div>
+                            <div class="keycap wide-key accent-key" data-key="Enter"><i class="fas fa-turn-down fa-rotate-90"></i></div>
+                        </div>
+
+                        <!-- Row 3: Spacebar & Quick Shortcuts -->
+                        <div class="key-row">
+                            <div class="keycap wide-key" data-key="Shift"><i class="fas fa-arrow-up"></i></div>
+                            <div class="keycap" data-key="Z">Z</div>
+                            <div class="keycap" data-key="X">X</div>
+                            <div class="keycap space-key" data-key=" "><i class="fas fa-wave-square" style="margin-right: 6px; font-size: 0.8rem;"></i> SPACEBAR</div>
+                            <div class="keycap" data-key="C">C</div>
+                            <div class="keycap wide-key accent-key" data-key="Emoji">😀 / ✂️</div>
+                        </div>
+                    </div>
+
+                    <div class="sandbox-hint">
+                        <i class="fas fa-lightbulb" style="color: var(--neon-amber);"></i>
+                        <span><strong>Pro tip:</strong> Click the keys with your mouse or type on your physical keyboard (<kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> <kbd>Space</kbd>) for live sound feedback!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 Core Pillars Section (from full description) -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-pill"><i class="fas fa-cubes"></i> Core Capabilities</div>
+                    <h2 class="section-title">Engineered to Make Typing Yours</h2>
+                    <p class="section-subtitle">Discover the four key pillars that turn your Android device into a bespoke typing sanctuary.</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <!-- Pillar 1: CREATE YOUR STYLE -->
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box cyan">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="pillar-tag cyan">DIY Custom Studio</div>
+                        <h3>CREATE YOUR STYLE</h3>
+                        <p>Explore keyboard themes or build your own in the DIY studio. Change colors, keycaps and fonts, and use a photo as your keyboard background.</p>
+                        <ul class="pillar-bullets">
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-cyan);"></i> Gallery photo import &amp; instant crop</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-cyan);"></i> Custom keycap styles, shapes &amp; opacity</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-cyan);"></i> Distinctive typographic font pairings</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-cyan);"></i> Curated aesthetic theme catalog</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 2: LIGHT UP YOUR KEYS -->
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box pink">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="pillar-tag pink">Dynamic Backlighting</div>
+                        <h3>LIGHT UP YOUR KEYS</h3>
+                        <p>Try RGB lighting styles and adjust their colors and effects. Preview your changes as you create a keyboard that fits your style.</p>
+                        <ul class="pillar-bullets">
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-pink);"></i> Spectrum Wave, Breathing &amp; Reactive Touch</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-pink);"></i> Adjustable color hue, speed &amp; brightness</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-pink);"></i> Real-time preview before saving changes</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-pink);"></i> Battery-efficient GPU acceleration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 3: FIND YOUR SOUND -->
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box purple">
+                            <i class="fas fa-volume-high"></i>
+                        </div>
+                        <div class="pillar-tag purple">Tactile Acoustic Engine</div>
+                        <h3>FIND YOUR SOUND</h3>
+                        <p>Explore mechanical switch sounds and adjust feedback to suit the way you type. Use vibration and sound settings to make typing feel just right.</p>
+                        <ul class="pillar-bullets">
+                            <li><i class="fas fa-circle-check" style="color: var(--primary-light);"></i> Authentic Blue, Brown, Red &amp; Cream profiles</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--primary-light);"></i> Precise volume control &amp; quick silent toggle</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--primary-light);"></i> Haptic vibration intensity customization</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--primary-light);"></i> Ultra low-latency audio response</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 4: MAKE TYPING YOURS -->
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box emerald">
+                            <i class="fas fa-wand-magic"></i>
+                        </div>
+                        <div class="pillar-tag emerald">Expressive Typing Tools</div>
+                        <h3>MAKE TYPING YOURS</h3>
+                        <p>Choose from supported language layouts and use keyboard tools such as emoji, kaomoji, text art and clipboard shortcuts. Adjust typing and appearance settings from the companion app.</p>
+                        <ul class="pillar-bullets">
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-emerald);"></i> 1000+ Kaomoji <code>(づ｡◕‿‿◕｡)づ</code> &amp; ASCII art</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-emerald);"></i> Pinned clipboard shortcuts for swift access</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-emerald);"></i> Multi-language layout &amp; symbol support</li>
+                            <li><i class="fas fa-circle-check" style="color: var(--neon-emerald);"></i> Seamless companion app for instant tuning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Guide Section (GET STARTED from prompt) -->
+        <section class="section" id="setup">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-pill"><i class="fas fa-play"></i> Easy Setup</div>
+                    <h2 class="section-title">GET STARTED in 3 Simple Steps</h2>
+                    <p class="section-subtitle">Open the app, follow the setup steps to enable Mechanical Keyboard in Android settings, then select it as your keyboard. You can switch keyboards again in device settings anytime.</p>
+                </div>
+
+                <div class="setup-steps-grid">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h3>Open Companion App</h3>
+                        <p>Launch <strong>Mechanical Keyboard</strong> from your home screen or app drawer. The companion setup assistant will guide you through permissions and quick setup.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h3>Enable in Android Settings</h3>
+                        <p>Tap <strong>Enable in Settings</strong> to open Android's <em>Manage on-screen keyboards</em> menu. Toggle on <strong>Mechanical Keyboard</strong> and confirm Android's standard prompt.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h3>Select &amp; Personalize</h3>
+                        <p>Select Mechanical Keyboard as your active input method. You are now ready to customize RGB themes, switch acoustics, and enjoy typing!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack & Architecture (Referencing qrmaster structure) -->
+        <section class="section" id="tech">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-pill"><i class="fas fa-microchip"></i> Architecture</div>
+                    <h2 class="section-title">Built with Modern Android Tech</h2>
+                    <p class="section-subtitle">Crafted with high-performance native Android engineering for zero keystroke lag and dependable offline safety.</p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-android tech-icon" style="color: var(--neon-emerald);"></i>
+                        <h4>100% Kotlin</h4>
+                        <p>Android Native Input Method Service (IME)</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fas fa-database tech-icon" style="color: var(--neon-cyan);"></i>
+                        <h4>Jetpack Room</h4>
+                        <p>Fast offline SQLite storage for custom themes</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fas fa-sliders tech-icon" style="color: var(--primary);"></i>
+                        <h4>Jetpack DataStore</h4>
+                        <p>Structured, encrypted preference management</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fas fa-headphones-simple tech-icon" style="color: var(--neon-pink);"></i>
+                        <h4>Low-Latency Audio</h4>
+                        <p>Sub-15ms mechanical sound triggering</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fas fa-camera tech-icon" style="color: var(--neon-cyan);"></i>
+                        <h4>CameraX API</h4>
+                        <p>Instant photo capture for DIY custom backgrounds</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fas fa-mobile tech-icon" style="color: #F59E0B;"></i>
+                        <h4>Material Design 3</h4>
+                        <p>Adaptive UI with system dark theme support</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fas fa-shield-halved tech-icon" style="color: var(--neon-emerald);"></i>
+                        <h4>On-Device Privacy</h4>
+                        <p>Zero keystroke logging or server transmission</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <i class="fas fa-bolt tech-icon" style="color: var(--neon-cyan);"></i>
+                        <h4>Coroutines &amp; Flow</h4>
+                        <p>Reactive, stutter-free performance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy & Security Guarantee Banner -->
+        <section class="section">
+            <div class="container">
+                <div class="privacy-guarantee">
+                    <div class="privacy-shield-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div class="privacy-content">
+                        <h3>Your Typing Stays on Your Device</h3>
+                        <p>
+                            We take your privacy seriously. Mechanical Keyboard processes regular typing locally on your device. 
+                            It does <strong>not</strong> implement a keystroke log or transmit typed text to developer servers. 
+                            You have total control over permissions, custom background photos, and sound settings.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="privacy-policy.html" class="btn btn-primary" style="white-space: nowrap;">
+                            <i class="fas fa-file-shield"></i> Read Privacy Policy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-pill"><i class="fas fa-circle-question"></i> Answers</div>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about Mechanical Keyboard for Android.</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Does Mechanical Keyboard record my passwords or credit cards?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            No. The app does not implement a keystroke log or send typed text to developer servers. Android provides standard password protection for sensitive input fields, and all regular typing is handled locally on your device.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I silence the mechanical sounds when in a quiet meeting or library?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! You can instantly mute or adjust sound levels directly from the companion app or the keyboard top toolbar with one tap, or have it follow your phone's vibration/silent mode.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How do I set my own photo as the keyboard background?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Open the Mechanical Keyboard app, enter the DIY Studio, and tap "Choose Photo" or "Camera". Select your favorite wallpaper, crop it to fit your layout, and adjust keycap opacity for optimal readability.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I easily switch back to my previous keyboard?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes. Android allows switching keyboards at any time by tapping the small keyboard switcher icon at the bottom of the navigation bar or via Android Settings &gt; System &gt; Languages &amp; Input.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (qrmaster reference) -->
+    <footer id="support">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>
+                        <img src="images/icon.png" alt="Mechanical Keyboard Logo">
+                        Mechanical Keyboard
+                    </h3>
+                    <p>
+                        Custom Android keyboard featuring dynamic RGB lighting, authentic mechanical switch audio, DIY themes, and 100% on-device typing privacy.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#demo">Live Studio</a></li>
+                        <li><a href="#features">Core Features</a></li>
+                        <li><a href="#setup">Setup Guide</a></li>
+                        <li><a href="#tech">Technology Stack</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal &amp; Policy</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="privacy-policy.html#terms">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html#license">License &amp; Copyright</a></li>
+                        <li><a href="../index.html">SoftTech Service Home</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support &amp; Publisher</h4>
+                    <ul>
+                        <li><strong>Developer:</strong> SoftTech Service</li>
+                        <li><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></li>
+                        <li><strong>Min Android:</strong> 8.0 (Oreo, API 26+)</li>
+                        <li><strong>Target Android:</strong> 15 (Vanilla Ice Cream, API 35+)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
+                <p style="margin-top: 0.35rem; font-size: 0.8rem; opacity: 0.75;">
+                    Mechanical Keyboard is proprietary software engineered by SoftTech Service. Android and Google Play are trademarks of Google LLC.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Simulator Audio Synthesis & Interactions -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close on link click
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+        }
+
+        // Web Audio API Synthesized Mechanical Switch Sounds
+        let audioCtx = null;
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        let currentSwitchProfile = 'blue';
+
+        function playMechanicalSound(profile) {
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+
+                const now = ctx.currentTime;
+
+                if (profile === 'blue') {
+                    // Crisp, sharp high-frequency click + clack resonance
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(1400, now);
+                    osc.frequency.exponentialRampToValueAtTime(320, now + 0.045);
+
+                    gain.gain.setValueAtTime(0.35, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+
+                    // Add subtle mechanical pop
+                    const pop = ctx.createOscillator();
+                    const popGain = ctx.createGain();
+                    pop.type = 'sine';
+                    pop.frequency.setValueAtTime(450, now);
+                    pop.frequency.exponentialRampToValueAtTime(120, now + 0.03);
+                    popGain.gain.setValueAtTime(0.25, now);
+                    popGain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
+
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    pop.connect(popGain);
+                    popGain.connect(ctx.destination);
+
+                    osc.start(now);
+                    pop.start(now);
+                    osc.stop(now + 0.055);
+                    pop.stop(now + 0.04);
+
+                } else if (profile === 'brown') {
+                    // Muted tactile bump
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(680, now);
+                    osc.frequency.exponentialRampToValueAtTime(220, now + 0.04);
+
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+
+                } else if (profile === 'red') {
+                    // Smooth linear bottom-out
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(420, now);
+                    osc.frequency.exponentialRampToValueAtTime(160, now + 0.035);
+
+                    gain.gain.setValueAtTime(0.22, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.045);
+
+                } else if (profile === 'cream') {
+                    // Deep, full-bodied thock
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(280, now);
+                    osc.frequency.exponentialRampToValueAtTime(85, now + 0.06);
+
+                    gain.gain.setValueAtTime(0.45, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.065);
+
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.07);
+                }
+            } catch (e) {
+                // AudioContext fallback
+            }
+        }
+
+        // Switch profile buttons
+        const switchBtns = document.querySelectorAll('.switch-btn');
+        switchBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentSwitchProfile = btn.getAttribute('data-switch');
+                playMechanicalSound(currentSwitchProfile);
+            });
+        });
+
+        // RGB lighting modes
+        const rgbBtns = document.querySelectorAll('.rgb-btn');
+        const keyboardDesk = document.getElementById('keyboardDesk');
+        rgbBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                rgbBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const mode = btn.getAttribute('data-rgb');
+                if (keyboardDesk) {
+                    keyboardDesk.className = `keyboard-desk rgb-${mode}`;
+                }
+            });
+        });
+
+        // Interactive Keycaps click handling
+        const keycaps = document.querySelectorAll('.keycap');
+        keycaps.forEach(keycap => {
+            keycap.addEventListener('mousedown', () => {
+                keycap.classList.add('pressed');
+                playMechanicalSound(currentSwitchProfile);
+            });
+
+            keycap.addEventListener('mouseup', () => {
+                keycap.classList.remove('pressed');
+            });
+
+            keycap.addEventListener('mouseleave', () => {
+                keycap.classList.remove('pressed');
+            });
+
+            // Touch support for mobile
+            keycap.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                keycap.classList.add('pressed');
+                playMechanicalSound(currentSwitchProfile);
+            });
+
+            keycap.addEventListener('touchend', () => {
+                keycap.classList.remove('pressed');
+            });
+        });
+
+        // Physical Keyboard listener on page
+        window.addEventListener('keydown', (e) => {
+            if (e.target && ['input', 'textarea'].includes(e.target.tagName.toLowerCase())) return;
+
+            const pressedKey = e.key.toUpperCase();
+            let matchedKeycap = null;
+
+            keycaps.forEach(cap => {
+                const keyAttr = cap.getAttribute('data-key');
+                if (keyAttr) {
+                    if (keyAttr.toUpperCase() === pressedKey || 
+                       (pressedKey === ' ' && keyAttr === ' ') ||
+                       (pressedKey === 'ESCAPE' && keyAttr === 'Escape') ||
+                       (pressedKey === 'BACKSPACE' && keyAttr === 'Backspace') ||
+                       (pressedKey === 'ENTER' && keyAttr === 'Enter')) {
+                        matchedKeycap = cap;
+                    }
+                }
+            });
+
+            if (matchedKeycap) {
+                matchedKeycap.classList.add('pressed');
+                playMechanicalSound(currentSwitchProfile);
+            }
+        });
+
+        window.addEventListener('keyup', (e) => {
+            const pressedKey = e.key.toUpperCase();
+            keycaps.forEach(cap => {
+                const keyAttr = cap.getAttribute('data-key');
+                if (keyAttr) {
+                    if (keyAttr.toUpperCase() === pressedKey || 
+                       (pressedKey === ' ' && keyAttr === ' ') ||
+                       (pressedKey === 'ESCAPE' && keyAttr === 'Escape') ||
+                       (pressedKey === 'BACKSPACE' && keyAttr === 'Backspace') ||
+                       (pressedKey === 'ENTER' && keyAttr === 'Enter')) {
+                        cap.classList.remove('pressed');
+                    }
+                }
+            });
+        });
+
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

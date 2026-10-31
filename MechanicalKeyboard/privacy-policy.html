@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - Mechanical Keyboard for Android | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms of Service, and License Information for Mechanical Keyboard Android App by SoftTech Service.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #6D28D9;
+            --accent-cyan: #00F2FE;
+            --accent-pink: #EC4899;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 2px 8px rgba(139, 92, 246, 0.08);
+            --shadow-md: 0 4px 16px rgba(139, 92, 246, 0.12);
+            --gradient-header: linear-gradient(135deg, #1E1B4B 0%, #31104B 50%, #0F172A 100%);
+            --gradient-accent: linear-gradient(135deg, #00F2FE 0%, #8B5CF6 50%, #EC4899 100%);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1.5rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        
+        .header-section {
+            padding: 2.5rem 3rem;
+            background: var(--gradient-header);
+            color: white;
+            position: relative;
+        }
+
+        .header-section::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #E0E7FF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.925rem;
+            transition: all 0.25s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: #FFFFFF;
+            transform: translateY(-1px);
+        }
+        
+        .brand-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            background: rgba(139, 92, 246, 0.25);
+            border: 1px solid rgba(139, 92, 246, 0.45);
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #C4B5FD;
+            margin-bottom: 1rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .header-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-section .subtitle {
+            color: #CBD5E1;
+            font-size: 1.15rem;
+            margin-bottom: 1.25rem;
+            font-weight: 400;
+        }
+        
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #94A3B8;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .meta-bar span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .meta-bar strong {
+            color: #F1F5F9;
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0 2rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tab-button {
+            padding: 1.15rem 1.75rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.975rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.2s ease;
+            position: relative;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: #F5F3FF;
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: #F5F3FF;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 2.75rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            margin-top: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            border-bottom: 2px solid #F1F5F9;
+            padding-bottom: 0.6rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #1E293B;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1.25rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            color: #475569;
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: #F5F3FF;
+            padding: 1.35rem 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight.alert-security {
+            background: #EFF6FF;
+            border-left-color: #3B82F6;
+        }
+
+        .highlight.alert-warning {
+            background: #FFFBEB;
+            border-left-color: var(--warning);
+        }
+        
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+            color: white;
+        }
+        
+        th {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+        
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #475569;
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+
+        td code {
+            background: #F1F5F9;
+            padding: 0.2rem 0.45rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #6D28D9;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .badge-core {
+            display: inline-block;
+            padding: 0.2rem 0.55rem;
+            background: #EDE9FE;
+            color: #6D28D9;
+            border-radius: 9999px;
+            font-size: 0.775rem;
+            font-weight: 600;
+        }
+
+        .badge-opt {
+            display: inline-block;
+            padding: 0.2rem 0.55rem;
+            background: #FEF3C7;
+            color: #92400E;
+            border-radius: 9999px;
+            font-size: 0.775rem;
+            font-weight: 600;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #1E1B4B 0%, #31104B 100%);
+            color: white;
+            padding: 2.25rem;
+            border-radius: 14px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(30, 27, 75, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-box p {
+            color: #E2E8F0;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-box a {
+            color: #38BDF8;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            color: #7DD3FC;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.75rem 0.5rem 2rem;
+            }
+
+            .header-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.85rem;
+            }
+
+            .header-icon {
+                width: 44px;
+                height: 44px;
+            }
+            
+            .tab-button {
+                padding: 0.9rem 1.15rem;
+                font-size: 0.875rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.25rem;
+            }
+            
+            h2 {
+                font-size: 1.45rem;
+            }
+            
+            h3 {
+                font-size: 1.15rem;
+            }
+
+            table {
+                font-size: 0.875rem;
+                display: block;
+                overflow-x: auto;
+            }
+
+            th, td {
+                padding: 0.75rem 0.85rem;
+            }
+
+            .contact-box {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Mechanical Keyboard</a>
+                <a href="../index.html" class="back-link"><i class="fas fa-globe"></i> SoftTech Service Main Site</a>
+            </div>
+            <div class="brand-pill"><i class="fas fa-shield-halved"></i> Privacy &amp; Legal Center</div>
+            <h1>
+                <img src="icon.png" alt="Mechanical Keyboard Icon" class="header-icon">
+                Mechanical Keyboard
+            </h1>
+            <p class="subtitle">Official Privacy Policy, Terms of Service &amp; Licensing Information</p>
+            <div class="meta-bar">
+                <span><i class="far fa-calendar-check"></i> <strong>Last Updated:</strong> October 2026</span>
+                <span><i class="far fa-building"></i> <strong>Publisher:</strong> SoftTech Service</span>
+                <span><i class="fas fa-envelope"></i> <strong>Privacy Contact:</strong> <a href="mailto:contact@softtechservice.site" style="color: #93C5FD; text-decoration: none;">contact@softtechservice.site</a></span>
+            </div>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">
+                        <i class="fas fa-user-shield"></i> Privacy Policy
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">
+                        <i class="fas fa-file-contract"></i> Terms &amp; Conditions
+                    </button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">
+                        <i class="fas fa-scale-balanced"></i> License &amp; Copyright
+                    </button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- ========================================== -->
+        <!-- Tab 1: Privacy Policy                      -->
+        <!-- ========================================== -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <h2><i class="fas fa-shield-heart" style="color: var(--primary);"></i> 1. Introduction &amp; Publisher Details</h2>
+                <p>This Privacy Policy describes how <strong>Mechanical Keyboard</strong> ("we", "our", "us", or "the app") handles information when installed and used on Android mobile devices and tablets.</p>
+                <div class="highlight">
+                    <p><strong>Publisher:</strong> SoftTech Service</p>
+                    <p><strong>Privacy Contact:</strong> <a href="mailto:contact@softtechservice.site" style="color: var(--primary); font-weight: 600;">contact@softtechservice.site</a></p>
+                    <p><strong>Official Website:</strong> <a href="https://softtechservice.site" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600;">https://softtechservice.site</a></p>
+                </div>
+                <p>We believe typing should be personalized, creative, and completely secure. We design our keyboard so that your regular typing, keystrokes, and text input remain private and on your device.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-keyboard" style="color: var(--primary);"></i> 2. Keyboard Input and Clipboard</h2>
+                <p>The keyboard receives what you type and information about the active text field from Android so it can provide core input, word suggestions, and editing features.</p>
+                
+                <div class="highlight alert-security">
+                    <p><strong><i class="fas fa-lock"></i> Strict On-Device Processing:</strong> The current keyboard code processes ordinary typing entirely on the device. It does <strong>not</strong> implement a keystroke log, does <strong>not</strong> record passwords, and does <strong>not</strong> send ordinary typed text or messages to any developer server.</p>
+                </div>
+                
+                <h3>Clipboard Shortcuts &amp; Paste Tools</h3>
+                <p>The keyboard can read the current clipboard text solely to offer an on-screen shortcut or allow you to paste it into the active text field at your request.</p>
+                <p><strong>Privacy Best Practice:</strong> Clipboard content may contain sensitive details (such as account codes, tokens, or personal identifiers). Avoid copying sensitive information when using clipboard shortcuts, and consider clearing your device clipboard when done.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-cloud-arrow-up" style="color: var(--primary);"></i> 3. Online Services &amp; Third-Party SDKs</h2>
+                <p>Mechanical Keyboard is designed as an offline-first input tool, but includes specific components for companion features, updates, and monetization:</p>
+                
+                <h3>A. Online Translation Client (MyMemory)</h3>
+                <p>The project contains an online translation client configured to send requested text and language selections to MyMemory (<code>api.mymemory.translated.net</code>) if invoked.</p>
+                <ul>
+                    <li>This translation client is <strong>not currently connected to a visible keyboard action</strong> in standard typing.</li>
+                    <li>If it is enabled or triggered in translation tools, users should never submit confidential, private, or sensitive text for translation.</li>
+                    <li>Translations sent to MyMemory are governed by Translated's terms and privacy policies.</li>
+                </ul>
+
+                <h3>B. Google Mobile Ads (AdMob)</h3>
+                <p>The app includes the Google Mobile Ads SDK to display advertisements:</p>
+                <ul>
+                    <li>The app uses Google's test ad identifiers in debug builds and live ad identifiers in release builds.</li>
+                    <li>The Google Ads SDK may receive device identifiers, IP addresses, network information, and advertising-related interaction data when initialized or when ads are requested.</li>
+                    <li>Google handles this data under the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Google Privacy Policy</a> and Google Ads settings.</li>
+                </ul>
+
+                <h3>C. Google Play Services</h3>
+                <p>Google Play Services may process basic device information, app version data, and network status to facilitate app distribution, security checks, and in-app updates. These providers handle data under their own respective policies.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-images" style="color: var(--primary);"></i> 4. Photos, Settings, and Local Storage</h2>
+                <p>Mechanical Keyboard offers DIY custom styling and personal theme building. Here is how media and preferences are managed:</p>
+                
+                <h3>Custom Theme Photos &amp; Camera Capture</h3>
+                <p>If you choose or capture a photo for a keyboard background:</p>
+                <ul>
+                    <li>The app uses your chosen image solely to create a local background theme for your keyboard.</li>
+                    <li>Camera capture uses a temporary cache file to stage the image during capture.</li>
+                    <li>The cropped, optimized image is stored strictly in the app's private files on the device.</li>
+                    <li>Your photos are <strong>never uploaded</strong> to developer servers or shared with any advertising networks.</li>
+                </ul>
+
+                <h3>Theme Configurations &amp; App Preferences</h3>
+                <p>Custom theme configurations, color palettes, RGB animation preferences, mechanical sound choices, volume levels, and vibration strengths are stored on the device using modern Android architectural libraries:</p>
+                <ul>
+                    <li><strong>Jetpack Room (SQLite):</strong> For fast, reliable offline storage of keyboard themes and custom layout profiles.</li>
+                    <li><strong>Jetpack DataStore:</strong> For structured, encrypted preference management.</li>
+                </ul>
+
+                <h3>Device Transfer &amp; System Backups</h3>
+                <p>Android system backup or device-to-device transfer may copy eligible app data (such as saved theme configurations and preferences) according to device settings configured by the user. Other apps and the Android operating system manage data under their own system policies.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-sliders" style="color: var(--primary);"></i> 5. Device Permissions &amp; Rationale</h2>
+                <p>Android controls all permission requests and access. Mechanical Keyboard requests only the permissions necessary to provide its features:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Type</th>
+                            <th>Purpose &amp; Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>INTERNET</code></td>
+                            <td><span class="badge-core">Network</span></td>
+                            <td>Required for online translation requests (MyMemory) if invoked and for Google Mobile Ads delivery.</td>
+                        </tr>
+                        <tr>
+                            <td><code>ACCESS_NETWORK_STATE</code></td>
+                            <td><span class="badge-core">Network</span></td>
+                            <td>Allows the app to check whether an active Wi-Fi or cellular network connection is available before making requests.</td>
+                        </tr>
+                        <tr>
+                            <td><code>VIBRATE</code></td>
+                            <td><span class="badge-core">Hardware</span></td>
+                            <td>Provides tactile haptic vibration feedback when pressing mechanical keys, customizable in app settings.</td>
+                        </tr>
+                        <tr>
+                            <td><code>CAMERA</code></td>
+                            <td><span class="badge-opt">Optional</span></td>
+                            <td>Used only if you choose to take a real-time photo to create a DIY custom keyboard background. Never accessed in the background.</td>
+                        </tr>
+                        <tr>
+                            <td><code>POST_NOTIFICATIONS</code></td>
+                            <td><span class="badge-opt">Optional</span></td>
+                            <td>Used in Android 13+ to deliver optional app updates, setup notifications, or sound pack notifications.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>You can review, grant, or revoke permissions at any time through your Android device's <strong>Settings &gt; Apps &gt; Mechanical Keyboard &gt; Permissions</strong>.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-clock-rotate-left" style="color: var(--primary);"></i> 6. Data Retention, User Choices &amp; Deletion</h2>
+                <p>Because Mechanical Keyboard is an on-device application:</p>
+                <ul>
+                    <li><strong>Local Data Retention:</strong> Local settings, custom themes, color choices, and app-private background images generally remain on your device until you remove them, clear app data, or uninstall the app.</li>
+                    <li><strong>Cache Cleanup:</strong> Temporary camera capture files are short-lived cache items that may be removed automatically by Android storage management.</li>
+                    <li><strong>Third-Party Retention:</strong> Backups and data processed by third parties (such as Google Mobile Ads or Google Play Services) are subject to their own retention practices.</li>
+                    <li><strong>Switching Keyboards:</strong> You can switch keyboards at any time via Android device settings or the keyboard switch key in your navigation bar.</li>
+                    <li><strong>Complete Deletion:</strong> To completely wipe all local settings, custom images, and preferences, open Android <strong>Settings &gt; Apps &gt; Mechanical Keyboard &gt; Storage &gt; Clear Data</strong>, or simply uninstall the app.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-children" style="color: var(--primary);"></i> 7. Children's Privacy</h2>
+                <p>Mechanical Keyboard is a general-audience keyboard customization utility. It does not knowingly collect personal information from children under the age of 13. If you believe any minor has provided personal information to third-party services through the app without parental consent, please contact us immediately.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-arrows-rotate" style="color: var(--primary);"></i> 8. Changes to This Policy &amp; Privacy Contact</h2>
+                <p>The publisher may update this policy as the app evolves, new features are introduced, or regulatory requirements change. Any revisions will be published on this page with an updated "Last Updated" timestamp.</p>
+                
+                <div class="contact-box">
+                    <h3><i class="fas fa-headset"></i> Have Questions or Privacy Inquiries?</h3>
+                    <p>For questions, feedback, or data privacy requests regarding Mechanical Keyboard, please reach out to our team:</p>
+                    <p><strong>Publisher:</strong> SoftTech Service</p>
+                    <p><strong>Email Contact:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Alternative Contact:</strong> <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site/" target="_blank" rel="noopener noreferrer">https://softtechservice.site/</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========================================== -->
+        <!-- Tab 2: Terms & Conditions                  -->
+        <!-- ========================================== -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <h2><i class="fas fa-handshake" style="color: var(--primary);"></i> 1. Acceptance of Terms</h2>
+                <p>By downloading, installing, enabling, or using the Mechanical Keyboard Android application ("the app"), you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not install or use the app.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-mobile-screen-button" style="color: var(--primary);"></i> 2. Permitted Use &amp; User Responsibilities</h2>
+                <ul>
+                    <li>The app is provided for personal, non-commercial keyboard customization and mobile typing.</li>
+                    <li>You agree to use the keyboard in compliance with all applicable local, national, and international laws.</li>
+                    <li>You are solely responsible for the content you type, send, transmit, or paste using the keyboard.</li>
+                    <li>You agree not to reverse engineer, decompile, or tamper with the app's binary files or assets.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-camera-retro" style="color: var(--primary);"></i> 3. User-Provided Content &amp; Custom Photos</h2>
+                <p>When using the DIY studio to capture or import photos as keyboard backgrounds:</p>
+                <ul>
+                    <li>You represent that you own or have the appropriate rights to use any image you import.</li>
+                    <li>You agree not to import or display content that violates intellectual property rights, contains malicious code, or promotes unlawful activity.</li>
+                    <li>SoftTech Service does not monitor, host, or review images saved locally to your device.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-triangle-exclamation" style="color: var(--primary);"></i> 4. Disclaimer of Warranties</h2>
+                <div class="highlight">
+                    <p>THE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, COMPATIBILITY WITH ALL ANDROID DEVICES, OR ERROR-FREE PERFORMANCE.</p>
+                </div>
+                <p>SoftTech Service does not warrant that keyboard sound generation, vibration haptics, or RGB lighting simulations will function identically across all hardware variations or Android versions.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-shield-halved" style="color: var(--primary);"></i> 5. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, SoftTech Service, its developers, and partners shall not be held liable for any direct, indirect, incidental, special, or consequential damages resulting from:</p>
+                <ul>
+                    <li>The use or inability to use the keyboard.</li>
+                    <li>Any inadvertent disclosure of clipboard contents.</li>
+                    <li>Typographical errors or text prediction inaccuracies.</li>
+                    <li>Interactions with third-party advertising or external websites.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-arrow-up-right-from-square" style="color: var(--primary);"></i> 6. Updates &amp; Termination</h2>
+                <p>We reserve the right to modify, update, or discontinue features of the app at our sole discretion. You may terminate these terms at any time by uninstalling the application from your device.</p>
+            </div>
+            
+            <div class="section">
+                <div class="contact-box">
+                    <h3><i class="fas fa-envelope"></i> Questions Concerning Terms</h3>
+                    <p>For questions or formal inquiries regarding these Terms and Conditions, please contact SoftTech Service at <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a>.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========================================== -->
+        <!-- Tab 3: License & Copyright                 -->
+        <!-- ========================================== -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <h2><i class="fas fa-copyright" style="color: var(--primary);"></i> 1. Proprietary Software Notice</h2>
+                <div class="highlight">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 0.75rem;">Mechanical Keyboard, including its source code, UI designs, sound assets, custom keycap artwork, RGB lighting animations, and companion applications, is the proprietary property of SoftTech Service.</p>
+                </div>
+                <p>Unauthorized reproduction, redistribution, decompilation, or commercial exploitation of the app's compiled code, art assets, or switch sound audio syntheses without prior written authorization from SoftTech Service is strictly prohibited.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-cubes" style="color: var(--primary);"></i> 2. Open Source &amp; Third-Party Attributions</h2>
+                <p>Mechanical Keyboard utilizes high-quality open-source components and Google Android Jetpack libraries under permissible licenses:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component / Library</th>
+                            <th>Provider / Author</th>
+                            <th>License</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Android Jetpack (Room, DataStore)</strong></td>
+                            <td>The Android Open Source Project (Google)</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kotlin Coroutines</strong></td>
+                            <td>JetBrains s.r.o.</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CameraX API</strong></td>
+                            <td>The Android Open Source Project (Google)</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Material Design 3 Components</strong></td>
+                            <td>Google Inc.</td>
+                            <td>Apache License 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Mobile Ads SDK</strong></td>
+                            <td>Google LLC</td>
+                            <td>Proprietary / Terms of Service</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-trademark" style="color: var(--primary);"></i> 3. Trademarks</h2>
+                <p>Android, Google Play, and the Google Play logo are trademarks of Google LLC. Other product names, switch trademarks (e.g. Cherry MX, Gateron, Kailh), or brand references mentioned for sound or aesthetic comparison belong to their respective trademark holders.</p>
+            </div>
+            
+            <div class="section">
+                <div class="contact-box">
+                    <h3><i class="fas fa-building"></i> Publisher &amp; Copyright Holder</h3>
+                    <p><strong>SoftTech Service</strong></p>
+                    <p>Developer &amp; Software Studio</p>
+                    <p>Contact: <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>&copy; 2026 SoftTech Service. All rights reserved. Mechanical Keyboard Android Application.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Tab switching logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    const targetContent = document.getElementById(targetTab);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+            
+            // Check hash in URL
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                const targetBtn = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetBtn) {
+                    targetBtn.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
