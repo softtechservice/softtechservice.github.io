@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bullion Live: Gold &amp; Silver Prices, Alerts &amp; Calculator | SoftTech Service</title>
+    <meta name="description" content="Track live gold and silver rates, set price alerts, convert currencies and calculate buy/sell totals with Bullion Live — your complete bullion market companion.">
+    <meta name="keywords" content="Bullion Live, gold price today, silver price, live gold rate India, gold rate per gram, gold calculator, price alerts, currency converter, MCX gold, SoftTech Service">
+
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bullion Live: Gold &amp; Silver Rates, Alerts &amp; Calculator">
+    <meta property="og:description" content="Live gold and silver rates, currency converter, price alerts and a buy/sell calculator. India bullion boards and international spot prices.">
+    <meta property="og:image" content="https://softtechservice.site/bullion/images/banner.png">
+    <meta property="og:url" content="https://softtechservice.site/bullion/">
+    <meta property="og:site_name" content="SoftTech Service">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bullion Live: Gold &amp; Silver Rates">
+    <meta name="twitter:description" content="Live gold and silver rates, currency converter, price alerts and calculator for Android.">
+    <meta name="twitter:image" content="https://softtechservice.site/bullion/images/banner.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-deep:     #09090E;
+            --bg-surface:  #111118;
+            --bg-card:     #17171F;
+            --bg-card2:    #1E1E28;
+            --border:      rgba(255,255,255,0.08);
+            --border-gold: rgba(212,175,55,0.35);
+
+            --gold:        #D4AF37;
+            --gold-light:  #F2D060;
+            --gold-dark:   #9A7D1C;
+            --gold-glow:   rgba(212,175,55,0.35);
+            --silver:      #C0C0C0;
+            --silver-glow: rgba(192,192,192,0.3);
+
+            --text-main:   #FFFFFF;
+            --text-sub:    #CBD5E1;
+            --text-muted:  #94A3B8;
+            --success:     #22C55E;
+            --danger:      #EF4444;
+
+            --radius-sm:   8px;
+            --radius-md:   16px;
+            --radius-lg:   24px;
+            --radius-full: 9999px;
+
+            --grad-gold:   linear-gradient(135deg, #D4AF37 0%, #F2D060 50%, #B8971F 100%);
+            --grad-hero:   linear-gradient(135deg, #09090E 0%, #18140A 50%, #09090E 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background: var(--bg-deep);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image:
+                radial-gradient(at 10% 10%, rgba(212,175,55,0.07) 0px, transparent 55%),
+                radial-gradient(at 90% 80%, rgba(192,192,192,0.04) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ── HEADER ── */
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(9,9,14,0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+
+        .brand-link { display: flex; align-items: center; gap: .85rem; text-decoration: none; }
+        .brand-icon {
+            width: 42px; height: 42px; border-radius: 11px;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 0 14px var(--gold-glow);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .brand-link:hover .brand-icon { transform: scale(1.06); box-shadow: 0 0 22px var(--gold-glow); }
+        .brand-title {
+            font-size: 1.3rem; font-weight: 800; letter-spacing: -.02em;
+            background: var(--grad-gold);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+        .nav-links a { color: var(--text-sub); text-decoration: none; font-weight: 500; font-size: .95rem; transition: color .2s; }
+        .nav-links a:hover { color: var(--gold-light); }
+
+        .nav-cta {
+            padding: .6rem 1.35rem;
+            background: var(--grad-gold); color: #09090E !important;
+            border-radius: var(--radius-full); font-weight: 700; font-size: .9rem;
+            box-shadow: 0 4px 14px var(--gold-glow);
+            transition: transform .2s, box-shadow .2s !important;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--gold-glow) !important; }
+
+        .menu-toggle { display: none; background: transparent; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer; padding: .5rem; }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 5rem 0 4rem;
+            background: var(--grad-hero);
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 700px 300px at 20% 50%, rgba(212,175,55,0.12) 0, transparent 70%),
+                radial-gradient(ellipse 400px 250px at 80% 30%, rgba(192,192,192,0.06) 0, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative; z-index: 1;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
+        }
+
+        .hero-pill {
+            display: inline-flex; align-items: center; gap: .55rem;
+            padding: .38rem .95rem;
+            background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.3);
+            border-radius: var(--radius-full); font-size: .82rem; font-weight: 600;
+            color: var(--gold-light); margin-bottom: 1.35rem;
+            letter-spacing: .04em; text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3.1rem; font-weight: 900; letter-spacing: -.03em; line-height: 1.15; margin-bottom: 1.1rem;
+        }
+        .hero h1 .gold-text {
+            background: var(--grad-gold);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .hero-tagline { font-size: 1.25rem; color: var(--silver); font-weight: 500; margin-bottom: 1rem; }
+        .hero-desc { font-size: 1.05rem; color: var(--text-sub); margin-bottom: 2.25rem; line-height: 1.75; max-width: 520px; }
+
+        .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+        .btn {
+            display: inline-flex; align-items: center; gap: .6rem;
+            padding: .9rem 1.75rem; border-radius: var(--radius-full);
+            font-weight: 600; font-size: 1rem; text-decoration: none;
+            transition: all .25s; cursor: pointer; border: none; font-family: inherit;
+        }
+        .btn-gold {
+            background: var(--grad-gold); color: #09090E;
+            box-shadow: 0 4px 18px var(--gold-glow);
+        }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 24px var(--gold-glow); }
+        .btn-ghost {
+            background: rgba(255,255,255,0.06); color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.11); transform: translateY(-2px); }
+
+        .hero-checks { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+        .hero-check { display: flex; align-items: center; gap: .5rem; font-size: .88rem; color: var(--text-sub); }
+        .hero-check i { color: var(--gold); }
+
+        /* Hero image / live price card mockup */
+        .hero-media { position: relative; }
+        .banner-img {
+            width: 100%; border-radius: var(--radius-lg);
+            box-shadow: 0 16px 48px rgba(0,0,0,.7), 0 0 30px var(--gold-glow);
+            border: 1px solid rgba(255,255,255,.1);
+            display: block;
+        }
+        .price-float {
+            position: absolute; bottom: -14px; left: 20px;
+            background: rgba(23,23,31,.95); border: 1px solid var(--border-gold);
+            border-radius: var(--radius-md); padding: .9rem 1.35rem;
+            display: flex; align-items: center; gap: 1rem;
+            box-shadow: 0 8px 28px rgba(0,0,0,.6), 0 0 14px var(--gold-glow);
+            backdrop-filter: blur(12px);
+        }
+        .price-float img { width: 42px; height: 42px; border-radius: 10px; }
+        .pf-label { font-size: .78rem; color: var(--text-muted); font-weight: 500; margin-bottom: .15rem; }
+        .pf-value { font-size: 1.15rem; font-weight: 800; color: var(--gold-light); font-family: 'JetBrains Mono', monospace; }
+        .pf-badge {
+            background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3);
+            color: #4ade80; border-radius: var(--radius-full);
+            font-size: .72rem; font-weight: 700; padding: .2rem .55rem;
+        }
+
+        /* ── SECTION COMMON ── */
+        .section { padding: 5rem 0; }
+        .section-header { text-align: center; max-width: 720px; margin: 0 auto 3.5rem; }
+        .section-pill {
+            display: inline-flex; align-items: center; gap: .45rem;
+            padding: .32rem .9rem; margin-bottom: 1rem;
+            background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,.25);
+            border-radius: var(--radius-full); font-size: .8rem; font-weight: 600;
+            color: var(--gold-light); letter-spacing: .05em; text-transform: uppercase;
+        }
+        .section-title { font-size: 2.4rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.25; margin-bottom: .9rem; }
+        .section-subtitle { font-size: 1.1rem; color: var(--text-sub); line-height: 1.65; }
+
+        /* ── LIVE TICKER (decorative) ── */
+        .ticker-bar {
+            background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            padding: .85rem 0; overflow: hidden; position: relative;
+        }
+        .ticker-track {
+            display: flex; gap: 3.5rem; width: max-content;
+            animation: ticker 28s linear infinite;
+            white-space: nowrap;
+        }
+        .ticker-track:hover { animation-play-state: paused; }
+        @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .ticker-item {
+            display: flex; align-items: center; gap: .65rem;
+            font-family: 'JetBrains Mono', monospace; font-size: .9rem;
+        }
+        .ticker-item .ti-label { color: var(--text-muted); font-weight: 500; }
+        .ticker-item .ti-price { color: var(--gold-light); font-weight: 700; }
+        .ticker-item .ti-change.up { color: var(--success); }
+        .ticker-item .ti-change.dn { color: var(--danger); }
+        .ticker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; box-shadow: 0 0 6px var(--gold-glow); }
+
+        /* ── FEATURES GRID ── */
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+        .feature-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 2.25rem;
+            transition: all .3s; position: relative; overflow: hidden;
+        }
+        .feature-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+            background: var(--grad-gold); opacity: 0; transition: opacity .3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--border-gold); box-shadow: 0 12px 36px rgba(0,0,0,.5), 0 0 20px var(--gold-glow); }
+        .feature-card:hover::after { opacity: 1; }
+
+        .feature-icon {
+            width: 60px; height: 60px; border-radius: var(--radius-md);
+            background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,.25);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem; color: var(--gold); margin-bottom: 1.35rem;
+            box-shadow: 0 0 14px var(--gold-glow);
+        }
+        .feature-card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: .65rem; }
+        .feature-card p { color: var(--text-sub); font-size: .975rem; line-height: 1.7; margin-bottom: 1.25rem; }
+        .feature-bullets { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+        .feature-bullets li { display: flex; align-items: flex-start; gap: .6rem; font-size: .9rem; color: var(--text-sub); }
+        .feature-bullets li i { color: var(--gold); font-size: .8rem; margin-top: .25rem; flex-shrink: 0; }
+
+        /* ── INFO BANNER ── */
+        .info-banner {
+            background: rgba(212,175,55,0.06);
+            border: 1px solid rgba(212,175,55,.2);
+            border-radius: var(--radius-lg);
+            padding: 2rem 2.5rem;
+            display: flex; align-items: flex-start; gap: 1.25rem;
+        }
+        .info-banner i { color: var(--gold); font-size: 1.5rem; flex-shrink: 0; margin-top: .15rem; }
+        .info-banner h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; color: var(--gold-light); }
+        .info-banner p { color: var(--text-sub); font-size: .975rem; line-height: 1.7; }
+
+        /* ── LANGUAGE & REGION GRID ── */
+        .lang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .lang-chip {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-md); padding: .85rem 1rem;
+            text-align: center; font-size: .9rem; font-weight: 600; color: var(--text-sub);
+            transition: all .25s;
+        }
+        .lang-chip:hover { border-color: var(--border-gold); color: var(--gold-light); }
+        .lang-chip span { display: block; font-size: 1.5rem; margin-bottom: .35rem; }
+
+        /* ── PERMISSIONS TABLE ── */
+        .perm-table {
+            width: 100%; border-collapse: collapse; background: var(--bg-card);
+            border-radius: var(--radius-md); overflow: hidden;
+            border: 1px solid var(--border); margin-top: 2rem;
+        }
+        .perm-table thead { background: rgba(212,175,55,0.12); }
+        .perm-table th { padding: 1rem 1.25rem; text-align: left; font-size: .9rem; font-weight: 600; color: var(--gold-light); }
+        .perm-table td { padding: .9rem 1.25rem; border-bottom: 1px solid var(--border); color: var(--text-sub); font-size: .9rem; vertical-align: top; }
+        .perm-table tr:last-child td { border-bottom: none; }
+        .perm-table tbody tr:hover { background: rgba(255,255,255,.025); }
+        .perm-table code {
+            background: rgba(212,175,55,.1); padding: .15rem .45rem; border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace; font-size: .82rem; color: var(--gold-light);
+        }
+
+        /* ── SETUP STEPS ── */
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .step-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 2rem; transition: transform .3s;
+        }
+        .step-card:hover { transform: translateY(-4px); border-color: var(--border-gold); }
+        .step-num {
+            width: 46px; height: 46px; border-radius: 50%;
+            background: var(--grad-gold); color: #09090E;
+            font-weight: 800; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.35rem; box-shadow: 0 4px 14px var(--gold-glow);
+        }
+        .step-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: .6rem; }
+        .step-card p { color: var(--text-sub); font-size: .975rem; line-height: 1.65; }
+
+        /* ── DISCLAIMER BANNER ── */
+        .disclaimer {
+            background: rgba(239,68,68,.06); border: 1px solid rgba(239,68,68,.2);
+            border-radius: var(--radius-lg); padding: 1.75rem 2.25rem;
+            display: flex; align-items: flex-start; gap: 1.1rem;
+        }
+        .disclaimer i { color: #f87171; font-size: 1.35rem; flex-shrink: 0; margin-top: .1rem; }
+        .disclaimer p { color: #fca5a5; font-size: .95rem; line-height: 1.7; }
+        .disclaimer strong { color: #FFFFFF; }
+
+        /* ── FOOTER ── */
+        footer { background: #05050A; border-top: 1px solid var(--border); padding: 4.5rem 0 2rem; margin-top: 4rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand h3 { font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: .7rem; margin-bottom: .85rem; }
+        .footer-brand h3 img { width: 30px; height: 30px; border-radius: 7px; }
+        .footer-brand p { color: var(--text-muted); font-size: .9rem; line-height: 1.7; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.1rem; color: var(--gold-light); }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
+        .footer-col a:hover { color: var(--gold-light); }
+        .footer-bottom { padding-top: 1.75rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: .85rem; line-height: 1.8; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero-desc { max-width: 100%; margin: 0 auto 2rem; }
+            .hero-ctas, .hero-checks { justify-content: center; }
+            .hero-media { max-width: 600px; margin: 0 auto; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(9,9,14,.98); flex-direction: column; padding: 2rem; border-bottom: 1px solid var(--border); gap: 1.25rem; backdrop-filter: blur(20px); }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero { padding: 3.5rem 0 3rem; }
+            .hero h1 { font-size: 2.3rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .price-float { left: 10px; right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <nav>
+            <a href="#top" class="brand-link" aria-label="Bullion Live Home">
+                <img src="images/icon.png" alt="Bullion Live Icon" class="brand-icon">
+                <span class="brand-title">Bullion Live</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#alerts">Alerts &amp; Widgets</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="#features" class="nav-cta"><i class="fas fa-download"></i> Get App</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-pill"><i class="fas fa-circle" style="font-size:.5rem;color:#22c55e;"></i> Live Bullion Market App</div>
+                <h1>
+                    <span class="gold-text">Gold &amp; Silver</span><br>
+                    Rates, Alerts<br>&amp; Calculator
+                </h1>
+                <p class="hero-tagline">Gold · Silver · Currency</p>
+                <p class="hero-desc">
+                    Track gold and silver prices with practical tools for market awareness. Local India bullion boards, international USD spot prices, currency conversion, price alerts and a buy/sell calculator — all in one app.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#features" class="btn btn-gold"><i class="fas fa-chart-line"></i> Explore Features</a>
+                    <a href="privacy-policy.html" class="btn btn-ghost"><i class="fas fa-shield-halved"></i> Privacy Policy</a>
+                </div>
+                <div class="hero-checks">
+                    <div class="hero-check"><i class="fas fa-check-circle"></i> India Bullion Boards</div>
+                    <div class="hero-check"><i class="fas fa-check-circle"></i> 20+ Country Resources</div>
+                    <div class="hero-check"><i class="fas fa-check-circle"></i> Offline Last Prices</div>
+                    <div class="hero-check"><i class="fas fa-check-circle"></i> 9 Languages</div>
+                </div>
+            </div>
+
+            <div class="hero-media">
+                <img src="images/banner.png" alt="Bullion Live app screenshot showing live gold and silver rates" class="banner-img">
+                <div class="price-float">
+                    <img src="images/icon.png" alt="Bullion Live">
+                    <div>
+                        <div class="pf-label">GOLD 24K (per 10g)</div>
+                        <div class="pf-value">₹ 1,38,500</div>
+                    </div>
+                    <div class="pf-badge">▲ LIVE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Live Ticker -->
+<div class="ticker-bar">
+    <div class="ticker-track">
+        <div class="ticker-item"><div class="ticker-dot"></div><span class="ti-label">GOLD 24K</span><span class="ti-price">₹1,38,500/10g</span><span class="ti-change up">▲ +0.4%</span></div>
+        <div class="ticker-item"><div class="ticker-dot" style="background:var(--silver)"></div><span class="ti-label">SILVER</span><span class="ti-price">₹92,000/kg</span><span class="ti-change up">▲ +0.2%</span></div>
+        <div class="ticker-item"><div class="ticker-dot"></div><span class="ti-label">GOLD SPOT</span><span class="ti-price">$3,250/oz</span><span class="ti-change dn">▼ -0.1%</span></div>
+        <div class="ticker-item"><div class="ticker-dot" style="background:var(--silver)"></div><span class="ti-label">SILVER SPOT</span><span class="ti-price">$32.50/oz</span><span class="ti-change up">▲ +0.3%</span></div>
+        <div class="ticker-item"><div class="ticker-dot"></div><span class="ti-label">GOLD 22K</span><span class="ti-price">₹1,27,000/10g</span><span class="ti-change up">▲ +0.4%</span></div>
+        <div class="ticker-item"><div class="ticker-dot"></div><span class="ti-label">USD/INR</span><span class="ti-price">₹83.45</span><span class="ti-change dn">▼ -0.05%</span></div>
+        <!-- duplicate for seamless loop -->
+        <div class="ticker-item"><div class="ticker-dot"></div><span class="ti-label">GOLD 24K</span><span class="ti-price">₹1,38,500/10g</span><span class="ti-change up">▲ +0.4%</span></div>
+        <div class="ticker-item"><div class="ticker-dot" style="background:var(--silver)"></div><span class="ti-label">SILVER</span><span class="ti-price">₹92,000/kg</span><span class="ti-change up">▲ +0.2%</span></div>
+        <div class="ticker-item"><div class="ticker-dot"></div><span class="ti-label">GOLD SPOT</span><span class="ti-price">$3,250/oz</span><span class="ti-change dn">▼ -0.1%</span></div>
+        <div class="ticker-item"><div class="ticker-dot" style="background:var(--silver)"></div><span class="ti-label">SILVER SPOT</span><span class="ti-price">$32.50/oz</span><span class="ti-change up">▲ +0.3%</span></div>
+        <div class="ticker-item"><div class="ticker-dot"></div><span class="ti-label">GOLD 22K</span><span class="ti-price">₹1,27,000/10g</span><span class="ti-change up">▲ +0.4%</span></div>
+        <div class="ticker-item"><div class="ticker-dot"></div><span class="ti-label">USD/INR</span><span class="ti-price">₹83.45</span><span class="ti-change dn">▼ -0.05%</span></div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section class="section" id="features">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-pill"><i class="fas fa-star"></i> Core Features</div>
+            <h2 class="section-title">Everything You Need to Track Bullion</h2>
+            <p class="section-subtitle">From live price boards to alerts, converters and widgets — Bullion Live gives you the tools market-aware users need.</p>
+        </div>
+
+        <div class="features-grid">
+
+            <!-- Live Prices -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-coins"></i></div>
+                <h3>Live Bullion Prices</h3>
+                <p>Gold and silver boards, plus coin quotes in India. Local premiums, buy &amp; sell spreads, today's high and low.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-circle-check"></i> Gold, silver &amp; coin quotes for India</li>
+                    <li><i class="fas fa-circle-check"></i> Buy / sell prices and daily high–low</li>
+                    <li><i class="fas fa-circle-check"></i> Per-gram, per-tola and per-troy-oz values</li>
+                    <li><i class="fas fa-circle-check"></i> Search, sort and save favourite quotes</li>
+                    <li><i class="fas fa-circle-check"></i> Offline mode shows last cached prices</li>
+                </ul>
+            </div>
+
+            <!-- Currency Converter -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-arrow-right-arrow-left"></i></div>
+                <h3>Currency Converter</h3>
+                <p>Convert amounts between supported currencies using live mid-market exchange rates. Perfect for comparing international spot prices.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-circle-check"></i> Live mid-market exchange rates</li>
+                    <li><i class="fas fa-circle-check"></i> International USD spot price conversion</li>
+                    <li><i class="fas fa-circle-check"></i> Rates refresh periodically</li>
+                    <li><i class="fas fa-circle-check"></i> Typed amounts stay private on device</li>
+                </ul>
+            </div>
+
+            <!-- Market Resources -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                <h3>Market Resources</h3>
+                <p>Exchange and central-bank shortcuts for 20 countries, European resources grouped regionally, and quick links to economic calendars and market news.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-circle-check"></i> 20-country exchange &amp; central-bank links</li>
+                    <li><i class="fas fa-circle-check"></i> European markets regional section</li>
+                    <li><i class="fas fa-circle-check"></i> Economic calendar quick link</li>
+                    <li><i class="fas fa-circle-check"></i> Market news shortcuts</li>
+                </ul>
+            </div>
+
+            <!-- Calculator -->
+            <div class="feature-card" id="calculator">
+                <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+                <h3>Buy / Sell Calculator</h3>
+                <p>Estimate a total by entering weight and choosing grams, tola, kilograms or troy ounces. Add margins, taxes and premiums. Save presets and recalculate with live prices.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-circle-check"></i> Grams, tola, kilograms, troy ounces</li>
+                    <li><i class="fas fa-circle-check"></i> Custom margin and tax / premium fields</li>
+                    <li><i class="fas fa-circle-check"></i> Save presets for repeated use</li>
+                    <li><i class="fas fa-circle-check"></i> Auto-recalculate with current live prices</li>
+                </ul>
+            </div>
+
+            <!-- Price Alerts -->
+            <div class="feature-card" id="alerts">
+                <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                <h3>Price Alerts</h3>
+                <p>Set a price target above or below the current rate, or follow a new daily high or low. Review alert history and keep a persistent Android notification.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-circle-check"></i> Target above or below the current rate</li>
+                    <li><i class="fas fa-circle-check"></i> Follow new daily high or low events</li>
+                    <li><i class="fas fa-circle-check"></i> Full alert history log</li>
+                    <li><i class="fas fa-circle-check"></i> Optional persistent live-price notification</li>
+                </ul>
+            </div>
+
+            <!-- Widgets & More -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-table-cells-large"></i></div>
+                <h3>Widgets &amp; More</h3>
+                <p>Android home-screen widgets show 1–3 selected prices. Price history, share a price card, keep-screen-awake for shop counters and more.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fas fa-circle-check"></i> Android widgets (1, 2 or 3 prices)</li>
+                    <li><i class="fas fa-circle-check"></i> Price history: 1 hour, 1 day, 1 week</li>
+                    <li><i class="fas fa-circle-check"></i> Share a price card instantly</li>
+                    <li><i class="fas fa-circle-check"></i> Keep-screen-awake for shop counters</li>
+                    <li><i class="fas fa-circle-check"></i> Dark and light themes, large-text support</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Disclaimer Banner -->
+<div class="container" style="padding-bottom:2rem;">
+    <div class="disclaimer">
+        <i class="fas fa-triangle-exclamation"></i>
+        <p>
+            <strong>Informational Use Only.</strong> Bullion Live displays live-market prices for information purposes. It does <strong>not</strong> provide trading, investment or financial advice, and does not buy, sell or store bullion. Prices are estimates and may differ from a dealer's final price. VAT/GST, duties and jewellery-making charges may apply and are not included unless the quoted source explicitly states otherwise. Always confirm prices directly with your local dealer. The app contains ads.
+        </p>
+    </div>
+</div>
+
+<!-- Language Support -->
+<section class="section" style="padding-top:2rem;" id="languages">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-pill"><i class="fas fa-language"></i> Multi-Language</div>
+            <h2 class="section-title">9 Languages Supported</h2>
+            <p class="section-subtitle">Bullion Live speaks your language — from English and Hindi to Gujarati, Marathi and more regional Indian languages.</p>
+        </div>
+        <div class="lang-grid">
+            <div class="lang-chip"><span>🇬🇧</span>English</div>
+            <div class="lang-chip"><span>🇮🇳</span>हिंदी</div>
+            <div class="lang-chip"><span>🇮🇳</span>ગુજરાતી</div>
+            <div class="lang-chip"><span>🇮🇳</span>मराठी</div>
+            <div class="lang-chip"><span>🇮🇳</span>বাংলা</div>
+            <div class="lang-chip"><span>🇮🇳</span>தமிழ்</div>
+            <div class="lang-chip"><span>🇮🇳</span>తెలుగు</div>
+            <div class="lang-chip"><span>🇮🇳</span>ಕನ್ನಡ</div>
+            <div class="lang-chip"><span>🇮🇳</span>ਪੰਜਾਬੀ</div>
+        </div>
+    </div>
+</section>
+
+<!-- Info Note on Region -->
+<div class="container" style="padding-bottom:3rem;">
+    <div class="info-banner">
+        <i class="fas fa-circle-info"></i>
+        <div>
+            <h4>India &amp; International Coverage</h4>
+            <p>Bullion Live shows local bullion quotes for India. In supported countries outside India, it converts international USD spot prices into your selected currency using live exchange rates. Local premiums, taxes and duties may change the final displayed price.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Setup Steps -->
+<section class="section" style="padding-top:2rem;">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-pill"><i class="fas fa-play"></i> Getting Started</div>
+            <h2 class="section-title">Up and Running in Minutes</h2>
+            <p class="section-subtitle">Install the app, choose your preferences, and get live gold and silver prices at your fingertips.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <h3>Install &amp; Open</h3>
+                <p>Download Bullion Live from Google Play. Open the app and select your preferred language, theme and price-refresh interval.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <h3>Favourite Quotes</h3>
+                <p>Browse the gold and silver boards, star the quotes that matter most, and arrange them on your home screen widgets for a glance view.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <h3>Set Alerts &amp; Presets</h3>
+                <p>Configure price alerts for your target buy or sell price, save calculator presets with your margins, and let the app notify you when rates move.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer id="support">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3><img src="images/icon.png" alt="Bullion Live"> Bullion Live</h3>
+                <p>Live gold and silver rates, currency converter, price alerts and a buy/sell calculator for Android. Informational use only.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="#features">Live Prices</a></li>
+                    <li><a href="#features">Currency Converter</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#alerts">Price Alerts</a></li>
+                    <li><a href="#features">Widgets</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="privacy-policy.html#terms">Terms of Service</a></li>
+                    <li><a href="privacy-policy.html#license">License</a></li>
+                    <li><a href="../index.html">SoftTech Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><strong style="color:var(--text-sub)">Developer:</strong> SoftTech Service</li>
+                    <li><a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></li>
+                    <li><strong style="color:var(--text-sub)">Platform:</strong> Android</li>
+                    <li><strong style="color:var(--text-sub)">Languages:</strong> 9 supported</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SoftTech Service. All rights reserved. Bullion Live Android Application.</p>
+            <p style="margin-top:.3rem;font-size:.8rem;opacity:.6;">Prices are indicative only. Not financial or investment advice.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks   = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const ic = menuToggle.querySelector('i');
+            ic.classList.toggle('fa-bars');
+            ic.classList.toggle('fa-times');
+        });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const ic = menuToggle.querySelector('i');
+            ic.classList.add('fa-bars'); ic.classList.remove('fa-times');
+        }));
+    }
+</script>
+</body>
+</html>

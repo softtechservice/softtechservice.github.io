@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms — Bullion Live | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy, Terms of Service and License for Bullion Live Gold &amp; Silver Android app by SoftTech Service.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary:    #D4AF37;
+            --primary-dk: #9A7D1C;
+            --primary-lt: #F2D060;
+            --bg-light:   #F8F7F2;
+            --bg-white:   #FFFFFF;
+            --text-dark:  #0F172A;
+            --text-gray:  #475569;
+            --text-muted: #64748B;
+            --border:     #E2E8F0;
+            --gold-glow:  rgba(212,175,55,0.15);
+            --grad-gold:  linear-gradient(135deg, #D4AF37 0%, #F2D060 50%, #B8971F 100%);
+            --grad-hdr:   linear-gradient(135deg, #09090E 0%, #1A1506 50%, #09090E 100%);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-light); color: var(--text-dark);
+            line-height: 1.65; padding: 1.5rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1040px; margin: 0 auto;
+            background: var(--bg-white); border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.08);
+            border: 1px solid var(--border); overflow: hidden;
+        }
+        /* Header */
+        .hdr {
+            padding: 2.5rem 3rem; background: var(--grad-hdr); color: white;
+            position: relative;
+        }
+        .hdr::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+            background: var(--grad-gold);
+        }
+        .hdr-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
+        }
+        .back-link {
+            display: inline-flex; align-items: center; gap: .5rem;
+            color: #E0D8B0; text-decoration: none; font-weight: 500; font-size: .9rem;
+            padding: .45rem 1rem; border-radius: 8px;
+            background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+            transition: background .25s;
+        }
+        .back-link:hover { background: rgba(255,255,255,.14); color: #fff; }
+        .hdr-pill {
+            display: inline-flex; align-items: center; gap: .5rem;
+            padding: .32rem .85rem; background: rgba(212,175,55,.2);
+            border: 1px solid rgba(212,175,55,.4); border-radius: 9999px;
+            font-size: .78rem; font-weight: 700; color: #F2D060;
+            letter-spacing: .05em; text-transform: uppercase; margin-bottom: .9rem;
+        }
+        .hdr h1 {
+            font-size: 2.4rem; font-weight: 800; letter-spacing: -.02em;
+            display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+            margin-bottom: .45rem;
+        }
+        .hdr-icon { width: 50px; height: 50px; border-radius: 12px; border: 2px solid rgba(255,255,255,.15); box-shadow: 0 4px 12px rgba(0,0,0,.35); }
+        .hdr .sub { color: #CBD5E1; font-size: 1.1rem; margin-bottom: 1.25rem; }
+        .meta-bar {
+            display: flex; flex-wrap: wrap; gap: 1.5rem;
+            font-size: .88rem; color: #94A3B8;
+            padding-top: .9rem; border-top: 1px solid rgba(255,255,255,.08);
+        }
+        .meta-bar span { display: inline-flex; align-items: center; gap: .4rem; }
+        .meta-bar strong { color: #E2E8F0; }
+        .meta-bar a { color: #93C5FD; text-decoration: none; }
+        /* Tabs */
+        .tabs-wrap { background: var(--bg-white); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .tabs { display: flex; list-style: none; padding: 0 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .tab-btn {
+            padding: 1.1rem 1.6rem; background: transparent; border: none;
+            border-bottom: 3px solid transparent; cursor: pointer;
+            font-family: inherit; font-size: .95rem; font-weight: 600;
+            color: var(--text-gray); white-space: nowrap;
+            display: inline-flex; align-items: center; gap: .55rem; transition: all .2s;
+        }
+        .tab-btn:hover { color: var(--primary); background: rgba(212,175,55,.05); }
+        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); background: rgba(212,175,55,.05); }
+        /* Tab content */
+        .tab-pane { display: none; padding: 3rem; animation: fadeUp .3s ease; }
+        .tab-pane.active { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .pol-section { margin-bottom: 2.75rem; }
+        .pol-section:last-child { margin-bottom: 0; }
+
+        h2 {
+            font-size: 1.7rem; font-weight: 700; margin: 1.75rem 0 1.1rem;
+            display: flex; align-items: center; gap: .6rem;
+            border-bottom: 2px solid #F1F5F9; padding-bottom: .55rem;
+            letter-spacing: -.01em;
+        }
+        h2:first-of-type { margin-top: 0; }
+        h3 { font-size: 1.2rem; font-weight: 600; margin: 1.35rem 0 .65rem; color: #1E293B; }
+        h4 { font-size: 1.05rem; font-weight: 600; margin: 1.1rem 0 .5rem; color: #334155; }
+        p { margin-bottom: .95rem; color: var(--text-gray); font-size: 1rem; line-height: 1.75; }
+        ul, ol { margin-bottom: 1.1rem; padding-left: 1.75rem; color: var(--text-gray); }
+        li { margin-bottom: .55rem; line-height: 1.7; }
+        a { color: var(--primary-dk); }
+        a:hover { color: var(--primary); }
+
+        .callout {
+            background: #FFFDF0; padding: 1.25rem 1.5rem;
+            border-left: 4px solid var(--primary); border-radius: 8px; margin: 1.35rem 0;
+        }
+        .callout.blue  { background: #EFF6FF; border-left-color: #3B82F6; }
+        .callout.red   { background: #FFF5F5; border-left-color: #EF4444; }
+        .callout p { margin-bottom: .4rem; color: #1E293B; font-weight: 500; }
+        .callout p:last-child { margin-bottom: 0; }
+
+        /* Permissions table */
+        table {
+            width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem;
+            background: white; border-radius: 10px; overflow: hidden;
+            border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.05);
+        }
+        thead { background: linear-gradient(135deg, #09090E 0%, #1A1506 100%); color: white; }
+        th { padding: 1rem 1.25rem; text-align: left; font-size: .9rem; font-weight: 600; }
+        td { padding: .9rem 1.25rem; border-bottom: 1px solid var(--border); color: var(--text-gray); font-size: .92rem; vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: #FAFAF5; }
+        code { background: #F8F4E0; padding: .18rem .45rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: .83rem; color: var(--primary-dk); }
+        .badge-req { display: inline-block; padding: .18rem .55rem; background: #FEF3C7; color: #92400E; border-radius: 9999px; font-size: .75rem; font-weight: 600; }
+        .badge-opt { display: inline-block; padding: .18rem .55rem; background: #ECFDF5; color: #065F46; border-radius: 9999px; font-size: .75rem; font-weight: 600; }
+
+        /* Summary box */
+        .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .summary-item {
+            background: #FFFDF0; border: 1px solid #FDE68A; border-radius: 10px;
+            padding: 1.1rem 1.25rem; display: flex; align-items: flex-start; gap: .75rem;
+        }
+        .summary-item i { color: var(--primary); font-size: 1.1rem; margin-top: .15rem; flex-shrink: 0; }
+        .summary-item p { margin: 0; font-size: .9rem; color: #1E293B; font-weight: 500; }
+
+        /* Contact box */
+        .contact-box {
+            background: linear-gradient(135deg, #09090E 0%, #1A1506 100%);
+            color: white; padding: 2.25rem; border-radius: 14px; margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(212,175,55,.15); position: relative; overflow: hidden;
+        }
+        .contact-box::before {
+            content: ''; position: absolute; top: 0; right: 0;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, rgba(212,175,55,.2) 0, transparent 70%);
+            pointer-events: none;
+        }
+        .contact-box h3 { color: var(--primary-lt); font-size: 1.3rem; margin-bottom: .7rem; }
+        .contact-box p { color: #CBD5E1; margin-bottom: .6rem; }
+        .contact-box a { color: #93C5FD; font-weight: 600; }
+        .footer-note { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: .85rem; }
+
+        @media (max-width: 768px) {
+            body { padding: .75rem .5rem 2rem; }
+            .hdr { padding: 2rem 1.5rem; }
+            .hdr h1 { font-size: 1.8rem; }
+            .tab-pane { padding: 2rem 1.25rem; }
+            h2 { font-size: 1.45rem; }
+            .summary-grid { grid-template-columns: 1fr; }
+            table { display: block; overflow-x: auto; }
+            th, td { padding: .7rem .85rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <div class="hdr">
+        <div class="hdr-nav">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Bullion Live</a>
+            <a href="../index.html" class="back-link"><i class="fas fa-globe"></i> SoftTech Service</a>
+        </div>
+        <div class="hdr-pill"><i class="fas fa-shield-halved"></i> Legal &amp; Privacy Center</div>
+        <h1>
+            <img src="icon.png" alt="Bullion Live Icon" class="hdr-icon">
+            Bullion Live
+        </h1>
+        <p class="sub">Official Privacy Policy, Terms of Service &amp; License</p>
+        <div class="meta-bar">
+            <span><i class="far fa-calendar-check"></i> <strong>Last Updated:</strong> 31 October 2026</span>
+            <span><i class="far fa-building"></i> <strong>Publisher:</strong> SoftTech Service</span>
+            <span><i class="fas fa-envelope"></i> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></span>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs-wrap">
+        <ul class="tabs">
+            <li><button class="tab-btn active" data-tab="privacy"><i class="fas fa-user-shield"></i> Privacy Policy</button></li>
+            <li><button class="tab-btn" data-tab="terms"><i class="fas fa-file-contract"></i> Terms &amp; Conditions</button></li>
+            <li><button class="tab-btn" data-tab="license"><i class="fas fa-scale-balanced"></i> License &amp; Copyright</button></li>
+        </ul>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB 1: PRIVACY POLICY                                        -->
+    <!-- ============================================================ -->
+    <div id="privacy" class="tab-pane active">
+
+        <div class="pol-section">
+            <h2><i class="fas fa-shield-heart" style="color:var(--primary)"></i> Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-item"><i class="fas fa-user-slash"></i><p>No account required. The app never asks for your name, email, phone number, contacts, photos or precise location.</p></div>
+                <div class="summary-item"><i class="fas fa-mobile-screen"></i><p>Your settings, favourites, alerts, saved calculations and price history are stored only on your device.</p></div>
+                <div class="summary-item"><i class="fas fa-rectangle-ad"></i><p>The app shows ads from Google AdMob. Google collects device identifiers and usage information to show and measure those ads.</p></div>
+                <div class="summary-item"><i class="fas fa-ban"></i><p>We do not sell your personal information.</p></div>
+            </div>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-mobile-screen" style="color:var(--primary)"></i> Information Stored on Your Device</h2>
+            <p>To work, Bullion Live saves the following on your phone or tablet. This information is never sent to us or to anyone else:</p>
+            <ul>
+                <li>Preferences: language, theme, refresh speed and keep-screen-awake setting</li>
+                <li>Favourite quotes and custom sort order</li>
+                <li>Price alerts, alert history and quiet-hour settings</li>
+                <li>Calculator presets, margins and tax percentage</li>
+                <li>The most recent prices, so they can be displayed when offline</li>
+                <li>Prices recorded while you use the app, for up to seven days of price history</li>
+                <li>Widget and live notification settings</li>
+            </ul>
+            <div class="callout">
+                <p>All on-device data stays until you delete it in the app, clear the app's data, or uninstall the app.</p>
+            </div>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-wifi" style="color:var(--primary)"></i> Information Sent Over the Internet</h2>
+
+            <h3>Live Prices</h3>
+            <p>The app requests prices and announcements from the bullion dealer's servers that publish the price feed. These requests contain no personal information from the app. As with any internet request, the server can see your device's IP address and basic technical details such as the time of the request. Prices are fetched over an encrypted (HTTPS) connection; dealer announcements may be fetched over HTTP and contain no information about you.</p>
+
+            <h3>Currency Rates</h3>
+            <p>When you use currency conversion or view non-India spot prices, the app requests exchange rates from its configured currency-rate provider. Requests identify currency codes only — the amount you type into the converter stays on your device. The provider may see your device's IP address and basic request details under its own privacy practices.</p>
+
+            <h3>Market-Resource Links</h3>
+            <p>Market resources open exchange, central-bank, calendar and news websites in your browser. Bullion Live does not send your saved app data to those sites. The sites and browser handle connection details under their own privacy policies.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-rectangle-ad" style="color:var(--primary)"></i> Advertising — Google AdMob</h2>
+            <p>The app uses the Google Mobile Ads SDK to show ads. The SDK collects and shares with Google information such as:</p>
+            <ul>
+                <li>Device identifiers, including the advertising ID on Android</li>
+                <li>Approximate location derived from your IP address</li>
+                <li>Information about ads you see and tap</li>
+                <li>Diagnostic and performance information</li>
+            </ul>
+            <p>Google uses this information to show ads, to measure them and to prevent fraud. On iOS the app does not ask for permission to track you, so Apple's advertising identifier is not available to it.</p>
+
+            <h3>Your Ad Choices</h3>
+            <p>Where the law requires it — for example in the European Economic Area and the United Kingdom — the app asks for your consent before personalised ads are shown. You can change your choice at any time in <strong>Settings → About &amp; support → Ad privacy choices</strong>.</p>
+            <p>On Android you can reset or delete your advertising ID, or opt out of personalised ads, in your device's Google or privacy settings.</p>
+            <ul>
+                <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from apps that use its services</a></li>
+                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-sliders" style="color:var(--primary)"></i> Android Permissions</h2>
+            <p>The app does <strong>not</strong> request access to your location, camera, microphone, contacts, photos or files.</p>
+            <table>
+                <thead>
+                    <tr><th>Permission</th><th>Type</th><th>Why It Is Used</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>INTERNET</code> &amp; <code>ACCESS_NETWORK_STATE</code></td>
+                        <td><span class="badge-req">Required</span></td>
+                        <td>Fetch live prices, exchange rates and ads</td>
+                    </tr>
+                    <tr>
+                        <td><code>POST_NOTIFICATIONS</code></td>
+                        <td><span class="badge-opt">On-demand</span></td>
+                        <td>Show price alerts and the optional live-price notification. Requested only when you turn these on</td>
+                    </tr>
+                    <tr>
+                        <td><code>FOREGROUND_SERVICE</code> (data sync)</td>
+                        <td><span class="badge-opt">Optional</span></td>
+                        <td>Keep the live-price notification updating after you enable it</td>
+                    </tr>
+                    <tr>
+                        <td><code>RECEIVE_BOOT_COMPLETED</code></td>
+                        <td><span class="badge-opt">Optional</span></td>
+                        <td>Restore scheduled widget updates after the phone restarts</td>
+                    </tr>
+                    <tr>
+                        <td><code>WAKE_LOCK</code></td>
+                        <td><span class="badge-opt">Optional</span></td>
+                        <td>Allow scheduled background price updates to complete</td>
+                    </tr>
+                    <tr>
+                        <td>Advertising ID</td>
+                        <td><span class="badge-req">SDK</span></td>
+                        <td>Added by the Google Mobile Ads SDK to show and measure ads</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-share-nodes" style="color:var(--primary)"></i> Sharing &amp; Background Updates</h2>
+            <h3>Sharing</h3>
+            <p>When you share a price card or the app link, the image or text goes only to the app or person you choose in your device's share menu. Bullion Live does not transmit your data during sharing.</p>
+            <h3>Notifications &amp; Background Updates</h3>
+            <p>Price alerts and the optional live-price notification are created on your device. When you enable the live notification or home-screen widgets, the app fetches prices in the background as described in the <em>Information Sent Over the Internet</em> section. You can turn these off at any time in <strong>Settings → Widgets &amp; notifications</strong> or in your device settings.</p>
+            <h3>App Updates &amp; Ratings</h3>
+            <p>When you check for updates or rate the app, Google Play handles the request under its own privacy policy. We do not receive your rating or account details.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-children" style="color:var(--primary)"></i> Children</h2>
+            <p>Bullion Live is not directed to children under 13 and we do not knowingly collect personal information from children. If you believe a child has provided personal information through the app, contact us and we will help remove it.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-clock-rotate-left" style="color:var(--primary)"></i> Data Retention &amp; Deletion</h2>
+            <p>Information stored on your device remains there until you remove it. Clearing the app's data or uninstalling the app deletes it permanently. We do not keep copies on any server. Google retains advertising data according to its own policies.</p>
+            <div class="callout">
+                <p><strong>To delete all local data:</strong> Go to Android Settings → Apps → Bullion Live → Storage → Clear Data, or simply uninstall the app.</p>
+            </div>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-lock" style="color:var(--primary)"></i> Security</h2>
+            <p>The app does not transmit your personal information to us. Information stored on your device is protected by your device's own security mechanisms. No method of storage or transmission is completely secure, but we choose services and settings designed to protect your information.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-gavel" style="color:var(--primary)"></i> Your Rights</h2>
+            <p>Depending on where you live — for example under India's Digital Personal Data Protection Act, 2023 or the EU General Data Protection Regulation — you may have rights to access, correct or delete personal data and to withdraw consent. Because we hold no personal data about you on our servers, most requests concern data held by Google; you can use Google's controls linked above. You can also contact us and we will assist.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-chart-line" style="color:var(--primary)"></i> Price Information Disclaimer</h2>
+            <div class="callout red">
+                <p>Prices in the app are indicative and may differ from final settlement prices. The app does not buy, sell or store metal and does not provide trading, investment or financial advice. Local taxes, duties, premiums and jewellery charges may not be included.</p>
+            </div>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-arrows-rotate" style="color:var(--primary)"></i> Changes to This Policy</h2>
+            <p>We may update this policy when the app changes. We will post the new version on this page and update the "Last updated" date. Significant changes will also be noted in the app's release notes.</p>
+        </div>
+
+        <div class="pol-section">
+            <div class="contact-box">
+                <h3><i class="fas fa-headset"></i> Contact Us</h3>
+                <p>For privacy questions, data requests, or any concerns about Bullion Live:</p>
+                <p><strong>Publisher:</strong> SoftTech Service</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                <p><strong>Website:</strong> <a href="https://softtechservice.site" target="_blank" rel="noopener noreferrer">https://softtechservice.site</a></p>
+            </div>
+        </div>
+    </div><!-- /privacy -->
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: TERMS & CONDITIONS                                    -->
+    <!-- ============================================================ -->
+    <div id="terms" class="tab-pane">
+        <div class="pol-section">
+            <h2><i class="fas fa-handshake" style="color:var(--primary)"></i> 1. Acceptance of Terms</h2>
+            <p>By downloading, installing or using Bullion Live ("the app"), you agree to these Terms and Conditions. If you do not agree, please do not use the app.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-mobile-screen-button" style="color:var(--primary)"></i> 2. Permitted Use</h2>
+            <ul>
+                <li>Bullion Live is provided for personal, non-commercial informational use only.</li>
+                <li>You agree to use the app only for lawful purposes and in compliance with all applicable local, national and international laws.</li>
+                <li>You may not reverse-engineer, decompile, copy or redistribute the app's code or assets without prior written permission.</li>
+            </ul>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-triangle-exclamation" style="color:var(--primary)"></i> 3. Informational Use Only — No Financial Advice</h2>
+            <div class="callout red">
+                <p><strong>Bullion Live is not a financial product.</strong> All prices are informational estimates only. The app does not provide trading, investment or financial advice, and it does not buy, sell or store bullion on your behalf.</p>
+            </div>
+            <p>Prices displayed may differ from a dealer's final quoted or settlement price. Local taxes (VAT/GST), duties, premiums and jewellery-making charges may not be included unless the quoted source explicitly states otherwise. Always confirm prices directly with your local dealer before making any purchase or sale decision.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-link" style="color:var(--primary)"></i> 4. Third-Party Websites &amp; Market Links</h2>
+            <p>Market Resources in the app open third-party websites (exchanges, central banks, news providers, economic calendars) in your browser. SoftTech Service is not responsible for the content, accuracy, privacy practices or services of any third-party website. Those organizations provide their own content and services under their own terms.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-rectangle-ad" style="color:var(--primary)"></i> 5. Advertising</h2>
+            <p>The app contains ads served by Google AdMob. Ad content is provided by Google's advertising ecosystem and SoftTech Service has no control over individual ad content. By using the app you acknowledge the presence of ads.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-shield-halved" style="color:var(--primary)"></i> 6. Disclaimer of Warranties</h2>
+            <div class="callout">
+                <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, PRICE ACCURACY OR ERROR-FREE OPERATION.</p>
+            </div>
+            <p>SoftTech Service does not warrant that prices will always be up-to-date, accurate or complete. Internet connectivity, third-party price feed availability, and device factors may affect price freshness.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-ban" style="color:var(--primary)"></i> 7. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by applicable law, SoftTech Service and its developers shall not be liable for any direct, indirect, incidental, special, consequential or financial damages resulting from:</p>
+            <ul>
+                <li>Reliance on prices displayed in the app for actual bullion purchases or sales</li>
+                <li>Any investment or trading decisions made using app data</li>
+                <li>Interruption of price feeds or third-party service outages</li>
+                <li>Any actions taken based on price alerts or calculator estimates</li>
+            </ul>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-arrows-rotate" style="color:var(--primary)"></i> 8. Updates &amp; Availability</h2>
+            <p>We reserve the right to modify, update or discontinue features of the app at any time. We may push mandatory updates to ensure compliance, security or feature improvements. You may terminate these terms by uninstalling the app.</p>
+        </div>
+
+        <div class="pol-section">
+            <div class="contact-box">
+                <h3><i class="fas fa-envelope"></i> Terms Contact</h3>
+                <p>For questions about these Terms, contact SoftTech Service at <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a>.</p>
+            </div>
+        </div>
+    </div><!-- /terms -->
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: LICENSE & COPYRIGHT                                   -->
+    <!-- ============================================================ -->
+    <div id="license" class="tab-pane">
+        <div class="pol-section">
+            <h2><i class="fas fa-copyright" style="color:var(--primary)"></i> 1. Proprietary Software Notice</h2>
+            <div class="callout">
+                <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                <p style="margin-top:.65rem;">Bullion Live, including its source code, UI design, icons, artwork, calculator logic and app assets, is the proprietary property of SoftTech Service. Unauthorized reproduction, redistribution, decompilation or commercial use without prior written consent is strictly prohibited.</p>
+            </div>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-cubes" style="color:var(--primary)"></i> 2. Open Source &amp; Third-Party Attributions</h2>
+            <p>Bullion Live utilizes open-source components and Google Android Jetpack libraries under their respective permissible licenses:</p>
+            <table>
+                <thead>
+                    <tr><th>Component</th><th>Provider</th><th>License</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Android Jetpack (Room, DataStore, WorkManager)</strong></td><td>The Android Open Source Project (Google)</td><td>Apache License 2.0</td></tr>
+                    <tr><td><strong>Kotlin Coroutines &amp; Flow</strong></td><td>JetBrains s.r.o.</td><td>Apache License 2.0</td></tr>
+                    <tr><td><strong>Material Design 3 Components</strong></td><td>Google Inc.</td><td>Apache License 2.0</td></tr>
+                    <tr><td><strong>Google Mobile Ads SDK (AdMob)</strong></td><td>Google LLC</td><td>Proprietary / AdMob Terms of Service</td></tr>
+                    <tr><td><strong>OkHttp / Retrofit</strong></td><td>Square Inc.</td><td>Apache License 2.0</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-trademark" style="color:var(--primary)"></i> 3. Trademarks</h2>
+            <p>Android and Google Play are trademarks of Google LLC. Gold and silver exchange names, MCX, LBMA, and other market identifiers referenced for informational context belong to their respective trademark holders. The Bullion Live name and logo are trademarks of SoftTech Service.</p>
+        </div>
+
+        <div class="pol-section">
+            <h2><i class="fas fa-file-contract" style="color:var(--primary)"></i> 4. Warranty Disclaimer (Legal)</h2>
+            <div class="callout">
+                <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL SOFTTECH SERVICE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+            </div>
+        </div>
+
+        <div class="pol-section">
+            <div class="contact-box">
+                <h3><i class="fas fa-building"></i> Copyright Holder</h3>
+                <p><strong>SoftTech Service</strong> — Android Developer &amp; Software Studio</p>
+                <p>Email: <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                <p>Website: <a href="https://softtechservice.site" target="_blank" rel="noopener noreferrer">https://softtechservice.site</a></p>
+            </div>
+        </div>
+    </div><!-- /license -->
+
+    <div class="footer-note">
+        <p>&copy; 2026 SoftTech Service. All rights reserved. Bullion Live Android Application.</p>
+        <p style="margin-top:.35rem;font-size:.8rem;opacity:.7;">Prices are indicative only. Not financial advice.</p>
+    </div>
+
+</div><!-- /container -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const btns     = document.querySelectorAll('.tab-btn');
+    const panes    = document.querySelectorAll('.tab-pane');
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b  => b.classList.remove('active'));
+            panes.forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Handle direct URL hash
+    const hash = window.location.hash.substring(1);
+    if (['privacy', 'terms', 'license'].includes(hash)) {
+        document.querySelector(`[data-tab="${hash}"]`)?.click();
+    }
+});
+</script>
+</body>
+</html>
