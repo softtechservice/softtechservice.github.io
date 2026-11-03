@@ -73,6 +73,39 @@
   }
 
   /* ----------------------------------------------------------------------
+     Shortcuts dropdown menu
+     ---------------------------------------------------------------------- */
+  const scBtn      = $('#shortcutMenuBtn');
+  const scDropdown = $('#shortcutDropdown');
+
+  function setShortcuts(open) {
+    if (!scBtn || !scDropdown) return;
+    scDropdown.classList.toggle('is-open', open);
+    scBtn.setAttribute('aria-expanded', String(open));
+  }
+
+  if (scBtn && scDropdown) {
+    scBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setShortcuts(!scDropdown.classList.contains('is-open'));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!scDropdown.classList.contains('is-open')) return;
+      if (!e.target.closest('#shortcutMenuWrapper')) {
+        setShortcuts(false);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && scDropdown.classList.contains('is-open')) {
+        setShortcuts(false);
+        scBtn.focus();
+      }
+    });
+  }
+
+  /* ----------------------------------------------------------------------
      Scroll reveal
      ---------------------------------------------------------------------- */
   const revealables = $$('.reveal');

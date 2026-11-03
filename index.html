@@ -66,8 +66,8 @@
 <div class="topbar">
   <div class="container">
     <span class="dot" aria-hidden="true"></span>
-    <span>11 apps live on Google Play — built, shipped and maintained in-house.</span>
-    <a href="https://play.google.com/store/apps/dev?id=8966016201726803166" target="_blank" rel="noopener noreferrer">See them all</a>
+    <span>✨ <strong>New Release: LiteTube</strong> — Watch more. Carry less. Lightweight Android video streaming app.</span>
+    <a href="litetube/">Launch LiteTube &rarr;</a>
   </div>
 </div>
 
@@ -86,10 +86,107 @@
         <li><a href="#about">Why us</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#stack">Stack</a></li>
+        <li class="nav-shortcut-item">
+          <a href="litetube/" class="nav-shortcut-pill">
+            <span class="sc-dot"></span>LiteTube <span class="sc-pill-badge">NEW</span>
+          </a>
+        </li>
         <li class="mobile-cta"><a href="#contact" class="btn btn-primary">Start a project</a></li>
       </ul>
 
       <div class="nav-actions">
+        <!-- ══ Shortcuts Menu Dropdown ══ -->
+        <div class="shortcut-menu-wrapper" id="shortcutMenuWrapper">
+          <button class="nav-shortcut-btn" id="shortcutMenuBtn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Open App Shortcuts Menu">
+            <svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>
+            <span>Shortcuts</span>
+            <span class="shortcut-pulse" aria-hidden="true"></span>
+          </button>
+
+          <div class="shortcut-dropdown" id="shortcutDropdown" role="menu" aria-label="Quick App Shortcuts">
+            <div class="shortcut-dropdown-header">
+              <span class="sc-hdr-title"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Quick App Shortcuts</span>
+              <span class="sc-hdr-badge">29 Products</span>
+            </div>
+
+            <div class="shortcut-grid">
+              <!-- LiteTube (Featured New App) -->
+              <a href="litetube/" class="shortcut-card is-new" role="menuitem">
+                <img src="images/apps/litetube.png" alt="LiteTube" class="shortcut-icon" width="38" height="38">
+                <div class="shortcut-text">
+                  <div class="shortcut-title-row">
+                    <span class="shortcut-title">LiteTube</span>
+                    <span class="badge-new-micro">NEW</span>
+                  </div>
+                  <span class="shortcut-desc">Lightweight video streaming app</span>
+                </div>
+              </a>
+
+              <!-- Bullion Live -->
+              <a href="bullion/" class="shortcut-card" role="menuitem">
+                <img src="images/apps/bullion.png" alt="Bullion Live" class="shortcut-icon" width="38" height="38">
+                <div class="shortcut-text">
+                  <div class="shortcut-title-row">
+                    <span class="shortcut-title">Bullion Live</span>
+                  </div>
+                  <span class="shortcut-desc">Gold &amp; silver live rates &amp; alerts</span>
+                </div>
+              </a>
+
+              <!-- Mechanical Keyboard -->
+              <a href="MechanicalKeyboard/" class="shortcut-card" role="menuitem">
+                <img src="images/apps/mechanicalkeyboard.png" alt="Mechanical Keyboard" class="shortcut-icon" width="38" height="38">
+                <div class="shortcut-text">
+                  <div class="shortcut-title-row">
+                    <span class="shortcut-title">Mechanical Keyboard</span>
+                  </div>
+                  <span class="shortcut-desc">RGB themes &amp; tactile sounds</span>
+                </div>
+              </a>
+
+              <!-- UltraPlay 3D/VR -->
+              <a href="ultraplay/" class="shortcut-card" role="menuitem">
+                <img src="images/apps/ultraplay.webp" alt="UltraPlay" class="shortcut-icon" width="38" height="38">
+                <div class="shortcut-text">
+                  <div class="shortcut-title-row">
+                    <span class="shortcut-title">UltraPlay 3D/VR</span>
+                  </div>
+                  <span class="shortcut-desc">Immersive 3D &amp; VR video player</span>
+                </div>
+              </a>
+
+              <!-- SDM Download Manager -->
+              <a href="sdm/" class="shortcut-card" role="menuitem">
+                <img src="images/apps/sdm.webp" alt="SDM" class="shortcut-icon" width="38" height="38">
+                <div class="shortcut-text">
+                  <div class="shortcut-title-row">
+                    <span class="shortcut-title">SDM Downloader</span>
+                  </div>
+                  <span class="shortcut-desc">Multi-thread torrent &amp; HTTP engine</span>
+                </div>
+              </a>
+
+              <!-- PocketBill -->
+              <a href="pocketbill/" class="shortcut-card" role="menuitem">
+                <img src="images/apps/pocketbill.svg" alt="PocketBill" class="shortcut-icon" width="38" height="38">
+                <div class="shortcut-text">
+                  <div class="shortcut-title-row">
+                    <span class="shortcut-title">PocketBill</span>
+                  </div>
+                  <span class="shortcut-desc">Smart invoices, GST &amp; billing</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="shortcut-dropdown-footer">
+              <a href="#portfolio" class="shortcut-all-link">
+                <span>View all 29 apps in Portfolio</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <a href="#contact" class="btn btn-primary">Start a project</a>
         <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
           <span></span><span></span><span></span>
@@ -191,6 +288,44 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- ══ Quick Shortcuts Ribbon on Homepage ══ -->
+    <div class="quick-shortcuts-ribbon reveal" style="--d:300ms">
+      <div class="qs-label">
+        <svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>
+        <span>Quick Shortcuts:</span>
+      </div>
+      <div class="qs-items">
+        <a href="litetube/" class="qs-pill qs-pill--featured">
+          <img src="images/apps/litetube.png" alt="LiteTube" width="22" height="22">
+          <span>LiteTube</span>
+          <span class="qs-badge-new">NEW</span>
+        </a>
+        <a href="bullion/" class="qs-pill">
+          <img src="images/apps/bullion.png" alt="Bullion Live" width="22" height="22">
+          <span>Bullion Live</span>
+        </a>
+        <a href="MechanicalKeyboard/" class="qs-pill">
+          <img src="images/apps/mechanicalkeyboard.png" alt="Mechanical Keyboard" width="22" height="22">
+          <span>Mechanical Keyboard</span>
+        </a>
+        <a href="ultraplay/" class="qs-pill">
+          <img src="images/apps/ultraplay.webp" alt="UltraPlay" width="22" height="22">
+          <span>UltraPlay</span>
+        </a>
+        <a href="sdm/" class="qs-pill">
+          <img src="images/apps/sdm.webp" alt="SDM" width="22" height="22">
+          <span>SDM</span>
+        </a>
+        <a href="pocketbill/" class="qs-pill">
+          <img src="images/apps/pocketbill.svg" alt="PocketBill" width="22" height="22">
+          <span>PocketBill</span>
+        </a>
+        <a href="#portfolio" class="qs-pill qs-pill--more">
+          <span>All 29 Products &rarr;</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -303,7 +438,7 @@
   <div class="container">
     <header class="section-header reveal">
       <span class="eyebrow">Our products</span>
-      <h2 class="section-title">Twenty-four apps, all built here</h2>
+      <h2 class="section-title">Twenty-five apps, all built here</h2>
       <p class="section-sub">
         Every product below was designed, engineered and published by our own team — no outsourcing,
         no white-labelling. Open any one to read what it does and how it was built.
@@ -312,10 +447,10 @@
 
     <div class="portfolio-bar reveal">
       <div class="filters" role="group" aria-label="Filter products by category">
-        <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All products <span class="count">28</span></button>
+        <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All products <span class="count">29</span></button>
         <button class="filter-btn" type="button" data-filter="games" aria-pressed="false">Games <span class="count">13</span></button>
         <button class="filter-btn" type="button" data-filter="productivity" aria-pressed="false">Productivity <span class="count">6</span></button>
-        <button class="filter-btn" type="button" data-filter="tools" aria-pressed="false">Tools &amp; Media <span class="count">6</span></button>
+        <button class="filter-btn" type="button" data-filter="tools" aria-pressed="false">Tools &amp; Media <span class="count">7</span></button>
         <button class="filter-btn" type="button" data-filter="finance" aria-pressed="false">Finance &amp; Learning <span class="count">3</span></button>
       </div>
       <div class="app-search">
@@ -328,6 +463,23 @@
     <div class="app-grid" id="appGrid">
 
       <!-- Tools & Media -->
+      <article class="app-card reveal" data-cat="tools" data-name="LiteTube lightweight video player streaming shorts channels library continue watching floating mini-player audio Android">
+        <a class="app-link" href="litetube/">
+          <div class="app-top">
+            <img class="app-icon" src="images/apps/litetube.png" alt="LiteTube" loading="lazy" width="58" height="58">
+            <div class="app-title-wrap">
+              <span class="app-name">LiteTube <span class="tag" style="background:#FFE4E6;color:#E11D48;font-size:10.5px;padding:2px 6px;margin-left:4px;">NEW</span></span>
+              <span class="app-cat">Video Players &amp; Media</span>
+            </div>
+          </div>
+          <p class="app-desc">Lightweight video streaming app with personal discovery feed, floating mini-player, background audio, Shorts, and Continue Watching.</p>
+          <div class="app-foot">
+            <span class="app-tags"><span class="tag">Kotlin</span><span class="tag">Free</span><span class="tag">Featured</span></span>
+            <span class="app-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+      </article>
+
       <article class="app-card reveal" data-cat="tools" data-name="UltraPlay Video Player 3D VR media">
         <a class="app-link" href="ultraplay/">
           <div class="app-top">
@@ -1150,11 +1302,13 @@
       <div>
         <h4>Products</h4>
         <ul class="footer-links">
+          <li><a href="litetube/">LiteTube (New)</a></li>
           <li><a href="ultraplay/">UltraPlay 3D/VR</a></li>
+          <li><a href="bullion/">Bullion Live Rates</a></li>
+          <li><a href="MechanicalKeyboard/">Mechanical Keyboard</a></li>
           <li><a href="ipolive/">Live IPO: GMP Tracker</a></li>
           <li><a href="sdm/">SDM Download Manager</a></li>
-          <li><a href="superholeio/">SuperHole.io</a></li>
-          <li><a href="#portfolio">All 24 products</a></li>
+          <li><a href="#portfolio">All 29 products</a></li>
         </ul>
       </div>
 

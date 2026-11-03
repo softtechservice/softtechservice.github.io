@@ -1471,6 +1471,328 @@ ul, ol { list-style: none; padding: 0; }
 }
 
 /* --------------------------------------------------------------------------
+   19b. Shortcuts Menu Dropdown & Quick Access Ribbon
+   -------------------------------------------------------------------------- */
+.shortcut-menu-wrapper {
+  position: relative;
+}
+
+.nav-shortcut-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+  font-family: var(--font-head);
+  font-size: 13.5px;
+  font-weight: 650;
+  color: var(--ink-700);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+  position: relative;
+}
+.nav-shortcut-btn:hover, .nav-shortcut-btn[aria-expanded="true"] {
+  background: var(--brand-50);
+  border-color: var(--brand-200);
+  color: var(--brand-700);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+}
+.nav-shortcut-btn .ic {
+  color: var(--brand-600);
+  font-size: 14px;
+}
+
+.shortcut-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #E11D48;
+  box-shadow: 0 0 6px rgba(225, 29, 72, 0.7);
+  animation: scPulse 2s infinite ease-in-out;
+}
+@keyframes scPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+/* Dropdown */
+.shortcut-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: 0 16px 48px rgba(10, 22, 40, 0.16), 0 4px 12px rgba(10, 22, 40, 0.05);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), visibility var(--t-fast);
+  z-index: 1050;
+  overflow: hidden;
+}
+.shortcut-dropdown.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.shortcut-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.sc-hdr-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-head);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink-800);
+}
+.sc-hdr-title .ic { color: var(--brand-600); }
+.sc-hdr-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand-700);
+  background: var(--brand-100);
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+}
+
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 8px;
+  gap: 4px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.shortcut-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--r);
+  text-decoration: none;
+  transition: background-color var(--t-fast), transform var(--t-fast);
+}
+.shortcut-card:hover {
+  background: var(--bg-soft);
+  transform: translateX(2px);
+}
+.shortcut-card.is-new {
+  background: linear-gradient(90deg, rgba(255, 36, 66, 0.04) 0%, transparent 100%);
+  border: 1px solid rgba(255, 36, 66, 0.12);
+}
+.shortcut-card.is-new:hover {
+  background: linear-gradient(90deg, rgba(255, 36, 66, 0.09) 0%, rgba(255, 36, 66, 0.03) 100%);
+}
+
+.shortcut-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--line-soft);
+}
+
+.shortcut-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.shortcut-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.shortcut-title {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-900);
+  white-space: nowrap;
+}
+.badge-new-micro {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: #E11D48;
+  padding: 1px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
+
+.shortcut-desc {
+  font-size: 12px;
+  color: var(--ink-400);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shortcut-dropdown-footer {
+  padding: 10px 16px;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+}
+.shortcut-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--brand-600);
+  text-decoration: none;
+}
+.shortcut-all-link:hover {
+  color: var(--brand-700);
+  text-decoration: underline;
+}
+
+/* Nav Menu Shortcut Pill */
+.nav-shortcut-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px !important;
+  background: rgba(225, 29, 72, 0.08) !important;
+  border: 1px solid rgba(225, 29, 72, 0.2);
+  border-radius: var(--r-full);
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #E11D48 !important;
+  margin-left: 4px;
+  transition: all var(--t-fast) !important;
+}
+.nav-shortcut-pill:hover {
+  background: #E11D48 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+}
+.nav-shortcut-pill:hover .sc-pill-badge {
+  background: #FFFFFF;
+  color: #E11D48;
+}
+.sc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.sc-pill-badge {
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: #E11D48;
+  color: #FFFFFF;
+  font-weight: 800;
+}
+
+/* Quick Shortcuts Ribbon below Hero */
+.quick-shortcuts-ribbon {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 18px;
+  margin-top: 32px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+  box-shadow: var(--sh-sm);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.quick-shortcuts-ribbon::-webkit-scrollbar { display: none; }
+
+.qs-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--ink-800);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.qs-label .ic { color: var(--brand-600); }
+
+.qs-items {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.qs-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: var(--r-full);
+  background: var(--bg-soft);
+  border: 1px solid var(--line-soft);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-700);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--t-fast);
+}
+.qs-pill img {
+  border-radius: 5px;
+  object-fit: cover;
+}
+.qs-pill:hover {
+  background: var(--brand-50);
+  border-color: var(--brand-200);
+  color: var(--brand-700);
+  transform: translateY(-1px);
+}
+
+.qs-pill--featured {
+  background: #FFF1F2;
+  border-color: #FECDD3;
+  color: #BE123C;
+}
+.qs-pill--featured:hover {
+  background: #FFE4E6;
+  border-color: #FDA4AF;
+  color: #9F1239;
+}
+.qs-badge-new {
+  font-size: 9px;
+  font-weight: 800;
+  background: #E11D48;
+  color: #FFFFFF;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.qs-pill--more {
+  background: transparent;
+  border: 1px dashed var(--line);
+  color: var(--brand-600);
+}
+.qs-pill--more:hover {
+  background: var(--brand-50);
+  border-style: solid;
+}
+
+/* --------------------------------------------------------------------------
    20. Motion & print preferences
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
