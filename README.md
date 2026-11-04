@@ -47,6 +47,12 @@ accent colours. Product pages use gallery images from verified Google Play listi
 product artwork, or a labelled illustration. Entrance, scroll, and hover effects respect
 `prefers-reduced-motion: reduce`.
 
+## Search metadata
+
+When adding a landing page, include its canonical URL in `sitemap.xml`. Keep its title,
+description, share image, and structured data aligned with the visible product details.
+The sitemap is advertised in `robots.txt` and can be submitted to Search Console and Bing Webmaster Tools.
+
 ## Contact form
 
 The site is static, so there is **no server to post to**. The form validates input and then
