@@ -10,15 +10,16 @@ Google Play: **https://play.google.com/store/apps/dev?id=8966016201726803166**
 
 ```
 /
-├── index.html          # Company landing page (services, products, process, contact)
-├── styles.css          # Design system + all page styles
-├── script.js           # Nav, scroll reveal, counters, portfolio filter, contact form
+├── index.html          # Company landing page (catalogue, services, contact)
+├── styles.css          # Shared homepage and product styles
+├── script.js           # Catalogue filters, galleries, and contact form
+├── demos.js            # Interactive product previews
 ├── images/
 │   ├── logo.png        # Brand mark (also favicon / apple-touch-icon)
 │   ├── logo_trans.png  # Transparent mark, used in the footer
-│   ├── about-us.jpg    # Photo in the "Why us" section
 │   ├── hero-banner.jpg # Open Graph / Twitter card image
-│   └── apps/           # One icon per product (see below)
+│   ├── apps/           # One icon per product
+│   └── previews/       # Optimized product images from Google Play listings
 ├── app-ads.txt         # AdMob authorised sellers
 ├── sellers.json        # Publisher declaration
 ├── CNAME               # Custom domain
@@ -41,13 +42,10 @@ The SVGs are produced by a small script; both types render identically in the gr
 
 ## Design system
 
-Defined as CSS custom properties at the top of `styles.css`:
-
-- **Type** — Plus Jakarta Sans (headings) + Inter (body)
-- **Palette** — near-black ink on white/off-white, one restrained blue accent (`--brand-600`)
-- **Depth** — five shadow steps, hairline `--line` borders, 8–32 px radii
-- **Motion** — IntersectionObserver scroll reveals, count-up stats, card lift on hover.
-  Everything is disabled under `prefers-reduced-motion: reduce`.
+Defined in `styles.css`. Space Grotesk and Inter pair with an off-white canvas and per-product
+accent colours. Product pages use gallery images from verified Google Play listings, existing
+product artwork, or a labelled illustration. Entrance, scroll, and hover effects respect
+`prefers-reduced-motion: reduce`.
 
 ## Contact form
 
@@ -64,7 +62,7 @@ To deliver submissions straight to an inbox instead, point the `<form>` at a for
 python3 -m http.server 5173
 ```
 
-Then open <http://localhost:5173>. `styles.css` and `script.js` are referenced with a `?v=`
+Then open <http://localhost:5173>. Shared CSS and JavaScript are referenced with a `?v=`
 query string — bump it when you deploy so browsers pick up changes instead of a cached copy.
 
 ## Contact

@@ -1,687 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTO Exam - Driving Licence Test | SoftTech Service</title>
-    <meta name="description" content="A comprehensive Flutter app for Indian driving licence exam preparation. Includes mock tests, traffic signs, state codes, multilingual support, and progress tracking.">
-    <meta name="keywords" content="RTO Exam, Driving Licence, India, Mock Test, Traffic Signs, Learner Licence, Flutter app">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #2C5282; /* Adjusted to a deeper blue for professional learning app */
-            --primary-dark: #1A365D;
-            --accent: #3182CE;
-            --accent-light: #63B3ED;
-            --text-dark: #1A202C;
-            --text-gray: #4A5568;
-            --text-light: #718096;
-            --bg-light: #F7FAFC;
-            --bg-white: #FFFFFF;
-            --success: #38A169;
-            --warning: #DD6B20;
-            --shadow-sm: 0 2px 8px rgba(44, 82, 130, 0.08);
-            --shadow-md: 0 4px 16px rgba(44, 82, 130, 0.12);
-            --shadow-lg: 0 8px 32px rgba(44, 82, 130, 0.16);
-            --gradient-primary: linear-gradient(135deg, #2C5282 0%, #3182CE 100%);
-            --gradient-hero: linear-gradient(135deg, #1A365D 0%, #2C5282 50%, #152744 100%);
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
-            overflow-x: hidden;
-        }
-        
-        /* Header */
-        header {
-            background: var(--bg-white);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: var(--gradient-hero);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(49, 130, 206, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(99, 179, 237, 0.3) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-        
-        .hero-description {
-            font-size: 1.125rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.125rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background: var(--bg-white);
-            color: var(--primary);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(44, 82, 130, 0.3);
-        }
-        
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        /* Features Section */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 4rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .feature-card {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s;
-            border: 1px solid rgba(44, 82, 130, 0.1);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-        
-        .feature-card p {
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-        
-        .feature-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-        
-        .feature-list li {
-            padding: 0.5rem 0;
-            color: var(--text-gray);
-            display: flex;
-            align-items: start;
-            gap: 0.75rem;
-        }
-        
-        .feature-list li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-        
-        /* Highlight Section */
-        .highlight-section {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 24px;
-            margin: 4rem auto;
-            max-width: 1200px;
-            text-align: center;
-        }
-        
-        .highlight-section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
-        
-        .highlight-section p {
-            font-size: 1.25rem;
-            opacity: 0.95;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* Tech Stack */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        
-        .tech-item {
-            background: var(--bg-white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(44, 82, 130, 0.1);
-        }
-        
-        .tech-item h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-top: 0.5rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 4rem 2rem 2rem;
-            margin-top: 5rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            line-height: 1.8;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .footer-bottom p {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-gray);
-            cursor: pointer;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .section {
-                padding: 4rem 1.5rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav {
-                padding: 0 1rem;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: var(--bg-white);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow-md);
-                transform: translateX(-100%);
-                transition: transform 0.3s;
-                gap: 1rem;
-            }
-            
-            .nav-links.active {
-                transform: translateX(0);
-            }
-            
-            .nav-links li {
-                width: 100%;
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 0.75rem;
-                border-radius: 8px;
-            }
-            
-            .nav-links a:hover {
-                background: rgba(44, 82, 130, 0.1);
-            }
-            
-            .hero {
-                padding: 4rem 1.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.25rem;
-                line-height: 1.3;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-                padding: 0.875rem 2rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .tech-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .tech-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Badge */
-        .badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(56, 161, 105, 0.1);
-            color: var(--success);
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f0">
+  <title>RTO Exam Guide &amp; Practice | SoftTech Service</title>
+  <meta name="description" content="Study road signs and work through practice questions for India’s learner’s licence exam.">
+  <link rel="canonical" href="https://softtechservice.site/rtolearn/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RTO Exam Guide &amp; Practice | SoftTech Service">
+  <meta property="og:description" content="Study road signs and work through practice questions for India’s learner’s licence exam.">
+  <meta property="og:url" content="https://softtechservice.site/rtolearn/">
+  <meta property="og:image" content="https://softtechservice.site/images/previews/rtolearn-1.webp">
+  <link rel="icon" href="../images/apps/rtolearn.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;family=Space+Grotesk:wght@500..700&amp;display=swap">
+  <link rel="stylesheet" href="../styles.css?v=5">
+  <script src="../script.js?v=5" defer></script>
+
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">RTO Exam Prep</div>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#tech">Technology</a></li>
-                <li><a href="#support">Support</a></li>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="product" style="--tint: #ffd1a9">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="../"><img class="brand-mark" src="../images/brand-mark.webp" width="51" height="51" alt="" decoding="async"><span>SoftTech Service</span></a>
+    <div class="nav-links"><a class="nav-hide-small" href="#features">Overview</a><a href="privacy-policy.html">Privacy</a></div>
+    <a class="button button--line" href="../#portfolio">All apps<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
+  </nav>
+</header>
+<main id="main">
+  <section class="wrap product-hero" id="top" aria-labelledby="product-heading">
+    <div class="product-copy">
+      <div class="product-identity">
+        <img class="app-icon" src="../images/apps/rtolearn.svg" width="60" height="60" alt="" decoding="async">
+        <div><span class="eyebrow">Money &amp; learning</span><p class="product-title">RTO Exam Guide &amp; Practice</p></div>
+      </div>
+      <h1 id="product-heading">Practise before your driving test.</h1>
+      <p>Study road signs and work through practice questions for India’s learner’s licence exam.</p>
+      <div class="actions"><a class="button" href="https://play.google.com/store/apps/details?id=com.softechservice.rto.rtomocktest">View on Google Play<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a><a class="text-link" href="privacy-policy.html">Privacy policy<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></div>
+    </div>
+    <figure class="product-stage">
+      <div class="stage-top" aria-hidden="true"><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>App preview</span><span>Money &amp; learning</span></div>
+      <div class="stage-visual">
+        <div class="stage-ring" aria-hidden="true"></div>
+        <img class="stage-shot stage-shot--rear" src="../images/previews/rtolearn-2.webp" width="296" height="592" alt="" decoding="async">
+        <img class="stage-shot" src="../images/previews/rtolearn-1.webp" width="296" height="592" alt="RTO Exam Guide &amp; Practice product preview" fetchpriority="high" decoding="async">
+      </div>
+      <figcaption class="stage-bottom"><span>RTO Exam Guide &amp; Practice</span><span>Google Play imagery</span></figcaption>
+    </figure>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="badge">Professional Driving Licence Exam App</span>
-            <h1>RTO Exam — Driving Licence Test</h1>
-            <p class="subtitle">Mock Tests, Traffic Signs & Multilingual Prep</p>
-            <p class="hero-description">
-                A production-grade app for Indian driving licence exam preparation. Covers the complete LL (Learner's Licence) and DL written test syllabus with an offline-capable, clean user experience.
-            </p>
-            <div class="cta-buttons">
-                <a href="#features" class="btn btn-primary">
-                    <i class="fas fa-graduation-cap"></i> Explore Features
-                </a>
-                <a href="privacy-policy.html" class="btn btn-secondary">
-                    <i class="fas fa-shield-alt"></i> Privacy Policy
-                </a>
-            </div>
-        </div>
-    </section>
+  <section class="wrap section section--compact" id="features">
+    <div class="section-head">
+      <div><span class="eyebrow">At a glance</span><h2>What you can do</h2></div>
+    </div>
+    <ol class="features" data-reveal>
+      <li class="feature-card">
+        <span class="icon-well"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 9 9-9 9-9-9Zm0 5v4m0 4h.01"/></svg></span><span class="step" aria-hidden="true">01</span>
+        <h3>Study road signs</h3><p>Learn the meanings of common signs.</p>
+      </li>
+      <li class="feature-card">
+        <span class="icon-well"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6zm8 0v5h4M9 12h6m-6 4h6"/></svg></span><span class="step" aria-hidden="true">02</span>
+        <h3>Try a mock test</h3><p>Answer practice questions in a timed test.</p>
+      </li>
+      <li class="feature-card">
+        <span class="icon-well"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4v16h16M7 15l5-5 3 2 5-6"/></svg></span><span class="step" aria-hidden="true">03</span>
+        <h3>Review your progress</h3><p>See which topics need another pass.</p>
+      </li>
+    </ol>
+    <div class="notice"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 11v5m0-8h.01"/></svg><p>An independent study guide with no government affiliation. Check <a href="https://parivahan.gov.in/">Parivahan</a> for official licensing information.</p></div>
 
-    <!-- Key Features -->
-    <section class="section" id="features">
-        <h2 class="section-title">✨ Key Features</h2>
-        <p class="section-subtitle">Everything you need to confidently pass your RTO exam</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>Exam Simulator</h3>
-                <p>Mirrors the exact RTO test format to prepare you for the real deal.</p>
-                <ul class="feature-list">
-                    <li>20 random questions</li>
-                    <li>20-minute countdown timer</li>
-                    <li>Jump to any question with grid sheet</li>
-                    <li>60% passing threshold (12/20 to pass)</li>
-                    <li>Share your result score-card image</li>
-                </ul>
-            </div>
+  </section>
 
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-tasks"></i></div>
-                <h3>Practice Quiz</h3>
-                <p>Systematic practice of the complete question bank.</p>
-                <ul class="feature-list">
-                    <li>Instant right/wrong feedback</li>
-                    <li>Progress tracked per question</li>
-                    <li>Resumes where you left off</li>
-                    <li>All official question types</li>
-                </ul>
-            </div>
+  <section class="wrap showcase" id="screens" data-reveal>
+    <div>
+      <div class="section-head">
+      <div><span class="eyebrow">Screens</span><h2>A closer look</h2></div>
+    </div>
+      <p>Product previews from the Google Play listing.</p>
+    </div>
+    <div class="gallery" data-gallery>
+      <figure id="preview-1"><img class="" src="../images/previews/rtolearn-1.webp" width="296" height="592" alt="RTO Exam Guide &amp; Practice · View 1" loading="lazy" decoding="async"></figure>
+      <figure id="preview-2"><img class="" src="../images/previews/rtolearn-2.webp" width="296" height="592" alt="RTO Exam Guide &amp; Practice · View 2" loading="lazy" decoding="async"></figure>
+      <figure id="preview-3"><img class="" src="../images/previews/rtolearn-3.webp" width="296" height="592" alt="RTO Exam Guide &amp; Practice · View 3" loading="lazy" decoding="async"></figure>
+      <div class="gallery-controls" role="group" aria-label="Choose a preview" data-gallery-controls hidden><button type="button" aria-controls="preview-1" aria-pressed="true">View 1</button><button type="button" aria-controls="preview-2" aria-pressed="false">View 2</button><button type="button" aria-controls="preview-3" aria-pressed="false">View 3</button></div>
+    </div>
+  </section>
 
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-language"></i></div>
-                <h3>Multilingual Support</h3>
-                <p>Study efficiently in your preferred Indian language natively.</p>
-                <ul class="feature-list">
-                    <li>English</li>
-                    <li>Hindi (हिन्दी)</li>
-                    <li>Marathi (मराठी)</li>
-                    <li>Gujarati (ગુજરાતી)</li>
-                    <li>Tamil (தமிழ்)</li>
-                </ul>
-            </div>
+  <section class="wrap section section--compact" aria-label="More from SoftTech Service">
+    <div class="section-head">
+      <div><span class="eyebrow">More from SoftTech Service</span><h2>Keep exploring</h2></div><a class="text-link" href="../#portfolio">All apps &amp; games<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+    </div>
+    <div class="catalogue-grid">
+    <a class="catalogue-card" href="../bullion/" data-category="money" data-search="Follow indicative bullion rates, set price alerts, and estimate values by weight. Gold and silver at a glance. Check rates View indicative gold and silver prices. Set a price alert Choose a target rate to follow. Estimate a value Calculate an indicative value by weight and purity.">
+        <img class="app-icon" src="../images/apps/bullion.png" width="54" height="54" alt="" loading="lazy" decoding="async">
+        <span class="product-name">Bullion Live<small>Money &amp; learning</small></span>
+        <span class="launch"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span>
+      </a>
+    <a class="catalogue-card" href="../ipolive/" data-category="money" data-search="Browse upcoming listings and check subscription and grey market premium figures. Follow the IPO calendar. See what’s coming Browse IPO dates and issue details. Follow updates Check subscription and indicative GMP figures. Run a calculation Use the built-in financial calculators.">
+        <img class="app-icon" src="../images/apps/ipolive.webp" width="54" height="54" alt="" loading="lazy" decoding="async">
+        <span class="product-name">Live IPO: GMP Tracker<small>Money &amp; learning</small></span>
+        <span class="launch"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span>
+      </a>
+    </div>
+  </section>
 
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-traffic-light"></i></div>
-                <h3>Traffic Signs Library</h3>
-                <p>Visual learning tool for all official Indian traffic signs.</p>
-                <ul class="feature-list">
-                    <li>160 official traffic sign images</li>
-                    <li>Search by sign name</li>
-                    <li>Filter by mandatory/cautionary/informatory</li>
-                    <li>Fast visual grid presentation</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
-                <h3>State Codes & Fees</h3>
-                <p>Crucial RTO information updated and easily accessible.</p>
-                <ul class="feature-list">
-                    <li>Codes for 35 States & UTs (Search & Copy)</li>
-                    <li>Complete organized fee table structure</li>
-                    <li>Fees for Licence, Registration & Permit</li>
-                    <li>Highlight of important surcharge notes</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
-                <h3>RTO Documents & Forms</h3>
-                <p>A complete reference guide, allowing downloads of official CMVR forms.</p>
-                <ul class="feature-list">
-                    <li>DL document requirement checklists</li>
-                    <li>Download 22 official PDF forms</li>
-                    <li>Applicable across India (CMVR 1989)</li>
-                    <li>Open seamlessly in device viewer</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Architecture Highlight -->
-    <section class="highlight-section">
-        <h2>📊 Track Your Progress</h2>
-        <p>
-            Stay motivated with a beautiful Progress Dashboard. Monitor practiced vs. total questions, overall accuracy percentage, daily streaks, and review your recent mock test history directly on your home screen.
-        </p>
-    </section>
-
-    <!-- Technology Stack -->
-    <section class="section" id="tech">
-        <h2 class="section-title">🛠️ Technology Stack</h2>
-        <p class="section-subtitle">A modern, robust, and offline-first mobile architecture</p>
-        
-        <div class="tech-grid">
-            <div class="tech-item">
-                <i class="fab fa-google" style="font-size: 3rem; color: var(--accent);"></i>
-                <h4>Flutter & Dart</h4>
-                <p style="color: var(--text-light); font-size: 0.9rem;">Cross-platform UI Toolkit</p>
-            </div>
-            <div class="tech-item">
-                <i class="fas fa-cubes" style="font-size: 3rem; color: var(--primary);"></i>
-                <h4>flutter_bloc</h4>
-                <p style="color: var(--text-light); font-size: 0.9rem;">State Management</p>
-            </div>
-            <div class="tech-item">
-                <i class="fas fa-database" style="font-size: 3rem; color: var(--success);"></i>
-                <h4>Local Storage</h4>
-                <p style="color: var(--text-light); font-size: 0.9rem;">Shared Preferences</p>
-            </div>
-            <div class="tech-item">
-                <i class="fas fa-palette" style="font-size: 3rem; color: var(--warning);"></i>
-                <h4>Material 3</h4>
-                <p style="color: var(--text-light); font-size: 0.9rem;">Dynamic Theming</p>
-            </div>
-            <div class="tech-item">
-                <i class="fas fa-sync" style="font-size: 3rem; color: var(--accent-light);"></i>
-                <h4>In-App Updates</h4>
-                <p style="color: var(--text-light); font-size: 0.9rem;">Powered by Upgrader</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="support">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>RTO Exam — Driving Licence Test</h3>
-                <p>The ultimate preparation companion for securing your Indian learner's and driving licence efficiently.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#features">Features</a>
-                <a href="#tech">Technology Stack</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="privacy-policy.html#terms">Terms & Conditions</a>
-            </div>
-            <div class="footer-section">
-                <h3>Support</h3>
-                <p><strong>Developer:</strong> SoftTech Service</p>
-                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>App Details</h3>
-                <p><strong>Status:</strong> Active Validation</p>
-                <p><strong>Target:</strong> Android & iOS Users (India)</p>
-                <p><strong>Category:</strong> Education / Reference</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SoftTech Service. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                This app references official CMVR guidelines. Official interpretations by the RTO supersede the information provided herein.
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-    </script>
+  <section class="wrap product-end" aria-labelledby="support-title">
+    <div><span class="eyebrow">SoftTech Service</span><h2 id="support-title">Need a hand?</h2></div>
+    <div class="actions"><a class="button" href="mailto:contact@softtechservice.site">Email support<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a><a class="button button--line" href="privacy-policy.html">Privacy policy<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></div>
+  </section>
+</main>
+<footer class="site-footer" id="support">
+  <div class="wrap foot-row">
+    <p>© 2026 SoftTech Service</p>
+    <nav class="foot-links" aria-label="Footer"><a class="text-link" href="privacy-policy.html">Privacy policy</a><a class="text-link" href="privacy-policy.html#terms">Terms</a><a class="text-link" href="../#portfolio">Browse all apps</a></nav>
+  </div>
+</footer>
 </body>
 </html>

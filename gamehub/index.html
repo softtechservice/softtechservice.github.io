@@ -1,470 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub - Ultimate Offline Game Console | 35+ Games in One App</title>
-    <meta name="description" content="Play 35+ classic offline games! Arcade, card, puzzle & board games in one premium cyberpunk console. No internet, no data required.">
-    <meta name="keywords" content="offline games, arcade games, card games, puzzle games, board games, Flutter games, cyberpunk console, GameHub">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-deep: #060A14;
-            --bg-card: #0D1425;
-            --accent-cyan: #00F2FF;
-            --accent-purple: #BC00FF;
-            --accent-neon: #39FF14;
-            --text-main: #E2E8F0;
-            --text-muted: #94A3B8;
-            --glow-cyan: 0 0 10px rgba(0, 242, 255, 0.5);
-            --glow-purple: 0 0 10px rgba(188, 0, 255, 0.5);
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f0">
+  <title>GameHub: Offline Games | SoftTech Service</title>
+  <meta name="description" content="Pick a puzzle or arcade game from one offline collection.">
+  <link rel="canonical" href="https://softtechservice.site/gamehub/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GameHub: Offline Games | SoftTech Service">
+  <meta property="og:description" content="Pick a puzzle or arcade game from one offline collection.">
+  <meta property="og:url" content="https://softtechservice.site/gamehub/">
+  <meta property="og:image" content="https://softtechservice.site/images/previews/gamehub-1.webp">
+  <link rel="icon" href="../images/apps/gamehub.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;family=Space+Grotesk:wght@500..700&amp;display=swap">
+  <link rel="stylesheet" href="../styles.css?v=5">
+  <script src="../script.js?v=5" defer></script>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, .logo {
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Scanline Effect */
-        body::before {
-            content: " ";
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 9999;
-            background-size: 100% 4px, 3px 100%;
-            pointer-events: none;
-        }
-
-        /* Navigation */
-        header {
-            background: rgba(13, 20, 37, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--accent-cyan);
-            text-shadow: var(--glow-cyan);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-cyan);
-            text-shadow: var(--glow-cyan);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0;
-            text-align: center;
-            position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(188, 0, 255, 0.1) 0%, transparent 70%);
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 242, 255, 0.1);
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #00F2FF, #BC00FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3));
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 800px;
-            margin: 0 auto 3rem;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .btn-primary {
-            background: var(--accent-cyan);
-            color: var(--bg-deep);
-            box-shadow: var(--glow-cyan);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.8);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid var(--accent-purple);
-            color: var(--accent-purple);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(188, 0, 255, 0.1);
-            box-shadow: var(--glow-purple);
-        }
-
-        /* Features Section */
-        .section {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 242, 255, 0.1);
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 0;
-            background: var(--accent-cyan);
-            transition: 0.5s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 242, 255, 0.4);
-        }
-
-        .feature-card:hover::before {
-            height: 100%;
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--accent-cyan);
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: var(--accent-cyan);
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-        }
-
-        /* Games Grid */
-        .games-section {
-            background: rgba(13, 20, 37, 0.3);
-            padding: 6rem 0;
-        }
-
-        .category-title {
-            color: var(--accent-purple);
-            margin: 3rem 0 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .category-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to right, var(--accent-purple), transparent);
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .game-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.25rem;
-            border-radius: 4px;
-            border-left: 3px solid var(--accent-cyan);
-            font-weight: 500;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .game-item i {
-            font-size: 1.2rem;
-            color: var(--accent-cyan);
-        }
-
-        .game-item:hover {
-            background: rgba(0, 242, 255, 0.1);
-            transform: translateX(5px);
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 0;
-            border-top: 1px solid rgba(0, 242, 255, 0.1);
-            text-align: center;
-            color: var(--text-muted);
-        }
-
-        .footer-logo {
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-cyan);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .cta-group { flex-direction: column; }
-        }
-    </style>
 </head>
-<body>
+<body class="product" style="--tint: #cbdf9f">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="../"><img class="brand-mark" src="../images/brand-mark.webp" width="51" height="51" alt="" decoding="async"><span>SoftTech Service</span></a>
+    <div class="nav-links"><a class="nav-hide-small" href="#features">Overview</a><a href="privacy-policy.html">Privacy</a></div>
+    <a class="button button--line" href="../#portfolio">All apps<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
+  </nav>
+</header>
+<main id="main">
+  <section class="wrap product-hero" id="top" aria-labelledby="product-heading">
+    <div class="product-copy">
+      <div class="product-identity">
+        <img class="app-icon" src="../images/apps/gamehub.svg" width="60" height="60" alt="" decoding="async">
+        <div><span class="eyebrow">Games</span><p class="product-title">GameHub: Offline Games</p></div>
+      </div>
+      <h1 id="product-heading">A pocket full of games.</h1>
+      <p>Pick a puzzle or arcade game from one offline collection.</p>
+      <div class="actions"><a class="button" href="https://play.google.com/store/apps/details?id=com.softtech.gamehuboffline">View on Google Play<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a><a class="text-link" href="privacy-policy.html">Privacy policy<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></div>
+    </div>
+    <figure class="product-stage">
+      <div class="stage-top" aria-hidden="true"><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>Game preview</span><span>Games</span></div>
+      <div class="stage-visual">
+        <div class="stage-ring" aria-hidden="true"></div>
+        <img class="stage-shot stage-shot--rear" src="../images/previews/gamehub-2.webp" width="281" height="592" alt="" decoding="async">
+        <img class="stage-shot" src="../images/previews/gamehub-1.webp" width="281" height="592" alt="GameHub: Offline Games product preview" fetchpriority="high" decoding="async">
+      </div>
+      <figcaption class="stage-bottom"><span>GameHub: Offline Games</span><span>Google Play imagery</span></figcaption>
+    </figure>
+  </section>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">GAMEHUB</a>
-                <ul class="nav-links">
-                    <li><a href="#features">Console Specs</a></li>
-                    <li><a href="#games">Mission Log</a></li>
-                    <li><a href="privacy-policy.html">Security Protocol</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <section class="wrap section section--compact" id="features">
+    <div class="section-head">
+      <div><span class="eyebrow">At a glance</span><h2>How to play</h2></div>
+    </div>
+    <ol class="features" data-reveal>
+      <li class="feature-card">
+        <span class="icon-well"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg></span><span class="step" aria-hidden="true">01</span>
+        <h3>Pick a game</h3><p>Browse puzzles and arcade games in one place.</p>
+      </li>
+      <li class="feature-card">
+        <span class="icon-well"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4.5 20 12 7 19.5Z"/></svg></span><span class="step" aria-hidden="true">02</span>
+        <h3>Start a quick round</h3><p>Jump into the game you feel like playing.</p>
+      </li>
+      <li class="feature-card">
+        <span class="icon-well"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M11 17h2"/></svg></span><span class="step" aria-hidden="true">03</span>
+        <h3>Play offline</h3><p>Open the collection without an internet connection.</p>
+      </li>
+    </ol>
 
-    <section class="hero">
-        <div class="container">
-            <span class="badge">Offline-First Cyberpunk Console</span>
-            <h1>GAMEHUB: OFFLINE</h1>
-            <p>Access a premium collection of 35+ legendary arcade, puzzle, card, and strategy games. One app, infinite missions, zero data usage.</p>
-            <div class="cta-group">
-                <a href="#games" class="btn btn-primary"><i class="fas fa-play"></i> Launch Mission</a>
-                <a href="privacy-policy.html" class="btn btn-secondary"><i class="fas fa-shield-alt"></i> Security Protocol</a>
-            </div>
-        </div>
-    </section>
 
-    <section class="section" id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Console Specs</h2>
-                <p>Engineered for high-performance offline entertainment.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-wifi-slash"></i></div>
-                    <h3>100% Offline-First</h3>
-                    <p>Zero data usage. Every game is fully bundled locally and playable without internet access or Wi-Fi.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Hybrid Engine</h3>
-                    <p>Powered by Flutter and the Flame game engine for high-framerate, responsive gameplay and stunning visuals.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-battery-full"></i></div>
-                    <h3>Battery Optimized</h3>
-                    <p>Minimal battery consumption and lightweight install. Carry an entire arcade in your pocket without the bulk.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  </section>
 
-    <section class="games-section" id="games">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Mission Registry</h2>
-                <p>38 high-quality games across 4 distinct categories.</p>
-            </div>
+  <section class="wrap showcase" id="screens" data-reveal>
+    <div>
+      <div class="section-head">
+      <div><span class="eyebrow">Screens</span><h2>A closer look</h2></div>
+    </div>
+      <p>Product previews from the Google Play listing.</p>
+    </div>
+    <div class="gallery" data-gallery>
+      <figure id="preview-1"><img class="" src="../images/previews/gamehub-1.webp" width="281" height="592" alt="GameHub: Offline Games · View 1" loading="lazy" decoding="async"></figure>
+      <figure id="preview-2"><img class="" src="../images/previews/gamehub-2.webp" width="281" height="592" alt="GameHub: Offline Games · View 2" loading="lazy" decoding="async"></figure>
+      <figure id="preview-3"><img class="" src="../images/previews/gamehub-3.webp" width="281" height="592" alt="GameHub: Offline Games · View 3" loading="lazy" decoding="async"></figure>
+      <div class="gallery-controls" role="group" aria-label="Choose a preview" data-gallery-controls hidden><button type="button" aria-controls="preview-1" aria-pressed="true">View 1</button><button type="button" aria-controls="preview-2" aria-pressed="false">View 2</button><button type="button" aria-controls="preview-3" aria-pressed="false">View 3</button></div>
+    </div>
+  </section>
 
-            <h3 class="category-title">🕹️ Arcade Classics</h3>
-            <div class="games-grid">
-                <div class="game-item"><i class="fas fa-snake"></i> Snake</div>
-                <div class="game-item"><i class="fas fa-cubes"></i> Brick Breaker</div>
-                <div class="game-item"><i class="fas fa-dove"></i> Flappy Bird</div>
-                <div class="game-item"><i class="fas fa-rocket"></i> Space Shooter</div>
-                <div class="game-item"><i class="fas fa-running"></i> Endless Runner</div>
-                <div class="game-item"><i class="fas fa-table-tennis-paddle-ball"></i> Ping Pong</div>
-                <div class="game-item"><i class="fas fa-circle-dot"></i> Bubble Pop</div>
-                <div class="game-item"><i class="fas fa-balloon"></i> Balloon Pop</div>
-                <div class="game-item"><i class="fas fa-apple-whole"></i> Fruit Slice</div>
-                <div class="game-item"><i class="fas fa-car"></i> Car Racing</div>
-                <div class="game-item"><i class="fas fa-road"></i> Cross Road</div>
-            </div>
+  <section class="wrap section section--compact" aria-label="More from SoftTech Service">
+    <div class="section-head">
+      <div><span class="eyebrow">More from SoftTech Service</span><h2>Keep exploring</h2></div><a class="text-link" href="../#portfolio">All apps &amp; games<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+    </div>
+    <div class="catalogue-grid">
+    <a class="catalogue-card" href="../superholeio/" data-category="games" data-search="Steer a growing black hole through 3D arenas and gobble up whatever fits. Start small. Swallow the city. Swallow small objects Start with whatever fits inside your hole. Grow as you go Unlock larger objects as the hole expands. Clear the arena Work through timed campaign stages.">
+        <img class="app-icon" src="../images/apps/superholeio.webp" width="54" height="54" alt="" loading="lazy" decoding="async">
+        <span class="product-name">SuperHole.io: Black Hole 3D<small>Games</small></span>
+        <span class="launch"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span>
+      </a>
+    <a class="catalogue-card" href="../snakeio/" data-category="games" data-search="Collect food, grow your worm, and steer around rivals in a neon arena. Get longer. Stay alive. Collect food Follow the trail to grow longer. Use a power-up Pick up boosts during a run. Try another arena Switch between the available game modes.">
+        <img class="app-icon" src="../images/apps/snakeio.webp" width="54" height="54" alt="" loading="lazy" decoding="async">
+        <span class="product-name">Worm Snake.io: Arena Battle<small>Games</small></span>
+        <span class="launch"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span>
+      </a>
+    <a class="catalogue-card" href="../zumaio/" data-category="games" data-search="Aim coloured marbles into a moving chain and make matches before it reaches the end. Stop the marble chain. Aim a shot Line up a marble with the moving chain. Make a match Group three or more marbles of the same colour. Clear the path Stop the chain before it reaches the end.">
+        <img class="app-icon" src="../images/apps/zumaio.webp" width="54" height="54" alt="" loading="lazy" decoding="async">
+        <span class="product-name">Zuma.io Marble Shooter<small>Games</small></span>
+        <span class="launch"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span>
+      </a>
+    </div>
+  </section>
 
-            <h3 class="category-title">🧩 Brain Teasers & Puzzles</h3>
-            <div class="games-grid">
-                <div class="game-item"><i class="fas fa-hashtag"></i> 2048</div>
-                <div class="game-item"><i class="fas fa-th"></i> Sudoku</div>
-                <div class="game-item"><i class="fas fa-clone"></i> Memory Match</div>
-                <div class="game-item"><i class="fas fa-calculator"></i> Math Blaster</div>
-                <div class="game-item"><i class="fas fa-palette"></i> Color Tap</div>
-                <div class="game-item"><i class="fas fa-project-diagram"></i> Color Connect</div>
-                <div class="game-item"><i class="fas fa-font"></i> Word Guess</div>
-                <div class="game-item"><i class="fas fa-lightbulb"></i> Simon</div>
-                <div class="game-item"><i class="fas fa-draw-polygon"></i> Maze</div>
-                <div class="game-item"><i class="fas fa-eye"></i> Spot the Color</div>
-                <div class="game-item"><i class="fas fa-brush"></i> Color Match</div>
-                <div class="game-item"><i class="fas fa-bomb"></i> Avoid the Bomb</div>
-            </div>
-
-            <h3 class="category-title">🃏 Classic Card Games</h3>
-            <div class="games-grid">
-                <div class="game-item"><i class="fas fa-money-bill-wave"></i> Blackjack</div>
-                <div class="game-item"><i class="fas fa-crown"></i> Poker</div>
-                <div class="game-item"><i class="fas fa-om"></i> Teen Patti</div>
-                <div class="game-item"><i class="fas fa-arrows-alt-h"></i> Andar Bahar</div>
-                <div class="game-item"><i class="fas fa-fish"></i> Go Fish</div>
-                <div class="game-item"><i class="fas fa-bolt"></i> Snap</div>
-                <div class="game-item"><i class="fas fa-swords"></i> War</div>
-                <div class="game-item"><i class="fas fa-chart-line"></i> Higher or Lower</div>
-            </div>
-
-            <h3 class="category-title">🎲 Tabletop & Strategy</h3>
-            <div class="games-grid">
-                <div class="game-item"><i class="fas fa-chess-knight"></i> Chess</div>
-                <div class="game-item"><i class="fas fa-dice"></i> Ludo</div>
-                <div class="game-item"><i class="fas fa-times"></i> Tic Tac Toe</div>
-                <div class="game-item"><i class="fas fa-circle"></i> Connect 4</div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <a href="#" class="logo footer-logo">GAMEHUB</a>
-            <ul class="footer-links">
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="privacy-policy.html">Terms of Service</a></li>
-                <li><a href="../index.html">SoftTech Service</a></li>
-            </ul>
-            <p>&copy; 2024 SoftTech Service. All rights reserved. GameHub and all bundled games are registered trademarks.</p>
-        </div>
-    </footer>
-
+  <section class="wrap product-end" aria-labelledby="support-title">
+    <div><span class="eyebrow">SoftTech Service</span><h2 id="support-title">Need a hand?</h2></div>
+    <div class="actions"><a class="button" href="mailto:contact@softtechservice.site">Email support<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a><a class="button button--line" href="privacy-policy.html">Privacy policy<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></div>
+  </section>
+</main>
+<footer class="site-footer" id="support">
+  <div class="wrap foot-row">
+    <p>© 2026 SoftTech Service</p>
+    <nav class="foot-links" aria-label="Footer"><a class="text-link" href="privacy-policy.html">Privacy policy</a><a class="text-link" href="../#portfolio">Browse all apps</a></nav>
+  </div>
+</footer>
 </body>
 </html>
