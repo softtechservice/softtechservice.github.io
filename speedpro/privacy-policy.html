@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy &amp; Terms - SpeedoMeter Pro | SoftTech Service</title>
     <meta name="description" content="Privacy Policy, Terms of Service, Permissions Disclosure, and Driving Safety Disclaimer for SpeedoMeter Pro Android app by SoftTech Service.">
+    <link rel="canonical" href="https://softtechservice.site/speedpro/privacy-policy.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -158,6 +159,7 @@
         
         .tab-button {
             flex: 1;
+            text-decoration: none;
             min-width: 170px;
             padding: 1.25rem 1.5rem;
             background: transparent;
@@ -189,12 +191,14 @@
         
         /* Tab Content */
         .tab-content {
-            display: none;
+            display: block;
             padding: 3rem;
-            animation: fadeIn 0.25s ease-in;
+            scroll-margin-top: 5.5rem;
         }
         
-        .tab-content.active {
+        .tabs-ready .tab-content { display: none; }
+
+        .tabs-ready .tab-content.active {
             display: block;
         }
         
@@ -388,313 +392,140 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header-section">
-            <div class="back-links">
-                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to SpeedoMeter Pro</a>
-                <a href="disclaimer.html" class="back-link"><i class="fas fa-triangle-exclamation"></i> Driving Disclaimer</a>
-                <a href="../index.html" class="back-link"><i class="fas fa-house"></i> Main Website</a>
-            </div>
-            <h1>SpeedoMeter Pro</h1>
-            <p class="subtitle">Privacy Policy, Permissions &amp; Terms of Service</p>
-            <p class="meta-info">
-                <strong>Effective Date:</strong> August 15, 2026 &nbsp;|&nbsp; 
-                <strong>Package:</strong> <code>com.softtechservice.speedometerpro</code> &nbsp;|&nbsp; 
-                <strong>Developer:</strong> SoftTech Service
-            </p>
-        </div>
-        
-        <!-- Tabs Navigation -->
-        <div class="tabs-container">
-            <ul class="tabs">
-                <li>
-                    <button class="tab-button active" data-tab="privacy"><i class="fas fa-lock"></i> Privacy Policy</button>
-                </li>
-                <li>
-                    <button class="tab-button" data-tab="permissions"><i class="fas fa-list-check"></i> Permissions Disclosure</button>
-                </li>
-                <li>
-                    <button class="tab-button" data-tab="terms"><i class="fas fa-file-contract"></i> Terms of Service</button>
-                </li>
-                <li>
-                    <button class="tab-button" data-tab="safety"><i class="fas fa-shield-halved"></i> Data Safety</button>
-                </li>
-            </ul>
-        </div>
-        
-        <!-- ==========================================
-             TAB 1: PRIVACY POLICY
-             ========================================== -->
-        <div id="privacy" class="tab-content active">
-            <div class="section">
-                <p>SpeedoMeter Pro ("we", "our", "us", or "the app"), developed by SoftTech Service, is committed to safeguarding user privacy. This Privacy Policy explains how information is handled when you use our Android application.</p>
-                <div class="highlight highlight-success">
-                    <p><strong>Local-First &amp; Zero Cloud Tracking Principle:</strong> SpeedoMeter Pro operates exclusively on your device. Your GPS routes, speedometer logs, vehicle service books, dash cam videos, travel allowance logs, and emergency contacts are stored locally on your device's internal storage and are never uploaded to any remote server without your explicit manual action.</p>
-                </div>
-            </div>
+<div class="container">
+<div class="header-section">
+<div class="back-links"><a href="index.html" class="back-link">Back to SpeedoMeter Pro</a><a href="disclaimer.html" class="back-link">Driving disclaimer</a><a href="../index.html" class="back-link">Main website</a></div>
+<h1>SpeedoMeter Pro</h1><p class="subtitle">Privacy, permissions, subscriptions and account deletion</p>
+<p class="meta-info"><strong>Updated:</strong> 6 November 2026 &nbsp;|&nbsp; <strong>Package:</strong> <code>com.softtechservice.speedometerpro</code> &nbsp;|&nbsp; <strong>Developer:</strong> SOFTTECH SERVICE</p>
+</div>
+<nav class="tabs-container" aria-label="Policy sections"><ul class="tabs">
+<li><a class="tab-button" href="#privacy" data-tab="privacy">Privacy Policy</a></li>
+<li><a class="tab-button" href="#permissions" data-tab="permissions">Permissions</a></li>
+<li><a class="tab-button" href="#terms" data-tab="terms">Terms of Service</a></li>
+<li><a class="tab-button" href="#refund" data-tab="refund">Refunds & Cancellation</a></li>
+<li><a class="tab-button" href="#delete-account" data-tab="delete-account">Delete Account</a></li>
+<li><a class="tab-button" href="#safety" data-tab="safety">Data Summary</a></li>
+</ul></nav>
+<div id="privacy" class="tab-content">
 
-            <div class="section">
-                <h2>1. Information We Process</h2>
-                
-                <h3>1.1 GPS Location &amp; Sensor Telemetry</h3>
-                <p>The app accesses your phone's GPS sensor and accelerometer to:</p>
-                <ul>
-                    <li>Calculate real-time speed, maximum speed, and average speed</li>
-                    <li>Display altitude, compass heading, and G-force metrics</li>
-                    <li>Record route coordinates for trip history and exportable files (GPX, KML, CSV)</li>
-                    <li>Detect high G-force spikes for accident impact triggers</li>
-                </ul>
-                <p><strong>Processing Mode:</strong> All GPS and telemetry computation occurs entirely on-device in real-time. We maintain no remote tracking servers.</p>
+<div class="section">
+<h2>Privacy Policy</h2>
+<p>SpeedoMeter Pro (<code>com.softtechservice.speedometerpro</code>) is provided by SOFTTECH SERVICE. This policy explains how the app uses your information and the choices available to you.</p>
+<div class="highlight highlight-success"><p><strong>Local first, with online features:</strong> Driving records are stored on your phone. Account services, Pro cloud backup, family or employee circles, purchase verification, ads and optional crash reporting use online services. Joining a circle or using cloud sync can send data automatically while those features are enabled; uploads do not require a manual export each time.</p></div>
+</div>
+<div class="section">
+<h3>1. Driving records and device permissions</h3>
+<p>GPS coordinates, speed, altitude, bearing, timestamps and motion sensors support the speedometer, route recording, driving events, accident/fall detection and alerts. Trips, vehicles, fuel and service records are kept in a local encrypted database. Settings and configured emergency contacts are also stored locally.</p>
+<p><strong>Background location:</strong> When enabled, automatic trips, geofences and circle sharing can process location even when the app is closed or not in use. A foreground-service notification is shown during trip recording. Ending a trip does not disable separately enabled circle sharing, automatic trip detection or geofences. Pause or disable each feature, or revoke its location permission, to stop that use.</p>
+<p>Activity recognition detects vehicle entry/exit for automatic trips. Optional Bluetooth access connects an OBD-II adapter. Notifications provide tracking status, driving alerts and circle events. The floating dashboard requires permission to display over other apps.</p>
+<h3>2. Dashcam, exports and emergency messages</h3>
+<p>The dashcam uses the camera and, if permitted and enabled, microphone. Recordings are saved on your phone and are not automatically uploaded by cloud sync; video files are separate from the encrypted database. Rolling recording can replace older unprotected clips. You control exports and sharing with other apps or people, and those recipients may retain copies.</p>
+<p>If you configure emergency contacts and enable SOS, the app can send your location and an emergency message through your carrier SMS service when you trigger SOS or an enabled detection countdown completes. Your carrier and the recipients process these messages; carrier charges may apply. These features are not a substitute for emergency services.</p>
+<h3>3. Accounts and Pro cloud backup</h3>
+<p>Firebase Authentication processes your email address and sign-in credentials. Your app account ID, email, account profile and activity timestamps are stored with Google Firebase to provide account services. Local onboarding profile fields are separate from a display name you choose to share in a circle.</p>
+<p>When signed in with Pro access, cloud sync can automatically upload vehicles, trips, route coordinates/tracking points, geofences and fuel records to your account in Firebase Firestore. This supports backup and restoration on another device. Signing out or losing Pro pauses sync; it does not automatically delete existing cloud backups.</p>
+<h3>4. Optional family and employee circles</h3>
+<p>Creating or joining a circle shares information with its members: your display name, latest location, accuracy, speed, heading, battery level, driving state, trip summaries (distance, duration, speeds and driving-event counts, without the full route), and arrival, departure or speeding events. Circle places and geofence coordinates are also stored in Firebase. Cloud Messaging uses a device push token linked to your account to deliver circle alerts.</p>
+<p>Use circles only with informed consent. You can pause sharing per circle or leave. Pausing stops new updates; a previously shared position or event can remain visible. Leaving removes your member position and trip summaries through server cleanup. Recent event entries can remain until scheduled deletion. A circle owner can manage membership; do not share an invite code with unintended people.</p>
+<h3>5. Subscriptions and purchase verification</h3>
+<p>Google Play handles checkout and payments. SOFTTECH SERVICE does not receive your full card or bank details. Our Firebase backend stores purchase tokens, product IDs, subscription state, expiry and verification timestamps linked to your app account to verify purchases, restore access, prevent token reuse and process renewal/refund notifications. A hashed app account identifier is supplied to Google Play to bind purchases. Circle members may see whether the owner's plan is active, without their payment details.</p>
+<h3>6. Ads, diagnostics and service providers</h3>
+<p>The free version displays Google AdMob ads. Google may process IP addresses, device or advertising identifiers, ad interactions and diagnostic information under its policies and applicable consent choices. Consent and privacy-options controls are provided where required and available. Pro removes in-app ads.</p>
+<p>Firebase Analytics collection is disabled in the updated app. Crash reporting is off by default. If you enable it in Settings, Firebase Crashlytics receives crash traces, app/OS/device details and diagnostic identifiers to investigate failures. Reports are not guaranteed to be anonymous. Turning it off stops future uploads and deletes unsent reports on your device; reports already delivered are subject to Google's retention practices.</p>
+<p>Google Play services provides location, activity recognition, billing and app-integrity services. Online maps request tiles from OpenStreetMap; tile requests disclose the requested map area and network information such as your IP address. Weather requests send coordinates to Open-Meteo. These providers may process network/service logs to deliver and protect their services. We do not sell your personal data. Information is disclosed to providers to run these features, to circle members or recipients you choose, or where legally required.</p>
+<ul>
+<li><a href="https://policies.google.com/privacy">Google privacy policy</a> and <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a></li>
+<li><a href="https://policies.google.com/technologies/ads">Google advertising information</a></li>
+<li><a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation privacy policy</a></li>
+<li><a href="https://open-meteo.com/en/terms">Open-Meteo terms and privacy information</a></li>
+</ul>
+<h3>7. Retention, deletion and security</h3>
+<p>Local records remain until you delete them, apply an automatic deletion setting, clear app storage or uninstall. Files exported outside the app and data already synced to the cloud are separate copies. Clearing the app cache does not delete your account or all saved records.</p>
+<p>Cloud backup and purchase-verification records are retained to provide the account services until account deletion. Circle event history is scheduled for cleanup after 30 days; cleanup runs periodically, so removal need not occur at the exact cutoff. Leaving a circle removes your membership, location and member trip summaries; deleting an owned circle starts cleanup of its shared records.</p>
+<p><a href="#delete-account">Account deletion</a> removes your Firebase sign-in account, cloud backup, subscription verification records and stored push tokens, and triggers removal of your membership/location and circles you own. Some cleanup is asynchronous. Google retains its own Play orders and service records under its policies and legal requirements. Cancelling a subscription does not itself erase records, and deleting an account does not cancel billing.</p>
+<p>The app uses encrypted local database storage, HTTPS for online services and account access rules for cloud records. Exported files and dashcam video are separate from the encrypted database. Google services may process information outside your country. No storage or transmission method can guarantee absolute security.</p>
+<h3>8. Your choices and children</h3>
+<p>You can change permissions in Android Settings, disable automatic trips or geofences, pause/leave circles, turn crash reporting off, export/delete supported records and request account deletion. Denying a permission can make its associated feature unavailable. This app is not directed at children under 13; a parent or guardian should manage any circle involving a young person. Contact us about a child's information or any request for access, correction or deletion.</p>
+<p>We may update this policy as features change. The date above identifies this version.</p>
+</div>
+<div class="contact-box"><h3>Privacy questions and support</h3><p><strong>Developer:</strong> SOFTTECH SERVICE</p><p><strong>Email:</strong> <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a></p><p><strong>Website:</strong> <a href="https://softtechservice.site">softtechservice.site</a></p></div>
+</div>
+<div id="permissions" class="tab-content">
 
-                <h3>1.2 Video &amp; Audio Data (Dash Cam)</h3>
-                <p>If you choose to use the Dash Cam feature, video and audio streams from your camera and microphone are saved locally into your device's private app cache or designated storage folder. The app performs automatic rolling file recycling to conserve storage. No video or audio is ever streamed, transmitted, or uploaded to our servers.</p>
+<div class="section"><h2>Permissions disclosure</h2><p>Permissions are requested for the features you use. You can change granted permissions in Android Settings.</p>
+<table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Precise / approximate location</td><td>Speed, routes, maps, nearby weather and location alerts. Precise location improves driving records.</td></tr>
+<tr><td>Background location</td><td>Enabled automatic trips, geofences and circle sharing when the app is closed or not in use. Circle sharing can continue independently of a recorded trip.</td></tr>
+<tr><td>Foreground location / camera service</td><td>Trip recording or dashcam operation with a service notification.</td></tr>
+<tr><td>Camera and optional microphone</td><td>Dashcam video and optional audio recording on your phone.</td></tr>
+<tr><td>SMS</td><td>Enabled SOS alerts with your location to emergency contacts you configure.</td></tr>
+<tr><td>Physical activity</td><td>Vehicle detection for automatic trip start/stop.</td></tr>
+<tr><td>Bluetooth connect / scan</td><td>Optional OBD-II adapter discovery and telemetry.</td></tr>
+<tr><td>Notifications</td><td>Tracking status, speed/fatigue alerts and circle events.</td></tr>
+<tr><td>Display over other apps</td><td>Optional floating speedometer dashboard.</td></tr>
+<tr><td>Internet and network state</td><td>Accounts, backup, circles, purchase verification, maps, weather and ads.</td></tr>
+</tbody></table></div>
+<div class="section"><h2>Background-location choices</h2><div class="highlight highlight-warning"><p>SpeedoMeter Pro uses background location for enabled automatic trips, location alerts/geofences and circle location sharing, even when the app is closed or not in use. Circle members can see updates shared with their circle. Disable these features separately or revoke background location in Android Settings to stop background use. Stopping a recorded trip alone does not turn them all off.</p></div></div>
+</div>
+<div id="terms" class="tab-content">
 
-                <h3>1.3 Emergency Contacts &amp; SMS SOS</h3>
-                <p>When configured by the user, emergency contact phone numbers are stored locally on your device. In the event of a triggered SOS or accident countdown completion, the app uses your carrier SMS service to transmit an emergency notification containing your current GPS coordinates to your designated contacts.</p>
+<div class="section"><h2>Terms of Service</h2><p>These terms apply to SpeedoMeter Pro by SOFTTECH SERVICE. By using the app you agree to use it lawfully and responsibly.</p>
+<h3>1. Safety and permitted use</h3><p>Set up the app before driving, mount the phone safely and obey local laws. GPS and sensor readings are estimates and may be inaccurate or unavailable. Do not rely on the app as a certified instrument or emergency service. You remain responsible for driving, speed limits and lawful recording. Read the <a href="disclaimer.html">driving and GPS disclaimer</a>.</p>
+<h3>2. Accounts and circles</h3><p>Protect your sign-in details and circle invite codes. Only share or monitor locations with the person's informed consent. Employers must meet applicable workplace-monitoring requirements. Do not access another person's data without authorization, interfere with the service or use it unlawfully.</p>
+<h3>3. Pro plans and payment</h3><p>Pro is offered as monthly and yearly auto-renewing subscriptions. Current India prices are <strong>₹99 per month</strong> and <strong>₹999 per year</strong>. No lifetime plan is offered for sale and no free trial is currently offered. Google Play displays the final currency, price, taxes and billing terms before you confirm payment. Other regions or future offers, if available, use the terms shown at checkout.</p>
+<p>Google Play processes payments and renews the subscription automatically until cancelled. Pro includes paid reports, travel allowance, earnings, deep timeline, dashcam export, cloud backup/sync and ad removal; feature availability is shown in the app. An eligible circle owner's active plan can provide inherited access to members. Members lose that inherited access when it is no longer eligible.</p>
+<h3>4. Cancellation, restoration and expiry</h3><p>Use Manage subscription in the app or <a href="https://play.google.com/store/account/subscriptions">Google Play subscriptions</a> to cancel renewal. Access normally remains until the paid period ends, unless refunded or revoked. Uninstalling or deleting your account does not cancel a subscription. Restore purchases uses the original app account and Google Play account. Pending or unverified payments do not grant Pro.</p>
+<p>When Pro ends, paid features and cloud sync stop. Local records are not automatically deleted. Refund requests follow the <a href="#refund">refund and cancellation instructions</a>.</p>
+<h3>5. Availability and consumer rights</h3><p>The app and third-party services are provided as available. Features, connectivity, accuracy and alerts are not guaranteed. To the extent permitted by applicable law, SOFTTECH SERVICE is not responsible for losses caused by relying on inaccurate readings, missed alerts or misuse of the app. These terms do not exclude consumer rights or liabilities that cannot legally be excluded. Changes to subscriptions and pricing follow Google Play's applicable notification and consent processes.</p>
+<p>Questions: <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a>.</p></div>
+</div>
+<div id="refund" class="tab-content">
 
-                <h3>1.4 Vehicle Maintenance &amp; Expense Data</h3>
-                <p>Vehicle service records, odometer readings, fuel receipts, daily allowance rates, and reimbursement expense logs are stored exclusively in an on-device local SQLite/Room database.</p>
-            </div>
+<div class="section"><h2>Refunds and cancellation</h2><h3>Stop future renewals</h3><ol><li>Open the Play Store using the Google account that purchased Pro.</li><li>Choose Profile → Payments &amp; subscriptions → Subscriptions → SpeedoMeter Pro.</li><li>Choose Cancel subscription and follow Google's confirmation steps.</li></ol><p>You can also open <a href="https://play.google.com/store/account/subscriptions">Google Play subscriptions</a> or tap Manage subscription in the app. Cancelling normally keeps Pro until the paid period ends. <strong>Uninstalling the app or deleting your app account does not cancel billing.</strong></p>
+<h3>Request a refund</h3><p>Use <a href="https://play.google.com/store/account/orderhistory">Google Play order history</a> to locate the order and report a problem/request a refund where available, or follow <a href="https://support.google.com/googleplay/answer/2479637">Google Play's refund instructions</a>. Eligibility and processing depend on Google's policy, the purchase and applicable consumer law; refunds are not automatic.</p><p>For purchase support, email <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a> with the Google Play order number (beginning <code>GPA.</code>) and a description of the issue. Do not send card details, bank credentials or passwords. Refunds, where approved, are handled through Google Play. This policy does not limit statutory consumer rights.</p><h3>After expiry or entitlement removal</h3><p>Paid features and sync stop when the verified entitlement expires or is revoked. Your local data remains. A refund and cancellation are separate actions; check the subscription's status in Google Play.</p></div>
+</div>
+<div id="delete-account" class="tab-content">
 
-            <div class="section">
-                <h2>2. Third-Party Services &amp; Advertising</h2>
-                <p>SpeedoMeter Pro does not sell, rent, or monetize your personal data or location coordinates.</p>
-                <ul>
-                    <li><strong>No Tracking SDKs:</strong> We do not integrate user fingerprinting, behavioural tracking, or advertising data brokers.</li>
-                    <li><strong>Crash Diagnostics:</strong> Crash reporting telemetry is disabled by default. If enabled for troubleshooting, only anonymous, non-identifying stack traces are processed.</li>
-                    <li><strong>Google Play Services:</strong> Core location APIs are provided by Google Play Services under Google's standard privacy guidelines.</li>
-                </ul>
-            </div>
+<div class="section"><h2>Delete your account and data</h2><p>This applies to SpeedoMeter Pro (<code>com.softtechservice.speedometerpro</code>) by SOFTTECH SERVICE.</p><div class="highlight highlight-warning"><p><strong>Cancel Pro in Google Play first if you want renewals to stop.</strong> Account deletion does not cancel your Play subscription or automatically refund a payment. See <a href="#refund">cancellation instructions</a>.</p></div>
+<h3>From the app</h3><ol><li>Open SpeedoMeter Pro and sign in to the account you want to delete.</li><li>Open the Account screen and choose Delete Account.</li><li>Review the confirmation and confirm permanent deletion.</li></ol>
+<h3>Without the app</h3><p>Email <a href="mailto:contect@softtechservice.site?subject=Delete%20my%20SpeedoMeter%20Pro%20account">contect@softtechservice.site</a> from the address used for your app account with the subject <strong>Delete my SpeedoMeter Pro account</strong>. State that you want the account and its associated cloud data deleted. We may need to verify ownership before processing. Do not send your password or payment details. You can also use this address to request deletion of particular cloud data without deleting the account.</p>
+<h3>What is removed</h3><ul><li>The Firebase sign-in account and account profile.</li><li>Your synced vehicles, trips, route points, geofences and fuel logs.</li><li>Our subscription verification records, account-linked purchase-token records and stored push tokens.</li><li>Your circle membership and member location/trip summaries, and circles you own, through server cleanup.</li></ul><p>Some server cleanup runs asynchronously. Recent circle events can remain until scheduled cleanup after 30 days. Google service logs/backups follow Google's retention practices; deletion does not remove screenshots, exports or copies already kept by other recipients.</p>
+<h3>What needs separate action</h3><p>Local phone data, dashcam videos and exported files require separate deletion in the app, Android app-storage controls or the location where you exported them. Uninstalling or clearing app storage removes app-private local data, not prior exports or cloud accounts. Google Play retains its own order records and subscriptions under its policies. <a href="https://play.google.com/store/account/subscriptions">Manage or cancel your Play subscription</a> separately.</p></div>
+</div>
+<div id="safety" class="tab-content">
 
-            <div class="section">
-                <h2>3. Data Retention &amp; User Control</h2>
-                <p>You maintain full control over all data stored in SpeedoMeter Pro:</p>
-                <ul>
-                    <li>You can clear individual trips, routes, vehicle logs, or dash cam video recordings at any time from within the app.</li>
-                    <li>Uninstalling the application or clearing App Storage via Android Settings immediately purges all locally stored data, databases, and configuration settings.</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>4. Children's Privacy</h2>
-                <p>SpeedoMeter Pro is a vehicular utility intended for licensed drivers, cyclists, and adults. We do not knowingly collect or solicit personal data from children under 13 years of age.</p>
-            </div>
-
-            <div class="contact-box">
-                <h3>Privacy Questions &amp; Support</h3>
-                <p>For any questions or inquiries regarding our Privacy Policy and data handling practices:</p>
-                <p><strong>Developer:</strong> SoftTech Service</p>
-                <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
-                <p><strong>Application:</strong> SpeedoMeter Pro: GPS Speed (<code>com.softtechservice.speedometerpro</code>)</p>
-            </div>
-        </div>
-
-        <!-- ==========================================
-             TAB 2: PERMISSIONS DISCLOSURE
-             ========================================== -->
-        <div id="permissions" class="tab-content">
-            <div class="section">
-                <h2>Google Play Permissions Transparency</h2>
-                <p>To deliver essential driving dashboard, trip logging, and emergency safety features, SpeedoMeter Pro requests specific Android permissions. Each permission is strictly bounded to its designated utility:</p>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Permission</th>
-                            <th>Requirement</th>
-                            <th>Purpose &amp; Exact Usage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>ACCESS_FINE_LOCATION</code><br><code>ACCESS_COARSE_LOCATION</code></td>
-                            <td>Required for Core Speedometer</td>
-                            <td>Reads hardware GPS coordinates to compute live driving speed, distance traveled, compass bearing, and route coordinates.</td>
-                        </tr>
-                        <tr>
-                            <td><code>ACCESS_BACKGROUND_LOCATION</code></td>
-                            <td>Required for Trip Tracking</td>
-                            <td>Enables continuous trip recording and travel allowance logging while the phone screen is locked or while another app (e.g., Maps navigation) is in the foreground.</td>
-                        </tr>
-                        <tr>
-                            <td><code>FOREGROUND_SERVICE_LOCATION</code></td>
-                            <td>Required for Service Reliability</td>
-                            <td>Runs a visible sticky notification in the Android status bar ensuring the operating system does not kill GPS tracking during active journeys.</td>
-                        </tr>
-                        <tr>
-                            <td><code>CAMERA</code></td>
-                            <td>Optional (Dash Cam)</td>
-                            <td>Used exclusively to record the road ahead when the Dash Cam feature is activated by the user.</td>
-                        </tr>
-                        <tr>
-                            <td><code>RECORD_AUDIO</code></td>
-                            <td>Optional (Dash Cam)</td>
-                            <td>Used exclusively for optional audio recording within Dash Cam video clips. Can be toggled off at any time.</td>
-                        </tr>
-                        <tr>
-                            <td><code>SEND_SMS</code></td>
-                            <td>Optional (Emergency SOS)</td>
-                            <td>Used exclusively to dispatch emergency distress alerts containing your live GPS coordinates to your pre-selected contacts upon accident detection.</td>
-                        </tr>
-                        <tr>
-                            <td><code>ACTIVITY_RECOGNITION</code></td>
-                            <td>Optional (Auto Start/Stop)</td>
-                            <td>Detects vehicle driving motion to automatically start and pause trip logs without requiring manual button presses.</td>
-                        </tr>
-                        <tr>
-                            <td><code>BLUETOOTH_CONNECT</code><br><code>BLUETOOTH_SCAN</code></td>
-                            <td>Optional (OBD-II)</td>
-                            <td>Pairs with standard ELM327 Bluetooth OBD-II automotive scanners to read engine RPM, coolant temperatures, and fuel telemetry.</td>
-                        </tr>
-                        <tr>
-                            <td><code>POST_NOTIFICATIONS</code></td>
-                            <td>Required (Android 13+)</td>
-                            <td>Displays active speedometer status, speed limit warning alerts, and fatigue rest reminders.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>Background Location Policy Compliance</h2>
-                <div class="highlight highlight-warning">
-                    <p><strong>Prominent Disclosure on Background Location:</strong></p>
-                    <p>SpeedoMeter Pro collects location data to enable live speed tracking, distance calculation, and route recording even when the app is closed or not in use, provided an active trip recording session is underway. Background location tracking is visibly announced via a persistent status bar notification and stops immediately when you end your trip.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==========================================
-             TAB 3: TERMS OF SERVICE
-             ========================================== -->
-        <div id="terms" class="tab-content">
-            <div class="section">
-                <h2>Terms and Conditions</h2>
-                <p>By downloading, installing, or using SpeedoMeter Pro, you agree to be bound by these Terms and Conditions. If you do not agree, please discontinue using the application.</p>
-            </div>
-
-            <div class="section">
-                <h3>1. License &amp; Permitted Use</h3>
-                <p>SoftTech Service grants you a revocable, non-exclusive, non-transferable, limited license to download, install, and use SpeedoMeter Pro strictly for personal, non-commercial vehicular utility or authorized commercial field allowance tracking in accordance with these Terms.</p>
-            </div>
-
-            <div class="section">
-                <h3>2. Driving Safety &amp; User Responsibility</h3>
-                <ul>
-                    <li>You acknowledge that safe operation of your vehicle is entirely your sole legal responsibility.</li>
-                    <li>You agree never to interact with, calibrate, or adjust app settings while actively operating a motor vehicle, bicycle, or other moving craft.</li>
-                    <li>You agree to mount your phone in a legally compliant, secure vehicle dock or holder that does not obstruct your driving field of view or airbag deployment zones.</li>
-                    <li>SoftTech Service expressly disclaims liability for any traffic citations, speeding fines, collisions, property damage, personal injuries, or fatalities arising from the use or misuse of the application.</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h3>3. Intellectual Property</h3>
-                <p>All source code, UI designs, graphics, branding, algorithms, and documentation associated with SpeedoMeter Pro are the proprietary intellectual property of SoftTech Service and are protected by applicable copyright and trademark laws.</p>
-            </div>
-
-            <div class="section">
-                <h3>4. "As Is" and Warranty Disclaimer</h3>
-                <div class="highlight">
-                    <p>SPEEDOMETER PRO IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. SOFTTECH SERVICE DOES NOT WARRANT THAT SATELLITE GPS READINGS WILL BE 100% UNINTERRUPTED, ACCURATE, OR ERROR-FREE UNDER ALL ENVIRONMENTAL OR ATMOSPHERIC CONDITIONS.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==========================================
-             TAB 4: DATA SAFETY
-             ========================================== -->
-        <div id="safety" class="tab-content">
-            <div class="section">
-                <h2>Google Play Data Safety Summary</h2>
-                <p>SpeedoMeter Pro adheres strictly to Google Play's Data Safety guidelines:</p>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data Safety Question</th>
-                            <th>Declaration</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Data Collected</strong></td>
-                            <td>None transmitted to servers</td>
-                            <td>All GPS coordinates, videos, contacts, and vehicle logs remain strictly local on device.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Data Shared with Third Parties</strong></td>
-                            <td>No</td>
-                            <td>No user data is ever sold, transferred, or shared with third-party brokers or advertisers.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Security Practices</strong></td>
-                            <td>On-device isolation</td>
-                            <td>Data resides in Android protected sandboxed storage.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Data Deletion Mechanism</strong></td>
-                            <td>User-initiated</td>
-                            <td>Users can delete history or clear app cache/data to remove 100% of stored records.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>Compliance with Google Play Policies</h2>
-                <p>SpeedoMeter Pro is developed in strict accordance with Google Play developer policies:</p>
-                <ul>
-                    <li><strong>Deceptive Behavior Policy:</strong> Clear representation of satellite GPS functionality; no deceptive claims of hardware radar detection or police detector capabilities.</li>
-                    <li><strong>Safety &amp; Distraction:</strong> Includes driving safety disclaimers, voice announcements, HUD reflection mode, and large high-contrast fonts to minimize driver distraction.</li>
-                    <li><strong>Permissions Policy:</strong> Minimal and contextual permission requests with clear runtime explanations.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Script for Tab Switching -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            function switchTab(tabId) {
-                tabButtons.forEach(btn => {
-                    if (btn.getAttribute('data-tab') === tabId) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                });
-
-                tabContents.forEach(content => {
-                    if (content.id === tabId) {
-                        content.classList.add('active');
-                    } else {
-                        content.classList.remove('active');
-                    }
-                });
-            }
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const tabId = button.getAttribute('data-tab');
-                    switchTab(tabId);
-                    window.location.hash = tabId;
-                });
-            });
-
-            // Handle deep link hash
-            if (window.location.hash) {
-                const hash = window.location.hash.substring(1);
-                if (['privacy', 'permissions', 'terms', 'safety'].includes(hash)) {
-                    switchTab(hash);
-                }
-            }
+<div class="section"><h2>Data handling summary</h2><p>This summarizes the current app behavior. Collection depends on the features you enable. Google Play's Data safety form must be kept in step with the released app and its service providers.</p><table><thead><tr><th>Data</th><th>Processing and purpose</th></tr></thead><tbody>
+<tr><td>Location and driving activity</td><td>Processed locally for speed and trips; routes and records may sync to your account with Pro. Enabled circles share latest location and summaries with members.</td></tr>
+<tr><td>Account information</td><td>Email, account ID and account profile are processed by Firebase for sign-in and account services.</td></tr>
+<tr><td>Purchase records</td><td>Purchase tokens, product/entitlement state and timestamps support Google Play verification and restoration. We do not receive full payment-card details.</td></tr>
+<tr><td>Device identifiers and diagnostics</td><td>Push tokens deliver circle alerts; AdMob may process identifiers and interactions for ads. Optional Crashlytics reports contain diagnostics. Firebase Analytics collection is disabled in the updated build.</td></tr>
+<tr><td>Camera, audio and emergency contacts</td><td>Dashcam files and configured contacts stay local unless you share them. Enabled SOS sends location and an emergency message by carrier SMS.</td></tr>
+<tr><td>Deletion</td><td>Delete local records separately from cloud data. Use the Account screen or <a href="#delete-account">email deletion request</a> for account/cloud deletion. Cancelling Pro does not delete data.</td></tr>
+</tbody></table></div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const links = Array.from(document.querySelectorAll('[data-tab]'));
+    const panels = Array.from(document.querySelectorAll('.tab-content'));
+    function showSection() {
+        const requested = window.location.hash.slice(1);
+        const selected = panels.some(panel => panel.id === requested) ? requested : 'privacy';
+        links.forEach(link => {
+            const active = link.dataset.tab === selected;
+            link.classList.toggle('active', active);
+            if (active) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
         });
-    </script>
+        panels.forEach(panel => panel.classList.toggle('active', panel.id === selected));
+        if (requested === selected) {
+            requestAnimationFrame(() => document.getElementById(selected).scrollIntoView({ block: 'start' }));
+        }
+    }
+    showSection();
+    document.body.classList.add('tabs-ready');
+    window.addEventListener('hashchange', showSection);
+});
+</script>
 </body>
 </html>
