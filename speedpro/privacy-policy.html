@@ -1,435 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy &amp; Terms - SpeedoMeter Pro | SoftTech Service</title>
-    <meta name="description" content="Privacy Policy, Terms of Service, Permissions Disclosure, and Driving Safety Disclaimer for SpeedoMeter Pro Android app by SoftTech Service.">
-    <link rel="canonical" href="https://softtechservice.site/speedpro/privacy-policy.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #0EA5E9;
-            --primary-dark: #0284C7;
-            --primary-light: #38BDF8;
-            --accent-cyan: #06B6D4;
-            --accent-amber: #F59E0B;
-            --accent-red: #EF4444;
-            --accent-green: #10B981;
-            --text-dark: #0F172A;
-            --text-gray: #475569;
-            --text-light: #64748B;
-            --bg-light: #F8FAFC;
-            --bg-white: #FFFFFF;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.65;
-            color: var(--text-dark);
-            background: var(--bg-light);
-            padding: 1.5rem 1rem;
-        }
-        
-        .container {
-            max-width: 1060px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 24px rgba(11, 19, 43, 0.08);
-            overflow: hidden;
-            border: 1px solid #E2E8F0;
-        }
-        
-        .header-section {
-            padding: 2.5rem 3rem 2rem;
-            background: linear-gradient(135deg, #060B1A 0%, #0B132B 60%, #0369A1 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.25) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        
-        .back-links {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
-        }
-        
-        .back-link:hover {
-            background: rgba(255, 255, 255, 0.25);
-            color: white;
-            transform: translateY(-1px);
-        }
-        
-        .header-section h1 {
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header-section .subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.15rem;
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header-section .meta-info {
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 0.92rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header-section .meta-info code {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            color: #38BDF8;
-        }
-        
-        /* Tabs Navigation */
-        .tabs-container {
-            background: var(--bg-white);
-            border-bottom: 2px solid #E2E8F0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .tabs {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-        
-        .tabs::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .tab-button {
-            flex: 1;
-            text-decoration: none;
-            min-width: 170px;
-            padding: 1.25rem 1.5rem;
-            background: transparent;
-            border: none;
-            border-bottom: 3px solid transparent;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-gray);
-            transition: all 0.25s ease;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        
-        .tab-button:hover {
-            color: var(--primary-dark);
-            background: rgba(14, 165, 233, 0.05);
-        }
-        
-        .tab-button.active {
-            color: var(--primary-dark);
-            border-bottom-color: var(--primary);
-            background: rgba(14, 165, 233, 0.08);
-        }
-        
-        /* Tab Content */
-        .tab-content {
-            display: block;
-            padding: 3rem;
-            scroll-margin-top: 5.5rem;
-        }
-        
-        .tabs-ready .tab-content { display: none; }
-
-        .tabs-ready .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .section {
-            margin-bottom: 2.75rem;
-        }
-        
-        .section:last-child {
-            margin-bottom: 0;
-        }
-        
-        h2 {
-            color: var(--text-dark);
-            font-size: 1.75rem;
-            margin-bottom: 1.25rem;
-            margin-top: 2rem;
-            font-weight: 700;
-            border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 0.5rem;
-            letter-spacing: -0.3px;
-        }
-        
-        h2:first-of-type {
-            margin-top: 0;
-        }
-        
-        h3 {
-            color: #1E293B;
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            margin-top: 1.75rem;
-            font-weight: 600;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-            color: #475569;
-            font-size: 1rem;
-            line-height: 1.75;
-        }
-        
-        ul, ol {
-            margin-bottom: 1.25rem;
-            padding-left: 1.75rem;
-            color: #475569;
-        }
-        
-        li {
-            margin-bottom: 0.6rem;
-            line-height: 1.7;
-        }
-        
-        .highlight {
-            background: #F0F9FF;
-            padding: 1.5rem;
-            border-left: 4px solid var(--primary);
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-top: 1px solid #E0F2FE;
-            border-right: 1px solid #E0F2FE;
-            border-bottom: 1px solid #E0F2FE;
-        }
-        
-        .highlight-success {
-            background: #ECFDF5;
-            border-left-color: var(--accent-green);
-            border-color: #D1FAE5;
-        }
-
-        .highlight-warning {
-            background: #FFFBEB;
-            border-left-color: var(--accent-amber);
-            border-color: #FEF3C7;
-        }
-        
-        .highlight p {
-            margin-bottom: 0.4rem;
-            color: #1E293B;
-            font-weight: 500;
-        }
-        
-        .highlight p:last-child {
-            margin-bottom: 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #E2E8F0;
-        }
-        
-        thead {
-            background: #0B132B;
-            color: white;
-        }
-        
-        th {
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #E2E8F0;
-            color: #475569;
-            font-size: 0.95rem;
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        tbody tr:hover {
-            background: #F8FAFC;
-        }
-        
-        .contact-box {
-            background: linear-gradient(135deg, #0B132B 0%, #0369A1 100%);
-            color: white;
-            padding: 2.25rem;
-            border-radius: 14px;
-            margin-top: 2.5rem;
-        }
-        
-        .contact-box h3 {
-            color: white;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            font-size: 1.35rem;
-        }
-        
-        .contact-box p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-box a {
-            color: #38BDF8;
-            text-decoration: underline;
-            font-weight: 600;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                padding: 0.5rem;
-            }
-            .header-section {
-                padding: 1.75rem 1.25rem;
-            }
-            .header-section h1 {
-                font-size: 1.85rem;
-            }
-            .tab-button {
-                min-width: 140px;
-                padding: 1rem 0.75rem;
-                font-size: 0.88rem;
-            }
-            .tab-content {
-                padding: 2rem 1.25rem;
-            }
-            h2 {
-                font-size: 1.45rem;
-            }
-            h3 {
-                font-size: 1.15rem;
-            }
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f7f0">
+<title>Privacy policy | SpeedoMeter Pro</title>
+<meta name="description" content="How SpeedoMeter Pro handles local records, location, cloud backup, circles, purchases, ads and your privacy choices.">
+<link rel="canonical" href="https://softtechservice.site/speedpro/privacy-policy.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy policy | SpeedoMeter Pro">
+<meta property="og:description" content="How SpeedoMeter Pro handles local records, location, cloud backup, circles, purchases, ads and your privacy choices.">
+<meta property="og:url" content="https://softtechservice.site/speedpro/privacy-policy.html">
+<link rel="icon" href="../images/apps/speedpro.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;family=Space+Grotesk:wght@500..700&amp;display=swap">
+<link rel="stylesheet" href="../styles.css?v=5">
+<link rel="stylesheet" href="legal.css?v=1">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Privacy policy | SpeedoMeter Pro", "description": "How SpeedoMeter Pro handles local records, location, cloud backup, circles, purchases, ads and your privacy choices.", "url": "https://softtechservice.site/speedpro/privacy-policy.html", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "url": "https://softtechservice.site/"}}</script>
+<script src="policy-links.js?v=1" defer></script>
 </head>
-<body>
-<div class="container">
-<div class="header-section">
-<div class="back-links"><a href="index.html" class="back-link">Back to SpeedoMeter Pro</a><a href="disclaimer.html" class="back-link">Driving disclaimer</a><a href="../index.html" class="back-link">Main website</a></div>
-<h1>SpeedoMeter Pro</h1><p class="subtitle">Privacy, permissions, subscriptions and account deletion</p>
-<p class="meta-info"><strong>Updated:</strong> 6 November 2026 &nbsp;|&nbsp; <strong>Package:</strong> <code>com.softtechservice.speedometerpro</code> &nbsp;|&nbsp; <strong>Developer:</strong> SOFTTECH SERVICE</p>
-</div>
-<nav class="tabs-container" aria-label="Policy sections"><ul class="tabs">
-<li><a class="tab-button" href="#privacy" data-tab="privacy">Privacy Policy</a></li>
-<li><a class="tab-button" href="#permissions" data-tab="permissions">Permissions</a></li>
-<li><a class="tab-button" href="#terms" data-tab="terms">Terms of Service</a></li>
-<li><a class="tab-button" href="#refund" data-tab="refund">Refunds & Cancellation</a></li>
-<li><a class="tab-button" href="#delete-account" data-tab="delete-account">Delete Account</a></li>
-<li><a class="tab-button" href="#safety" data-tab="safety">Data Summary</a></li>
-</ul></nav>
-<div id="privacy" class="tab-content">
+<body class="legal-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><nav class="wrap nav" aria-label="Main"><a class="brand" href="index.html"><img class="brand-mark" src="../images/apps/speedpro.svg" width="32" height="32" alt=""><span>SpeedoMeter Pro</span></a><div class="nav-links"><a class="nav-hide-small" href="index.html#plans">Pro plans</a><a href="support.html">Help</a></div><a class="button button--line" href="index.html">App overview</a></nav></header>
+<main class="wrap legal-main" id="main">
+<nav class="legal-breadcrumb" aria-label="Breadcrumb"><a href="index.html">SpeedoMeter Pro</a><span aria-hidden="true">/</span><span>Privacy policy</span></nav>
+<header class="legal-heading"><span class="eyebrow">Privacy policy</span><h1>Your information, explained.</h1><p>How SpeedoMeter Pro handles local records, location, cloud backup, circles, purchases, ads and your privacy choices.</p><p class="policy-meta">Updated 6 November 2026 · SOFTTECH SERVICE</p></header>
+<div class="legal-layout"><aside class="legal-sidebar"><nav aria-label="Help and policies"><a href="privacy-policy.html" aria-current="page">Privacy policy</a><a href="delete-account.html">Account &amp; data deletion</a><a href="refund-policy.html">Refunds &amp; cancellation</a><a href="terms.html">Terms of service</a><a href="subscriptions.html">Pro subscriptions</a><a href="permissions.html">Permissions</a><a href="data-safety.html">Data handling summary</a><a href="support.html">Support &amp; FAQs</a><a href="disclaimer.html">Driving &amp; GPS safety</a></nav><p>SpeedoMeter Pro for Android<br><code>com.softtechservice.speedometerpro</code></p></aside>
+<article class="policy-content" aria-label="Privacy policy"><nav class="policy-toc" aria-label="On this page"><strong>On this page</strong><ul><li><a href="#1-driving-records-and-device-permissions">1. Driving records and device permissions</a></li><li><a href="#2-dashcam-exports-and-emergency-messages">2. Dashcam, exports and emergency messages</a></li><li><a href="#3-accounts-and-pro-cloud-backup">3. Accounts and Pro cloud backup</a></li><li><a href="#4-optional-family-and-employee-circles">4. Optional family and employee circles</a></li><li><a href="#5-subscriptions-and-purchase-verification">5. Subscriptions and purchase verification</a></li><li><a href="#6-ads-diagnostics-and-service-providers">6. Ads, diagnostics and service providers</a></li><li><a href="#7-retention-deletion-and-security">7. Retention, deletion and security</a></li><li><a href="#8-your-choices-and-children">8. Your choices and children</a></li></ul></nav>
+<div class="section">
 
-<div class="section">
-<h2>Privacy Policy</h2>
 <p>SpeedoMeter Pro (<code>com.softtechservice.speedometerpro</code>) is provided by SOFTTECH SERVICE. This policy explains how the app uses your information and the choices available to you.</p>
-<div class="highlight highlight-success"><p><strong>Local first, with online features:</strong> Driving records are stored on your phone. Account services, Pro cloud backup, family or employee circles, purchase verification, ads and optional crash reporting use online services. Joining a circle or using cloud sync can send data automatically while those features are enabled; uploads do not require a manual export each time.</p></div>
+<div class="policy-callout"><p><strong>Local first, with online features:</strong> Driving records are stored on your phone. Account services, Pro cloud backup, family or employee circles, purchase verification, ads and optional crash reporting use online services. Joining a circle or using cloud sync can send data automatically while those features are enabled; uploads do not require a manual export each time.</p></div>
 </div>
 <div class="section">
-<h3>1. Driving records and device permissions</h3>
+<h2 id="1-driving-records-and-device-permissions">1. Driving records and device permissions</h2>
 <p>GPS coordinates, speed, altitude, bearing, timestamps and motion sensors support the speedometer, route recording, driving events, accident/fall detection and alerts. Trips, vehicles, fuel and service records are kept in a local encrypted database. Settings and configured emergency contacts are also stored locally.</p>
 <p><strong>Background location:</strong> When enabled, automatic trips, geofences and circle sharing can process location even when the app is closed or not in use. A foreground-service notification is shown during trip recording. Ending a trip does not disable separately enabled circle sharing, automatic trip detection or geofences. Pause or disable each feature, or revoke its location permission, to stop that use.</p>
 <p>Activity recognition detects vehicle entry/exit for automatic trips. Optional Bluetooth access connects an OBD-II adapter. Notifications provide tracking status, driving alerts and circle events. The floating dashboard requires permission to display over other apps.</p>
-<h3>2. Dashcam, exports and emergency messages</h3>
+<h2 id="2-dashcam-exports-and-emergency-messages">2. Dashcam, exports and emergency messages</h2>
 <p>The dashcam uses the camera and, if permitted and enabled, microphone. Recordings are saved on your phone and are not automatically uploaded by cloud sync; video files are separate from the encrypted database. Rolling recording can replace older unprotected clips. You control exports and sharing with other apps or people, and those recipients may retain copies.</p>
 <p>If you configure emergency contacts and enable SOS, the app can send your location and an emergency message through your carrier SMS service when you trigger SOS or an enabled detection countdown completes. Your carrier and the recipients process these messages; carrier charges may apply. These features are not a substitute for emergency services.</p>
-<h3>3. Accounts and Pro cloud backup</h3>
+<h2 id="3-accounts-and-pro-cloud-backup">3. Accounts and Pro cloud backup</h2>
 <p>Firebase Authentication processes your email address and sign-in credentials. Your app account ID, email, account profile and activity timestamps are stored with Google Firebase to provide account services. Local onboarding profile fields are separate from a display name you choose to share in a circle.</p>
 <p>When signed in with Pro access, cloud sync can automatically upload vehicles, trips, route coordinates/tracking points, geofences and fuel records to your account in Firebase Firestore. This supports backup and restoration on another device. Signing out or losing Pro pauses sync; it does not automatically delete existing cloud backups.</p>
-<h3>4. Optional family and employee circles</h3>
+<h2 id="4-optional-family-and-employee-circles">4. Optional family and employee circles</h2>
 <p>Creating or joining a circle shares information with its members: your display name, latest location, accuracy, speed, heading, battery level, driving state, trip summaries (distance, duration, speeds and driving-event counts, without the full route), and arrival, departure or speeding events. Circle places and geofence coordinates are also stored in Firebase. Cloud Messaging uses a device push token linked to your account to deliver circle alerts.</p>
 <p>Use circles only with informed consent. You can pause sharing per circle or leave. Pausing stops new updates; a previously shared position or event can remain visible. Leaving removes your member position and trip summaries through server cleanup. Recent event entries can remain until scheduled deletion. A circle owner can manage membership; do not share an invite code with unintended people.</p>
-<h3>5. Subscriptions and purchase verification</h3>
+<h2 id="5-subscriptions-and-purchase-verification">5. Subscriptions and purchase verification</h2>
 <p>Google Play handles checkout and payments. SOFTTECH SERVICE does not receive your full card or bank details. Our Firebase backend stores purchase tokens, product IDs, subscription state, expiry and verification timestamps linked to your app account to verify purchases, restore access, prevent token reuse and process renewal/refund notifications. A hashed app account identifier is supplied to Google Play to bind purchases. Circle members may see whether the owner's plan is active, without their payment details.</p>
-<h3>6. Ads, diagnostics and service providers</h3>
+<h2 id="6-ads-diagnostics-and-service-providers">6. Ads, diagnostics and service providers</h2>
 <p>The free version displays Google AdMob ads. Google may process IP addresses, device or advertising identifiers, ad interactions and diagnostic information under its policies and applicable consent choices. Consent and privacy-options controls are provided where required and available. Pro removes in-app ads.</p>
 <p>Firebase Analytics collection is disabled in the updated app. Crash reporting is off by default. If you enable it in Settings, Firebase Crashlytics receives crash traces, app/OS/device details and diagnostic identifiers to investigate failures. Reports are not guaranteed to be anonymous. Turning it off stops future uploads and deletes unsent reports on your device; reports already delivered are subject to Google's retention practices.</p>
 <p>Google Play services provides location, activity recognition, billing and app-integrity services. Online maps request tiles from OpenStreetMap; tile requests disclose the requested map area and network information such as your IP address. Weather requests send coordinates to Open-Meteo. These providers may process network/service logs to deliver and protect their services. We do not sell your personal data. Information is disclosed to providers to run these features, to circle members or recipients you choose, or where legally required.</p>
@@ -439,93 +59,20 @@
 <li><a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation privacy policy</a></li>
 <li><a href="https://open-meteo.com/en/terms">Open-Meteo terms and privacy information</a></li>
 </ul>
-<h3>7. Retention, deletion and security</h3>
+<h2 id="7-retention-deletion-and-security">7. Retention, deletion and security</h2>
 <p>Local records remain until you delete them, apply an automatic deletion setting, clear app storage or uninstall. Files exported outside the app and data already synced to the cloud are separate copies. Clearing the app cache does not delete your account or all saved records.</p>
 <p>Cloud backup and purchase-verification records are retained to provide the account services until account deletion. Circle event history is scheduled for cleanup after 30 days; cleanup runs periodically, so removal need not occur at the exact cutoff. Leaving a circle removes your membership, location and member trip summaries; deleting an owned circle starts cleanup of its shared records.</p>
-<p><a href="#delete-account">Account deletion</a> removes your Firebase sign-in account, cloud backup, subscription verification records and stored push tokens, and triggers removal of your membership/location and circles you own. Some cleanup is asynchronous. Google retains its own Play orders and service records under its policies and legal requirements. Cancelling a subscription does not itself erase records, and deleting an account does not cancel billing.</p>
+<p><a href="delete-account.html">Account deletion</a> removes your Firebase sign-in account, cloud backup, subscription verification records and stored push tokens, and triggers removal of your membership/location and circles you own. Some cleanup is asynchronous. Google retains its own Play orders and service records under its policies and legal requirements. Cancelling a subscription does not itself erase records, and deleting an account does not cancel billing.</p>
 <p>The app uses encrypted local database storage, HTTPS for online services and account access rules for cloud records. Exported files and dashcam video are separate from the encrypted database. Google services may process information outside your country. No storage or transmission method can guarantee absolute security.</p>
-<h3>8. Your choices and children</h3>
+<h2 id="8-your-choices-and-children">8. Your choices and children</h2>
 <p>You can change permissions in Android Settings, disable automatic trips or geofences, pause/leave circles, turn crash reporting off, export/delete supported records and request account deletion. Denying a permission can make its associated feature unavailable. This app is not directed at children under 13; a parent or guardian should manage any circle involving a young person. Contact us about a child's information or any request for access, correction or deletion.</p>
 <p>We may update this policy as features change. The date above identifies this version.</p>
 </div>
-<div class="contact-box"><h3>Privacy questions and support</h3><p><strong>Developer:</strong> SOFTTECH SERVICE</p><p><strong>Email:</strong> <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a></p><p><strong>Website:</strong> <a href="https://softtechservice.site">softtechservice.site</a></p></div>
-</div>
-<div id="permissions" class="tab-content">
-
-<div class="section"><h2>Permissions disclosure</h2><p>Permissions are requested for the features you use. You can change granted permissions in Android Settings.</p>
-<table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
-<tr><td>Precise / approximate location</td><td>Speed, routes, maps, nearby weather and location alerts. Precise location improves driving records.</td></tr>
-<tr><td>Background location</td><td>Enabled automatic trips, geofences and circle sharing when the app is closed or not in use. Circle sharing can continue independently of a recorded trip.</td></tr>
-<tr><td>Foreground location / camera service</td><td>Trip recording or dashcam operation with a service notification.</td></tr>
-<tr><td>Camera and optional microphone</td><td>Dashcam video and optional audio recording on your phone.</td></tr>
-<tr><td>SMS</td><td>Enabled SOS alerts with your location to emergency contacts you configure.</td></tr>
-<tr><td>Physical activity</td><td>Vehicle detection for automatic trip start/stop.</td></tr>
-<tr><td>Bluetooth connect / scan</td><td>Optional OBD-II adapter discovery and telemetry.</td></tr>
-<tr><td>Notifications</td><td>Tracking status, speed/fatigue alerts and circle events.</td></tr>
-<tr><td>Display over other apps</td><td>Optional floating speedometer dashboard.</td></tr>
-<tr><td>Internet and network state</td><td>Accounts, backup, circles, purchase verification, maps, weather and ads.</td></tr>
-</tbody></table></div>
-<div class="section"><h2>Background-location choices</h2><div class="highlight highlight-warning"><p>SpeedoMeter Pro uses background location for enabled automatic trips, location alerts/geofences and circle location sharing, even when the app is closed or not in use. Circle members can see updates shared with their circle. Disable these features separately or revoke background location in Android Settings to stop background use. Stopping a recorded trip alone does not turn them all off.</p></div></div>
-</div>
-<div id="terms" class="tab-content">
-
-<div class="section"><h2>Terms of Service</h2><p>These terms apply to SpeedoMeter Pro by SOFTTECH SERVICE. By using the app you agree to use it lawfully and responsibly.</p>
-<h3>1. Safety and permitted use</h3><p>Set up the app before driving, mount the phone safely and obey local laws. GPS and sensor readings are estimates and may be inaccurate or unavailable. Do not rely on the app as a certified instrument or emergency service. You remain responsible for driving, speed limits and lawful recording. Read the <a href="disclaimer.html">driving and GPS disclaimer</a>.</p>
-<h3>2. Accounts and circles</h3><p>Protect your sign-in details and circle invite codes. Only share or monitor locations with the person's informed consent. Employers must meet applicable workplace-monitoring requirements. Do not access another person's data without authorization, interfere with the service or use it unlawfully.</p>
-<h3>3. Pro plans and payment</h3><p>Pro is offered as monthly and yearly auto-renewing subscriptions. Current India prices are <strong>₹99 per month</strong> and <strong>₹999 per year</strong>. No lifetime plan is offered for sale and no free trial is currently offered. Google Play displays the final currency, price, taxes and billing terms before you confirm payment. Other regions or future offers, if available, use the terms shown at checkout.</p>
-<p>Google Play processes payments and renews the subscription automatically until cancelled. Pro includes paid reports, travel allowance, earnings, deep timeline, dashcam export, cloud backup/sync and ad removal; feature availability is shown in the app. An eligible circle owner's active plan can provide inherited access to members. Members lose that inherited access when it is no longer eligible.</p>
-<h3>4. Cancellation, restoration and expiry</h3><p>Use Manage subscription in the app or <a href="https://play.google.com/store/account/subscriptions">Google Play subscriptions</a> to cancel renewal. Access normally remains until the paid period ends, unless refunded or revoked. Uninstalling or deleting your account does not cancel a subscription. Restore purchases uses the original app account and Google Play account. Pending or unverified payments do not grant Pro.</p>
-<p>When Pro ends, paid features and cloud sync stop. Local records are not automatically deleted. Refund requests follow the <a href="#refund">refund and cancellation instructions</a>.</p>
-<h3>5. Availability and consumer rights</h3><p>The app and third-party services are provided as available. Features, connectivity, accuracy and alerts are not guaranteed. To the extent permitted by applicable law, SOFTTECH SERVICE is not responsible for losses caused by relying on inaccurate readings, missed alerts or misuse of the app. These terms do not exclude consumer rights or liabilities that cannot legally be excluded. Changes to subscriptions and pricing follow Google Play's applicable notification and consent processes.</p>
-<p>Questions: <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a>.</p></div>
-</div>
-<div id="refund" class="tab-content">
-
-<div class="section"><h2>Refunds and cancellation</h2><h3>Stop future renewals</h3><ol><li>Open the Play Store using the Google account that purchased Pro.</li><li>Choose Profile → Payments &amp; subscriptions → Subscriptions → SpeedoMeter Pro.</li><li>Choose Cancel subscription and follow Google's confirmation steps.</li></ol><p>You can also open <a href="https://play.google.com/store/account/subscriptions">Google Play subscriptions</a> or tap Manage subscription in the app. Cancelling normally keeps Pro until the paid period ends. <strong>Uninstalling the app or deleting your app account does not cancel billing.</strong></p>
-<h3>Request a refund</h3><p>Use <a href="https://play.google.com/store/account/orderhistory">Google Play order history</a> to locate the order and report a problem/request a refund where available, or follow <a href="https://support.google.com/googleplay/answer/2479637">Google Play's refund instructions</a>. Eligibility and processing depend on Google's policy, the purchase and applicable consumer law; refunds are not automatic.</p><p>For purchase support, email <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a> with the Google Play order number (beginning <code>GPA.</code>) and a description of the issue. Do not send card details, bank credentials or passwords. Refunds, where approved, are handled through Google Play. This policy does not limit statutory consumer rights.</p><h3>After expiry or entitlement removal</h3><p>Paid features and sync stop when the verified entitlement expires or is revoked. Your local data remains. A refund and cancellation are separate actions; check the subscription's status in Google Play.</p></div>
-</div>
-<div id="delete-account" class="tab-content">
-
-<div class="section"><h2>Delete your account and data</h2><p>This applies to SpeedoMeter Pro (<code>com.softtechservice.speedometerpro</code>) by SOFTTECH SERVICE.</p><div class="highlight highlight-warning"><p><strong>Cancel Pro in Google Play first if you want renewals to stop.</strong> Account deletion does not cancel your Play subscription or automatically refund a payment. See <a href="#refund">cancellation instructions</a>.</p></div>
-<h3>From the app</h3><ol><li>Open SpeedoMeter Pro and sign in to the account you want to delete.</li><li>Open the Account screen and choose Delete Account.</li><li>Review the confirmation and confirm permanent deletion.</li></ol>
-<h3>Without the app</h3><p>Email <a href="mailto:contect@softtechservice.site?subject=Delete%20my%20SpeedoMeter%20Pro%20account">contect@softtechservice.site</a> from the address used for your app account with the subject <strong>Delete my SpeedoMeter Pro account</strong>. State that you want the account and its associated cloud data deleted. We may need to verify ownership before processing. Do not send your password or payment details. You can also use this address to request deletion of particular cloud data without deleting the account.</p>
-<h3>What is removed</h3><ul><li>The Firebase sign-in account and account profile.</li><li>Your synced vehicles, trips, route points, geofences and fuel logs.</li><li>Our subscription verification records, account-linked purchase-token records and stored push tokens.</li><li>Your circle membership and member location/trip summaries, and circles you own, through server cleanup.</li></ul><p>Some server cleanup runs asynchronously. Recent circle events can remain until scheduled cleanup after 30 days. Google service logs/backups follow Google's retention practices; deletion does not remove screenshots, exports or copies already kept by other recipients.</p>
-<h3>What needs separate action</h3><p>Local phone data, dashcam videos and exported files require separate deletion in the app, Android app-storage controls or the location where you exported them. Uninstalling or clearing app storage removes app-private local data, not prior exports or cloud accounts. Google Play retains its own order records and subscriptions under its policies. <a href="https://play.google.com/store/account/subscriptions">Manage or cancel your Play subscription</a> separately.</p></div>
-</div>
-<div id="safety" class="tab-content">
-
-<div class="section"><h2>Data handling summary</h2><p>This summarizes the current app behavior. Collection depends on the features you enable. Google Play's Data safety form must be kept in step with the released app and its service providers.</p><table><thead><tr><th>Data</th><th>Processing and purpose</th></tr></thead><tbody>
-<tr><td>Location and driving activity</td><td>Processed locally for speed and trips; routes and records may sync to your account with Pro. Enabled circles share latest location and summaries with members.</td></tr>
-<tr><td>Account information</td><td>Email, account ID and account profile are processed by Firebase for sign-in and account services.</td></tr>
-<tr><td>Purchase records</td><td>Purchase tokens, product/entitlement state and timestamps support Google Play verification and restoration. We do not receive full payment-card details.</td></tr>
-<tr><td>Device identifiers and diagnostics</td><td>Push tokens deliver circle alerts; AdMob may process identifiers and interactions for ads. Optional Crashlytics reports contain diagnostics. Firebase Analytics collection is disabled in the updated build.</td></tr>
-<tr><td>Camera, audio and emergency contacts</td><td>Dashcam files and configured contacts stay local unless you share them. Enabled SOS sends location and an emergency message by carrier SMS.</td></tr>
-<tr><td>Deletion</td><td>Delete local records separately from cloud data. Use the Account screen or <a href="#delete-account">email deletion request</a> for account/cloud deletion. Cancelling Pro does not delete data.</td></tr>
-</tbody></table></div>
-</div>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const links = Array.from(document.querySelectorAll('[data-tab]'));
-    const panels = Array.from(document.querySelectorAll('.tab-content'));
-    function showSection() {
-        const requested = window.location.hash.slice(1);
-        const selected = panels.some(panel => panel.id === requested) ? requested : 'privacy';
-        links.forEach(link => {
-            const active = link.dataset.tab === selected;
-            link.classList.toggle('active', active);
-            if (active) link.setAttribute('aria-current', 'location');
-            else link.removeAttribute('aria-current');
-        });
-        panels.forEach(panel => panel.classList.toggle('active', panel.id === selected));
-        if (requested === selected) {
-            requestAnimationFrame(() => document.getElementById(selected).scrollIntoView({ block: 'start' }));
-        }
-    }
-    showSection();
-    document.body.classList.add('tabs-ready');
-    window.addEventListener('hashchange', showSection);
-});
-</script>
+<div class="policy-callout"><h3>Privacy questions and support</h3><p><strong>Developer:</strong> SOFTTECH SERVICE</p><p><strong>Email:</strong> <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a></p><p><strong>Website:</strong> <a href="https://softtechservice.site">softtechservice.site</a></p></div>
+<nav class="policy-related" aria-label="Related policies"><a id="terms" href="terms.html">Terms of service →</a><a id="refund" href="refund-policy.html">Refunds &amp; cancellation →</a><a id="delete-account" href="delete-account.html">Account &amp; data deletion →</a><a id="permissions" href="permissions.html">Permissions →</a><a id="safety" href="data-safety.html">Data handling summary →</a></nav>
+<div class="policy-contact"><strong>Need help with this page?</strong><p>Email <a href="mailto:contect@softtechservice.site">contect@softtechservice.site</a> or visit <a href="support.html">app support</a>.</p></div>
+</article></div>
+</main>
+<footer class="site-footer"><div class="wrap foot-row"><p>© 2026 SOFTTECH SERVICE · SpeedoMeter Pro</p><nav class="foot-links" aria-label="Policies and support"><a class="text-link" href="privacy-policy.html">Privacy policy</a><a class="text-link" href="delete-account.html">Account &amp; data deletion</a><a class="text-link" href="refund-policy.html">Refunds &amp; cancellation</a><a class="text-link" href="terms.html">Terms of service</a><a class="text-link" href="subscriptions.html">Pro subscriptions</a><a class="text-link" href="permissions.html">Permissions</a><a class="text-link" href="data-safety.html">Data handling summary</a><a class="text-link" href="support.html">Support &amp; FAQs</a><a class="text-link" href="disclaimer.html">Driving &amp; GPS safety</a></nav></div></footer>
 </body>
 </html>
