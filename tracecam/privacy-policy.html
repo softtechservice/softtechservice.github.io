@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Terms - TraceCam | SoftTech Service</title>
+    <meta name="description" content="Privacy Policy and Terms &amp; Conditions for TraceCam Android App by SoftTech Service">
+    <link rel="icon" href="../images/apps/tracecam.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #B45309;
+            --primary-dark: #92400E;
+            --accent: #D97706;
+            --accent-light: #F59E0B;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --success: #10B981;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 1rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(180, 83, 9, 0.08);
+            overflow: hidden;
+        }
+        
+        .header-section {
+            padding: 2.5rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+        }
+        
+        .header-section h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        
+        .header-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .header-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 0.92rem;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.32);
+        }
+        
+        .back-link::before {
+            content: '← ';
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: var(--bg-white);
+            border-bottom: 2px solid #E2E8F0;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tabs::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(180, 83, 9, 0.05);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: rgba(180, 83, 9, 0.05);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.85rem;
+            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #1E293B;
+            font-size: 1.35rem;
+            margin-bottom: 0.85rem;
+            margin-top: 1.75rem;
+            font-weight: 600;
+        }
+        
+        h4 {
+            color: #334155;
+            font-size: 1.15rem;
+            margin-bottom: 0.65rem;
+            margin-top: 1.35rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #475569;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: rgba(180, 83, 9, 0.06);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight p {
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+            font-weight: 500;
+        }
+        
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+            color: #475569;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: #FEF3C7;
+            color: #92400E;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-content {
+                padding: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .container {
+                border-radius: 12px;
+            }
+            
+            .header-section {
+                padding: 1.75rem 1.5rem;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+                line-height: 1.25;
+            }
+            
+            .tab-button {
+                min-width: 120px;
+                padding: 1rem 1.25rem;
+                font-size: 0.9rem;
+            }
+            
+            .tab-content {
+                padding: 2rem 1.25rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+                margin-top: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+                margin-top: 1.5rem;
+            }
+            
+            h4 {
+                font-size: 1.05rem;
+            }
+            
+            .section {
+                margin-bottom: 2rem;
+            }
+            
+            table {
+                font-size: 0.875rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            thead, tbody, tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+                word-wrap: break-word;
+            }
+            
+            .contact-box {
+                padding: 1.5rem;
+            }
+            
+            .highlight {
+                padding: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 0.25rem;
+            }
+            
+            .header-section {
+                padding: 1.25rem 1rem;
+            }
+            
+            .header-section h1 {
+                font-size: 1.65rem;
+            }
+            
+            .tab-button {
+                min-width: 100px;
+                padding: 0.875rem 0.85rem;
+                font-size: 0.85rem;
+            }
+            
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+            
+            p, li {
+                font-size: 0.9375rem;
+            }
+            
+            .back-link {
+                font-size: 0.85rem;
+                padding: 0.45rem 0.75rem;
+            }
+            
+            table {
+                font-size: 0.8125rem;
+            }
+            
+            th, td {
+                padding: 0.5rem 0.375rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="back-links">
+                <a href="index.html" class="back-link">Back to Landing Page</a>
+                <a href="../index.html" class="back-link">Main Website</a>
+            </div>
+            <span class="badge">Privacy &amp; Terms</span>
+            <h1>TraceCam</h1>
+            <p class="subtitle">Legal Information &amp; Privacy Policies</p>
+            <p><strong>Effective date:</strong> November 1, 2026 | <strong>Developer:</strong> SoftTech Service</p>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li>
+                    <button class="tab-button active" data-tab="privacy">📄 Privacy Policy</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="terms">📜 Terms &amp; Conditions</button>
+                </li>
+                <li>
+                    <button class="tab-button" data-tab="license">⚖️ License &amp; Copyright</button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Tab 1: Privacy Policy -->
+        <div id="privacy" class="tab-content active">
+            <div class="section">
+                <h2>TraceCam Privacy Policy</h2>
+                <p><strong>Effective date:</strong> November 1, 2026</p>
+                <p>TraceCam is an offline camera-assisted tracing app. This policy explains what the app accesses and how it handles information.</p>
+                
+                <div class="highlight">
+                    <p><strong>Summary:</strong> TraceCam operates strictly offline and on-device. Camera frames and selected images are processed locally in real time. The app contains no analytics, no advertisements, and no user accounts, and does not transmit your drawings, reference photos, or projects to our servers.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📱 Information and Permissions</h2>
+                <p>TraceCam requests only the minimum device access necessary to provide camera-assisted tracing functionality:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 28%;">Permission / Feature</th>
+                            <th style="width: 32%;">Purpose</th>
+                            <th style="width: 40%;">Data Handling &amp; Privacy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Camera</strong><br><small><code>android.permission.CAMERA</code></small></td>
+                            <td>With your permission, TraceCam displays a live view of your paper and can capture a frame for a tracing snapshot.</td>
+                            <td>Camera frames are processed in memory on your device and are not uploaded or transmitted by TraceCam.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Photos and images</strong><br><small>Android System Photo Picker</small></td>
+                            <td>You select reference images using Android's system photo picker. TraceCam accesses the images you choose to display and composite them.</td>
+                            <td>The app does not scan or index your photo library; it accesses only the specific images you select through the system interface.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Projects and settings</strong><br><small>App Internal Storage</small></td>
+                            <td>Project names, layer settings, blend modes, opacity, and associated project data are stored locally on your device so you can continue later.</td>
+                            <td>Stored on your local device. Android device backup may include app data according to your personal Android backup settings.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exports &amp; Snapshots</strong><br><small>Media / Storage Interfaces</small></td>
+                            <td>When you save a snapshot, it is written to your device through Android's media/storage interfaces.</td>
+                            <td>Saved directly to your local media storage. You retain complete control whether, when, and where you share it.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2>🔒 Collection and Sharing</h2>
+                <p>TraceCam is designed from the ground up with a privacy-first, on-device architecture:</p>
+                <ul>
+                    <li><strong>No Tracking or Telemetry:</strong> TraceCam does not contain analytics, advertising, or account SDKs and does not send your images or project content to the developer.</li>
+                    <li><strong>Google Play Services:</strong> The app can open Google Play's in-app update and review features when available; those Google Play services are governed by Google's own privacy terms.</li>
+                    <li><strong>External Sharing:</strong> If you choose to share an export using another app (such as email, messaging, or social platforms), that app's privacy policy applies to the shared file.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>🗑️ Retention and Deletion</h2>
+                <p>Your project data remains on your device until you delete projects, clear TraceCam's app data, or uninstall the app.</p>
+                <ul>
+                    <li><strong>Local Project Data:</strong> Projects and setup presets persist in internal storage until you delete them within the app or clear app data via Android Settings.</li>
+                    <li><strong>Exported Snapshots:</strong> Exports saved to shared media remain on your device until you delete them separately in your gallery or file manager.</li>
+                    <li><strong>Backups:</strong> Device backups are controlled by Android and your individual device backup settings.</li>
+                    <li><strong>Data Deletion Assistance:</strong> Because we do not collect or store user data on external servers, all data deletion can be performed directly on your phone. For any questions or guidance, contact us at <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a>.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>👶 Children's Privacy</h2>
+                <p>TraceCam is a general-purpose drawing utility and does not knowingly collect personal information from children or other users.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔄 Changes and Contact</h2>
+                <p>This policy may be updated when the app's behavior changes. The current version is included with the app source and published on our website.</p>
+                <p>For privacy questions, contact the developer through the support contact listed on the TraceCam Google Play listing or by email at <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a>.</p>
+                <p><em>This policy describes the app implementation as reviewed on the effective date. Play Console data-safety answers and the published policy URL should be checked against the exact release build before submission.</em></p>
+                
+                <div class="contact-box">
+                    <h3>Contact Information</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Website:</strong> <a href="https://softtechservice.site">https://softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Terms & Conditions -->
+        <div id="terms" class="tab-content">
+            <div class="section">
+                <h2>Terms &amp; Conditions</h2>
+                <p>By downloading, installing, or using TraceCam ("the application" or "the app"), you agree to be bound by the following Terms &amp; Conditions. If you do not agree to these terms, please do not use the application.</p>
+            </div>
+            
+            <div class="section">
+                <h2>1. App Usage</h2>
+                <ul>
+                    <li>TraceCam is provided as a camera-assisted drawing and tracing utility.</li>
+                    <li>The app is provided on an "as is" and "as available" basis without warranties of any kind.</li>
+                    <li>You agree to use TraceCam only for lawful artistic, educational, and personal or commercial drawing purposes in compliance with all applicable laws.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>2. User Content &amp; Intellectual Property Rights in Drawings</h2>
+                <p><strong>Your Artwork Belongs to You:</strong></p>
+                <ul>
+                    <li>SoftTech Service claims no ownership, copyright, or rights over drawings, artwork, sketches, or snapshots you create using TraceCam.</li>
+                    <li>You are solely responsible for ensuring that you have the appropriate rights, licenses, or permissions to import and trace any reference images you select.</li>
+                    <li>SoftTech Service does not verify copyright or intellectual property rights of reference images you choose to import.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>3. Camera &amp; Tracing Tool Disclaimer</h2>
+                <p><strong>TraceCam:</strong></p>
+                <ul>
+                    <li>Provides tools to assist hand-drawing by superimposing image overlays onto the camera view of your paper.</li>
+                    <li>The accuracy of tracing depends upon physical setup, camera hardware, lighting conditions, and device orientation.</li>
+                    <li>Does not guarantee specific artistic skill progression, drawing quality, or measurement precision.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>4. Intellectual Property of the Application</h2>
+                <ul>
+                    <li>All software code, visual designs, interfaces, icons, graphics, and trademarks associated with TraceCam are the exclusive intellectual property of SoftTech Service.</li>
+                    <li>You may not decompile, reverse engineer, disassemble, modify, distribute, sell, or create derivative works of the TraceCam software package without prior written authorization.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>5. Limitation of Liability</h2>
+                <p><strong>SoftTech Service shall not be liable for:</strong></p>
+                <ul>
+                    <li>Any direct, indirect, incidental, special, consequential, or exemplary damages arising out of the use or inability to use TraceCam.</li>
+                    <li>Any loss of project data, artwork, reference images, or camera snapshots.</li>
+                    <li>Any disputes or claims related to copyright infringement arising from user-selected reference images.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>6. Termination &amp; Modifications</h2>
+                <p>We reserve the right to modify these Terms &amp; Conditions at any time. Continued use of TraceCam after revisions are published constitutes acceptance of the updated terms.</p>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Support &amp; Legal Inquiries</h2>
+                <div class="contact-box">
+                    <h3>SoftTech Service Legal &amp; Support</h3>
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                    <p><strong>Support URL:</strong> <a href="https://softtechservice.site/tracecam/">https://softtechservice.site/tracecam/</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: License & Copyright -->
+        <div id="license" class="tab-content">
+            <div class="section">
+                <div class="highlight">
+                    <p><strong>Copyright &copy; 2026 SoftTech Service. All rights reserved.</strong></p>
+                    <p style="margin-top: 1rem;">This application and associated software documentation files ("TraceCam") are proprietary to SoftTech Service. Unauthorized copying, reverse engineering, redistribution, or modification of the software is strictly prohibited without express written permission.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Intellectual Property &amp; Trademarks</h2>
+                <ul>
+                    <li>TraceCam, the TraceCam logo, visual layouts, and branding are trademarks and property of SoftTech Service.</li>
+                    <li>Android, Google Play, and the Google Play logo are trademarks of Google LLC.</li>
+                    <li>All other product names and trademarks mentioned are the property of their respective owners.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Third-Party Open Source Libraries</h2>
+                <p>TraceCam is built using reliable, industry-standard Android libraries subject to their respective open source licenses:</p>
+                <ul>
+                    <li><strong>Android Jetpack &amp; CameraX:</strong> Apache License 2.0 (Google LLC)</li>
+                    <li><strong>Material Design 3 Components:</strong> Apache License 2.0 (Google LLC)</li>
+                    <li><strong>Kotlin Standard Library &amp; Coroutines:</strong> Apache License 2.0 (JetBrains s.r.o.)</li>
+                    <li><strong>AndroidX Activity &amp; Photo Picker Contracts:</strong> Apache License 2.0 (Google LLC)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Warranty Disclaimer</h2>
+                <div class="highlight">
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL SOFTTECH SERVICE OR ITS CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <p><strong>Developer:</strong> SoftTech Service</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@softtechservice.site">contact@softtechservice.site</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab switching and hash deep linking
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            function activateTab(tabId) {
+                tabButtons.forEach(btn => {
+                    const isActive = btn.getAttribute('data-tab') === tabId;
+                    btn.classList.toggle('active', isActive);
+                });
+                
+                tabContents.forEach(content => {
+                    const isActive = content.id === tabId;
+                    content.classList.toggle('active', isActive);
+                });
+            }
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    activateTab(targetTab);
+                    if (history.pushState) {
+                        history.pushState(null, null, '#' + targetTab);
+                    } else {
+                        location.hash = '#' + targetTab;
+                    }
+                    const targetEl = document.getElementById(targetTab);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+            
+            // Check initial hash
+            const hash = window.location.hash.substring(1);
+            if (hash && ['privacy', 'terms', 'license'].includes(hash)) {
+                activateTab(hash);
+            }
+        });
+    </script>
+</body>
+</html>
